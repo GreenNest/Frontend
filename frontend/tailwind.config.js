@@ -38,7 +38,7 @@ module.exports = {
        x: '200px',
     },
     gridTemplateColumns: {
-         'footer': '200px minmax(900px, 1fr) 100px',
+         'footer': '250px 50px 200px 500px',
         }
     
   },
