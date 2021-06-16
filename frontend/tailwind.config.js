@@ -36,7 +36,11 @@ module.exports = {
     height: {
        im: '80vh',
        x: '200px',
-      }
+    },
+    gridTemplateColumns: {
+         'footer': '200px minmax(900px, 1fr) 100px',
+        }
+    
   },
   variants: {
     extend: {},
