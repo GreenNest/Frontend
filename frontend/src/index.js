@@ -13,7 +13,6 @@ ReactDOM.render(
     <Header/>
     <Index/>
     <Description/>
-    <Footer/>
   </React.StrictMode>,
   document.getElementById('root')
 );

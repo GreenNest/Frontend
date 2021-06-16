@@ -13,7 +13,7 @@ class Header extends Component {
         return (
             <nav class="flex w-full flex-col justify-between bg-mainyellow lg:flex-row">
            <div class="flex justify-between items-center">
-              <img class="h-30 w-30 mr-80 ml-2" width="70" height="70"  src={xxx} alt=""/>
+              <img class="h-30 w-30 mr-80 ml-2" width="70" height="70"   src={xxx} alt=""/>
               <div class="block lg:hidden">
                 <button class="flex items-center justify-center px-3 py-2 mr-4 border rounded text-teal-lighter border-teal-light hover:text-maingreen hover:border-maingreen" onClick={this.handleToggle}>
                     <FaAlignRight class="h-3 w-3"/>
