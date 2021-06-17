@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Description from './components/Description';
+import Description from './pages/customer/home/components/Description';
+import Featured from './pages/customer/home/components/Featured';
 import Index from './pages/customer/Index.js';
 import SlideContainer from './pages/customer/home/components/slideContainer';
 import reportWebVitals from './reportWebVitals';
@@ -13,6 +14,8 @@ ReactDOM.render(
     <Header/>
     <Index/>
     <Description/>
+    <Featured/>
+    <Footer/>
   </React.StrictMode>,
   document.getElementById('root')
 );
