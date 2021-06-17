@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
-import App from './App';
+import Product from './pages/customer/Product';
+import Review from './pages/customer/Review';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <Product /> */}
+    <Review />
   </React.StrictMode>,
   document.getElementById('root')
 );
