@@ -4,7 +4,7 @@ import './styles/index.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Description from './components/Description';
-import Index from './pages/customer/index.js';
+import Index from './pages/customer/Index.js';
 import SlideContainer from './pages/customer/home/components/slideContainer';
 import reportWebVitals from './reportWebVitals';
 import Login from './pages/customer/Login';

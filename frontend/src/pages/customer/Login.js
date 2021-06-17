@@ -27,11 +27,11 @@ class Login extends Component {
     handleSubmit = (event)=>{
         
     }
-
+//p-25 w-2/4 items-center mt-20 ml-40 mr-60 shadow-inner
     render() {
         return (
-            <div class="p-25 w-2/4 items-center mt-20 ml-40 mr-60 shadow-inner">
-            <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4' 
+            <div class=" flex justify-center w-full mt-32">
+            <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 w-2/4' 
             onSubmit={this.handleSubmit}>
                 <div class='mb-4'>
                     <label class='block mb-2 text-md font-bold text-gray-700'>
@@ -60,7 +60,7 @@ class Login extends Component {
                 </div>
 
                 <div class="flex items-center justify-center mt-4">
-                    <button class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline" type="submit">
+                    <button class="px-4 py-2 font-bold text-mainyellow bg-maingreen rounded hover:bg-secondarygreen focus:outline-none focus:shadow-outline" type="submit">
                         Sign In
                     </button>
                     

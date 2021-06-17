@@ -17,6 +17,7 @@ module.exports = {
       maingreen: "#386641",
       lightgreen: "#6A994E",
       redcolor: "#BC4749",
+      secondarygreen: "#6A994E",
       mainyellow: "#F2E8CF",
       hovercolor: "rgb(0, 0, 0, 0.6)",
       blue: colors.blue,
