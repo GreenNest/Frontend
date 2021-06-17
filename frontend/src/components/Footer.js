@@ -6,28 +6,25 @@ import playstore from '../assets/playstore.svg';
 
 function Footer() {
     return (
-        <footer class="bg-maingreen h-x p-6 flex justify-center items-center flex-col">
-            <div class="grid grid-cols-footer gap-5 ">
-                <div class="flex flex-col">
+        <footer class="bg-maingreen h-auto pt-6 pl-6 pr-6 flex justify-center items-center flex-col w-full">
+            <div class="grid grid-cols-footer gap-x-3 w-full justify-center">
+                <div class="flex flex-col ">
                    <div class="text-lg font-bold text-mainyellow">Green Nest</div>
                    <div class=" text-mainyellow text-sm ">NO 22, Uyandana, Kurunegala</div>
                    <div class="text-sm  text-mainyellow ">+94 776544342</div>
                    <div class="text-sm  text-mainyellow ">greennest@gmailcom</div>
                 </div>
-                <div>
-                  <div class="w-1 bg-mainyellow"></div>
-                </div>
-                <div class="flex flex-col">
+                <div class="flex flex-col ">
                    <div class="text-lg font-bold text-mainyellow">Support</div>
                    <div class="text-sm  text-mainyellow ">Contact</div>
                    <div class="text-sm  text-mainyellow ">FAQs</div>
                    <div class="text-sm  text-mainyellow ">Terms</div>
                    <div class="text-sm  text-mainyellow ">Privacy</div>
                 </div>
-                <div class="flex flex-col">
+                <div class="flex flex-col ">
                    <div class="text-lg font-bold text-mainyellow">The GreenNest App</div>
                    <div class="text-sm  text-mainyellow ">order your favourite with your mobile</div>
-                   <img src={playstore} alt="" class="w-10 max-h-6 bg-maingreen"/>
+                   <img src={playstore} alt="" class="w-10 max-h-6"/>
                 </div>
                  <div class="flex flex-col">
                    <div class="text-lg font-bold text-mainyellow">Follow Us</div>

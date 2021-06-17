@@ -11,7 +11,7 @@ class Header extends Component {
     }
     render() {
         return (
-            <nav class="flex w-full flex-col justify-between bg-mainyellow lg:flex-row">
+            <nav class="flex w-full flex-col justify-between bg-mainyellow lg:flex-row sm:w-full">
            <div class="flex justify-between items-center">
               <img class="h-30 w-30 mr-80 ml-2" width="70" height="70"   src={xxx} alt=""/>
               <div class="block lg:hidden">

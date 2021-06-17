@@ -28,6 +28,7 @@ module.exports = {
     },
     fontSize:{
       '50': '50px',
+      '20':'20px',
 
     },
     zIndex: {
@@ -49,9 +50,13 @@ module.exports = {
        border: '2px',
     },
     gridTemplateColumns: {
-         'footer': '250px 50px 200px 300px 200px',
+         'footer': '20% 20% 20% 20%',
+         'smallfooter': 'repeat(2, minmax(0, 1fr))',
          'feature': 'repeat(4, minmax(0, 1fr))',
-        }
+    },
+    boxShadow:{
+      'card': '20px 20px 50px #6A994E'
+    }
     
   },
   variants: {
