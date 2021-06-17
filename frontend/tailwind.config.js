@@ -50,6 +50,7 @@ module.exports = {
     },
     gridTemplateColumns: {
          'footer': '250px 50px 200px 300px 200px',
+         'feature': 'repeat(4, minmax(0, 1fr))',
         }
     
   },
