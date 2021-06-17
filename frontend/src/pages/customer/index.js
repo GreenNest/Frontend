@@ -1,9 +1,17 @@
-import React from 'react'
+import React, {Fragment} from 'react';
+import '../../styles/style.css';
+import Slide from './home/components/slide.js';
+import { FaAngleRight} from "react-icons/fa";
 
-export default function index() {
+function Index() {
     return (
-        <div>
-            
-        </div>
+        <>
+        <Fragment>
+           <Slide/>
+        </Fragment>
+        </>
     )
 }
+
+export default Index
+
