@@ -8,6 +8,7 @@ import Featured from './pages/customer/home/components/Featured';
 import Index from './pages/customer/Index.js';
 import SlideContainer from './pages/customer/home/components/slideContainer';
 import reportWebVitals from './reportWebVitals';
+import Login from './pages/customer/Login';
 
 ReactDOM.render(
   <React.StrictMode>
