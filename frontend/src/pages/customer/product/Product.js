@@ -1,16 +1,21 @@
-import Review from './Review'
+import React, { useState } from 'react';
+import Review from './Review';
+import RequestPopup from './RequestPopup';
+import Productlist from '../../../components/Productlist';
 
 import img1 from '../../../assets/product_img/mango-tree.jpg'
 import mango1 from '../../../assets/product_img/mango1.jpg'
 
 const Product = () => {
+
+    const [showRequestPopup,setShowRequestPopup] = useState(false);
     return (
         <div className="min-w-full md:min-w-0 sm:p-20 lg:px-32">
             <div className="shadow-xl md:flex rounded-xl">
                 <div className="lg:w-6/12">
                     <img className="min-w-full" src={mango1} alt="Main Image"/>
-                    <div className="flex flex-row flex-wrap justify-center py-3 mt-5 mb-5 space-x-8 border-t-2 border-b-2 border-gray-300">
-                        <img className="w-32 h-auto" src={img1} alt="Main Image"/>
+                    <div className="flex flex-row flex-wrap justify-center py-3 mt-5 mb-5 space-x-8 space-y-5 border-t-2 border-b-2 border-gray-300">
+                        <img className="w-32 h-auto mt-5" src={img1} alt="Main Image"/>
                         <img className="w-32 h-auto" src={img1} alt="Main Image"/>
                         <img className="w-32 h-auto" src={img1} alt="Main Image"/>
                     </div>
@@ -28,9 +33,9 @@ const Product = () => {
                             <div>
                                 <input type="number" className="w-10 h-10 text-2xl text-center rounded" value="1"/>
                             </div>
-                            <button className="h-10 px-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-700 sm:ml-2 lg:ml-4">ADD TO CART</button>
-                            <button className="h-10 px-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-700 sm:ml-2 lg:ml-4">BUY NOW</button>
-                            <button className="h-10 px-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-700 sm:ml-2 lg:ml-4">REQUEST ORDER</button>
+                            <button className="h-auto px-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-700 sm:ml-2 lg:ml-4">ADD TO CART</button>
+                            <button className="h-auto px-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-700 sm:ml-2 lg:ml-4">BUY NOW</button>
+                            <button type="button" className="h-auto px-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-700 sm:ml-2 lg:ml-4" onClick={() => setShowRequestPopup(true)}>REQUEST ORDER</button>
                         </form>
                     </div>
                     <div className="mt-16 border-t-2 border-gray-300">
@@ -50,7 +55,12 @@ const Product = () => {
             </div>
             <div className="mt-16">
                 <div className="text-4xl font-bold text-center text-black text-opacity-70">Related Products</div>
+                <Productlist />
             </div>
+
+            { showRequestPopup ? (
+                <RequestPopup />
+            ): null }
         </div>
     );
 }

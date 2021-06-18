@@ -3,7 +3,7 @@ import customer3 from '../../../assets/customer_img/customer3.jpg'
 
 const Review = () => {
     return (
-        <div className="mt-5 space-x-5 bg-gray-100 rounded-xl md:flex max-w-7xl sm:py-3 sm:px-3">
+        <div className="mt-5 space-x-5 bg-gray-100 shadow-inner rounded-xl md:flex max-w-7xl sm:py-3 sm:px-3">
             <div class="relative md:w-28 md:h-28 sm:w-20 sm:h-20 mx-auto">
                 <img class="rounded-full border border-gray-100 shadow-sm" src={customer3} alt="user image" />
             </div>
