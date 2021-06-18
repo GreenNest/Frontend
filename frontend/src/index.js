@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
+import Product from './pages/customer/product/Product';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Description from './pages/customer/home/components/Description';
@@ -10,13 +11,21 @@ import SlideContainer from './pages/customer/home/components/slideContainer';
 import reportWebVitals from './reportWebVitals';
 import Login from './pages/customer/Login';
 import Signup from './pages/customer/Signup';
+import RequestPopup from './pages/customer/product/RequestPopup';
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* <RequestPopup /> */}
+    {/* <Product /> */}
     <Header/>
     <Signup/>
     {/* <Login/> */}
     {/* <Index/> */}
+    {/* <Description/> */}
+    {/* <Featured/> */}
+    {/* <Footer/> */}
+    {/* <Index/> */}
+     {/* <Login /> */}
     {/* <Description/> */}
     {/* <Featured/> */}
     {/* <Footer/> */}

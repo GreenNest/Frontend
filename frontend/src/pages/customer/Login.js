@@ -30,6 +30,7 @@ class Login extends Component {
 //p-25 w-2/4 items-center mt-20 ml-40 mr-60 shadow-inner
     render() {
         return (
+            <div class="flex justify-center w-full container">
             <div class=" flex justify-center w-full mt-32 shadow-card">
                 <p class="text-lightgreen text-20 text-center"> Login </p>
             <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 w-2/4' 
@@ -74,6 +75,7 @@ class Login extends Component {
                     </a>
                 </div>
             </form>
+            </div>
          </div>
 
         );
