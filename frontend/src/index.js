@@ -13,9 +13,10 @@ import Login from './pages/customer/Login';
 ReactDOM.render(
   <React.StrictMode>
     <Header/>
-    <Index/>
-    <Description/>
-    <Featured/>
+    {/* <Index/> */}
+        <Login/>
+    {/* <Description/>
+    <Featured/> */}
     <Footer/>
   </React.StrictMode>,
   document.getElementById('root')

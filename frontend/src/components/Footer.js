@@ -6,7 +6,7 @@ import playstore from '../assets/playstore.svg';
 
 function Footer() {
     return (
-        <footer class="bg-maingreen h-auto pt-6 pl-6 pr-6 flex justify-center items-center flex-col w-full">
+        <footer class="bg-maingreen footer h-auto pt-6 pl-6 pr-6 flex justify-center items-center flex-col w-full fixed bottom-0">
             <div class="grid grid-cols-footer gap-x-3 w-full justify-center">
                 <div class="flex flex-col ">
                    <div class="text-lg font-bold text-mainyellow">Green Nest</div>
