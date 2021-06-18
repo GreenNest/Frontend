@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
-import Complaintmodel from '../../components/Complaintmodel';
-import Ratemodel from '../../components/Ratemodel';
+import Complaintmodel from './Complaintmodel';
+import Ratemodel from './Ratemodel';
 
  const Order = () => {
     const[order, setOrders]= useState(

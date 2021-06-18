@@ -1,10 +1,9 @@
 import React from 'react';
 import './styles/index.css';
-import './styles/shop.css';
 import {BrowserRouter as Router , Route , Switch} from "react-router-dom";
 import Orderhistory from './pages/customer/Orderhistory';
-import Order from './pages/customer/Order';
-import Shop from './pages/customer/Shop';
+import Order from './pages/customer/customerorder/Order';
+import Shop from './pages/customer/Shop/Shop';
 
 function App() {
   return (
@@ -14,10 +13,10 @@ function App() {
           <Route exact path="/pages/customer/order_history">
                <Orderhistory />
           </Route>
-          <Route  path="/pages/customer/order">
+          <Route  path="/pages/customer/customerorder/order">
                <Order/>
           </Route>
-          <Route  path="/pages/customer/Shop">
+          <Route  path="/pages/customer/Shop/Shop">
                <Shop/>
           </Route>
         </Switch>
