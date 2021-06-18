@@ -7,6 +7,7 @@ import Order from './pages/customer/Order';
 import Shop from './pages/customer/Shop';
 import Index from './pages/customer/Index.js';
 import Login from './pages/customer/Login';
+import Signup from './pages/customer/Signup';
 import Product from './pages/customer/product/Product';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     <Route exact path="/" component={Index}/>
     <Route exact path="/shop" component={Shop}/>
     <Route exact path="/login" component={Login}/>
+    <Route exact path="/Signup" component={Signup}/>
     <Route exact path="/shop/product" component={Product}/>
     <Route exact path="/profile/order/review" component={Order}/>
     <Route exact path="/profile/orders" component={Orderhistory}/>
