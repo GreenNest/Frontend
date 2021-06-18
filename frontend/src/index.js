@@ -15,13 +15,13 @@ import RequestPopup from './pages/customer/product/RequestPopup';
 ReactDOM.render(
   <React.StrictMode>
     {/* <RequestPopup /> */}
-    <Product />
-    {/* <Header/> */}
+    {/* <Product /> */}
+    <Header/>
     {/* <Index/> */}
-    {/* <Login /> */}
+      <Login />
     {/* <Description/> */}
     {/* <Featured/> */}
-    {/* <Footer/> */}
+    <Footer/>
   </React.StrictMode>,
   document.getElementById('root')
 );
