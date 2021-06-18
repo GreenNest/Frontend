@@ -2,21 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
 import Product from './pages/customer/product/Product';
-import Review from './pages/customer/product/Review';
-// import Header from './components/Header';
+import Header from './components/Header';
 import Footer from './components/Footer';
-import Description from './components/Description';
-// import Index from './pages/customer/Index';
+import Description from './pages/customer/home/components/Description';
+import Featured from './pages/customer/home/components/Featured';
+import Index from './pages/customer/Index.js';
 import SlideContainer from './pages/customer/home/components/slideContainer';
 import reportWebVitals from './reportWebVitals';
+import Login from './pages/customer/Login';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Product />
-    {/* <Review /> */}
-    {/* <Header/> */}
-    {/* <Index/> */}
+    {/* <Product /> */}
+    <Header/>
+    <Index/>
     <Description/>
+    <Featured/>
+    <Footer/>
   </React.StrictMode>,
   document.getElementById('root')
 );
