@@ -10,16 +10,18 @@ import Index from './pages/customer/Index.js';
 import SlideContainer from './pages/customer/home/components/slideContainer';
 import reportWebVitals from './reportWebVitals';
 import Login from './pages/customer/Login';
+import RequestPopup from './pages/customer/product/RequestPopup';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Product /> */}
-    <Header/>
+    {/* <RequestPopup /> */}
+    <Product />
+    {/* <Header/> */}
     {/* <Index/> */}
-        <Login/>
-    {/* <Description/>
-    <Featured/> */}
-    <Footer/>
+    {/* <Login /> */}
+    {/* <Description/> */}
+    {/* <Featured/> */}
+    {/* <Footer/> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
