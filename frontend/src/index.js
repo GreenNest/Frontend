@@ -6,10 +6,11 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Description from './pages/customer/home/components/Description';
 import Featured from './pages/customer/home/components/Featured';
-import Index from './pages/customer/Index.js';
+import Index from './pages/customer/index.js';
 import SlideContainer from './pages/customer/home/components/slideContainer';
 import reportWebVitals from './reportWebVitals';
 import Login from './pages/customer/Login';
+import Signup from './pages/customer/Signup';
 import RequestPopup from './pages/customer/product/RequestPopup';
 
 ReactDOM.render(
@@ -17,11 +18,17 @@ ReactDOM.render(
     {/* <RequestPopup /> */}
     {/* <Product /> */}
     <Header/>
+    <Signup/>
+    {/* <Login/> */}
     {/* <Index/> */}
-      <Login />
     {/* <Description/> */}
     {/* <Featured/> */}
-    <Footer/>
+    {/* <Footer/> */}
+    {/* <Index/> */}
+     {/* <Login /> */}
+    {/* <Description/> */}
+    {/* <Featured/> */}
+    {/* <Footer/> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
