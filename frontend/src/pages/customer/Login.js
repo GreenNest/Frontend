@@ -30,8 +30,8 @@ class Login extends Component {
 //p-25 w-2/4 items-center mt-20 ml-40 mr-60 shadow-inner
     render() {
         return (
-            <div class="flex justify-center w-full container">
-            <div class="w-2/4 shadow-inner mt-8">
+            <div class="flex justify-center w-full items-center h-full">
+            <div class="w-2/4 shadow-inner mt-16">
             <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4' 
             onSubmit={this.handleSubmit}>
                 <div class='mb-4'>

@@ -1,5 +1,6 @@
 import React from 'react'
 import product_card from "./productdata";
+import { Link } from "react-router-dom";
 
 const Productlist = () => {
     console.log(product_card);
@@ -19,10 +20,12 @@ const Productlist = () => {
 
     return ( 
         <div className="main">
-           <h3 className="my-24 mx-36 justify-center items-center text-4xl font-bold  text-opacity-50 " >Indoor Plants</h3>
-            <div className="flex items-center relative  w-11/12  my-3 mx-12 p-4 box-border justify-between flex-wrap">
+           <h3 className="my-24 mx-36 justify-center items-center text-4xl font-bold  text-opacity-50" >Indoor Plants</h3>
+           <Link to="/shop/product">
+            <div className="flex items-center relative  w-11/12  my-3 mx-12 p-4 box-border justify-between flex-wrap cursor-pointer">
               {listitems}
             </div>
+            </Link>
            
         </div>
      );

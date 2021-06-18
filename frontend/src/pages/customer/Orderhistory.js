@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import order from '../../assets/order.jpg';
+import { Link } from "react-router-dom";
 
 
  const Orderhistory = () => {
@@ -46,7 +47,7 @@ import order from '../../assets/order.jpg';
             <h3>{order.items}</h3>
             <h3>{order.totalcost}</h3>
             <h3 className="text-green-600">{order.oredrstatus}</h3>
-            <button className="text-blue-500 text-sm w-20 hover:bg-blue-200">View more</button>
+            <Link to="/profile/order/review" className="text-blue-500 text-sm w-20 hover:bg-blue-200">View more</Link>
           </div>
         ))}
 
