@@ -23,14 +23,14 @@ const Product = () => {
                         <p>- Payment Methods : Cash on Delivery / Online Payement</p>
                     </div>
                     <div className="mt-16">
-                        <p className="text-lg font-semibold text-lightgreen">30 in stock</p>
+                        <p className="text-lg font-semibold text-secondarygreen">30 in stock</p>
                         <form className="flex mt-5 justify-items-start">
                             <div>
                                 <input type="number" className="w-10 h-10 text-2xl text-center rounded" value="1"/>
                             </div>
-                            <button className="h-10 px-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-700 sm:ml-2 lg:ml-4">ADD TO CART</button>
-                            <button className="h-10 px-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-700 sm:ml-2 lg:ml-4">BUY NOW</button>
-                            <button className="h-10 px-2 font-bold text-white bg-blue-600 rounded hover:bg-blue-700 sm:ml-2 lg:ml-4">REQUEST ORDER</button>
+                            <button className="p-4 font-bold text-white bg-maingreen rounded hover:bg-secondarygreen sm:ml-2 lg:ml-4">ADD TO CART</button>
+                            <button className="p-4 font-bold text-white bg-redcolor rounded sm:ml-2 lg:ml-4">BUY NOW</button>
+                            <button className="p-4 font-bold text-white bg-maingreen rounded hover:bg-secondarygreen sm:ml-2 lg:ml-4">REQUEST ORDER</button>
                         </form>
                     </div>
                     <div className="mt-16 border-t-2 border-gray-300">

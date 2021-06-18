@@ -4,12 +4,16 @@ import './styles/index.css';
 import Product from './pages/customer/product/Product';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Sidebar from './components/Sidebar';
 import Description from './pages/customer/home/components/Description';
 import Featured from './pages/customer/home/components/Featured';
 import Index from './pages/customer/Index.js';
 import SlideContainer from './pages/customer/home/components/slideContainer';
 import reportWebVitals from './reportWebVitals';
 import Login from './pages/customer/Login';
+import Shop from './pages/customer/Shop';
+import Orderhistory from './pages/customer/Orderhistory';
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,6 +23,7 @@ ReactDOM.render(
     <Description/>
     <Featured/>
     <Footer/>
+    {/* <Sidebar/> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

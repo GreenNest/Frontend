@@ -21,19 +21,19 @@ class Header extends Component {
                </div>
            </div>
            <div class={ this.state.isOpen ? "flex overflow-hidden justify-center items-center flex-col p-6 h-auto":" hidden lg:flex lg:items-center lg:justify-center"}>
-                <a href="#" class="block p-2 text-maingreen font-bold text-center lg:mr-10">
+                <a href="#" class="block p-2 text-maingreen font-bold text-20 text-center lg:mr-10">
                     Home
                 </a>
-                <a href="#" class="block p-2 text-maingreen font-bold text-center lg:mr-10">
+                <a href="#" class="block p-2 text-maingreen font-bold text-20 text-center lg:mr-10">
                     Shop
                 </a>
-                <a href="#" class="block p-2 text-maingreen font-bold text-center lg:mr-10">
+                <a href="#" class="block p-2 text-maingreen font-bold text-20 text-center lg:mr-10">
                     Cart
                 </a>
-                <a href="#" class="block p-2 text-maingreen font-bold text-center lg:mr-20">
+                <a href="#" class="block p-2 text-maingreen font-bold text-20 text-center lg:mr-20">
                     Abot Us
                 </a>
-                <a href="#" class="block text-center w-32 px-4 py-2  leading-none border rounded text-maingreen border-maingreen hover:border-transparent hover:text-mainyellow hover:bg-maingreen lg:mr-5">
+                <a href="#" class="block text-center w-32 px-4 py-2 text-20 leading-none border rounded text-maingreen border-maingreen hover:border-transparent hover:text-mainyellow hover:bg-maingreen lg:mr-5">
                     Register
                 </a>
            </div>
