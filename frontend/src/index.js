@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
-import App from './App';
+import Product from './pages/customer/product/Product';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Description from './pages/customer/home/components/Description';
+import Featured from './pages/customer/home/components/Featured';
+import Index from './pages/customer/Index.js';
+import SlideContainer from './pages/customer/home/components/slideContainer';
 import reportWebVitals from './reportWebVitals';
+import Login from './pages/customer/Login';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <Product /> */}
+    <Header/>
+    {/* <Index/> */}
+        <Login/>
+    {/* <Description/>
+    <Featured/> */}
+    <Footer/>
   </React.StrictMode>,
   document.getElementById('root')
 );
