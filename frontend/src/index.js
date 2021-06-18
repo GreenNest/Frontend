@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
+import Product from './pages/customer/product/Product';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Description from './pages/customer/home/components/Description';
@@ -12,6 +13,7 @@ import Login from './pages/customer/Login';
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* <Product /> */}
     <Header/>
     {/* <Index/> */}
         <Login/>
