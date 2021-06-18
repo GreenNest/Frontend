@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import order from '../../assets/order.jpg';
+import { Link } from "react-router-dom";
 
 
  const Orderhistory = () => {
@@ -21,14 +22,13 @@ import order from '../../assets/order.jpg';
       <div className="coimage">
       <img src={order} ></img>
       
-      
       <div  class=" bg-gray-100 relative p-3 ml-36 z-50 -mt-96 mb-20 w-5/6 ">
        
-      <h1 class="text-4xl ml-96 mt-6 text-4xl pl-36 font-bold">Your Orders</h1>
+      <h1 class="text-4xl ml-96 mt-6 pl-36 font-bold">Your Orders</h1>
       
-      <div class=" w-100% mt-28 " id="cutomer_o">
+      <div class=" w-100% mt-8" id="cutomer_o">
            
-      <div class="flex   space-x-24 p-6 m-10 text-xl  w-100% ">
+      <div class="flex space-x-24 p-6 text-xl bg-maingreen text-white w-100% ">
        
         <h1>Reference ID</h1>
         <h1>Order ID</h1>
@@ -40,14 +40,14 @@ import order from '../../assets/order.jpg';
    </div>
       <div>
         {orders.map((order)=>(
-          <div class="flex  space-x-36 p-6 m-10 border-l-4 text-lg bg-gray-200  w-100%  overscroll-y-auto"  key={order.orderid} >
+          <div class="flex space-x-36 p-6 m-10 border-l-4 text-lg bg-gray-200  w-100%  overscroll-y-auto"  key={order.orderid} >
             <h3>{order.referanceid}</h3>
             <h3>{order.orderid}</h3>
             <h3>{order.orderplaced}</h3>
             <h3>{order.items}</h3>
             <h3>{order.totalcost}</h3>
             <h3 className="text-green-600">{order.oredrstatus}</h3>
-            <button className="text-blue-500 text-sm w-20 hover:bg-blue-200">View more</button>
+            <Link to="/profile/order/review" className="text-blue-500 text-sm w-20 hover:bg-blue-200">View more</Link>
           </div>
         ))}
 

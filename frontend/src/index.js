@@ -2,11 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './App';
+import Product from './pages/customer/product/Product';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Sidebar from './components/Sidebar';
+import Description from './pages/customer/home/components/Description';
+import Featured from './pages/customer/home/components/Featured';
+import SlideContainer from './pages/customer/home/components/slideContainer';
 import reportWebVitals from './reportWebVitals';
+import Orderhistory from './pages/customer/Orderhistory';
+import {BrowserRouter as Router} from "react-router-dom";
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+    <Header/>
+      <App/>
+    <Footer/>
+    </Router>
+ 
   </React.StrictMode>,
   document.getElementById('root')
 );
