@@ -4,3 +4,14 @@
 @tailwind components;
 
 @tailwind utilities;
+
+
+#cutomer_o{
+    background-color: #A7F3D0;
+}
+
+.coimage img{
+    height: 600px;
+    width: 100%;
+    z-index: 1;
+}
