@@ -30,8 +30,9 @@ class Login extends Component {
 //p-25 w-2/4 items-center mt-20 ml-40 mr-60 shadow-inner
     render() {
         return (
-            <div class=" flex justify-center w-full mt-32">
-            <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 w-2/4' 
+            <div class="flex justify-center w-full container">
+            <div class="w-2/4 shadow-inner mt-8">
+            <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4' 
             onSubmit={this.handleSubmit}>
                 <div class='mb-4'>
                     <label class='block mb-2 text-md font-bold text-gray-700'>
@@ -73,6 +74,7 @@ class Login extends Component {
                     </a>
                 </div>
             </form>
+            </div>
          </div>
 
         );
