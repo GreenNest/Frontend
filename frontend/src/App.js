@@ -1,11 +1,10 @@
 import React from 'react';
 import './styles/index.css';
-// import './styles/shop.css';
 import {BrowserRouter as Router , Route , Switch} from "react-router-dom";
 import Orderhistory from './pages/customer/Orderhistory';
-import Order from './pages/customer/Order';
-import Shop from './pages/customer/Shop';
 import Index from './pages/customer/Index';
+import Order from './pages/customer/customerorder/Order';
+import Shop from './pages/customer/Shop/Shop';
 import Login from './pages/customer/Login';
 import Product from './pages/customer/product/Product';
 import Signup from './pages/customer/Signup';
