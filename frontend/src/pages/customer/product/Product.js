@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Review from './Review';
 import RequestPopup from './RequestPopup';
-import Productlist from '../../../components/Productlist';
+import Productlist from '../Shop/Productlist';
 import { Link } from "react-router-dom";
 
 import img1 from '../../../assets/product_img/mango-tree.jpg'
