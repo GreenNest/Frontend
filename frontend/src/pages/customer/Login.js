@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 
 class Login extends Component {
@@ -73,10 +74,11 @@ class Login extends Component {
                 
 
                 <div class>
-                <a class="inline-block text-md font-bold text-black align-baseline hover:text-green-1000" href="#">
-                    If you don't have an account? Sign Up
-                    </a>
-                </div>
+                {/* <a class="inline-block text-md font-bold text-black align-baseline hover:text-green-1000" href="#"> */}
+                    If you don't have an account? 
+                    {/* </a> */}
+                    <Link class="inline-block text-md font-bold text-black align-baseline hover:text-green-1000" to="/signup">Sign Up</Link>
+                 </div> 
             </form>
             </div>
         //  </div>

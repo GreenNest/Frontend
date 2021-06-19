@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 class Signup extends Component {
 
@@ -218,7 +219,7 @@ class Signup extends Component {
                         <div class="md:flex items-center md:justify-between mt-6 ml-20">
                         
                             <button class="px-10 py-3 font-bold text-mainyellow bg-maingreen rounded hover:bg-secondarygreen focus:outline-none focus:shadow-outline" type="submit">
-                                 Sign In
+                                 Sign Up
                             </button>
 
                             <button class="px-10 py-3 ml-20 font-bold text-mainyellow bg-red-800 rounded hover:bg-red-400 focus:outline-none focus:shadow-outline" type="submit">
@@ -228,10 +229,11 @@ class Signup extends Component {
                         </div>
 
                         <div class>
-                            <a class="mt-8 inline-block text-md font-bold text-black align-baseline hover:text-green-1000 ml-5" href="#">
-                                If you don't have an account? Sign Up
-                            </a>
-                        </div>
+                {/* <a class="inline-block text-md font-bold text-black align-baseline hover:text-green-1000" href="#"> */}
+                    If you have an account? 
+                    {/* </a> */}
+                    <Link class="inline-block text-md font-bold text-black align-baseline hover:text-green-1000" to="/login">Login</Link>
+                 </div> 
 
                     </div>
 

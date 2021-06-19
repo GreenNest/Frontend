@@ -38,6 +38,8 @@ module.exports = {
          'footer': '20% 20% 20% 20%',
          'smallfooter': 'repeat(2, minmax(0, 1fr))',
          'feature': 'repeat(4, minmax(0, 1fr))',
+         'sidebar-colums': '0.8fr 3fr',
+         'sidebar-rows': 'auto',
     },
     
     },
@@ -52,7 +54,7 @@ module.exports = {
       yellow: colors.amber,
       maingreen: "#386641",
       secondarygreen: "#6A994E",
-      lightgreen: "#6A994E",
+      lightgreen: "#A7C957",
       redcolor: "#BC4749",
       secondarygreen: "#6A994E",
       mainyellow: "#F2E8CF",
