@@ -5,7 +5,7 @@ import App from './App';
 import Product from './pages/customer/product/Product';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Sidebar from './components/Sidebar';
+//import Sidebar from './components/Sidebar';
 import Description from './pages/customer/home/components/Description';
 import Featured from './pages/customer/home/components/Featured';
 import SlideContainer from './pages/customer/home/components/slideContainer';
