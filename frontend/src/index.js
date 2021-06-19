@@ -12,6 +12,7 @@ import SlideContainer from './pages/customer/home/components/slideContainer';
 import reportWebVitals from './reportWebVitals';
 import Orderhistory from './pages/customer/Orderhistory';
 import {BrowserRouter as Router} from "react-router-dom";
+import ViewSupplier from './pages/admin/supplier/ViewSupplier';
 
 
 ReactDOM.render(
@@ -21,7 +22,7 @@ ReactDOM.render(
       <App/>
     <Footer/>
     </Router>
- 
+  {/* <ViewSupplier /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

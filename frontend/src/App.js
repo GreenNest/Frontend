@@ -5,7 +5,7 @@ import {BrowserRouter as Router , Route , Switch} from "react-router-dom";
 import Orderhistory from './pages/customer/Orderhistory';
 import Order from './pages/customer/Order';
 import Shop from './pages/customer/Shop';
-import Index from './pages/customer/Index.js';
+import Index from './pages/customer/Index';
 import Login from './pages/customer/Login';
 import Product from './pages/customer/product/Product';
 
