@@ -12,14 +12,16 @@ import reportWebVitals from './reportWebVitals';
 import Login from './pages/customer/Login';
 import Signup from './pages/customer/Signup';
 import RequestPopup from './pages/customer/product/RequestPopup';
+import Edit_profile from './pages/customer/Edit_profile';
 
 ReactDOM.render(
   <React.StrictMode>
     {/* <RequestPopup /> */}
-    {/* <Product /> */}
-    <Header/>
-    <Signup/>
-    {/* <Login/> */}
+     {/* <Product />  */}
+    {<Header/> }
+    {<Edit_profile/>}
+    {/* <Signup/>   */}
+    {/* { <Login/>  } */}
     {/* <Index/> */}
     {/* <Description/> */}
     {/* <Featured/> */}
@@ -28,7 +30,7 @@ ReactDOM.render(
      {/* <Login /> */}
     {/* <Description/> */}
     {/* <Featured/> */}
-    {/* <Footer/> */}
+    {/* {<Footer/>  } */}
   </React.StrictMode>,
   document.getElementById('root')
 );

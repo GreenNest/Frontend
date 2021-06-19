@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class Login extends Component {
     
     constructor(props){
@@ -30,12 +31,14 @@ class Login extends Component {
 //p-25 w-2/4 items-center mt-20 ml-40 mr-60 shadow-inner
     render() {
         return (
-            <div class="flex justify-center w-full container">
-            <div class=" flex justify-center w-full mt-32 shadow-card">
-                <p class="text-lightgreen text-20 text-center"> Login </p>
-            <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 w-2/4' 
+            <div class=" mt-10 flex justify-center w-full container">
+            
+            
+            <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-8 w-1/3 mt-10' 
             onSubmit={this.handleSubmit}>
-                <div class='mb-4'>
+
+                <h1 class="font-sans text-4xl font-bold text-center">Login</h1>
+                <div class='mt-6 mb-4'>
                     <label class='block mb-2 text-md font-bold text-gray-700'>
                         Email
                     </label>
@@ -56,7 +59,7 @@ class Login extends Component {
                 </div>
 
                 <div class="flex items-center justify-center">
-                <a class="inline-block text-md font-bold text-maingreen align-baseline hover:text-green-800" href="#">
+                <a class="inline-block text-md font-bold text-black align-baseline hover:text-green-800" href="#">
                         Forgot Password?
                     </a>
                 </div>
@@ -70,13 +73,13 @@ class Login extends Component {
                 
 
                 <div class>
-                <a class="inline-block text-md font-bold text-maingreen align-baseline hover:text-green-1000" href="#">
+                <a class="inline-block text-md font-bold text-black align-baseline hover:text-green-1000" href="#">
                     If you don't have an account? Sign Up
                     </a>
                 </div>
             </form>
             </div>
-         </div>
+        //  </div>
 
         );
     }
