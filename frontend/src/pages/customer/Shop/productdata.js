@@ -1,6 +1,6 @@
-import plant1 from "../assets/plant1.jpg"
-import plant3 from "../assets/plant3.jpg"
-import plant2 from "../assets/plant2.jpg"
+import plant1 from "../../../assets/plant1.jpg"
+import plant3 from "../../../assets/plant3.jpg"
+import plant2 from "../../../assets/plant2.jpg"
 
 const product_card =[
     {
