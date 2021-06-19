@@ -86,10 +86,10 @@ class Signup extends Component {
 
     render() {
         return (
-            <div className='container flex justify-center w-full'>
-                <div class="w-2/4 shadow-card mt-12 mb-20"> 
+            <div className='container flex justify-center w-full items-center'>
+                <div class="w-2/4 shadow-card mt-12 mb-20 flex justify-center items-center"> 
                 <form class="w-full max-w-lg justify-center">
-                    <div class="flex flex-wrap -mx-3 mb-6 ml-10 ">
+                    <div class="flex flex-wrap -mx-3 mb-6 ">
                         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                             <label class="block uppercase tracking-wide text-black font-bold mb-4 mt-4">
                                 First Name
@@ -200,8 +200,8 @@ class Signup extends Component {
                         </div>
 
 
-                        <div class="md:flex md:justify-center mb-6">
-                            <div class="md:w-1/3"></div>
+                        <div class="md:justify-center mb-6 w-1/2">
+                            <div class="md:w-1/2"></div>
                               <label class="md:w-full block text-black font-bold">
                                 <input class="mr-6 leading-tight" type="checkbox" />
                                     <span class="text-sm">
