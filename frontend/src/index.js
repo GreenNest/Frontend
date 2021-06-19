@@ -24,7 +24,7 @@ ReactDOM.render(
       <App/>
     <Footer/>
     </Router>
- 
+  {/* <ViewSupplier /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
