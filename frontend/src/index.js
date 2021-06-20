@@ -5,7 +5,6 @@ import App from './App';
 import Product from './pages/customer/product/Product';
 import Header from './components/Header';
 import Footer from './components/Footer';
-// import Sidebar from './components/Sidebar';
 import Description from './pages/customer/home/components/Description';
 import Featured from './pages/customer/home/components/Featured';
 import SlideContainer from './pages/customer/home/components/slideContainer';
@@ -20,13 +19,14 @@ import SupplierCard from './pages/admin/supplier/SupplierCard';
 
 
 ReactDOM.render(
- <React.StrictMode>
-  {/* <Router>
-   <Header/>
+  <React.StrictMode>
+    <Router>
+    <App/>
+    {/* <Header/>
       <App/>
-    <Footer/>
-  </Router> */}
-  <ViewSupplier />
+    <Footer/> */}
+    </Router>
+ 
   </React.StrictMode>,
   document.getElementById('root')
 );
