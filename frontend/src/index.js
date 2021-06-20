@@ -14,8 +14,10 @@ import Signup from './pages/customer/Signup';
 import RequestPopup from './pages/customer/product/RequestPopup';
 import Edit_profile from './pages/customer/Edit_profile';
 import {BrowserRouter as Router} from 'react-router-dom';
-import ViewSupplier from './pages/admin/supplier/ViewSupplier';
-import SupplierCard from './pages/admin/supplier/SupplierCard';
+
+import Updatestock from './pages/admin/Updatestock';
+
+
 
 
 ReactDOM.render(
@@ -24,8 +26,10 @@ ReactDOM.render(
     <App/>
     {/* <Header/>
       <App/>
+      <updatestock/>
     <Footer/> */}
     </Router>
+
  
   </React.StrictMode>,
   document.getElementById('root')
