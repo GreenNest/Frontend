@@ -7,7 +7,9 @@ import Order from './pages/customer/customerorder/Order';
 import Shop from './pages/customer/Shop/Shop';
 import Login from './pages/customer/Login';
 import Product from './pages/customer/product/Product';
+import Categoryadminview from './pages/accountant/categoryadminview/Categoryadminview';
 import Signup from './pages/customer/Signup';
+
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
     <Route exact path="/shop/product" component={Product}/>
     <Route exact path="/profile/order/review" component={Order}/>
     <Route exact path="/profile/orders" component={Orderhistory}/>
+    <Route exact path="/admin/categoryview"  component={Categoryadminview} />
     <Route exact path="/signup" component={Signup} />
+
     </Switch>
     </>
   );
