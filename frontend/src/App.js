@@ -7,7 +7,8 @@ import Shop from './pages/customer/Shop/Shop';
 import Index from './pages/customer/index.js';
 import Login from './pages/customer/Login';
 import Product from './pages/customer/product/Product';
-import Categoryadminview from './pages/accountant/categoryadminview/Categoryadminview';
+import Categoryadminview from './pages/admin/categoryadminview/Categoryadminview';
+import Itemadminview from './pages/admin/itemadminview/Itemadminview';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
     <Route exact path="/profile/order/review" component={Order}/>
     <Route exact path="/profile/orders" component={Orderhistory}/>
     <Route exact path="/admin/categoryview"  component={Categoryadminview} />
+    <Route exact path="/admin/itemview"  component={Itemadminview} />
     </Switch>
     </>
   );
