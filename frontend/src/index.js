@@ -21,13 +21,11 @@ import SupplierCard from './pages/admin/supplier/SupplierCard';
 
 ReactDOM.render(
  <React.StrictMode>
-  {/* <Router>
+  <Router>
    <Header/>
       <App/>
     <Footer/>
-  </Router> */}
-  {/* <ViewSupplier /> */}
-  <SupplierCard />
+  </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
