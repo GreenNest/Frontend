@@ -1,6 +1,6 @@
 import React from 'react';
-import Category from '../../components/Category';
-import Productlist from '../../components/Productlist';
+import Category from './Category';
+import Productlist from './Productlist';
 
 
 const Shop = () => {

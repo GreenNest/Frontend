@@ -9,8 +9,13 @@ import Description from './pages/customer/home/components/Description';
 import Featured from './pages/customer/home/components/Featured';
 import SlideContainer from './pages/customer/home/components/slideContainer';
 import reportWebVitals from './reportWebVitals';
-import Orderhistory from './pages/customer/Orderhistory';
-import {BrowserRouter as Router} from "react-router-dom";
+import Login from './pages/customer/Login';
+import Signup from './pages/customer/Signup';
+import RequestPopup from './pages/customer/product/RequestPopup';
+import Edit_profile from './pages/customer/Edit_profile';
+import {BrowserRouter as Router} from 'react-router-dom';
+import ViewSupplier from './pages/admin/supplier/ViewSupplier';
+import SupplierCard from './pages/admin/supplier/SupplierCard';
 
 
 ReactDOM.render(

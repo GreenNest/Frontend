@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import {Link} from 'react-router-dom';
+
 
 class Login extends Component {
     
@@ -56,7 +57,7 @@ class Login extends Component {
                 </div>
 
                 <div class="flex items-center justify-center">
-                <a class="inline-block text-md font-bold text-maingreen align-baseline hover:text-green-800" href="#">
+                <a class="inline-block text-md font-bold text-black align-baseline hover:text-green-800" href="#">
                         Forgot Password?
                     </a>
                 </div>
@@ -70,13 +71,14 @@ class Login extends Component {
                 
 
                 <div class>
-                <Link to="/Signup" class="inline-block text-md font-bold text-maingreen align-baseline hover:text-green-1000">
-                    If you don't have an account? Sign Up
-                    </Link>
-                </div>
+                {/* <a class="inline-block text-md font-bold text-black align-baseline hover:text-green-1000" href="#"> */}
+                    If you don't have an account? 
+                    {/* </a> */}
+                    <Link class="inline-block text-md font-bold text-black align-baseline hover:text-green-1000" to="/signup">Sign Up</Link>
+                 </div> 
             </form>
             </div>
-         </div>
+        //  </div>
 
         );
     }

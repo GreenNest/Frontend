@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Review from './Review';
 import RequestPopup from './RequestPopup';
-import Productlist from '../../../components/Productlist';
+import Productlist from '../Shop/Productlist';
 import { Link } from "react-router-dom";
 
 import img1 from '../../../assets/product_img/mango-tree.jpg'
@@ -34,9 +34,9 @@ const Product = () => {
                             <div>
                                 <input type="number" className="w-10 h-10 text-2xl text-center rounded" value="1"/>
                             </div>
-                            <Link to="" className="p-4 font-bold text-white bg-maingreen rounded hover:bg-secondarygreen sm:ml-2 lg:ml-4">ADD TO CART</Link>
-                            <Link to="" className="p-4 font-bold text-white bg-redcolor rounded sm:ml-2 lg:ml-4">BUY NOW</Link>
-                            <Link to="/shop/product/order" className="p-4 font-bold text-white bg-maingreen rounded hover:bg-secondarygreen sm:ml-2 lg:ml-4">REQUEST ORDER</Link>
+                            <Link to="" className="h-auto px-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4">ADD TO CART</Link>
+                            <Link to="" className="h-auto px-2 font-bold text-white rounded bg-redcolor sm:ml-2 lg:ml-4">BUY NOW</Link>
+                            <button type="button" className="h-auto px-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4" onClick={() => setShowRequestPopup(true)}>REQUEST ORDER</button>
                         </form>
                     </div>
                     <div className="mt-16 border-t-2 border-gray-300">

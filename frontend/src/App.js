@@ -1,16 +1,17 @@
 import React from 'react';
 import './styles/index.css';
-// import './styles/shop.css';
 import {BrowserRouter as Router , Route , Switch} from "react-router-dom";
 import Orderhistory from './pages/customer/Orderhistory';
-import Order from './pages/customer/Order';
-import Shop from './pages/customer/Shop';
-import Index from './pages/customer/Index.js';
+import Index from './pages/customer/Index';
+import Order from './pages/customer/customerorder/Order';
+import Shop from './pages/customer/Shop/Shop';
 import Login from './pages/customer/Login';
 import Signup from './pages/customer/Signup';
 import Product from './pages/customer/product/Product';
 import AddStock from './pages/admin/add-stock/AddStock';
 import EditStock from './pages/admin/edit-stock/EditStock';
+import Categoryadminview from './pages/accountant/categoryadminview/Categoryadminview';
+
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
     <Route exact path="/profile/order/review" component={Order}/>
     <Route exact path="/profile/orders" component={Orderhistory}/>
     <Route exact path="/admin/add-orders" component={AddStock}/>
+    <Route exact path="/admin/categoryview"  component={Categoryadminview} />
+    <Route exact path="/signup" component={Signup} />
+
     </Switch>
     </>
   );
