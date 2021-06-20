@@ -5,6 +5,8 @@ import {
     faPencilAlt,
 } from '@fortawesome/free-solid-svg-icons';
 
+import CategoryLabel from './CategoryLabel';
+
 const SupplierCard = () => {
     return (
         <div className="w-auto p-3 border-2 border-gray-500 border-opacity-25 rounded-lg shadow-xl">
@@ -19,9 +21,9 @@ const SupplierCard = () => {
                 <p>sulakshanee@gmail.com</p>
             </div>
             <div className="flex justify-around mt-2 space-x-3">
-                <label className="px-1 rounded-md bg-lightgreen">Fruit Plants</label>
-                <label className="px-1 rounded-md bg-lightgreen">Outdoor Plants</label>
-                <label className="px-1 rounded-md bg-lightgreen">Indoor Plants</label>
+                <CategoryLabel categoryName="Fruit Plants" />
+                <CategoryLabel categoryName="Indoor Plants" />
+                <CategoryLabel categoryName="Outdoor Plants" />
             </div>
         </div>
     );

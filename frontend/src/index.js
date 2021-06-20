@@ -16,17 +16,14 @@ import RequestPopup from './pages/customer/product/RequestPopup';
 import Edit_profile from './pages/customer/Edit_profile';
 import {BrowserRouter as Router} from 'react-router-dom';
 import ViewSupplier from './pages/admin/supplier/ViewSupplier';
-import SupplierCard from './pages/admin/supplier/SupplierCard';
-
 
 ReactDOM.render(
  <React.StrictMode>
-  {/* <Router>
+  <Router>
    <Header/>
       <App/>
     <Footer/>
-  </Router> */}
-  <ViewSupplier />
+  </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

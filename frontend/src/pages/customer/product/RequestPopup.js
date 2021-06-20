@@ -1,5 +1,5 @@
 
-const RequestPopup = () => {
+const RequestPopup = (props) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
       <div className="relative w-auto max-w-3xl mx-auto my-6">
@@ -50,14 +50,14 @@ const RequestPopup = () => {
           {/*footer*/}
           <div className="flex items-center justify-end p-4 border-t border-gray-400 border-solid rounded-b">
             <button 
-              className="px-6 py-3 mb-1 mr-2 text-base font-bold text-red-600 uppercase transition-all duration-150 ease-linear bg-gray-400 rounded shadow outline-none background-transparent hover:bg-gray-500 hover:shadow-lg focus:outline-none"
+              className="px-6 py-2 mb-1 mr-2 text-base font-bold text-red-600 uppercase transition-all duration-150 ease-linear bg-gray-400 rounded shadow outline-none background-transparent hover:bg-gray-500 hover:shadow-lg focus:outline-none"
               type="button"
-              // onClick={() => setShowModal(false)}
+              onClick={props.canclePopup}
             >
               Cancel
             </button>
             <button 
-              className="px-6 py-3 mb-1 mr-1 text-base font-bold text-blue-900 uppercase transition-all duration-150 ease-linear bg-gray-400 rounded shadow outline-none hover:shadow-lg focus:outline-none hover:bg-gray-500"
+              className="px-6 py-2 mb-1 mr-1 text-base font-bold text-blue-900 uppercase transition-all duration-150 ease-linear bg-gray-400 rounded shadow outline-none hover:shadow-lg focus:outline-none hover:bg-gray-500"
               type="button"
               // onClick={() => setShowModal(false)}
             >

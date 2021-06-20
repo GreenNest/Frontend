@@ -1,5 +1,4 @@
-import customer2 from '../../../assets/customer_img/customer2.jpg'
-import customer3 from '../../../assets/customer_img/customer3.jpg'
+import customer3 from '../../../../assets/customer_img/customer3.jpg';
 
 const Review = () => {
     return (
