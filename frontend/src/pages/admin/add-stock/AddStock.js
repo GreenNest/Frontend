@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Sidebar from '../../../components/Sidebar';
 
-function AddStock() {
-    return (
-        <div className="container">
+class AddStock extends Component {
+    render() {
+        return (
+            <div className="container">
             <Sidebar/>
             <div className="main">
                <div class="w-full m-16 bg-white rounded-sm border-gray-400 border-solid border">
@@ -59,12 +60,17 @@ function AddStock() {
                                 <input class="w-1/2 outline-none text-sm rounded-sm p-2 border-solid border-maingreen border-2"  />
                             </div>
                         </div>
-                        <div class="w-5/6 p-3 bg-maingreen text-mainyellow font-bold text-lg rounded-sm mt-5 mb-5 flex justify-center items-center cursor-pointer">Submit</div>
+                        <div class="flex w-full justify-center items-center">
+                            <div class=" w-1/3 p-3 bg-secondarygreen text-mainyellow font-bold text-lg rounded-sm mt-5 mb-5 flex justify-center items-center cursor-pointer mr-8">Submit</div>
+                            <div class="w-1/3 p-3 bg-redcolor text-mainyellow font-bold text-lg rounded-sm mt-5 mb-5 flex justify-center items-center cursor-pointer">Cancel</div>
+                        </div>
                   </form>
                </div>
             </div>
-        </div>
-    )
+            </div>
+        );
+    }
 }
 
-export default AddStock
+export default AddStock;
+

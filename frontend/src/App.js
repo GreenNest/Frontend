@@ -10,12 +10,13 @@ import Login from './pages/customer/Login';
 import Signup from './pages/customer/Signup';
 import Product from './pages/customer/product/Product';
 import AddStock from './pages/admin/add-stock/AddStock';
+import EditStock from './pages/admin/edit-stock/EditStock';
 
 function App() {
   return (
     <>
     <Switch>
-    <Route exact path="/" component={AddStock}/>
+    <Route exact path="/" component={EditStock}/>
     <Route exact path="/shop" component={Shop}/>
     <Route exact path="/login" component={Login}/>
     <Route exact path="/Signup" component={Signup}/>
