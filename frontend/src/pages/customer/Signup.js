@@ -90,7 +90,7 @@ class Signup extends Component {
 
     render() {
         return (
-            <div className='container flex justify-center w-full mb-20'>
+            <div className='flex justify-center w-full mb-20'>
                 <div class="w-2/4 shadow-card mt-12 items-center flex justify-center"> 
                     <form class="w-full max-w-lg justify-center mb-20" onSubmit={this.handleSubmit}>
 

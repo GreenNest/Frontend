@@ -21,10 +21,9 @@ import SupplierCard from './pages/admin/supplier/SupplierCard';
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-    <App/>
-    {/* <Header/>
+     <Header/>
       <App/>
-    <Footer/> */}
+    <Footer/> 
     </Router>
  
   </React.StrictMode>,
