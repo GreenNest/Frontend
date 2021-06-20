@@ -24,9 +24,10 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
     <App/>
+    
     {/* <Header/>
       <App/>
-      <updatestock/>
+      <Updatestock/>
     <Footer/> */}
     </Router>
 
