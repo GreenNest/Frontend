@@ -5,7 +5,7 @@ import App from './App';
 import Product from './pages/customer/product/Product';
 import Header from './components/Header';
 import Footer from './components/Footer';
-//import Sidebar from './components/Sidebar';
+// import Sidebar from './components/Sidebar';
 import Description from './pages/customer/home/components/Description';
 import Featured from './pages/customer/home/components/Featured';
 import SlideContainer from './pages/customer/home/components/slideContainer';
@@ -15,6 +15,8 @@ import Signup from './pages/customer/Signup';
 import RequestPopup from './pages/customer/product/RequestPopup';
 import Edit_profile from './pages/customer/Edit_profile';
 import {BrowserRouter as Router} from 'react-router-dom';
+import ViewSupplier from './pages/admin/supplier/ViewSupplier';
+import SupplierCard from './pages/admin/supplier/SupplierCard';
 
 
 ReactDOM.render(
@@ -23,8 +25,7 @@ ReactDOM.render(
    <Header/>
       <App/>
     <Footer/>
-    </Router>
-  {/* <ViewSupplier /> */}
+  </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
