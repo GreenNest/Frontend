@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Sidebar from '../../../components/Sidebar';
+//import Sidebar from '../../../components/Sidebar';
 
 class AddStock extends Component {
     render() {
         return (
             <div className="container">
-            <Sidebar/>
+            <div class="bg-maingreen h-screen"></div>
             <div className="main">
                <div class="w-full m-16 bg-white rounded-sm border-gray-400 border-solid border">
                   <form class="w-full justify-center p-4 flex flex-col items-center">
