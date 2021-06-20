@@ -15,15 +15,17 @@ import Signup from './pages/customer/Signup';
 import RequestPopup from './pages/customer/product/RequestPopup';
 import Edit_profile from './pages/customer/Edit_profile';
 import {BrowserRouter as Router} from 'react-router-dom';
+import Updatestock from './pages/admin/Updatestock';
 
 
 ReactDOM.render(
  <React.StrictMode>
   <Router>
-   <Header/>
-      <App/>
-    <Footer/>
-    </Router>
+    {<Header/> }  
+     {/* {<Updatestock/> }  */}
+      { <App/> }  
+     {<Footer/> } 
+  </Router>
  
   </React.StrictMode>,
   document.getElementById('root')
