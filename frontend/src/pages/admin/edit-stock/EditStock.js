@@ -13,7 +13,12 @@ class EditStock extends Component {
                         <div class="grid grid-cols-2 w-full">
                             <div class="flex justify-start items-center p-1 mb-3 w-full">
                                 <label class=" text-lg p-2 w-1/3 ">Category Name</label>
-                                <input class="w-1/2 outline-none text-sm rounded-sm p-2 border-solid border-maingreen border-2"  />
+                                <select id = "dropdown" ref = {(input)=> this.menu = input} class="w-1/2 outline-none text-sm rounded-sm p-2 border-solid border-maingreen border-2">
+                                    <option value="fruits">Fruits</option>
+                                    <option value="flowers">Flowers</option>
+                                    <option value="herbal">Flowers</option>
+                                    <option value="vegetables">Vegetables</option>
+                                </select>
                             </div>
                             <div class="flex justify-start items-center p-1 mb-3 w-full">
                                 <label class="text-lg p-2 w-1/3 ">Item ID</label>
@@ -57,7 +62,10 @@ class EditStock extends Component {
                             </div>
                             <div class="flex justify-start items-center p-1 mb-3 w-full">
                                 <label class="text-lg p-2 w-1/3 ">Featured</label>
-                                <input class="w-1/2 outline-none text-sm rounded-sm p-2 border-solid border-maingreen border-2"  />
+                                <select id = "dropdown" ref = {(input)=> this.menu = input} class="w-1/2 outline-none text-sm rounded-sm p-2 border-solid border-maingreen border-2">
+                                    <option value="true">True</option>
+                                    <option value="false">False</option>
+                                </select>
                             </div>
                         </div>
                         <div class="flex w-full justify-center items-center">
