@@ -16,9 +16,10 @@ import {BrowserRouter as Router} from "react-router-dom";
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-    <Header/>
+    <App/>
+    {/* <Header/>
       <App/>
-    <Footer/>
+    <Footer/> */}
     </Router>
  
   </React.StrictMode>,
