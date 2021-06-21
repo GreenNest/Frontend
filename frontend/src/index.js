@@ -27,7 +27,8 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Header/>
-         <App/>
+         {/* <App/> */}
+         <Updatestock/>
       <Footer/> 
 
     </Router>
