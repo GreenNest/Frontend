@@ -1,11 +1,15 @@
-import SupplierCard from "./SupplierCard";
+import React, { useState } from 'react';
+import SupplierCard from "./components/SupplierCard";
+import AddSupplierPopup from './AddSupplierPopup';
 
 const ViewSupplier = () => {
+    const [showAddSupplierPopup,setShowAddSupplierPopup] = useState(false);
+    
     return (
         <div>
             <div className="w-3/4 pt-5 mx-auto my-10">
                 <div className="flex justify-between w-5/6 m-auto">
-                    <button type="button" className="flex-initial px-3 font-bold text-white rounded-md bg-maingreen hover:bg-secondarygreen">+ ADD Supplier</button>
+                    <button type="button" className="flex-initial px-3 font-bold text-white rounded-md focus:outline-none bg-maingreen hover:bg-secondarygreen" onClick={() => setShowAddSupplierPopup(true)}>+ ADD Supplier</button>
                     <div class="relative text-gray-400 focus-within:text-gray-400">
                         <span class="absolute inset-y-0 left-0 flex items-center pl-2">
                             <button type="submit" className="p-1 focus:outline-none focus:shadow-outline">
@@ -25,6 +29,9 @@ const ViewSupplier = () => {
                     <SupplierCard />
                 </div>
             </div>
+            { showAddSupplierPopup ? (
+                <AddSupplierPopup canclePopup={() => setShowAddSupplierPopup(false)} />
+            ): null }
         </div>
     );
 }

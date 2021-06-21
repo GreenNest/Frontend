@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import Review from './Review';
+import Review from './components/Review';
 import RequestPopup from './RequestPopup';
 import Productlist from '../Shop/Productlist';
+import ImageCard from './components/ImageCard';
 import { Link } from "react-router-dom";
 
 import img1 from '../../../assets/product_img/mango-tree.jpg'
@@ -15,10 +16,10 @@ const Product = () => {
             <div className="shadow-xl md:flex rounded-xl">
                 <div className="lg:w-6/12">
                     <img className="min-w-full" src={mango1} alt="Main Image"/>
-                    <div className="flex flex-row flex-wrap justify-center py-3 mt-5 mb-5 space-x-8 space-y-5 border-t-2 border-b-2 border-gray-300">
-                        <img className="w-32 h-auto mt-5" src={img1} alt="Main Image"/>
-                        <img className="w-32 h-auto" src={img1} alt="Main Image"/>
-                        <img className="w-32 h-auto" src={img1} alt="Main Image"/>
+                    <div className="flex flex-row flex-wrap justify-center py-3 mt-5 mb-5 border-t-2 border-b-2 border-gray-300 gap-x-8 gap-y-5">
+                        <ImageCard img1={img1} />
+                        <ImageCard img1={img1} />
+                        <ImageCard img1={img1} />
                     </div>
                 </div>
                 <div className="lg:ml-10 sm:mt-10 sm:mx-5">
@@ -32,11 +33,11 @@ const Product = () => {
                         <p className="text-lg font-semibold text-secondarygreen">30 in stock</p>
                         <form className="flex mt-5 justify-items-start">
                             <div>
-                                <input type="number" className="w-10 h-10 text-2xl text-center rounded" value="1"/>
+                                <input type="number" className="w-10 h-10 text-2xl text-center border rounded" value="1"/>
                             </div>
                             <Link to="" className="h-auto px-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4">ADD TO CART</Link>
                             <Link to="" className="h-auto px-2 font-bold text-white rounded bg-redcolor sm:ml-2 lg:ml-4">BUY NOW</Link>
-                            <button type="button" className="h-auto px-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4" onClick={() => setShowRequestPopup(true)}>REQUEST ORDER</button>
+                            <button type="button" className="h-auto px-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none" onClick={() => setShowRequestPopup(true)}>REQUEST ORDER</button>
                         </form>
                     </div>
                     <div className="mt-16 border-t-2 border-gray-300">
@@ -60,7 +61,7 @@ const Product = () => {
             </div>
 
             { showRequestPopup ? (
-                <RequestPopup />
+                <RequestPopup canclePopup={() => setShowRequestPopup(false)}/>
             ): null }
         </div>
     );
