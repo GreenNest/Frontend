@@ -15,7 +15,8 @@ import RequestPopup from './pages/customer/product/RequestPopup';
 import Edit_profile from './pages/customer/Edit_profile';
 import {BrowserRouter as Router} from 'react-router-dom';
 
-import Updatestock from './pages/admin/Updatestock';
+import Updatestock from './pages/admin/Stock/Updatestock';
+import Reports from './pages/admin/reports/Reports'
 
 
 
@@ -23,12 +24,13 @@ import Updatestock from './pages/admin/Updatestock';
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-    <App/>
-    
-    {/* <Header/>
+    {/* <Reports/> */}
+      
+    {/* <Updatestock/> */}
+    <Header/>
+     
       <App/>
-      <Updatestock/>
-    <Footer/> */}
+    <Footer/> 
     </Router>
 
  
