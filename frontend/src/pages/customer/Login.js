@@ -31,7 +31,7 @@ class Login extends Component {
     }
     render() {
         return (
-            <div class="flex justify-center w-full container">
+            <div class="flex justify-center items-center w-full">
             <div class=" flex justify-center w-full mt-16 mb-16">
             <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 w-2/4' 
             onSubmit={this.handleSubmit}>
@@ -78,7 +78,7 @@ class Login extends Component {
                  </div> 
             </form>
             </div>
-        //  </div>
+            </div>
 
         );
     }
