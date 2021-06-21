@@ -22,17 +22,18 @@
 .dot:hover{
   background-color: #BC4749;
 }
-.container{
+.grid-container{
   display: grid;
-  height: 100%;
+  height: 100vh;
   grid-template-columns: 0.8fr 3fr;
   grid-template-areas: 
   "sidebar main";
 }
 .side{
   grid-area: sidebar;
+  overflow-y: auto;
 }
-.main{
+.main-area{
   grid-area: main;
   overflow-y: auto;
   display: flex;

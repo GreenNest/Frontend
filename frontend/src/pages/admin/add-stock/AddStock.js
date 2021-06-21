@@ -10,9 +10,9 @@ class AddStock extends Component {
 
     render() {
         return (
-            <div className="container">
-            <div class="bg-maingreen h-screen"></div>
-            <div className="main">
+            <div className="grid-container">
+            <div class="bg-maingreen"></div>
+            <div className="main-area">
                <div class="w-full m-16 bg-white rounded-sm border-gray-400 border-solid border">
                   <form class="w-full justify-center p-4 flex flex-col items-center">
                         <div class=" text-50 font-bold text-lightgreen p-2 mb-4">Add Item</div>
