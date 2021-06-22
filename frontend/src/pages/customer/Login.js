@@ -29,17 +29,14 @@ class Login extends Component {
     handleSubmit = (event)=>{
         
     }
-//p-25 w-2/4 items-center mt-20 ml-40 mr-60 shadow-inner
     render() {
         return (
-            <div class=" mt-10 flex justify-center w-full container">
-            
-            
-            <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-8 w-1/3 mt-10' 
+            <div class="flex justify-center items-center w-full ">
+            <div class=" flex justify-center w-1/4 mt-20 mb-16 shadow-card">
+            <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8  w-full' 
             onSubmit={this.handleSubmit}>
-
-                <h1 class="font-sans text-4xl font-bold text-center">Login</h1>
-                <div class='mt-6 mb-4'>
+                <p class="text-secondarygreen text-20 text-center font-bold"> Login </p>
+                <div class='mb-4'>
                     <label class='block mb-2 text-md font-bold text-gray-700'>
                         Email
                     </label>
@@ -81,7 +78,7 @@ class Login extends Component {
                  </div> 
             </form>
             </div>
-        //  </div>
+            </div>
 
         );
     }
