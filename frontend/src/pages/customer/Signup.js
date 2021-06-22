@@ -90,8 +90,8 @@ class Signup extends Component {
 
     render() {
         return (
-            <div className='container flex justify-center w-full mb-20'>
-                <div class="w-2/4 shadow-card mt-12 items-center flex justify-center"> 
+            <div className='flex justify-center w-full mb-20 '>
+                <div class="w-full shadow-card mt-12 items-center flex justify-center"> 
                     <form class="w-full max-w-lg justify-center mb-20" onSubmit={this.handleSubmit}>
 
                         <h3 class="font-sans text-2xl font-bold text-center mt-4 mb-5">Create your account</h3>
