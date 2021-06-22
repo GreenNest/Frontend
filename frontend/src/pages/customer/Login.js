@@ -31,8 +31,8 @@ class Login extends Component {
     }
     render() {
         return (
-            <div class="flex justify-center w-full ">
-            <div class=" flex justify-center w-full mt-16 mb-16 shadow-card">
+            <div class="flex justify-center items-center w-full ">
+            <div class=" flex justify-center w-1/4 mt-20 mb-16 shadow-card">
             <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8  w-full' 
             onSubmit={this.handleSubmit}>
                 <p class="text-secondarygreen text-20 text-center font-bold"> Login </p>
@@ -78,7 +78,7 @@ class Login extends Component {
                  </div> 
             </form>
             </div>
-         </div>
+            </div>
 
         );
     }
