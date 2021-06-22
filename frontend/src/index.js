@@ -26,6 +26,7 @@ import ViewSupplier from './pages/admin/supplier/ViewSupplier';
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+      <Header/>
       <App/>
     </Router>
   </React.StrictMode>,
