@@ -5,10 +5,12 @@ import plant2 from "../../../assets/plant2.jpg"
 const product_card =[
     {
         id:1,
-        product_name:"schefflera Nora",
+        product_name:"schefflera Nora ",
         description:"Planted from	Seed",
         price:350,
         currency: "LKR",
+        reorderlevel:10,
+        qty:40,
         thumb:plant1
     },
     {
@@ -17,6 +19,8 @@ const product_card =[
         description:"Planted from	Seed",
         price:250,
         currency:"LKR",
+        reorderlevel:10,
+        qty:40,
         thumb:plant2
     },
     {
@@ -25,6 +29,8 @@ const product_card =[
         description:"Planted from	Seed",
         price:450,
         currency:"LKR",
+        reorderlevel:10,
+        qty:40,
         thumb:plant3
     },
     {
@@ -33,6 +39,8 @@ const product_card =[
         description:"Planted from Seed",
         price:350,
         currency:"LKR",
+        reorderlevel:10,
+        qty:40,
         thumb:plant1
     },
     {
@@ -41,6 +49,8 @@ const product_card =[
         description:"Planted from	Seed",
         price:250,
         currency:"LKR",
+        reorderlevel:10,
+        qty:40,
         thumb:plant3
     },
     {
@@ -49,6 +59,8 @@ const product_card =[
         description:"Planted from	Seed",
         price:450,
         currency:"LKR",
+        reorderlevel:10,
+        qty:40,
         thumb:plant1
     },
     {
@@ -57,6 +69,8 @@ const product_card =[
         description:"Planted from	Seed",
         price:350,
         currency: "LKR",
+        reorderlevel:10,
+        qty:40,
         thumb:plant1
     },
     {
@@ -65,6 +79,8 @@ const product_card =[
         description:"Planted from	Seed",
         price:250,
         currency:"LKR",
+        reorderlevel:10,
+        qty:40,
         thumb:plant2
     },
     {
@@ -73,6 +89,8 @@ const product_card =[
         description:"Planted from	Seed",
         price:450,
         currency:"LKR",
+        reorderlevel:10,
+        qty:40,
         thumb:plant3
     },
     {
@@ -81,6 +99,8 @@ const product_card =[
         description:"Planted from Seed",
         price:350,
         currency:"LKR",
+        reorderlevel:10,
+        qty:40,
         thumb:plant1
     },
     {
@@ -89,6 +109,8 @@ const product_card =[
         description:"Planted from	Seed",
         price:250,
         currency:"LKR",
+        reorderlevel:10,
+        qty:40,
         thumb:plant3
     },
     {
@@ -97,6 +119,8 @@ const product_card =[
         description:"Planted from	Seed",
         price:450,
         currency:"LKR",
+        reorderlevel:10,
+        qty:40,
         thumb:plant1
     }
      
