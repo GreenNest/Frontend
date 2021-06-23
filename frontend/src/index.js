@@ -14,21 +14,21 @@ import Signup from './pages/customer/Signup';
 import RequestPopup from './pages/customer/product/RequestPopup';
 import Edit_profile from './pages/customer/Edit_profile';
 import {BrowserRouter as Router} from 'react-router-dom';
-
-
 import Updatestock from './pages/admin/Stock/Updatestock';
 import Reports from './pages/admin/reports/Reports'
-
 import ViewSupplier from './pages/admin/supplier/ViewSupplier';
+import ViewEmployee from './pages/admin/employee/ViewEmployee';
 
 
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <Header/>
+      {/* <Header/>
       <App/>
-      <Footer/>
+      <Footer/> */}
+      {/* <ViewSupplier /> */}
+      <ViewEmployee />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
