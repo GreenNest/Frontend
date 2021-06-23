@@ -14,7 +14,6 @@ import AddStock from './pages/admin/add-stock/AddStock';
 import EditStock from './pages/admin/edit-stock/EditStock';
 
 
-
 function App() {
   return (
     <>
