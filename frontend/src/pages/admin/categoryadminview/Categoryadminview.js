@@ -2,6 +2,7 @@ import React from 'react'
 import Addcategorypopup from './Addcategorypopup';
 import {useState} from 'react';
 import Categorydata from './Categorydata'
+import { Link } from "react-router-dom";
 
 const Categoryadminview = () =>{
 
@@ -28,9 +29,11 @@ const Categoryadminview = () =>{
               </div>
             </div>   
 
-            <div className=" w-3/4 bg-gray-100 ml-96">
-                <div className=" flex items-center relative  w-11/12  my-3 mx-12 p-4 box-border  flex-wrap cursor-pointer">{categories}</div>
-            </div>   
+            <Link to="/admin/categoryview/itemview">
+                <div className=" w-3/4 bg-gray-100 ml-96">
+                    <div className=" flex items-center relative  w-11/12  my-3 mx-12 p-4 box-border  flex-wrap cursor-pointer">{categories}</div>
+                </div> 
+            </Link>  
         </div>
     )
 }
