@@ -9,12 +9,11 @@ import Login from './pages/customer/Login';
 import Signup from './pages/customer/Signup';
 import Product from './pages/customer/product/Product';
 import Categoryadminview from './pages/admin/categoryadminview/Categoryadminview';
-// import Signup from './pages/customer/Signup';
 import Itemadminview from './pages/admin/itemadminview/Itemadminview';
 import AddStock from './pages/admin/add-stock/AddStock';
 import EditStock from './pages/admin/edit-stock/EditStock';
 import Upcomingorders from './pages/moderator/orders/Upcomingorders';
-// import Categoryadminview from './pages/accountant/categoryadminview/Categoryadminview';
+
 
 
 
