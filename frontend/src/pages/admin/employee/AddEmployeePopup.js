@@ -9,12 +9,12 @@ const AddEmployeePopup = (props) => {
                         <h3 className="text-2xl font-bold text-maingreen">ADD SUPPLIER</h3>
                     </div>
 
-                    <div className="relative flex-auto p-6">
+                    <div className="relative grid grid-cols-2 p-6 gap-x-10 gap-y-5">
                         <div>
                             <label className="font-medium">Name</label>
                             <input
                                 type='text'
-                                className="w-full p-1 mb-4 text-sm transition duration-150 ease-in-out border rounded-md outline-none text-primary"
+                                className="w-full p-1 text-sm transition duration-150 ease-in-out border rounded-md outline-none text-primary"
                                 id='name'
                             />
                         </div>
@@ -22,7 +22,7 @@ const AddEmployeePopup = (props) => {
                             <label className="font-medium">Address</label>
                             <input
                                 type='text'
-                                className="w-full p-1 mb-4 text-sm transition duration-150 ease-in-out border rounded-md outline-none text-primary"
+                                className="w-full p-1 text-sm transition duration-150 ease-in-out border rounded-md outline-none text-primary"
                                 id='address'
                             />
                         </div>
@@ -30,7 +30,7 @@ const AddEmployeePopup = (props) => {
                             <label className="font-medium">Mobile No</label>
                             <input
                                 type='text'
-                                className="w-full p-1 mb-4 text-sm transition duration-150 ease-in-out border rounded-md outline-none text-primary"
+                                className="w-full p-1 text-sm transition duration-150 ease-in-out border rounded-md outline-none text-primary"
                                 id='mobile'
                             />
                         </div>
@@ -38,12 +38,11 @@ const AddEmployeePopup = (props) => {
                             <label className="font-medium">Email</label>
                             <input
                                 type="text"
-                                className="w-full p-1 mb-4 text-sm transition duration-150 ease-in-out border rounded-md outline-none text-primary"
+                                className="w-full p-1 text-sm transition duration-150 ease-in-out border rounded-md outline-none text-primary"
                                 id='email'
                             />
                         </div>
                         <div>
-                            <label className="font-medium">Job Type</label>
                             <Dropdown />
                         </div>
                     </div>

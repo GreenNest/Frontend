@@ -28,7 +28,7 @@ const DetailsCard = (props) => {
                 <CategoryLabel categoryName="Indoor Plants" />
                 <CategoryLabel categoryName="Outdoor Plants" />
                 </div>
-            ) : (<div></div>) }
+            ) : null }
         </div>
     );
 }
