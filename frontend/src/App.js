@@ -9,11 +9,12 @@ import Login from './pages/customer/Login';
 import Signup from './pages/customer/Signup';
 import Product from './pages/customer/product/Product';
 import Categoryadminview from './pages/admin/categoryadminview/Categoryadminview';
-import Signup from './pages/customer/Signup';
+// import Signup from './pages/customer/Signup';
 import Itemadminview from './pages/admin/itemadminview/Itemadminview';
 import AddStock from './pages/admin/add-stock/AddStock';
 import EditStock from './pages/admin/edit-stock/EditStock';
-import Categoryadminview from './pages/accountant/categoryadminview/Categoryadminview';
+import Upcomingorders from './pages/moderator/orders/Upcomingorders';
+// import Categoryadminview from './pages/accountant/categoryadminview/Categoryadminview';
 
 
 
@@ -21,7 +22,7 @@ function App() {
   return (
     <>
     <Switch>
-    <Route exact path="/" component={AddStock}/>
+    <Route exact path="/" component={Index}/>
     <Route exact path="/shop" component={Shop}/>
     <Route exact path="/login" component={Login}/>
     <Route exact path="/Signup" component={Signup}/>
@@ -32,6 +33,7 @@ function App() {
     <Route exact path="/admin/categoryview"  component={Categoryadminview} />
     <Route exact path="/admin/categoryview/itemview"  component={Itemadminview} />
     <Route exact path="/signup" component={Signup} />
+    <Route exact path="/moderator/upcomingorders" component={Upcomingorders}/>
 
     </Switch>
     </>
