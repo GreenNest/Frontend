@@ -24,12 +24,11 @@ import ViewEmployee from './pages/admin/employee/ViewEmployee';
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      {/* <Header/>
+      <Header/>
       <App/>
-      <Footer/> */}
-      {/* <ViewSupplier /> */}
+      <Footer/>
       <ViewEmployee />
-    </Router>
+    </Router>  
   </React.StrictMode>,
   document.getElementById('root')
 );

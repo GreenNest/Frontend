@@ -12,6 +12,7 @@ import Categoryadminview from './pages/admin/categoryadminview/Categoryadminview
 import Itemadminview from './pages/admin/itemadminview/Itemadminview';
 import AddStock from './pages/admin/add-stock/AddStock';
 import EditStock from './pages/admin/edit-stock/EditStock';
+import Upcomingorders from './pages/moderator/orders/Upcomingorders';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
     <Route exact path="/admin/categoryview"  component={Categoryadminview} />
     <Route exact path="/admin/categoryview/itemview"  component={Itemadminview} />
     <Route exact path="/signup" component={Signup} />
+    <Route exact path="/moderator/upcomingorders" component={Upcomingorders}/>
 
     </Switch>
     </>
