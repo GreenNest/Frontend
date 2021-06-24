@@ -28,14 +28,14 @@ import { Link } from "react-router-dom";
       
       <div class=" w-100% mt-8" id="cutomer_o">
            
-      <div class="flex space-x-24 p-6 text-xl bg-maingreen text-white w-100% ">
+      <div class="flex space-x-24 p-6 text-xl  bg-maingreen text-white w-100% ">
        
-        <h1>Reference ID</h1>
-        <h1>Order ID</h1>
-        <h1>Order Placed</h1>
-        <h1>Items</h1>
-        <h1>Total Cost</h1>
-        <h1 >Order Status</h1>
+        <h1 className="ml-8">Reference ID</h1>
+        <h1 className="ml-8">Order ID</h1>
+        <h1 className="ml-8">Order Placed</h1>
+        <h1 className="ml-8">Items</h1>
+        <h1 className="ml-8">Total Cost</h1>
+        <h1 className="ml-8" >Order Status</h1>
       </div> 
    </div>
       <div>
