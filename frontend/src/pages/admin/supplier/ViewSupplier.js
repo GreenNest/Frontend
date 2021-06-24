@@ -1,10 +1,15 @@
+import React, { useState } from 'react';
+import SupplierCard from "./components/SupplierCard";
+import AddSupplierPopup from './AddSupplierPopup';
 
 const ViewSupplier = () => {
+    const [showAddSupplierPopup,setShowAddSupplierPopup] = useState(false);
+    
     return (
-        <div className="bg-gray-600">
-            <div className="w-3/4 h-screen pt-5 m-auto bg-blue-300">
-                <div className="flex justify-between w-5/6 m-auto bg-indigo-600">
-                    <button type="button" className="flex-initial px-3 font-bold text-white rounded-md bg-maingreen hover:bg-secondarygreen">+ ADD Supplier</button>
+        <div>
+            <div className="w-3/4 pt-5 mx-auto my-10">
+                <div className="flex justify-between w-5/6 m-auto">
+                    <button type="button" className="flex-initial px-3 font-bold text-white rounded-md focus:outline-none bg-maingreen hover:bg-secondarygreen" onClick={() => setShowAddSupplierPopup(true)}>+ ADD Supplier</button>
                     <div class="relative text-gray-400 focus-within:text-gray-400">
                         <span class="absolute inset-y-0 left-0 flex items-center pl-2">
                             <button type="submit" className="p-1 focus:outline-none focus:shadow-outline">
@@ -13,10 +18,20 @@ const ViewSupplier = () => {
                                 </svg>
                             </button>
                         </span>
-                        <input type="search" name="q" className="py-3 pl-10 text-sm text-black bg-white rounded-md focus:outline-none" placeholder="Search..." autocomplete="off"/>
+                        <input type="search" name="q" className="py-3 pl-10 text-sm text-black bg-white border border-black border-opacity-50 rounded-md shadow-inner focus:outline-none" placeholder="Search..." autocomplete="off"/>
                     </div>
                 </div>
+                <div className="flex flex-row flex-wrap justify-center mt-10 gap-x-10 gap-y-5">
+                    <SupplierCard />
+                    <SupplierCard />
+                    <SupplierCard />
+                    <SupplierCard />
+                    <SupplierCard />
+                </div>
             </div>
+            { showAddSupplierPopup ? (
+                <AddSupplierPopup canclePopup={() => setShowAddSupplierPopup(false)} />
+            ): null }
         </div>
     );
 }

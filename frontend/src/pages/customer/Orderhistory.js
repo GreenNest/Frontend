@@ -47,7 +47,7 @@ import { Link } from "react-router-dom";
             <h3>{order.items}</h3>
             <h3>{order.totalcost}</h3>
             <h3 className="text-green-600">{order.oredrstatus}</h3>
-            <Link to="/profile/order/review" className="text-blue-500 text-sm w-20 hover:bg-blue-200">View more</Link>
+            <Link to="/profile/order/review" className="w-20 text-sm text-blue-500 hover:bg-blue-200">View more</Link>
           </div>
         ))}
 
