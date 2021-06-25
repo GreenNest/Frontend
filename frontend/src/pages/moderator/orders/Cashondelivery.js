@@ -1,16 +1,17 @@
 import React from 'react';
 import {FaArrowAltCircleRight} from "react-icons/fa";
 import Orderdata from './orderdata';
-const Onlinedelivery = () => {
+const Cashondelivery = () => {
 
 
     const order = Orderdata.map((item)=>
-        <div className="flex grid grid-cols-7 bg-gray-200 p-4 my-4">
+        <div className="flex grid grid-cols-8 bg-gray-200 p-4 my-4">
             <div  className="mt-2" >{item.orderid}</div>
             <div className="mt-2">{item.customername}</div>
             <div className="mt-2">{item.Location}</div>
             <div className="mt-2">{item.Date}</div>
-            <div className="mt-2">{item.Date}</div>
+            <div className="mt-2">{item.time}</div>
+            <div><h3 className="text-red-500">Pending payment</h3></div>
             <select name="Deliverpersons" >
                 <option value="M.K.Samarasingha">M.K.Samarasingha</option>
                 <option value="D.G.Nishantha">D.G.Nishantha</option>
@@ -32,4 +33,4 @@ const Onlinedelivery = () => {
      );
 }
  
-export default Onlinedelivery;
+export default Cashondelivery;
