@@ -1,5 +1,5 @@
 import React from 'react';
-import {FaArrowAltCircleRight,FaMoneyCheckAlt} from "react-icons/fa";
+import {FaArrowAltCircleRight} from "react-icons/fa";
 import Orderdata from './orderdata';
 const Onlinedelivery = () => {
 

@@ -13,6 +13,7 @@ import Itemadminview from './pages/admin/itemadminview/Itemadminview';
 import AddStock from './pages/admin/add-stock/AddStock';
 import EditStock from './pages/admin/edit-stock/EditStock';
 import Upcomingorders from './pages/moderator/orders/Upcomingorders';
+import Cashondelivery from './pages/moderator/orders/Cashondelivery';
 
 
 
