@@ -41,3 +41,15 @@
   align-items: center;
   width: 100%;
 }
+.dashboard-area{
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1.5fr 1.5fr;
+  grid-template-rows: auto auto;
+  grid-area: 
+  "part1 part2"
+  "maindash maindash";
+}
+.first-graph{
+  width: 100%;
+}

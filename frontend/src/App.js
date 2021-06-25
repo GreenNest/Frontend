@@ -10,6 +10,7 @@ import Signup from './pages/customer/Signup';
 import Product from './pages/customer/product/Product';
 import AddStock from './pages/admin/add-stock/AddStock';
 import EditStock from './pages/admin/edit-stock/EditStock';
+import Dashboard from './pages/accountant/dashboard/Dashboard';
 import Categoryadminview from './pages/accountant/categoryadminview/Categoryadminview';
 
 
@@ -17,7 +18,7 @@ function App() {
   return (
     <>
     <Switch>
-    <Route exact path="/" component={AddStock}/>
+    <Route exact path="/" component={Dashboard}/>
     <Route exact path="/shop" component={Shop}/>
     <Route exact path="/login" component={Login}/>
     <Route exact path="/Signup" component={Signup}/>
@@ -27,7 +28,6 @@ function App() {
     <Route exact path="/admin/add-orders" component={AddStock}/>
     <Route exact path="/admin/categoryview"  component={Categoryadminview} />
     <Route exact path="/signup" component={Signup} />
-
     </Switch>
     </>
   );

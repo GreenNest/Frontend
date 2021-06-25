@@ -40,6 +40,7 @@ module.exports = {
          'feature': 'repeat(4, minmax(0, 1fr))',
          'sidebar-colums': '0.8fr 3fr',
          'sidebar-rows': 'auto',
+         'dashboard': '40% 40%'
     },
     
     },
