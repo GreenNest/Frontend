@@ -10,22 +10,22 @@ class Dashboard extends Component {
             <div className="grid-container">
                 <div class="bg-maingreen h-screen"></div>
                 <div className="main-area">
-                    <div class="flex flex-col w-full h-full p-14 justify-between lg:container">
-                       <div class="grid h-1/5 w-full grid-cols-3 lg:gap-16 md:gap-10 gap-5">
-                            <div class=" w-full flex flex-row justify-center items-center rounded-sm shadow-lg border-solid border-2">
+                    <div class="flex flex-col w-full h-full p-7 justify-between lg:container lg:p-12">
+                       <div class="grid h-1/5 w-full grid-cols-3 lg:gap-10 md:gap-5 gap-4">
+                            <div class=" w-full flex lg:flex-row flex-col justify-center items-center rounded-sm shadow-lg border-solid border-2 p-3">
                                 <FaClipboardList class="text-30 text-secondarygreen"></FaClipboardList>
-                                <div class="text-20 font-bold p-5">Today Orders</div>
-                                <span class="text-30 text-redcolor ml-8">20</span>
+                                <div class="text-20 font-bold text-center">Today Orders</div>
+                                <span class="text-30 text-redcolor ml-3 lg:ml-8 md:ml-3">20</span>
                             </div>
-                            <div class=" w-full flex flex-row justify-center items-center rounded-sm shadow-lg border-solid border-2">
+                            <div class=" w-full flex flex-col lg:flex-row justify-center items-center rounded-sm shadow-lg border-solid border-2 p-3">
                                 <FaClipboardCheck class="text-30 text-secondarygreen"></FaClipboardCheck>
-                                <div class="text-20 font-bold p-4">Upcomming Orders</div>
-                                <span class="text-30 text-redcolor ml-8">5</span>
+                                <div class="text-20 font-bold text-center">Upcomming Orders</div>
+                                <span class="text-30 text-redcolor ml-3 lg:ml-8 md:ml-3">5</span>
                             </div>
-                            <div class=" w-full flex flex-row justify-center items-center rounded-sm shadow-lg border-solid border-2">
+                            <div class=" w-full flex flex-col lg:flex-row justify-center items-center rounded-sm shadow-lg border-solid border-2 p-3">
                                 <FaClipboardCheck class="text-30 text-secondarygreen"></FaClipboardCheck>
-                                <div class="text-20 font-bold p-4">Confirm Orders</div>
-                                <span class="text-30 text-redcolor ml-8">4</span>
+                                <div class="text-20 font-bold text-center">Confirm Orders</div>
+                                <span class="text-30 text-redcolor ml-3 lg:ml-8 md:ml-3">4</span>
                             </div>
                        </div>
                        <div class="grid h-5/6 w-full grid-cols-2 mt-8 lg:gap-16 md:gap-10 gap-5">
