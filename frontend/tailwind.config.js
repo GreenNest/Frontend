@@ -20,6 +20,7 @@ module.exports = {
     fontSize:{
       '50': '50px',
       '20':'20px',
+      '30':'30px',
     },
     zIndex: {
       '200': '200',
