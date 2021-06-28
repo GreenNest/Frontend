@@ -23,11 +23,10 @@ import OrderRequest from './pages/moderator/orderRequest/OrderRequest';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      {/* <Header/>
+    <Router> 
+      <Header/>
       <App/>
-      <Footer/> */}
-      <OrderRequest />
+      <Footer/>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
