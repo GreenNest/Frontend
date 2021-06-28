@@ -76,7 +76,7 @@ class EditStock extends Component {
                   </form>
                </div>
             </div>
-        </div>
+            </div>
         );
     }
 }
