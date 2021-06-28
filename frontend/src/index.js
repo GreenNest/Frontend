@@ -27,8 +27,9 @@ ReactDOM.render(
       <Header/>
       <App/>
       <Footer/>
-      <ViewEmployee />
-    </Router>  
+      {/* <ViewSupplier />
+      {/* <ViewEmployee /> */}
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
