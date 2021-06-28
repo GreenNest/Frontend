@@ -24,11 +24,10 @@ import SupplierList from './pages/moderator/orderRequest/SupplierList';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      {/* <Header/>
+    <Router> 
+      <Header/>
       <App/>
-      <Footer/> */}
-      <OrderRequest />
+      <Footer/>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

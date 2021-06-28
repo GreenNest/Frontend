@@ -13,6 +13,7 @@ import Itemadminview from './pages/admin/itemadminview/Itemadminview';
 import AddStock from './pages/admin/add-stock/AddStock';
 import EditStock from './pages/admin/edit-stock/EditStock';
 import Dashboard from './pages/accountant/dashboard/Dashboard';
+//import Categoryadminview from './pages/accountant/categoryadminview/Categoryadminview';
 import Upcomingorders from './pages/moderator/orders/Upcomingorders';
 import Cashondelivery from './pages/moderator/orders/Cashondelivery';
 import SupplierList from './pages/moderator/orderRequest/SupplierList';
@@ -22,7 +23,6 @@ function App() {
   return (
     <>
     <Switch>
-    {/* <Route exact path="/" component={Dashboard}/> */}
     <Route exact path="/" component={Index}/>
     <Route exact path="/shop" component={Shop}/>
     <Route exact path="/login" component={Login}/>
