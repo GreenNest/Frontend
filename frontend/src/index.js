@@ -19,6 +19,7 @@ import Reports from './pages/admin/reports/Reports'
 import ViewSupplier from './pages/admin/supplier/ViewSupplier';
 import ViewEmployee from './pages/admin/employee/ViewEmployee';
 import OrderRequest from './pages/moderator/orderRequest/OrderRequest';
+import SupplierList from './pages/moderator/orderRequest/SupplierList';
 
 
 ReactDOM.render(

@@ -1,3 +1,6 @@
+import React from 'react';
+import { Link } from "react-router-dom";
+
 import Button from "./Button";
 
 const OrderRequestCard = () => {
@@ -24,7 +27,10 @@ const OrderRequestCard = () => {
             </div>
             <div className="flex justify-between mx-10 mt-5">
                 <div>
-                    <Button btnName="Find Suupliers"/>
+                    <Link to="/moderator/supplierList" className="flex-initial px-3 py-2 font-bold text-white rounded-md shadow-inner focus:outline-none focus:outline-non hover:bg-secondarygreen bg-lightgreen">
+                        {/* <Button btnName="Find Suupliers"/> */}
+                        Find Suupliers
+                    </Link>
                 </div>
                 <div className="flex gap-x-5">
                     <Button btnName="Accept"/>
