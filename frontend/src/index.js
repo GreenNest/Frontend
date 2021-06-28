@@ -18,16 +18,16 @@ import Updatestock from './pages/admin/Stock/Updatestock';
 import Reports from './pages/admin/reports/Reports'
 import ViewSupplier from './pages/admin/supplier/ViewSupplier';
 import ViewEmployee from './pages/admin/employee/ViewEmployee';
-
+import OrderRequest from './pages/moderator/orderRequest/OrderRequest';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-    <Header/>
+    <Router> 
+      <Header/>
       <App/>
-    <Footer/>
-    </Router>  
+      <Footer/>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
