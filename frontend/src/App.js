@@ -17,13 +17,15 @@ import Dashboard from './pages/accountant/dashboard/Dashboard';
 import Upcomingorders from './pages/moderator/orders/Upcomingorders';
 import Cashondelivery from './pages/moderator/orders/Cashondelivery';
 import SupplierList from './pages/moderator/orderRequest/SupplierList';
+import OrderRequest from './pages/moderator/orderRequest/OrderRequest';
 
 
 function App() {
   return (
     <>
     <Switch>
-    <Route exact path="/" component={Index}/>
+    {/* <Route exact path="/" component={Index}/> */}
+    <Route exact path="/" component={OrderRequest}/>
     <Route exact path="/shop" component={Shop}/>
     <Route exact path="/login" component={Login}/>
     <Route exact path="/shop/product" component={Product}/>
