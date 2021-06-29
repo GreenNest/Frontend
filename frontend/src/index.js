@@ -20,15 +20,14 @@ import ViewSupplier from './pages/admin/supplier/ViewSupplier';
 import ViewEmployee from './pages/admin/employee/ViewEmployee';
 import OrderRequest from './pages/moderator/orderRequest/OrderRequest';
 import SupplierList from './pages/moderator/orderRequest/SupplierList';
-
+import DeliveryPerson from './pages/moderator/deliveryPerson/DeliveryPerson';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router> 
-      {/* <Header/>
+      <Header/>
       <App/>
-      <Footer/> */}
-      <App/>
+      <Footer/>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
