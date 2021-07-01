@@ -15,9 +15,11 @@ import EditStock from './pages/admin/edit-stock/EditStock';
 import Dashboard from './pages/accountant/dashboard/Dashboard';
 //import Categoryadminview from './pages/accountant/categoryadminview/Categoryadminview';
 import Upcomingorders from './pages/moderator/orders/Upcomingorders';
-import Cashondelivery from './pages/moderator/orders/Cashondelivery';
+import Ongoingorders from './pages/moderator/orders/Ongoingorders';
+import Systemorders from './pages/moderator/orders/Systemorders';
 import SupplierList from './pages/moderator/orderRequest/SupplierList';
 import OrderRequest from './pages/moderator/orderRequest/OrderRequest';
+
 
 
 function App() {
@@ -36,7 +38,10 @@ function App() {
     <Route exact path="/admin/categoryview/itemview"  component={Itemadminview} />
     <Route exact path="/signup" component={Signup} />
     <Route exact path="/moderator/upcomingorders" component={Upcomingorders}/>
+    <Route exact path="/moderator/ongoingorders" component={Ongoingorders}/>
+    <Route exact path="/moderator/systemorders" component={Systemorders}/>
     <Route exact path="/moderator/supplierList" component={SupplierList} />
+
     </Switch>
     </>
   );
