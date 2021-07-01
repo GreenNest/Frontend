@@ -13,8 +13,8 @@ import Itemadminview from './pages/admin/itemadminview/Itemadminview';
 import AddStock from './pages/admin/add-stock/AddStock';
 import EditStock from './pages/admin/edit-stock/EditStock';
 import Upcomingorders from './pages/moderator/orders/Upcomingorders';
-import Cashondelivery from './pages/moderator/orders/Cashondelivery';
-
+import Ongoingorders from './pages/moderator/orders/Ongoingorders';
+import Systemorders from './pages/moderator/orders/Systemorders';
 
 function App() {
   return (
@@ -31,6 +31,8 @@ function App() {
     <Route exact path="/admin/categoryview/itemview"  component={Itemadminview} />
     <Route exact path="/signup" component={Signup} />
     <Route exact path="/moderator/upcomingorders" component={Upcomingorders}/>
+    <Route exact path="/moderator/ongoingorders" component={Ongoingorders}/>
+    <Route exact path="/moderator/systemorders" component={Systemorders}/>
 
     </Switch>
     </>
