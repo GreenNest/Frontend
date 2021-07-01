@@ -2,7 +2,7 @@ import React from 'react';
 import './styles/index.css';
 import {BrowserRouter as Router , Route , Switch} from "react-router-dom";
 import Orderhistory from './pages/customer/Orderhistory';
-import Index from './pages/customer/index';
+import Index from './pages/customer/Index';
 import Order from './pages/customer/customerorder/Order';
 import Shop from './pages/customer/Shop/Shop';
 import Login from './pages/customer/Login';
@@ -12,15 +12,22 @@ import Categoryadminview from './pages/admin/categoryadminview/Categoryadminview
 import Itemadminview from './pages/admin/itemadminview/Itemadminview';
 import AddStock from './pages/admin/add-stock/AddStock';
 import EditStock from './pages/admin/edit-stock/EditStock';
+import Dashboard from './pages/accountant/dashboard/Dashboard';
+//import Categoryadminview from './pages/accountant/categoryadminview/Categoryadminview';
 import Upcomingorders from './pages/moderator/orders/Upcomingorders';
 import Ongoingorders from './pages/moderator/orders/Ongoingorders';
 import Systemorders from './pages/moderator/orders/Systemorders';
+import SupplierList from './pages/moderator/orderRequest/SupplierList';
+import OrderRequest from './pages/moderator/orderRequest/OrderRequest';
+
+
 
 function App() {
   return (
     <>
     <Switch>
     <Route exact path="/" component={Index}/>
+    {/* <Route exact path="/" component={OrderRequest}/> */}
     <Route exact path="/shop" component={Shop}/>
     <Route exact path="/login" component={Login}/>
     <Route exact path="/shop/product" component={Product}/>
@@ -33,6 +40,7 @@ function App() {
     <Route exact path="/moderator/upcomingorders" component={Upcomingorders}/>
     <Route exact path="/moderator/ongoingorders" component={Ongoingorders}/>
     <Route exact path="/moderator/systemorders" component={Systemorders}/>
+    <Route exact path="/moderator/supplierList" component={SupplierList} />
 
     </Switch>
     </>
