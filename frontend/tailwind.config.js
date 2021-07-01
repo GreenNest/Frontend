@@ -20,6 +20,9 @@ module.exports = {
     fontSize:{
       '50': '50px',
       '20':'20px',
+      '30':'30px',
+      '6' : '3vw',
+      '2': '2vw',
     },
     zIndex: {
       '200': '200',
@@ -40,6 +43,7 @@ module.exports = {
          'feature': 'repeat(4, minmax(0, 1fr))',
          'sidebar-colums': '0.8fr 3fr',
          'sidebar-rows': 'auto',
+         'dashboard': '40% 40%'
     },
     
     },
