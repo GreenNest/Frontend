@@ -16,7 +16,7 @@ const Updatestock =() => {
     ])
     
         return (
-            <div class="relative p-3 ml-36 z-50 mt-20 mb-20 w-10/12 bg-white shadow-card ">
+            <div class="relative p-3 ml-36 z-50 mt-20 mb-20 w-10/12 bg-white shadow-xl ">
                 <div class="flex items-center mt-4">
                     <button class="px-14 py-4 font-bold text-white text-xl bg-blue-800 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline" type="submit">
                        Add 

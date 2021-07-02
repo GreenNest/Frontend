@@ -20,7 +20,7 @@ const InvoiceHistory = ()=>{
 
 
     return (
-        <div class="justify-center p-3 ml-40 z-50 mt-20 mb-20 w-2/4 bg-white shadow-card ">
+        <div class="justify-center p-3 ml-40 z-50 mt-20 mb-20 w-2/4 bg-white shadow-xl">
 
             <h1 class="text-4xl text-center mt-6 font-bold font-sans"> Invoice History </h1>
 
