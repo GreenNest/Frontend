@@ -33,8 +33,8 @@ ReactDOM.render(
   <React.StrictMode>
     <Router> 
       <Header/>
-      <App/>
-      
+      {/* <App/> */}
+      <InvoiceHistory/>
       <Footer/>
 
     </Router>
