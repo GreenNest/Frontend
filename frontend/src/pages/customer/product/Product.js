@@ -34,8 +34,8 @@ const Product = () => {
                         <form className="flex mt-5 justify-items-start">
                             <div>
                                 <input type="number" className="w-10 h-10 text-2xl text-center border rounded" value="1"/>
-                            </div>
-                            <Link to="" className="h-auto px-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4">ADD TO CART</Link>
+                            </div> 
+                            <Link to="" className="h-auto sm:ml-2 lg:ml-4 px-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen text-center">ADD TO CART</Link>
                             <Link to="" className="h-auto px-2 font-bold text-white rounded bg-redcolor sm:ml-2 lg:ml-4">BUY NOW</Link>
                             <button type="button" className="h-auto px-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none" onClick={() => setShowRequestPopup(true)}>REQUEST ORDER</button>
                         </form>

@@ -6,11 +6,11 @@ import playstore from '../assets/playstore.svg';
 
 function Footer() {
     return (
-        <footer class="bg-maingreen h-auto pt-6 pl-6 pr-6 flex justify-center items-center flex-col w-full">
+        <footer class="bg-maingreen h-64 pt-6 pl-6 pr-6 flex justify-center items-center flex-col w-full">
             <div class="grid grid-cols-footer gap-x-3 w-full justify-center">
                 <div class="flex flex-col ">
                    <div class="text-lg font-bold text-mainyellow">Green Nest</div>
-                   <div class=" text-mainyellow text-sm ">NO 22, Uyandana, Kurunegala</div>
+                   <div class="text-mainyellow text-sm pt-2">NO 22, Uyandana, Kurunegala</div>
                    <div class="text-sm  text-mainyellow ">+94 776544342</div>
                    <div class="text-sm  text-mainyellow ">greennest@gmailcom</div>
                 </div>
@@ -23,8 +23,8 @@ function Footer() {
                 </div>
                 <div class="flex flex-col ">
                    <div class="text-lg font-bold text-mainyellow">The GreenNest App</div>
-                   <div class="text-sm  text-mainyellow ">order your favourite with your mobile</div>
-                   <img src={playstore} alt="" class="w-10 max-h-6"/>
+                   <div class="text-sm  text-mainyellow ">Order your favourite with your mobile</div>
+                   <img src={playstore} alt="" class="w-10 max-h-6 mt-4"/>
                 </div>
                  <div class="flex flex-col">
                    <div class="text-lg font-bold text-mainyellow">Follow Us</div>
@@ -35,7 +35,7 @@ function Footer() {
                    
                 </div>
             </div>
-            <div class="text-xs mt-4">Copyright @2021. All Rights Reserved.</div>
+            <div class="text-xs mt-4 mb-0">Copyright @2021. All Rights Reserved.</div>
         </footer>
     )
 }
