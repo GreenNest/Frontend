@@ -7,7 +7,7 @@ const Productlist = () => {
     const listitems = product_card.map((item) =>
           <div className="w-1/4 h-64 flex justify-center items-center flex-col relative mb-36 ml-12 mt-6 pb-20 bg-gray-50 transition-all duration-75 ease-in-out transform scale-100 shadow-xl hover:bg-secondarygreen hover:scale-110 hover:cursor-pointer" key={item.id}>             
               <div className="mt-10">
-                  <img className="w-44 h-44" src={item.thumb} />
+                  <img className="w-44 h-44" src={item.thumb} alt="not found" />
               </div>
               <div className="flex justify-center items-center flex-col m-8 text-green-800">
                   <h2 className="text-xl font-semibold">{item.product_name}</h2>

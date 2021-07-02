@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import BarChart from './components/BarChart';
+import LineChart from './components/LineChart';
 
 import sales_report from '../../../assets/reports/sales_reports.jpg';
 
 class Reports extends Component {
     render() {
         return (
-            <div class="relative p-3 ml-36 z-50 mt-20 mb-20 w-10/12 bg-white shadow-card ">
+            <div class="relative p-3 ml-36 z-50 mt-20 mb-20 w-10/12 bg-white shadow-xl">
                 
                 <div class="flex flex-wrap -mx-3 mb-2">
                     <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
@@ -67,7 +69,8 @@ class Reports extends Component {
                 
 
 
-                    <img className="w-3/4 mt-20 ml-36" src={sales_report} alt="dummy image"/>
+                <div class="w-full h-full p-7 rounded-md shadow-lg border-solid border-2"><BarChart/></div>
+
 
             </div>
             
