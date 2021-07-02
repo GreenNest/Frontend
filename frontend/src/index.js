@@ -28,12 +28,13 @@ import ViewEmployee from './pages/admin/employee/ViewEmployee';
 import OrderRequest from './pages/moderator/orderRequest/OrderRequest';
 import SupplierList from './pages/moderator/orderRequest/SupplierList';
 import DeliveryPerson from './pages/moderator/deliveryPerson/DeliveryPerson';
-
+import InvoiceHistory from './pages/accountant/InvoiceHistory';
 ReactDOM.render(
   <React.StrictMode>
     <Router> 
       <Header/>
       <App/>
+      
       <Footer/>
 
     </Router>
