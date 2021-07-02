@@ -46,7 +46,7 @@ const InvoiceHistory = ()=>{
                         </button>
 
                         <button>
-                        <h3 class="px-3 py-1 ml-5 font-bold text-mainyellow bg-gray-600 rounded hover:bg-gray-400 focus:outline-none focus:shadow-outline">{order.delete}</h3>
+                        <h3 class="px-3 py-1 ml-5 font-bold text-mainyellow bg-gray-800 rounded hover:bg-gray-600 focus:outline-none focus:shadow-outline">{order.delete}</h3>
                         </button>
 
 

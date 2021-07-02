@@ -34,7 +34,6 @@ ReactDOM.render(
     <Router> 
       <Header/>
       <App/>
-      
       <Footer/>
 
     </Router>
