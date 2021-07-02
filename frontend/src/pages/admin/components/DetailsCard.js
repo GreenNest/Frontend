@@ -10,7 +10,7 @@ import CategoryLabel from './CategoryLabel';
 
 const DetailsCard = (props) => {
     return (
-        <div className="w-auto p-3 border-2 border-gray-500 border-opacity-25 rounded-lg shadow-xl">
+        <div className="w-auto p-5 border-2 border-gray-500 border-opacity-25 rounded-lg shadow-xl">
             <div className="flex justify-end space-x-3">
             <ButtonIcon variant="border" size="small" icon={<FontAwesomeIcon icon={faPencilAlt} />} />
             <ButtonIcon variant="border" size="small" icon={<FontAwesomeIcon icon={faTrashAlt} />} />
@@ -23,7 +23,7 @@ const DetailsCard = (props) => {
             </div>
             
             {props.supplier ? (
-                <div className="flex justify-around mt-2 space-x-3">
+                <div className="flex justify-around mt-5 space-x-3">
                 <CategoryLabel categoryName="Fruit Plants" />
                 <CategoryLabel categoryName="Indoor Plants" />
                 <CategoryLabel categoryName="Outdoor Plants" />

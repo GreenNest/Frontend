@@ -32,10 +32,10 @@ import InvoiceHistory from './pages/accountant/InvoiceHistory'
 ReactDOM.render(
   <React.StrictMode>
     <Router> 
-      <Header/>
+      {/* <Header/>
       <App/>
-      <Footer/>
-
+      <Footer/> */}
+      <ViewSupplier />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

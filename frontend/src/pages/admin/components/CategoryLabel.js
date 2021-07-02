@@ -1,7 +1,7 @@
 
 const CategoryLabel = (props) => {
     return (
-        <label className="px-1 rounded-md bg-lightgreen">{props.categoryName}</label>
+        <label className="px-1 border border-black rounded-md">{props.categoryName}</label>
     );
 }
 
