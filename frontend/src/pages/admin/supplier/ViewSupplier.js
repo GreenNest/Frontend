@@ -15,7 +15,7 @@ const ViewSupplier = () => {
                     <AddButton btnValue="+ ADD SUPPLIER" viewPopup={() => setShowAddSupplierPopup(true)} />
                     <SearchBtn />
                 </div>
-                <div className="flex flex-row flex-wrap justify-center mt-10 gap-x-10 gap-y-5">
+                <div className="flex flex-row flex-wrap justify-between w-4/5 mx-auto mt-10 gap-y-5">
                     <DetailsCard name="Sulakshanee Theja" address="Thuru Plant Nursery, Kandy" mobile="071-1229957" email="sulakshanee@gmail.com" supplier="true" />
                     <DetailsCard name="Sulakshanee Theja" address="Thuru Plant Nursery, Kandy" mobile="071-1229957" email="sulakshanee@gmail.com" supplier="true" />
                     <DetailsCard name="Sulakshanee Theja" address="Thuru Plant Nursery, Kandy" mobile="071-1229957" email="sulakshanee@gmail.com" supplier="true" />

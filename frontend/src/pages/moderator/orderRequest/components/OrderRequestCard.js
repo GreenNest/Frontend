@@ -38,7 +38,6 @@ const OrderRequestCard = () => {
             </div>
         </div>
     );
-    
 }
 
 export default OrderRequestCard;
