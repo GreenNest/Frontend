@@ -50,14 +50,14 @@ const RequestPopup = (props) => {
           {/*footer*/}
           <div className="flex items-center justify-end p-4 border-t border-gray-400 border-solid rounded-b">
             <button 
-              className="px-6 py-2 mb-1 mr-2 text-base font-bold text-red-600 uppercase transition-all duration-150 ease-linear bg-gray-400 rounded shadow outline-none background-transparent hover:bg-gray-500 hover:shadow-lg focus:outline-none"
+              className="px-6 py-2 mb-1 mr-2 text-base font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-redcolor background-transparent hover:shadow-lg focus:outline-none hover:bg-lightred"
               type="button"
               onClick={props.canclePopup}
             >
               Cancel
             </button>
             <button 
-              className="px-6 py-2 mb-1 mr-1 text-base font-bold text-blue-900 uppercase transition-all duration-150 ease-linear bg-gray-400 rounded shadow outline-none hover:shadow-lg focus:outline-none hover:bg-gray-500"
+              className="px-6 py-2 mb-1 mr-1 text-base font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-maingreen hover:shadow-lg focus:outline-none hover:bg-secondarygreen"
               type="button"
               // onClick={() => setShowModal(false)}
             >

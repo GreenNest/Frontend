@@ -64,6 +64,7 @@ module.exports = {
       mainyellow: "#F2E8CF",
       hovercolor: "rgb(0, 0, 0, 0.6)",
       blue: colors.blue,
+      lightred: "#ff3333",
     },
     
   },
