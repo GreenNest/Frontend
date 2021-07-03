@@ -1,6 +1,6 @@
 import Dropdown from "../components/Dropdown";
 
-const AddEmployeePopup = (props) => {
+const AddEmployee = (props) => {
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
             <div className="relative w-auto max-w-3xl mx-auto my-6">
@@ -69,4 +69,4 @@ const AddEmployeePopup = (props) => {
     );
 }
 
-export default AddEmployeePopup;
+export default AddEmployee;
