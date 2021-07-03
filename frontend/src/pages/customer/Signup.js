@@ -68,7 +68,7 @@ class Signup extends Component {
                 <div class="w-2/4 shadow-xl mt-12 items-center flex justify-center"> 
                     <form class="w-full max-w-lg justify-center mb-20" onSubmit={this.handleSubmit}>
 
-                        <h3 class="font-sans text-2xl font-bold text-center mt-4 mb-8">Create your account</h3>
+                        <h3 class="font-sans text-2xl font-bold text-center mt-4 mb-8">Create New Account</h3>
                             <div class="flex flex-wrap -mx-3 mb-6  ">
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                     <label class="block uppercase tracking-wide text-black font-bold mb-4 mt-4">
@@ -135,15 +135,16 @@ class Signup extends Component {
                                     onChange={this.handleconfirmpasswordChange}/>
                                 </div>
 
-
+                                <div class="justify-center items-center w-full">
                                 <div class="md:justify-center mt-3 mb-6 w-1/2">
-                                    <div class="md:w-1/3"></div>
+                                    <div class="md:w-2/3"></div>
                                     <label class="md:w-full block text-black font-bold">
                                         <input class="ml-4 form-checkbox h-3 w-3 leading-tight" type="checkbox" />
                                             <span class="text-sm ml-2">
                                                 I agree the to terms and conditions
                                             </span>
                                         </label>
+                                </div>
                                 </div>
 
                                 <div class="md:flex items-center md:justify-between mt-6 ml-20">
