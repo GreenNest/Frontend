@@ -29,6 +29,14 @@ const AddEmployee = (props) => {
                         </div>
                     </div>
                     <div className="flex flex-wrap mb-6">
+                        <div className="w-full px-3 space-y-2 md:w-1/2">
+                            <label className="block text-xl font-bold tracking-wide text-black" for="grid-password">
+                                NIC
+                            </label>
+                            <input className="block w-full px-4 py-3 leading-tight text-black bg-gray-100 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-400" id="grid-password" type="password" placeholder="" />
+                        </div>
+                    </div>
+                    <div className="flex flex-wrap mb-6">
                         <div className="w-full px-3 mb-6 space-y-2 md:mb-0 md:w-1/2">
                             <label className="block text-xl font-bold tracking-wide text-black" for="grid-first-name">
                                 Email
