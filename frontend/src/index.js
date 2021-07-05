@@ -26,6 +26,7 @@ import SupplierList from './pages/moderator/orderRequest/SupplierList';
 import DeliveryPerson from './pages/moderator/deliveryPerson/DeliveryPerson';
 import InvoiceHistory from './pages/accountant/InvoiceHistory';
 import AddEmployee from './pages/admin/employee/AddEmployee';
+import AddSupplier from './pages/admin/supplier/AddSupplier';
 
 ReactDOM.render(
   <React.StrictMode>
