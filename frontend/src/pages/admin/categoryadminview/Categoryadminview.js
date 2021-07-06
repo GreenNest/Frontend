@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Categoryadminview = () =>{
 
     const categories= Categorydata.map((category)=>
-            <div className="w-1/4 h-64 flex justify-center items-center flex-col relative mb-20 mx-8 mt-6  bg-gray-50 transition-all duration-75 ease-in-out transform scale-100 shadow hover:scale-110 hover:cursor-pointer hover:shadow-xl hover:opacity-50 " key={category.id}>                        
+            <div className="w-1/4 h-64 flex justify-center items-center flex-col relative mb-20 mx-8 mt-6  bg-gray-50 transition-all duration-75 ease-in-out transform scale-100 shadow hover:scale-110 hover:cursor-pointer hover:shadow-xl " key={category.id}>                        
                 <div className="w-full bg-blue-100 h-48 text-2xl font-semibold"><h2 className="m-12">{category.categoryname}</h2></div>
                 <div className=" w-full h-16"><h3 className="m-4 text-green-500 font-base">Items :{category.items}</h3></div>
             </div>

@@ -6,7 +6,7 @@ const product_card =[
     {
         id:1,
         product_name:"schefflera Nora ",
-        description:"Planted from	Seed",
+        description:"2 in Stock",
         price:350,
         currency: "LKR",
         reorderlevel:10,
@@ -16,7 +16,7 @@ const product_card =[
     {
         id:2,
         product_name:"schefflera Nora",
-        description:"Planted from	Seed",
+        description:"2 in Stock",
         price:250,
         currency:"LKR",
         reorderlevel:10,
@@ -26,7 +26,7 @@ const product_card =[
     {
         id:3,
         product_name:"schefflera Nora",
-        description:"Planted from	Seed",
+        description:"2 in Stock",
         price:450,
         currency:"LKR",
         reorderlevel:10,
@@ -36,7 +36,7 @@ const product_card =[
     {
         id:4,
         product_name:"schefflera Nora",
-        description:"Planted from Seed",
+        description:"2 in Stock",
         price:350,
         currency:"LKR",
         reorderlevel:10,
@@ -46,7 +46,7 @@ const product_card =[
     {
         id:5,
         product_name:"schefflera Nora",
-        description:"Planted from	Seed",
+        description:"2 in Stock",
         price:250,
         currency:"LKR",
         reorderlevel:10,
@@ -56,7 +56,7 @@ const product_card =[
     {
         id:6,
         product_name:"schefflera Nora",
-        description:"Planted from	Seed",
+        description:"2 in Stock",
         price:450,
         currency:"LKR",
         reorderlevel:10,
@@ -66,7 +66,7 @@ const product_card =[
     {
         id:7,
         product_name:"schefflera Nora",
-        description:"Planted from	Seed",
+        description:"2 in Stock",
         price:350,
         currency: "LKR",
         reorderlevel:10,
@@ -76,7 +76,7 @@ const product_card =[
     {
         id:8,
         product_name:"schefflera Nora",
-        description:"Planted from	Seed",
+        description:"2 in Stock",
         price:250,
         currency:"LKR",
         reorderlevel:10,
@@ -86,7 +86,7 @@ const product_card =[
     {
         id:9,
         product_name:"schefflera Nora",
-        description:"Planted from	Seed",
+        description:"2 in Stock",
         price:450,
         currency:"LKR",
         reorderlevel:10,
@@ -96,7 +96,7 @@ const product_card =[
     {
         id:10,
         product_name:"schefflera Nora",
-        description:"Planted from Seed",
+        description:"2 in Stock",
         price:350,
         currency:"LKR",
         reorderlevel:10,
@@ -106,7 +106,7 @@ const product_card =[
     {
         id:11,
         product_name:"schefflera Nora",
-        description:"Planted from	Seed",
+        description:"2 in Stock",
         price:250,
         currency:"LKR",
         reorderlevel:10,
@@ -116,7 +116,7 @@ const product_card =[
     {
         id:12,
         product_name:"schefflera Nora",
-        description:"Planted from	Seed",
+        description:"2 in Stock",
         price:450,
         currency:"LKR",
         reorderlevel:10,
