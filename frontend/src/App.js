@@ -5,6 +5,7 @@ import Orderhistory from './pages/customer/Orderhistory';
 import Index from './pages/customer/Index';
 import Order from './pages/customer/customerorder/Order';
 import Shop from './pages/customer/Shop/Shop';
+import Cart from './pages/customer/cart/Cart';
 import Login from './pages/customer/Login';
 import Signup from './pages/customer/Signup';
 import Product from './pages/customer/product/Product';
@@ -32,6 +33,7 @@ function App() {
     <Route exact path="/" component={Index}/>
     {/* <Route exact path="/" component={ViewEmployee}/> */}
     <Route exact path="/shop" component={Shop}/>
+    <Route exact path="/cart" component={Cart}/>
     <Route exact path="/login" component={Login}/>
     <Route exact path="/shop/product" component={Product}/>
     <Route exact path="/profile/order/review" component={Order}/>
