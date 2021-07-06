@@ -3,9 +3,9 @@ import React from 'react'
 function Description() {
     return (
         <div class="h-auto flex p-5 flex-col justify-center items-center">
-            <div class="text-50 font-ArchitectsDaughter font-bold">Green Nest</div>
+            <div class="xxsm:text-50 font-ArchitectsDaughter font-bold text-30">Green Nest</div>
             <hr class="w-1/4 h-border border-b-8 border-redcolor border-solid rounded-md"></hr>
-            <div class="text-lightgreen text-20 p-4 font-bold tracking-wider">Excellent Planting Service</div>
+            <div class="text-lightgreen text-20 p-4 font-bold tracking-wider text-center">Excellent Planting Service</div>
             <div class="mt-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
             <div>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</div>
             <div>when an unknown printer took a galley of type and scrambled it to make a type specimen book. </div>

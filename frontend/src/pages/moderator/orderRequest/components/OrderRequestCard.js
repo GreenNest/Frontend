@@ -1,3 +1,6 @@
+import React from 'react';
+import { Link } from "react-router-dom";
+
 import Button from "./Button";
 
 const OrderRequestCard = () => {
@@ -6,15 +9,15 @@ const OrderRequestCard = () => {
             <div className="flex">
                 <div className="w-1/3">
                     <div className="grid grid-cols-2">
-                        <p>Product Category -: </p>
+                        <p className="text-base font-medium">Product Category -: </p>
                         <p>Fruits</p>
                     </div>
                     <div className="grid grid-cols-2">
-                        <p>Item Name -: </p>
+                        <p className="text-base font-medium">Item Name -: </p>
                         <p>Mango Plant</p>
                     </div>
                     <div className="grid grid-cols-2">
-                        <p>Quantity Requested -: </p>
+                        <p className="text-base font-medium">Quantity Requested -: </p>
                         <p>15</p>
                     </div>
                 </div>
@@ -24,11 +27,13 @@ const OrderRequestCard = () => {
             </div>
             <div className="flex justify-between mx-10 mt-5">
                 <div>
-                    <Button btnName="Find Suupliers"/>
+                    <Link to="/moderator/supplierList">
+                        <button className="flex-initial px-3 py-2 font-bold text-white rounded-md shadow-inner focus:outline-none focus:outline-non hover:bg-secondarygreen bg-lightgreen">Find Suupliers</button>
+                    </Link>
                 </div>
-                <div className="flex gap-x-5">
-                    <Button btnName="Accept"/>
-                    <Button btnName="Decline"/>
+                <div className="flex gap-x-5 ">
+                    <Button btnName="Accept" color="#2B65EC"/>
+                    <Button btnName="Decline" color="#F70D1A"/>
                 </div>
             </div>
         </div>

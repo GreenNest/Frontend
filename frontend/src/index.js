@@ -13,20 +13,30 @@ import Login from './pages/customer/Login';
 import Signup from './pages/customer/Signup';
 import RequestPopup from './pages/customer/product/RequestPopup';
 import Edit_profile from './pages/customer/Edit_profile';
-import {BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Updatestock from './pages/admin/Stock/Updatestock';
 import Reports from './pages/admin/reports/Reports'
 import ViewSupplier from './pages/admin/supplier/ViewSupplier';
+import CashonDelivery from './pages/accountant/CashonDelivery';
+import StatusPopup from './pages/accountant/StatusPopup';
 import ViewEmployee from './pages/admin/employee/ViewEmployee';
 import OrderRequest from './pages/moderator/orderRequest/OrderRequest';
-
+import SupplierList from './pages/moderator/orderRequest/SupplierList';
+import DeliveryPerson from './pages/moderator/deliveryPerson/DeliveryPerson';
+import InvoiceHistory from './pages/accountant/InvoiceHistory';
+import Upcomingorders from './pages/moderator/orders/Upcomingorders';
+import Ongoingorders from './pages/moderator/orders/Ongoingorders';
+import Dashboard from './pages/accountant/dashboard/Dashboard';
+import EditStock from './pages/admin/edit-stock/EditStock';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router> 
-      {/* <Header/> */}
-      <App/>
-      {/* <Footer/> */}
+      <Header/> 
+       <App/>
+      <Footer/>
+   
+
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

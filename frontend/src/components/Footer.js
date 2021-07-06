@@ -6,27 +6,27 @@ import playstore from '../assets/playstore.svg';
 
 function Footer() {
     return (
-        <footer class="bg-maingreen h-64 pt-6 pl-6 pr-6 flex justify-center items-center flex-col w-full">
-            <div class="grid grid-cols-footer gap-x-3 w-full justify-center">
-                <div class="flex flex-col ">
+        <footer class="bg-maingreen sm:h-64 auto pt-6 pl-4 pr-4 flex justify-center items-center flex-col w-full">
+            <div class="grid sm:grid-cols-footer gap-x-3 w-full justify-center grid-cols-2">
+                <div class="flex flex-col sm:ml-0 ml-8 mb-10">
                    <div class="text-lg font-bold text-mainyellow">Green Nest</div>
                    <div class="text-mainyellow text-sm pt-2">NO 22, Uyandana, Kurunegala</div>
                    <div class="text-sm  text-mainyellow ">+94 776544342</div>
                    <div class="text-sm  text-mainyellow ">greennest@gmailcom</div>
                 </div>
-                <div class="flex flex-col ">
+                <div class="flex flex-col sm:ml-0 ml-8 mb-10">
                    <div class="text-lg font-bold text-mainyellow">Support</div>
                    <div class="text-sm  text-mainyellow ">Contact</div>
                    <div class="text-sm  text-mainyellow ">FAQs</div>
                    <div class="text-sm  text-mainyellow ">Terms</div>
                    <div class="text-sm  text-mainyellow ">Privacy</div>
                 </div>
-                <div class="flex flex-col ">
+                <div class="flex flex-col sm:ml-0 ml-8 mb-10">
                    <div class="text-lg font-bold text-mainyellow">The GreenNest App</div>
                    <div class="text-sm  text-mainyellow ">Order your favourite with your mobile</div>
                    <img src={playstore} alt="" class="w-10 max-h-6 mt-4"/>
                 </div>
-                 <div class="flex flex-col">
+                 <div class="flex flex-col sm:ml-0 ml-8 mb-10">
                    <div class="text-lg font-bold text-mainyellow">Follow Us</div>
                    <div class="flex flex-row mt-3">
                        <img src={facebook} alt="" class="w-4 max-h-4 mr-3"/>
