@@ -29,17 +29,16 @@ class Login extends Component {
     handleSubmit = (event)=>{
         
     }
-//p-25 w-2/4 items-center mt-20 ml-40 mr-60 shadow-inner
     render() {
         return (
-            <div class=" mt-10 flex justify-center w-full container">
-            
-            
-            <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-8 w-1/3 mt-10' 
+            <div class="flex justify-center items-center w-full ">
+            <div class=" flex justify-center items-center w-1/4 mt-20 mb-16 shadow-xl">
+                
+                
+            <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8  w-full' 
             onSubmit={this.handleSubmit}>
-
-                <h1 class="font-sans text-4xl font-bold text-center">Login</h1>
-                <div class='mt-6 mb-4'>
+                <p class="text-3xl mb-5 text-center font-bold"> Login </p>
+                <div class='mb-4'>
                     <label class='block mb-2 text-md font-bold text-gray-700'>
                         Email
                     </label>
@@ -66,22 +65,24 @@ class Login extends Component {
                 </div>
 
                 <div class="flex items-center justify-center mt-4">
-                    <button class="px-4 py-2 font-bold text-mainyellow bg-maingreen rounded hover:bg-secondarygreen focus:outline-none focus:shadow-outline" type="submit">
+                    <button class="px-5 py-2 font-bold text-mainyellow bg-maingreen rounded hover:bg-secondarygreen focus:outline-none focus:shadow-outline" type="submit">
                         Sign In
                     </button>
                     
                 </div>
                 
 
-                <div class>
+                <div class="mt-4">
                 {/* <a class="inline-block text-md font-bold text-black align-baseline hover:text-green-1000" href="#"> */}
                     If you don't have an account? 
                     {/* </a> */}
-                    <Link class="inline-block text-md font-bold text-black align-baseline hover:text-green-1000" to="/signup">Sign Up</Link>
+                    <Link class="ml-1 inline-block text-md font-bold text-black align-baseline hover:text-green-1000" to="/signup"> Sign Up</Link>
                  </div> 
             </form>
             </div>
-        //  </div>
+            </div>
+            
+            
 
         );
     }

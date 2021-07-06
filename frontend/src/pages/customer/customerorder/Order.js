@@ -4,7 +4,7 @@ import Complaintmodel from './Complaintmodel';
 import Ratemodel from './Ratemodel';
 
  const Order = () => {
-    const[order, setOrders]= useState(
+    const[order]= useState(
         [
             {Item:"orcid", price:200, Qty:3, subtotal:600, id:1 } ,
             {Item:"orcid", price:200, Qty:3, subtotal:600, id:2 } ,
