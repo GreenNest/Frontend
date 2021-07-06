@@ -11,7 +11,7 @@ const Upcomingorders = () => {
         <div>
             <div className="flex justify-end pb-6 mt-12 mr-10 ">
                <div className="bg-gray-200 w-5/6 p-4 mx-4 pb-12">
-                   <h1 className="text-4xl font-bold flex justify-center w-full text-maingreen pt-4">UPCOMIN OREDERS</h1>
+                   <h1 className="text-4xl font-bold flex justify-center w-full text-maingreen pt-4">Upcoming Orders</h1>
                    <div className="flex justify-end w-full mt-8 mr-8 mb-8">
                        <Search className="w-3/4"/>
                    </div>
