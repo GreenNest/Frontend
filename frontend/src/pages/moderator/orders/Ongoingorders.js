@@ -1,5 +1,4 @@
 import React from "react";
-import Filterbtn from "./components/Filterbtn";
 import Search from "./components/Search";
 
 
@@ -9,7 +8,7 @@ const Ongoingorders = () => {
             <div className="flex justify-end pb-6 mt-12 mr-10 ">
                
                <div className="bg-gray-200 w-5/6 p-4 mx-4 pb-12">
-                   <h1 className="text-4xl font-bold flex justify-center w-full text-maingreen pt-4">ONGOIN OREDERS</h1>
+                   <h1 className="text-4xl font-bold flex justify-center w-full text-maingreen pt-4">Ongoing Orders</h1>
                    <div className="block md:flex md:space-x-28 w-full h-16 md:h-20 md:bg-gray-300 mt-8 px-4 py-4">                    
                             <div className="md:flex md:justify-center invisible  lg:visible">
                             <div ><h4 className="flex mx-6 w-20 mt-3 font-bold text-l">Filter By :</h4></div>

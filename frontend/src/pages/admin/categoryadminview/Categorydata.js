@@ -3,33 +3,33 @@ const categorydata=[
     {
         id:1,
         categoryname:"Indoor Plants",
-        items:30
+        items:15
     },
     {
-        id:1,
+        id:2,
         categoryname:"Outdoor Plants",
-        items:30
+        items:20
     },
     {
-        id:1,
+        id:3,
         categoryname:"Fruits",
-        items:30
+        items:10
     },
     {
-        id:1,
+        id:4,
         categoryname:"Seeds",
-        items:30
+        items:50
     },
     {
-        id:1,
-        categoryname:"Seeds",
-        items:30
+        id:5,
+        categoryname:"Bags and Pots",
+        items:30,
     },
     
     {
-        id:1,
-        categoryname:"Uncategories",
-        items:30
+        id:6,
+        categoryname:"Budded Fruit Plants",
+        items:20
     }
 ] ;
  
