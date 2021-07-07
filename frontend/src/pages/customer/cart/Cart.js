@@ -58,13 +58,13 @@ const Cart = () => {
                         <button className="bg-maingreen hover:bg-hovergreen text-white flex font-bold py-2 px-4 rounded">Place Order</button>
                     </Link>
                 </div>
+                
             </div>
-
+            <div className="">
             <Link to="shop">
                 <button className="bg-maingreen hover:bg-hovergreen text-white flex font-bold py-2 px-4 rounded"><MdAssignmentReturn className="mt-1 mr-1"/> Return to Shop</button>
-            </Link>
-
-            
+            </Link> 
+            </div>   
         </div>
     );
 }
