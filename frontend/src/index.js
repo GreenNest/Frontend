@@ -27,13 +27,18 @@ import DeliveryPerson from './pages/moderator/deliveryPerson/DeliveryPerson';
 import InvoiceHistory from './pages/accountant/InvoiceHistory';
 import AddEmployee from './pages/admin/employee/AddEmployee';
 import AddSupplier from './pages/admin/supplier/AddSupplier';
+import LeaveRequest from './pages/LeaveRequest';
+import LeaveStat from './pages/LeaveStat';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router> 
       <Header/>
-      <App/>
-      <Footer/>
+       <App/> 
+      {/* <LeaveRequest/> */}
+      {/* <Footer/> */}
+      {/* <Reports/> */}
+      {/* <LeaveStat/> */}
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
