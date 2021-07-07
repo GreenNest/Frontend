@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import Sidebar from '../../../components/Sidebar';
+// import Sidebar from '../components/Sidebar';
 
 class AddStock extends Component {
     constructor(props) {
@@ -10,8 +10,10 @@ class AddStock extends Component {
 
     render() {
         return (
+            <div>
+            {/* <Sidebar /> */}
             <div className="grid-container">
-            <div class="bg-maingreen"></div>
+            {/* <div class="bg-maingreen"></div> */}
             <div className="main-area">
                <div class="w-full m-16 bg-white rounded-sm border-gray-400 border-solid border">
                   <form class="w-full justify-center p-4 flex flex-col items-center">
@@ -80,6 +82,7 @@ class AddStock extends Component {
                         </div>
                   </form>
                </div>
+            </div>
             </div>
             </div>
         );
