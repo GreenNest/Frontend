@@ -2,7 +2,8 @@ import React from 'react'
 
 function addcategorypopup() {
     return (
-        <div className="absolute bg-white z-50 mt-36 ml-96 p-6 shadow-xl rounded-sm">
+        // <div className="w-11/12 h-full ml-28 bg-black border">
+            <div className="absolute bg-gray-300 z-50 mt-36 ml-20 p-6 shadow-xl rounded-sm">
         <div>
         <form className="w-96 ">
              <h2 className="ml-20 my-6 text-lg">Add Category</h2>
@@ -14,6 +15,7 @@ function addcategorypopup() {
          </form>
         </div>
      </div>
+        // </div>
     )
 }
 
