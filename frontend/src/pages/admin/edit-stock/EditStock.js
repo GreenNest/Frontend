@@ -5,7 +5,7 @@ class EditStock extends Component {
     render() {
         return (
            <div className="grid-container">
-            <div class="bg-maingreen h-screen"></div>
+            {/* <div class="bg-maingreen h-screen"></div> */}
             <div className="main-area">
                <div class="w-full m-16 bg-white rounded-sm border-gray-400 border-solid border">
                   <form class="w-full justify-center p-4 flex flex-col items-center">
@@ -57,7 +57,7 @@ class EditStock extends Component {
                         </div>
                        <div class="grid grid-cols-2 w-full">
                             <div class="flex justify-start items-center p-1 mb-3 w-full">
-                                <label class=" text-lg p-2 w-1/3 ">Preorder Level</label>
+                                <label class=" text-lg p-2 w-1/3 ">Reorder Level</label>
                                 <input class="w-1/2 outline-none text-sm rounded-sm p-2 border-solid border-maingreen border-2"  />
                             </div>
                             <div class="flex justify-start items-center p-1 mb-3 w-full">
