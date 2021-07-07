@@ -8,9 +8,9 @@ const Cart = () => {
     return(
         <div className="min-w-full md:min-w-0 sm:p-20 lg:px-32 mt-0">
             {/* Alert-No added items to display */}
-            <div className="bg-red-100 border border-red-400 text-red-700 px-7 py-3 rounded relative my-5" role="alert">
+            {/* <div className="bg-red-100 border border-red-400 text-red-700 px-7 py-3 rounded relative my-5" role="alert">
                 <span className="block sm:inline">Your cart is empty !</span>
-            </div>
+            </div> */}
 
             {/* <div className="flex grid grid-cols-4 grid-flow-col max-w-7xl justify-center items-center  p-0 rounded-lg mt-2 mb-2 mr-0 ">
                 Item
@@ -35,7 +35,8 @@ const Cart = () => {
             <CartItem />
             <CartItem />
 
-            <div className="w-4/12 m:w-2/12 sm:w-3/12 flex flex-col float-right justify-center items-center bg-gray-100 p-2 rounded-lg shadow-xl border border-blue-500 mb-2">
+            {/* Total amount */}
+            <div className="w-4/12 m:w-2/12 sm:w-3/12 flex flex-col float-right justify-center items-center bg-gray-200 p-2 rounded-lg  mb-2">
                 <div className="flex-auto">
                     <p className="font-bold">Total Amount</p>
                 </div>
@@ -54,13 +55,13 @@ const Cart = () => {
                 </div>
                 <div className="flex-auto mt-4">
                     <Link to="checkout">
-                        <button className="bg-red-500 hover:bg-red-400 text-white flex font-bold py-2 px-4 rounded">Place Order</button>
+                        <button className="bg-maingreen hover:bg-hovergreen text-white flex font-bold py-2 px-4 rounded">Place Order</button>
                     </Link>
                 </div>
             </div>
 
             <Link to="shop">
-                <button className="bg-red-500 hover:bg-red-400 text-white flex font-bold py-2 px-4 rounded"><MdAssignmentReturn className="mt-1 mr-1"/> Return to Shop</button>
+                <button className="bg-maingreen hover:bg-hovergreen text-white flex font-bold py-2 px-4 rounded"><MdAssignmentReturn className="mt-1 mr-1"/> Return to Shop</button>
             </Link>
 
             
