@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './styles/index.css';
+
 import App from './App';
 import Product from './pages/customer/product/Product';
 import Header from './components/Header';
@@ -13,7 +15,6 @@ import Login from './pages/customer/Login';
 import Signup from './pages/customer/Signup';
 import RequestPopup from './pages/customer/product/RequestPopup';
 import Edit_profile from './pages/customer/Edit_profile';
-import { BrowserRouter as Router } from 'react-router-dom';
 import Updatestock from './pages/admin/Stock/Updatestock';
 import Reports from './pages/admin/reports/Reports'
 import ViewSupplier from './pages/admin/supplier/ViewSupplier';
@@ -27,16 +28,16 @@ import InvoiceHistory from './pages/accountant/InvoiceHistory';
 import Upcomingorders from './pages/moderator/orders/Upcomingorders';
 import Ongoingorders from './pages/moderator/orders/Ongoingorders';
 import Dashboard from './pages/accountant/dashboard/Dashboard';
-import EditStock from './pages/admin/edit-stock/EditStock';
+import EditStock from './pages/admin/edit-stock/EditStock'
+import AddEmployee from './pages/admin/employee/AddEmployee';
+import AddSupplier from './pages/admin/supplier/AddSupplier';
+import Categoryadminview from './pages/admin/categoryadminview/Categoryadminview';
+import Itemadminview from './pages/admin/itemadminview/Itemadminview';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router> 
-      <Header/> 
-       <App/>
-      <Footer/>
-   
-
+      <Reports/>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

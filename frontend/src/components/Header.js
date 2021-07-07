@@ -28,9 +28,9 @@ class Header extends Component {
                 <Link to="/shop" class="block p-2 text-maingreen font-bold text-20 text-center lg:mr-10">
                     Shop
                 </Link>
-                <a href="#" class="block p-2 text-maingreen font-bold text-20 text-center lg:mr-10">
+                <Link to="/cart" class="block p-2 text-maingreen font-bold text-20 text-center lg:mr-10">
                     Cart
-                </a>
+                </Link>
                 <Link to="/profile/orders" class="block p-2 text-maingreen font-bold text-20 text-center lg:mr-20">
                     My Orders
                 </Link>

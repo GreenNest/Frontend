@@ -32,10 +32,12 @@ class Login extends Component {
     render() {
         return (
             <div class="flex justify-center items-center w-full ">
-            <div class=" flex justify-center w-1/4 mt-20 mb-16 shadow-card">
+            <div class=" flex justify-center items-center w-1/4 mt-20 mb-16 shadow-xl">
+                
+                
             <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8  w-full' 
             onSubmit={this.handleSubmit}>
-                <p class="text-secondarygreen text-20 text-center font-bold"> Login </p>
+                <p class="text-3xl mb-5 text-center font-bold"> Login </p>
                 <div class='mb-4'>
                     <label class='block mb-2 text-md font-bold text-gray-700'>
                         Email
@@ -63,22 +65,24 @@ class Login extends Component {
                 </div>
 
                 <div class="flex items-center justify-center mt-4">
-                    <button class="px-4 py-2 font-bold text-mainyellow bg-maingreen rounded hover:bg-secondarygreen focus:outline-none focus:shadow-outline" type="submit">
+                    <button class="px-5 py-2 font-bold text-mainyellow bg-maingreen rounded hover:bg-secondarygreen focus:outline-none focus:shadow-outline" type="submit">
                         Sign In
                     </button>
                     
                 </div>
                 
 
-                <div class>
+                <div class="mt-4">
                 {/* <a class="inline-block text-md font-bold text-black align-baseline hover:text-green-1000" href="#"> */}
                     If you don't have an account? 
                     {/* </a> */}
-                    <Link class="inline-block text-md font-bold text-black align-baseline hover:text-green-1000" to="/signup">Sign Up</Link>
+                    <Link class="ml-1 inline-block text-md font-bold text-black align-baseline hover:text-green-1000" to="/signup"> Sign Up</Link>
                  </div> 
             </form>
             </div>
             </div>
+            
+            
 
         );
     }

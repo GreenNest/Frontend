@@ -3,10 +3,10 @@ import Review from './components/Review';
 import RequestPopup from './RequestPopup';
 import Productlist from '../Shop/Productlist';
 import ImageCard from './components/ImageCard';
-import { Link } from "react-router-dom";
+import StarRating from './components/StarRating';
 
-import img1 from '../../../assets/product_img/mango-tree.jpg'
-import mango1 from '../../../assets/product_img/mango1.jpg'
+import img1 from '../../../assets/product_img/mango-tree.jpg';
+import mango1 from '../../../assets/product_img/mango1.jpg';
 
 const Product = () => {
 
@@ -24,7 +24,8 @@ const Product = () => {
                 </div>
                 <div className="lg:ml-10 sm:mt-10 sm:mx-5">
                     <h1 className="font-sans text-4xl font-bold">Red Mango Plant | F701</h1>
-                    <p className="mt-3 text-2xl font-semibold font-moon">Rs. 250.00</p>
+                    <p className="mt-3 text-2xl font-semibold text-red-500 font-moon">350LKR</p>
+                    <StarRating />
                     <div className="mt-10 text-lg font-normal">
                         <p>- FREE Delivery (Kurunagala District only)</p>
                         <p>- Payment Methods : Cash on Delivery / Online Payement</p>
@@ -34,10 +35,10 @@ const Product = () => {
                         <form className="flex mt-5 justify-items-start">
                             <div>
                                 <input type="number" className="w-10 h-10 text-2xl text-center border rounded" value="1"/>
-                            </div> 
-                            <Link to="" className="h-auto sm:ml-2 lg:ml-4 px-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen text-center">ADD TO CART</Link>
-                            <Link to="" className="h-auto px-2 font-bold text-white rounded bg-redcolor sm:ml-2 lg:ml-4">BUY NOW</Link>
-                            <button type="button" className="h-auto px-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none" onClick={() => setShowRequestPopup(true)}>REQUEST ORDER</button>
+                            </div>
+                            <button type="button" className="p-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none">ADD TO CART</button>
+                            <button type="button" className="p-2 font-bold text-white rounded bg-redcolor sm:ml-2 lg:ml-4 focus:outline-none hover:bg-lightred">BUY NOW</button>
+                            <button type="button" className="p-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none" onClick={() => setShowRequestPopup(true)}>REQUEST ORDER</button>
                         </form>
                     </div>
                     <div className="mt-16 border-t-2 border-gray-300">

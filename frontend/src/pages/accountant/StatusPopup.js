@@ -2,7 +2,7 @@ const StatusPopup =(props) => {
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
-          <div className="relative w-auto max-w-3xl mx-auto my-6">
+          <div className="relative w-1/3 max-w-3xl mx-auto my-6">
             {/*content*/}
             <div className="relative flex flex-col w-full px-5 bg-gray-200 border-0 rounded-lg shadow-inner outline-none focus:outline-none">
               {/*header*/}
@@ -13,7 +13,7 @@ const StatusPopup =(props) => {
               {/*body*/}
               <div className="relative flex-auto p-6">
               <label class="inline-flex items-center justify-center mt-3">
-                <input type="checkbox" class="form-checkbox h-8 w-8 text-green-600"  /><span class="ml-6 text-gray-700 text-xl" >Deliverd</span>
+                <input type="checkbox" class="form-checkbox h-8 w-8 text-green-600"  /><span class="ml-6 text-gray-700 text-xl" >Paid</span>
             </label>
 
                 </div>

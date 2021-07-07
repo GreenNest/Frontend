@@ -28,12 +28,12 @@ const OrderRequestCard = () => {
             <div className="flex justify-between mx-10 mt-5">
                 <div>
                     <Link to="/moderator/supplierList">
-                        <button className="flex-initial px-3 py-2 font-bold text-white rounded-md shadow-inner focus:outline-none focus:outline-non hover:bg-secondarygreen bg-lightgreen">Find Suupliers</button>
+                        <button className="flex-initial px-3 py-2 font-bold text-white rounded-md shadow-inner focus:outline-none focus:outline-non hover:bg-lightgreen bg-secondarygreen">Find Suupliers</button>
                     </Link>
                 </div>
                 <div className="flex gap-x-5 ">
-                    <Button btnName="Accept" color="#2B65EC"/>
-                    <Button btnName="Decline" color="#F70D1A"/>
+                    <Button btnName="Accept" bgcolor="#166534"/>
+                    <Button btnName="Decline" bgcolor="#BC4749"/>
                 </div>
             </div>
         </div>

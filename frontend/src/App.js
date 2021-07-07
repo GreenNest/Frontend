@@ -5,6 +5,7 @@ import Orderhistory from './pages/customer/Orderhistory';
 import Index from './pages/customer/Index';
 import Order from './pages/customer/customerorder/Order';
 import Shop from './pages/customer/Shop/Shop';
+import Cart from './pages/customer/cart/Cart';
 import Login from './pages/customer/Login';
 import Signup from './pages/customer/Signup';
 import Product from './pages/customer/product/Product';
@@ -19,7 +20,10 @@ import Ongoingorders from './pages/moderator/orders/Ongoingorders';
 import Systemorders from './pages/moderator/orders/Systemorders';
 import SupplierList from './pages/moderator/orderRequest/SupplierList';
 import OrderRequest from './pages/moderator/orderRequest/OrderRequest';
-
+import ViewSupplier from './pages/admin/supplier/ViewSupplier';
+import AddSupplier from './pages/admin/supplier/AddSupplier';
+import AddEmployee from './pages/admin/employee/AddEmployee';
+import ViewEmployee from './pages/admin/employee/ViewEmployee';
 
 
 function App() {
@@ -27,8 +31,9 @@ function App() {
     <>
     <Switch>
     <Route exact path="/" component={Index}/>
-    {/* <Route exact path="/" component={OrderRequest}/> */}
+    {/* <Route exact path="/" component={ViewEmployee}/> */}
     <Route exact path="/shop" component={Shop}/>
+    <Route exact path="/cart" component={Cart}/>
     <Route exact path="/login" component={Login}/>
     <Route exact path="/shop/product" component={Product}/>
     <Route exact path="/profile/order/review" component={Order}/>
@@ -41,7 +46,8 @@ function App() {
     <Route exact path="/moderator/ongoingorders" component={Ongoingorders}/>
     <Route exact path="/moderator/systemorders" component={Systemorders}/>
     <Route exact path="/moderator/supplierList" component={SupplierList} />
-
+    <Route exact path="/admin/addSupplier" component={AddSupplier} />
+    <Route exact path="/admin/addEmployee" component={AddEmployee} />
     </Switch>
     </>
   );
