@@ -24,6 +24,7 @@ import ViewSupplier from './pages/admin/supplier/ViewSupplier';
 import AddSupplier from './pages/admin/supplier/AddSupplier';
 import AddEmployee from './pages/admin/employee/AddEmployee';
 import ViewEmployee from './pages/admin/employee/ViewEmployee';
+import Checkout from './pages/customer/cart/Checkout';
 
 
 function App() {
@@ -32,8 +33,10 @@ function App() {
     <Switch>
     <Route exact path="/" component={Index}/>
     {/* <Route exact path="/" component={ViewEmployee}/> */}
+    {/* <Route exact path="/" component={OrderRequest}/> */}
     <Route exact path="/shop" component={Shop}/>
     <Route exact path="/cart" component={Cart}/>
+    <Route exact path="/chechout" component={Checkout}/>
     <Route exact path="/login" component={Login}/>
     <Route exact path="/shop/product" component={Product}/>
     <Route exact path="/profile/order/review" component={Order}/>

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import Review from './components/Review';
 import RequestPopup from './RequestPopup';
 import Productlist from '../Shop/Productlist';
@@ -32,13 +34,13 @@ const Product = () => {
                     </div>
                     <div className="mt-16">
                         <p className="text-lg font-semibold text-secondarygreen">30 in stock</p>
-                        <form className="flex mt-5 justify-items-start">
+                        <form className="flex flex-wrap mt-5 justify-items-start">
                             <div>
                                 <input type="number" className="w-10 h-10 text-2xl text-center border rounded" value="1"/>
                             </div>
-                            <button type="button" className="p-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none">ADD TO CART</button>
-                            <button type="button" className="p-2 font-bold text-white rounded bg-redcolor sm:ml-2 lg:ml-4 focus:outline-none hover:bg-lightred">BUY NOW</button>
-                            <button type="button" className="p-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none" onClick={() => setShowRequestPopup(true)}>REQUEST ORDER</button>
+                            <Link to="/cart" type="button" className="p-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none">ADD TO CART</Link>
+                            <Link to="/checkout" type="button" className="p-2 font-bold text-white rounded bg-redcolor sm:ml-2 lg:ml-4 focus:outline-none hover:bg-lightred">BUY NOW</Link>
+                            <div type="button" className="p-2 font-bold text-white rounded cursor-pointer bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none" onClick={() => setShowRequestPopup(true)}>REQUEST ORDER</div>
                         </form>
                     </div>
                     <div className="mt-16 border-t-2 border-gray-300">

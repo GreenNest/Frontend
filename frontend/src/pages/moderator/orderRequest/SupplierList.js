@@ -1,7 +1,7 @@
 
 const SupplierList = () => {
     return (
-        <div className="flex flex-col my-10 lg:mx-32 sm:mx-10">
+        <div className="flex flex-col mx-8 my-10 md:mx-40 sm:mx-10">
             <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                     <div className="mb-10 text-3xl font-bold">Fruit Plants Suppliers</div>
