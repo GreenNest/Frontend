@@ -5,7 +5,7 @@ import item from '../../../assets/product_img/mango-tree.jpg';
 
 const CartItem = () => {
     return(
-        <div className="flex max-w-7xl justify-start items-center bg-gray-100 p-6 rounded-lg mt-2 mb-2 border border-blue-500">
+        <div className="flex max-w-7xl justify-start items-center bg-gray-200 p-6 rounded-lg mt-2 mb-2 ">
             {/* Checkbox */}
             <div className="flex-1 mr-2 ml-5 ">
                 <input type="checkbox" checked className="checked:bg-blue-600 checked:border-transparent w-5 h-5"></input>
@@ -42,7 +42,7 @@ const CartItem = () => {
             </div>
             {/* Remove item  */}
             <div className="flex-1 ml-4 w-6/12 md:w-2/12 lg:w-2/12 mr-0  justify-center">
-                <MdDeleteSweep className="w-7 h-7"/>
+                <MdDeleteSweep className="w-7 h-7 hover:text-red-700"/>
             </div>
         </div>
     );
