@@ -12,8 +12,8 @@ const DetailsCard = (props) => {
     return (
         <div className="w-full p-5 border-2 border-gray-500 border-opacity-25 rounded-lg shadow-xl sm:w-3/4 md:w-5/12">
             <div className="flex justify-end space-x-3">
-            <ButtonIcon variant="border" size="small" icon={<FontAwesomeIcon icon={faPencilAlt} />} />
-            <ButtonIcon variant="border" size="small" icon={<FontAwesomeIcon icon={faTrashAlt} />} />
+            <ButtonIcon className="w-7 h-7" size="mediam" icon={<FontAwesomeIcon icon={faPencilAlt} />} />
+            <ButtonIcon className="w-7 h-7" size="mediam" icon={<FontAwesomeIcon className="hover:text-red-700" icon={faTrashAlt} />} />
             </div>
             <div className="ml-8 font-medium">
                 <p>{props.name}</p>
