@@ -14,8 +14,8 @@ function Onlinedelivery(props) {
               orderid={item.orderid} 
               customername={item.customername} 
               Location={item.Location} 
-              Date={item.Date} 
-              time={item.time}
+              bool="true" 
+              Date={item.Date}
               icon={<FaArrowAltCircleRight/>}
               />
               </div>

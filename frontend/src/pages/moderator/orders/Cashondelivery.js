@@ -15,9 +15,9 @@ function Cashondelivery(props) {
               <Orderbar 
               orderid={item.orderid} 
               customername={item.customername} 
-              Location={item.Location} 
+              Location={item.Location}
+              bool="true" 
               Date={item.Date} 
-              time={item.time} 
               payment="Pending Payment"
               icon={<FaArrowAltCircleRight/>}
               />
