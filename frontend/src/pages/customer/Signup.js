@@ -136,7 +136,7 @@ class Signup extends Component {
                                 </div>
 
                                 <div class="justify-center items-center w-full">
-                                <div class="md:justify-center mt-3 mb-6 w-1/2">
+                                <div class="md:justify-center items-center mt-3 mb-6 w-1/2">
                                     <div class="md:w-2/3"></div>
                                     <label class="md:w-full block text-black font-bold">
                                         <input class="ml-4 form-checkbox h-3 w-3 leading-tight" type="checkbox" />
@@ -147,18 +147,21 @@ class Signup extends Component {
                                 </div>
                                 </div>
 
-                                <div class="md:flex items-center md:justify-between mt-6 ml-20">
+                                
+                                <div className="flex items-center">
+                                    <div class="md:flex items-center md:justify-between mt-6 ml-20">
                                 
                                     
 
-                                    <button class="px-10 py-3  font-bold text-mainyellow bg-red-800 rounded hover:bg-red-400 focus:outline-none focus:shadow-outline" type="submit">
-                                        Cancel
-                                    </button>
+                                            <button class="px-10 py-3  font-bold text-mainyellow bg-red-800 rounded hover:bg-red-400 focus:outline-none focus:shadow-outline" type="submit">
+                                                Cancel
+                                            </button>
 
-                                    <button class="px-10 py-3 ml-20 font-bold text-mainyellow bg-maingreen rounded hover:bg-secondarygreen focus:outline-none focus:shadow-outline" type="submit">
-                                        Sign Up
-                                    </button>
+                                            <button class="px-10 py-3 ml-20 font-bold text-mainyellow bg-maingreen rounded hover:bg-secondarygreen focus:outline-none focus:shadow-outline" type="submit">
+                                                Sign Up
+                                            </button>
                         
+                                    </div>
                                 </div>
 
                                 <div class="mt-4">
