@@ -6,6 +6,7 @@ import Index from './pages/customer/Index';
 import Order from './pages/customer/customerorder/Order';
 import Shop from './pages/customer/Shop/Shop';
 import Cart from './pages/customer/cart/Cart';
+import Checkout from './pages/customer/cart/Checkout';
 import Login from './pages/customer/Login';
 import Signup from './pages/customer/Signup';
 import Product from './pages/customer/product/Product';
@@ -29,14 +30,17 @@ import ViewEmployee from './pages/admin/employee/ViewEmployee';
 import AddEmployee from './pages/admin/employee/AddEmployee';
 
 
+
 function App() {
   return (
     <>
     <Switch>
     <Route exact path="/" component={Index}/>
     {/* <Route exact path="/" component={ViewEmployee}/> */}
+    {/* <Route exact path="/" component={OrderRequest}/> */}
     <Route exact path="/shop" component={Shop}/>
     <Route exact path="/cart" component={Cart}/>
+    <Route exact path="/chechout" component={Checkout}/>
     <Route exact path="/login" component={Login}/>
     <Route exact path="/shop/product" component={Product}/>
     <Route exact path="/profile/order/review" component={Order}/>

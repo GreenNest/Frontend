@@ -10,7 +10,7 @@ const ViewEmployee = () => {
     const [showEmployees,setShowEmployees] = useState(false);
     
     return (
-        <div className="flex flex-col m-12 gap-y-5 md:mx-36">
+        <div className="flex flex-col justify-center m-12 gap-y-5 md:mx-40">
             <div className="flex justify-between">
                 <Link to="/admin/addEmployee">
                     <AddButton btnValue="+ ADD EMPLOYEE" />
@@ -21,11 +21,11 @@ const ViewEmployee = () => {
                 ): null } */}
             </div>
             
-            <div className="flex justify-between w-4/6 mx-auto my-10 gap-x-10">
+            <div className="flex flex-wrap mx-5 sm:justify-center gap-x-5 gap-y-5 md:gap-x-8">
                 <JobTypeBtn jobType="Moderators" />
                 <JobTypeBtn jobType="Accountants" />
-                <JobTypeBtn jobType="Delivery Persons" />
                 <JobTypeBtn jobType="Workers" />
+                <JobTypeBtn jobType="Delivery Persons" />
                 {/* <JobTypeBtn jobType="Moderators" viewEmployees={() => setShowEmployees(true)} />
                 <JobTypeBtn jobType="Accountants" viewEmployees={() => setShowEmployees(true)} />
                 <JobTypeBtn jobType="Delivery Persons" viewEmployees={() => setShowEmployees(true)} />
@@ -33,7 +33,7 @@ const ViewEmployee = () => {
             </div>
             
             {/* { showEmployees ? ( */}
-            <div className="flex flex-col lg:mx-32 sm:mx-10">
+            <div className="flex flex-col mt-5 sm:mx-10">
                 <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                         <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">

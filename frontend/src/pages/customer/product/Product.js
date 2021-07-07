@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import Review from './components/Review';
 import RequestPopup from './RequestPopup';
 import Productlist from '../Shop/Productlist';
@@ -12,9 +14,9 @@ const Product = () => {
 
     const [showRequestPopup,setShowRequestPopup] = useState(false);
     return (
-        <div className="min-w-full md:min-w-0 sm:p-20 lg:px-32">
+        <div className="min-w-full p-10 sm:p-20 md:px-32">
             <div className="shadow-xl md:flex rounded-xl">
-                <div className="lg:w-6/12">
+                <div className="md:w-6/12">
                     <img className="min-w-full" src={mango1} alt="Main Image"/>
                     <div className="flex flex-row flex-wrap justify-center py-3 mt-5 mb-5 border-t-2 border-b-2 border-gray-300 gap-x-8 gap-y-5">
                         <ImageCard img1={img1} />
@@ -22,7 +24,7 @@ const Product = () => {
                         <ImageCard img1={img1} />
                     </div>
                 </div>
-                <div className="lg:ml-10 sm:mt-10 sm:mx-5">
+                <div className="p-4 md:ml-10 sm:mt-10 sm:mx-5">
                     <h1 className="font-sans text-4xl font-bold">Red Mango Plant | F701</h1>
                     <p className="mt-3 text-2xl font-semibold text-red-500 font-moon">350LKR</p>
                     <StarRating />
@@ -32,16 +34,18 @@ const Product = () => {
                     </div>
                     <div className="mt-16">
                         <p className="text-lg font-semibold text-secondarygreen">30 in stock</p>
-                        <form className="flex mt-5 justify-items-start">
-                            <div>
+                        <form className="flex flex-wrap mt-5">
+                            <div className="mr-3">
                                 <input type="number" className="w-10 h-10 text-2xl text-center border rounded" value="1"/>
                             </div>
-                            <button type="button" className="p-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none">ADD TO CART</button>
-                            <button type="button" className="p-2 font-bold text-white rounded bg-redcolor sm:ml-2 lg:ml-4 focus:outline-none hover:bg-lightred">BUY NOW</button>
-                            <button type="button" className="p-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none" onClick={() => setShowRequestPopup(true)}>REQUEST ORDER</button>
+                            <div className="flex mt-5 gap-x-3 sm:mt-0 md:gap-x-0 sm:gap-x-0">
+                                <Link to="/cart" type="button" className="p-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none">ADD TO CART</Link>
+                                <Link to="/checkout" type="button" className="p-2 font-bold text-white rounded bg-redcolor sm:ml-2 lg:ml-4 focus:outline-none hover:bg-lightred">BUY NOW</Link>
+                                <div type="button" className="p-2 font-bold text-white rounded cursor-pointer bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none" onClick={() => setShowRequestPopup(true)}>REQUEST ORDER</div>
+                            </div>
                         </form>
                     </div>
-                    <div className="mt-16 border-t-2 border-gray-300">
+                    <div className="mt-10 border-t-2 border-gray-300 md:mt-16">
                         <div className="mt-3">
                             <span className="font-medium text-md">CATEGORIES: </span>
                             <a>Fruit Plants</a>,
