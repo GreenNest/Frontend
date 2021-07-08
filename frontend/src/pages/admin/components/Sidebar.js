@@ -26,12 +26,12 @@ function Sidebar() {
                             <AiIcons.AiFillCloseCircle className="w-6 h-6 float-right"/>
                         </Link>
                     </li> */}
-                    <img class="h-30 w-30 mr-80 ml-10" width="150" height="150"   src={logo} alt=""/>
+                    <img class="h-30 w-30 mr-80 ml-9" width="150" height="150"   src={logo} alt=""/>
                     {SidebarData.map((item, index) => {
                         return (
-                            <li key={index} className="flex-col p-2 ml-6 -mt-3 flex" >
+                            <li key={index} className="flex-col p-2 ml-3 -mt-3 flex" >
                                 <Link to={item.path}>
-                                    <button className={item.style}>{item.icon}{item.title}</button>
+                                    <button className="hover:bg-maingreen focus:bg-maingreen hover:text-white focus:text-white flex font-bold p-3 rounded w-48">{item.icon}{item.title}</button>
                                 </Link>
                             </li>
                         )
