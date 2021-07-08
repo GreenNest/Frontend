@@ -64,6 +64,7 @@ module.exports = {
       redcolor: "#BC4749",
       secondarygreen: "#6A994E",
       mainyellow: "#F2E8CF",
+      darkyellow: "#eddeb7",
       hovercolor: "rgb(0, 0, 0, 0.6)",
       blue: colors.blue,
       lightred: "#ff3333",
@@ -71,7 +72,9 @@ module.exports = {
     
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['active'],
+    },
   },
   plugins: [],
 }
