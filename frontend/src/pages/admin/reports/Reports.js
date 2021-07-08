@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import BarChart from './components/BarChart';
 import LineChart from './components/LineChart';
+// import Sidebar from '../components/Sidebar';
 
 import sales_report from '../../../assets/reports/sales_reports.jpg';
 
 class Reports extends Component {
     render() {
         return (
-            <div class="relative p-3 ml-36 z-50 mt-20 mb-20 w-10/12 bg-white shadow-xl">
-                
+            <div>
+            {/* <Sidebar /> */}
+            <div class="relative p-2 ml-72 z-50 mt-10 mb-20 w-9/12 bg-white shadow-xl">
                 <div class="flex flex-wrap -mx-3 mb-2">
                     <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
@@ -72,6 +74,7 @@ class Reports extends Component {
                 <div class="w-full h-full p-7 rounded-md shadow-lg border-solid border-2"><BarChart/></div>
 
 
+            </div>
             </div>
             
         );

@@ -12,7 +12,7 @@ const categorydata=[
     },
     {
         id:3,
-        categoryname:"Fruits",
+        categoryname:"Fruit Plants",
         items:10
     },
     {

@@ -7,6 +7,7 @@ import App from './App';
 import Product from './pages/customer/product/Product';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Sidebar from './pages/admin/components/Sidebar';
 import Description from './pages/customer/home/components/Description';
 import Featured from './pages/customer/home/components/Featured';
 import SlideContainer from './pages/customer/home/components/slideContainer';
@@ -15,8 +16,6 @@ import Login from './pages/customer/Login';
 import Signup from './pages/customer/Signup';
 import RequestPopup from './pages/customer/product/RequestPopup';
 import Edit_profile from './pages/customer/Edit_profile';
-import Updatestock from './pages/admin/Stock/Updatestock';
-import Reports from './pages/admin/reports/Reports'
 import ViewSupplier from './pages/admin/supplier/ViewSupplier';
 import CashonDelivery from './pages/accountant/CashonDelivery';
 import StatusPopup from './pages/accountant/StatusPopup';
@@ -35,16 +34,18 @@ import Categoryadminview from './pages/admin/categoryadminview/Categoryadminview
 import Itemadminview from './pages/admin/itemadminview/Itemadminview';
 import LeaveRequest from './pages/LeaveRequest';
 import LeaveStat from './pages/LeaveStat';
+import Reports from './pages/admin/reports/Reports';
+import AddStock from './pages/admin/add-stock/AddStock';
+import EditStock from './pages/admin/edit-stock/EditStock';
+import Updatestock from './pages/admin/Stock/Updatestock';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router> 
       <Header/>
+      {/* <Sidebar /> */}
        <App/> 
-      {/* <LeaveRequest/> */}
-      {/* <Footer/> */}
-      {/* <Reports/> */}
-      {/* <LeaveStat/> */}
+      <Footer/>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
