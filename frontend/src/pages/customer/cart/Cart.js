@@ -60,7 +60,7 @@ const Cart = () => {
                 </div>
                 
             </div>
-            <div className="">
+            <div className="w-44">
             <Link to="shop">
                 <button className="bg-maingreen hover:bg-hovergreen text-white flex font-bold py-2 px-4 rounded"><MdAssignmentReturn className="mt-1 mr-1"/> Return to Shop</button>
             </Link> 
