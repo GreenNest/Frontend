@@ -33,11 +33,18 @@ import AddEmployee from './pages/admin/employee/AddEmployee';
 import AddSupplier from './pages/admin/supplier/AddSupplier';
 import Categoryadminview from './pages/admin/categoryadminview/Categoryadminview';
 import Itemadminview from './pages/admin/itemadminview/Itemadminview';
+import LeaveRequest from './pages/LeaveRequest';
+import LeaveStat from './pages/LeaveStat';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router> 
-      <Reports/>
+      <Header/>
+       <App/> 
+      {/* <LeaveRequest/> */}
+      {/* <Footer/> */}
+      {/* <Reports/> */}
+      {/* <LeaveStat/> */}
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

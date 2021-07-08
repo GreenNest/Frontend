@@ -2,14 +2,18 @@ import React from 'react';
 import {useState} from 'react';
 import Complaintmodel from './Complaintmodel';
 import Ratemodel from './Ratemodel';
+import b_avacado from "../../../assets/b_avacado.jpg"
+import lemmon from "../../../assets/lemmon.jpg"
+import plastic_pot from "../../../assets/plastic_pot.jpg"
+import sensavaria from "../../../assets/sensavaria.jpg"
 
  const Order = () => {
     const[order]= useState(
         [
-            {Item:"orcid", price:200, Qty:3, subtotal:600, id:1 } ,
-            {Item:"orcid", price:200, Qty:3, subtotal:600, id:2 } ,
-            {Item:"orcid", price:200, Qty:3, subtotal:600 , id:3 } ,
-            {Item:"orcid", price:200, Qty:3, subtotal:600 , id:4 } 
+            {img:b_avacado, Item:"Budded Avacado", price:450, Qty:2, subtotal:900, id:1 } ,
+            {img:lemmon,Item:"Lemmon plant", price:350, Qty:2, subtotal:700, id:2 } ,
+            {img:sensavaria,Item:"Sensavaria", price:1350, Qty:1, subtotal:1350 , id:3 } ,
+            {img:plastic_pot,Item:"Pastic Pot", price:150, Qty:4, subtotal:600 , id:4 } 
         ] 
       );
 
@@ -26,41 +30,42 @@ import Ratemodel from './Ratemodel';
   
     return (
        
-       <div className="bg-gray-200 bg-opacity-25 w-100% h-auto p-6">
-              
+       <div className="bg-gray-200 bg-opacity-25 w-100% h-auto p-6 shadow-xl">             
            <div>
-             <div className=" bg-gray-100 w-5/6 pb-20 flex-row m-24  justify-center item-center border-dotted border-4 border-gray-400">
+             <div className=" bg-white shadow-2xl shadow-maingreen w-11/12 pb-20 flex-row m-24  justify-center item-center border-2 border-4 border-gray-400">
              <div>
                 {model2 &&
                    <Complaintmodel />
                 }
-              </div>
-                  <div className="grid grid-cols-5 p-6 ml-20 item-center text-xl ">
-                      <div className="mx-2 p-2 ">Items</div>
-                      <div className="mx-2 p-2 ">Price</div>
-                      <div className="mx-2 p-2 ">Qty</div>
-                      <div className="mx-2 p-2 ">Subtotal</div>
-                      <div className="mx-2 p-2 "></div>
-                  </div>
-                  <div className="ml-20 p-6 divide-y item-center">
-                  {order.map((item)=>(
-                        <div class=" grid grid-cols-5 ml-6  " key={item.id} >
-                          <div className="my-4 p-2">{item.Item}</div>
-                          <div className="my-4 p-2">{item.price}</div>
-                          <div className="my-4 p-2">{item.Qty}</div>
-                          <div className="my-4 p-2">{item.subtotal}</div>
-                          <div className="my-4 p-2"><button className=" w-36 h-12 bg-maingreen hover:bg-secondarygreen text-mainyellow rounded-sm" onClick={toggleModel}>Review & Rate </button></div>
-                          {model1 && 
-                           <Ratemodel />
-                          }
-                        </div>
-                      ))}
 
-                  </div>
-                  <div className="flex justify-end mr-28">
-                     <button className="place-content-end w-36 h-12 bg-green-300 hover:bg-green-500" onClick={togglecomplain}>Complain </button>
-                     
-                  </div>
+                {model1 && 
+                    <Ratemodel />
+                }
+              </div>
+              <div className="grid grid-cols-6 p-6 ml-8 mb-4 item-center text-xl font-bold">
+                  <div className="mx-2 "></div>
+                  <div className="mx-2  ">Ordered Items</div>
+                  <div className="mx-2  ">Price</div>
+                  <div className="mx-2  ">Qty</div>
+                  <div className="mx-2  ">Subtotal</div>
+                  <div className="mx-2  "></div>
+              </div>
+              <div className="ml-16 p-6 divide-y item-center">
+              {order.map((item)=>(
+                    <div class=" grid grid-cols-6 " key={item.id} >
+                      <div className="my-4 "><img className="w-12 h-12 " src={item.img} alt="not found" /></div>
+                      <div className="my-4 ">{item.Item}</div>
+                      <div className="my-4 ">{item.price}</div>
+                      <div className="my-4 ">{item.Qty}</div>
+                      <div className="my-4 ">{item.subtotal}</div>
+                      <div className="my-4 "><button className=" w-36 h-12 bg-yellow-200 hover:bg-yellow-300 text-black border-2 rounded-sm focus:outline-none" onClick={toggleModel}>Review & Rate </button></div>                          
+                    </div>                        
+                  ))}                     
+              </div>
+              <div className="flex justify-end mr-96 pr-12 my-8">Total :3550</div>
+              <div className="flex justify-end mr-28">
+                  <button className="place-content-end w-36 h-12 bg-red-200 hover:bg-red-500 focus:outline-none" onClick={togglecomplain}>Complain</button>                   
+              </div>
              </div>
                 
            </div>

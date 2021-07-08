@@ -40,14 +40,14 @@ import { Link } from "react-router-dom";
    </div>
       <div>
         {orders.map((order)=>(
-          <div class="flex space-x-36 p-6 m-10 border-l-4 text-lg bg-gray-200  w-100%  overscroll-y-auto"  key={order.orderid} >
+          <div class="flex space-x-36 p-6 m-10 border-l-4 boder-l-black text-lg bg-white  w-100%  overscroll-y-auto"  key={order.orderid} >
             <h3>{order.referanceid}</h3>
             <h3>{order.orderid}</h3>
             <h3>{order.orderplaced}</h3>
             <h3>{order.items}</h3>
             <h3>{order.totalcost}</h3>
             <h3 className="text-green-600">{order.oredrstatus}</h3>
-            <Link to="/profile/order/review" className="w-20 text-sm text-blue-500 hover:bg-blue-200">View more</Link>
+            <Link to="/profile/order/review" ><button className="w-20 text-sm text-blue-500 hover:text-red-600 focus:outline-none focus:border-none">View more</button></Link>
           </div>
         ))}
 
