@@ -1,64 +1,52 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import CustomerService from '../../services/CustomerService';
 
 class Signup extends Component {
 
     constructor(props) {
         super(props);
         this.state = { 
-
            firstname: '',
            lastname:'',
            email:'',
            mobilenumber:'',
            password:'',
-           confirmpassword:'' 
-
-
+           confirmpassword:'',
+           role: 'customer' 
          };
+         this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-
+        handleChange = event => {
+        this.setState({
+            [event.target.name]:event.target.value
+        });
         }
 
-        handlefirstnameChange = (event) =>{
-            this.state({
-                firstname: event.target.value
-            })
-        }
-
-        handlelastnameChange = (event) =>{
-            this.state({
-                lastname: event.target.value
-            })
-        }
-
-        
-
-        handleemailChange = (event) =>{
-            this.state({
-                email: event.target.value
-            })
-        }
-
-        handlemobilenumberChange = (event) =>{
-            this.state({
-                mobilenumber: event.target.value
-            })
-        }
-
-        handlepasswordChange = (event) =>{
-            this.state({
-                password: event.target.value
-            })
-        }
-
-        handleconfirmpasswordChange = (event) =>{
-            this.state({
-                confirmpassword: event.target.value
-            })
-        }
 
     handleSubmit = (event)=>{
+        event.preventDefault();
+        console.log(this.state.mobilenumber);
+        let customer = {
+            first_name: this.state.firstname,
+            last_name: this.state.lastname,
+            email: this.state.email,
+            password: this.state.password,
+            mobile: parseInt(this.state.mobilenumber),
+            role: this.state.role
+            
+        }
+        console.log('customer =>' + JSON.stringify(customer));
+        CustomerService.createCustomer(customer).then((result) => {
+            this.props.history.push('/login');
+            
+        });
+
+    }
+    cancel (){
+        //push to home page
+        this.props.history.push('/');
     }
 
 
@@ -75,10 +63,11 @@ class Signup extends Component {
                                         First Name
                                     </label>
                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3 " 
-                                    type="text" 
+                                    type="text"
+                                    name="firstname" 
                                     value={this.state.firstname}
-                                    onChange={this.handlefirstnameChange}
-                                    placeholder="eg: Nimal" required/>
+                                    onChange={this.handleChange}
+                                    placeholder="eg: Nimal"/>
                                 </div>
 
                                 <div class="w-full md:w-1/2 px-3 ">
@@ -86,10 +75,11 @@ class Signup extends Component {
                                         Last Name
                                     </label>
                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
-                                    type="text" 
+                                    type="text"
+                                    name="lastname" 
                                     value={this.state.lastname}
-                                    onChange={this.handlelastnameChange}
-                                    placeholder="eg: Perera" required/>
+                                    onChange={this.handleChange}
+                                    placeholder="eg: Perera"/>
                                 </div>
 
                                 
@@ -98,10 +88,11 @@ class Signup extends Component {
                                         Email
                                     </label>
                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
-                                    type="text" 
+                                    type="text"
+                                    name="email" 
                                     value={this.state.email}
-                                    onChange={this.handleemailChange}
-                                    placeholder="eg: hiruni123@gmail.com" required/>
+                                    onChange={this.handleChange}
+                                    placeholder="eg: hiruni123@gmail.com"/>
                                 </div>
 
                                 <div class="w-full md:w-1/2 px-3">
@@ -109,10 +100,11 @@ class Signup extends Component {
                                         Mobile Number
                                     </label>
                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
-                                    type="number" 
+                                    type="number"
+                                    name="mobilenumber" 
                                     value={this.state.mobilenumber}
-                                    onChange={this.handlemobilenumberChange}
-                                    placeholder="eg: Kuliyapitiya" required/>
+                                    onChange={this.handleChange}
+                                    placeholder="eg: Kuliyapitiya"/>
                                 </div>
 
                                 <div class="w-full md:w-1/2 px-3">
@@ -120,9 +112,10 @@ class Signup extends Component {
                                         Password
                                     </label>
                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
-                                    type="password" 
+                                    type="password"
+                                    name="password" 
                                     value={this.state.password}
-                                    onChange={this.handlepasswordChange}/>
+                                    onChange={this.handleChange}/>
                                 </div>
 
                                 <div class="w-full md:w-1/2 px-3">
@@ -130,9 +123,10 @@ class Signup extends Component {
                                         Confirm Password
                                     </label>
                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
-                                    type="password" 
+                                    type="password"
+                                    name="confirmpassword"
                                     value={this.state.confirmpassword}
-                                    onChange={this.handleconfirmpasswordChange}/>
+                                    onChange={this.handleChange}/>
                                 </div>
 
                                 <div class="justify-center items-center w-full">
@@ -153,7 +147,7 @@ class Signup extends Component {
                                 
                                     
 
-                                            <button class="px-10 py-3  font-bold text-mainyellow bg-red-800 rounded hover:bg-red-400 focus:outline-none focus:shadow-outline" type="cancel">
+                                            <button class="px-10 py-3  font-bold text-mainyellow bg-red-800 rounded hover:bg-red-400 focus:outline-none focus:shadow-outline" type="cancel" onClick={this.cancel.bind(this)}>
                                                 Cancel
                                             </button>
 
