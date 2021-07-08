@@ -25,6 +25,7 @@ import Updatestock from './pages/admin/Stock/Updatestock';
 import CategoryAdminView from './pages/admin/categoryadminview/CategoryAdminView';
 import ItemAdminView from './pages/admin/itemadminview/ItemAdminView';
 import ViewSupplier from './pages/admin/supplier/ViewSupplier';
+import EditSupplier from './pages/admin/supplier/EditSupplier';
 import AddSupplier from './pages/admin/supplier/AddSupplier';
 import ViewEmployee from './pages/admin/employee/ViewEmployee';
 import AddEmployee from './pages/admin/employee/AddEmployee';
@@ -59,6 +60,7 @@ function App() {
     <Route exact path="/admin/categoryView"  component={CategoryAdminView} />
     <Route exact path="/admin/categoryView/itemView"  component={ItemAdminView} />
     <Route exact path="/admin/viewSupplier"  component={ViewSupplier} />
+    <Route exact path="/admin/editSupplier" component={EditSupplier} />
     <Route exact path="/admin/addSupplier" component={AddSupplier} />
     <Route exact path="/admin/viewEmployee" component={ViewEmployee} />
     <Route exact path="/admin/addEmployee" component={AddEmployee} />
