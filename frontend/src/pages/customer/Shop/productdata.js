@@ -31,7 +31,7 @@ const product_card =[
         description:"8 in Stock",
         price:250,
         currency:"LKR",
-        reorderlevel:10,
+        reorderlevel:15,
         qty:8,
         thumb:sensavaria
     },
@@ -41,7 +41,7 @@ const product_card =[
         description:"5 in Stock",
         price:1450,
         currency:"LKR",
-        reorderlevel:10,
+        reorderlevel:12,
         qty:5,
         thumb:raphis
     },
@@ -51,7 +51,7 @@ const product_card =[
         description:"2 in Stock",
         price:350,
         currency:"LKR",
-        reorderlevel:10,
+        reorderlevel:20,
         qty:40,
         thumb:curry_leaves
     },
@@ -61,7 +61,7 @@ const product_card =[
         description:"10 in Stock",
         price:450,
         currency:"LKR",
-        reorderlevel:10,
+        reorderlevel:35,
         qty:10,
         thumb:b_avacado
     },
@@ -71,7 +71,7 @@ const product_card =[
         description:"7 in Stock",
         price:450,
         currency:"LKR",
-        reorderlevel:10,
+        reorderlevel:15,
         qty:7,
         thumb:cristina
     },
@@ -81,7 +81,7 @@ const product_card =[
         description:"14 in Stock",
         price:550,
         currency: "LKR",
-        reorderlevel:10,
+        reorderlevel:5,
         qty:14,
         thumb:rosa_pichcha
     },
@@ -91,7 +91,7 @@ const product_card =[
         description:"32 in Stock",
         price:150,
         currency:"LKR",
-        reorderlevel:10,
+        reorderlevel:15,
         qty:32,
         thumb:plastic_pot
     },
@@ -101,7 +101,7 @@ const product_card =[
         description:"14 in Stock",
         price:450,
         currency:"LKR",
-        reorderlevel:10,
+        reorderlevel:15,
         qty:14,
         thumb:nelli
     },
@@ -111,7 +111,7 @@ const product_card =[
         description:"15 in Stock",
         price:350,
         currency:"LKR",
-        reorderlevel:10,
+        reorderlevel:30,
         qty:15,
         thumb:lemmon
     },
@@ -121,7 +121,7 @@ const product_card =[
         description:"16 in Stock",
         price:450,
         currency:"LKR",
-        reorderlevel:10,
+        reorderlevel:25,
         qty:16,
         thumb:naimiris
     },
@@ -131,7 +131,7 @@ const product_card =[
         description:"20 in Stock",
         price:850,
         currency:"LKR",
-        reorderlevel:10,
+        reorderlevel:8,
         qty:20,
         thumb:rosa
     }
