@@ -3,7 +3,7 @@ import { useState } from 'react';
 import StatusPopup from './StatusPopup';
 
 
-const CashonDelivery = () => {
+const CODeliveries = () => {
 
     const [ShowStatusPopup,setShowStatusPopup] = useState(false);
 
@@ -20,7 +20,7 @@ const CashonDelivery = () => {
     ])
 
     return (
-        <div class="relative p-3 ml-36 z-50 mt-20 mb-20 w-10/12 bg-white shadow-xl ">
+        <div class="relative p-3 ml-36 z-50 mt-4 mb-20 w-10/12 bg-white shadow-xl ">
 
             <h1 class="text-4xl text-center mt-6 font-bold font-sans"> Cash On Delivery Details </h1>
 
@@ -47,7 +47,9 @@ const CashonDelivery = () => {
                         <h3 class="ml-14">{stock.date}</h3>
 
                         
-                        <button class="px-3 py-1 ml-5 font-bold text-mainyellow bg-blue-800 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline" onClick={() => setShowStatusPopup(true)}>{stock.edit}</button>
+                        <div className="flex ml-44">
+                            <button class="px-3 py-1 font-bold text-mainyellow bg-blue-800 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline" onClick={() => setShowStatusPopup(true)}>{stock.edit}</button>
+                        </div>
                        
 
                     </div>
@@ -66,4 +68,4 @@ const CashonDelivery = () => {
 
 
 
-export default CashonDelivery;
+export default CODeliveries;
