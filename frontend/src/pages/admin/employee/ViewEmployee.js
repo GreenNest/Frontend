@@ -27,8 +27,8 @@ const ViewEmployee = () => {
             <div className="flex flex-wrap mx-5 sm:justify-center gap-x-5 gap-y-5 md:gap-x-8">
                 <JobTypeBtn jobType="Moderators" />
                 <JobTypeBtn jobType="Accountants" />
-                <JobTypeBtn jobType="Workers" />
                 <JobTypeBtn jobType="Delivery Persons" />
+                <JobTypeBtn jobType="Workers" />
                 {/* <JobTypeBtn jobType="Moderators" viewEmployees={() => setShowEmployees(true)} />
                 <JobTypeBtn jobType="Accountants" viewEmployees={() => setShowEmployees(true)} />
                 <JobTypeBtn jobType="Delivery Persons" viewEmployees={() => setShowEmployees(true)} />

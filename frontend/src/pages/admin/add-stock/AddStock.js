@@ -77,7 +77,7 @@ class AddStock extends Component {
                         </div>
                         <div class="flex w-full justify-center items-center mt-7 -mb-5">
                             {/* <div class=" w-1/3 p-3 bg-secondarygreen text-mainyellow font-bold text-lg rounded-sm mt-5 mb-5 flex justify-center items-center cursor-pointer mr-8">Submit</div> */}
-                            <button className="bg-maingreen hover:bg-hovergreen p-4 justify-center text-white font-bold ml-12 mb-8 rounded py-2 px-4 w-40">Submit</button>
+                            <button className="bg-maingreen hover:bg-hovergreen p-4 justify-center text-white font-bold mb-8 rounded py-2 px-4 w-40">Submit</button>
                             <button className="bg-red-600 hover:bg-lightred p-4 justify-center text-white font-bold ml-12 mb-8 rounded py-2 px-4 w-40">Cancel</button>
                             {/* <div class="w-1/3 p-3 bg-redcolor text-mainyellow font-bold text-lg rounded-sm mt-5 mb-5 flex justify-center items-center cursor-pointer">Cancel</div> */}
                         </div>

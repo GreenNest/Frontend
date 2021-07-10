@@ -12,24 +12,24 @@ const Cart = () => {
                 <span className="block sm:inline">Your cart is empty !</span>
             </div> */}
 
-            {/* <div className="flex grid grid-cols-4 grid-flow-col max-w-7xl justify-center items-center  p-0 rounded-lg mt-2 mb-2 mr-0 ">
-                Item
-                <div className="flex-auto mr-2 ml-2">
-                    <button button className="flex font-bold py-1 px-5 rounded border border-gray-500 md:border-gray-500">Item</button>
+            <div className="flex  max-w-7xl  items-center  p-0 rounded-lg mt-2 mb-2 mr-0 ">
+                {/* Item */}
+                <div className="flex mr-2 ml-64">
+                    <button button className="flex font-bold py-1 px-5 rounded border border-gray-500 bg-hovergreen text-white md:border-gray-500">Item</button>
                 </div>
-                Price
-                <div className="flex-auto mr-2 ml-10">
-                    <button className="flex font-bold py-1 px-5 rounded border border-gray-500 md:border-gray-500">Price</button>
+                {/* Price */}
+                <div className="flex mr-2 ml-32">
+                    <button className="flex font-bold py-1 px-5 rounded border border-gray-500 bg-hovergreen text-white md:border-gray-500">Price</button>
                 </div>
-                Quantity
-                <div className="flex-auto mr-2 ml-10">
-                    <button className="flex font-bold py-1 px-5 rounded border border-gray-500 md:border-gray-500">Qty</button>
+                {/* Quantity */}
+                <div className="flex mr-2 ml-32">
+                    <button className="flex font-bold py-1 px-5 rounded border border-gray-500 bg-hovergreen text-white md:border-gray-500">Qty</button>
                 </div>
-                Subtotal
-                <div className="flex-auto mr-1 ml-10">
-                    <button button className="flex font-bold py-1 px-5 rounded border border-gray-500 md:border-gray-500">Subtotal</button>
+                {/* Subtotal */}
+                <div className="flex mr-1 ml-28">
+                    <button button className="flex font-bold py-1 px-5 rounded border border-gray-500 bg-hovergreen text-white md:border-gray-500">Subtotal</button>
                 </div>
-            </div> */}
+            </div>
 
             {/* Item components */}
             <CartItem />

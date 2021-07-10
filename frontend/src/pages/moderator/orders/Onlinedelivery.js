@@ -16,7 +16,7 @@ function Onlinedelivery(props) {
               Location={item.Location} 
               bool="true" 
               Date={item.Date}
-              icon={<FaArrowAltCircleRight/>}
+              icon={<FaArrowAltCircleRight className="text-maingreen hover:text-hovergreen"/>}
               />
               </div>
           ))}

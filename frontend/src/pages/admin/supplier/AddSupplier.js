@@ -12,13 +12,13 @@ const AddSupplier = (props) => {
                             <label className="text-lg p-1 w-1/3 font-semibold" for="grid-first-name">
                                 First Name
                             </label>
-                            <input className="block w-full px-4 py-3 leading-tight text-black text-lg rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2" id="grid-first-name" type="text" placeholder="" />
+                            <input className="block w-full px-4 py-3 leading-tight text-black outline-none text-lg rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2" id="grid-first-name" type="text" placeholder="" />
                         </div>
                         <div className="w-full px-3 space-y-2 md:w-1/2">
                             <label className="text-lg p-1 w-1/3 font-semibold" for="grid-last-name">
                                 Last Name
                             </label>
-                            <input className="block w-full px-4 py-3 leading-tight text-black text-lg rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2" id="grid-last-name" type="text" placeholder="" />
+                            <input className="block w-full px-4 py-3 leading-tight text-black outline-none text-lg rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2" id="grid-last-name" type="text" placeholder="" />
                         </div>
                     </div>
                     <div className="flex flex-wrap mb-6">
@@ -26,7 +26,7 @@ const AddSupplier = (props) => {
                             <label className="text-lg p-1 w-1/3 font-semibold" for="grid-address">
                                 Address
                             </label>
-                            <input className="block w-full px-4 py-3 leading-tight text-black text-lg rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2" id="grid-address" type="text" placeholder="" />
+                            <input className="block w-full px-4 py-3 leading-tight text-black outline-none text-lg rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2" id="grid-address" type="text" placeholder="" />
                         </div>
                     </div>
                     <div className="flex flex-wrap mb-4">
@@ -34,13 +34,13 @@ const AddSupplier = (props) => {
                             <label className="text-lg p-1 w-1/3 font-semibold" for="grid-first-name">
                                 Email
                             </label>
-                            <input className="block w-full px-4 py-3 leading-tight text-black text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2" id="grid-first-name" type="text" placeholder="" />
+                            <input className="block w-full px-4 py-3 leading-tight text-black outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2" id="grid-first-name" type="text" placeholder="" />
                         </div>
                         <div className="w-full px-3 space-y-2 md:w-1/2">
                             <label className="text-lg p-1 w-1/3 font-semibold" for="grid-last-name">
                                 Mobile
                             </label>
-                            <input className="block w-full px-4 py-3 leading-tight text-black text-lg rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2" id="grid-last-name" type="text" placeholder="" />
+                            <input className="block w-full px-4 py-3 leading-tight text-black outline-none text-lg rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2" id="grid-last-name" type="text" placeholder="" />
                         </div>
                     </div>
                     <div className="flex flex-wrap mb-6">
@@ -57,11 +57,11 @@ const AddSupplier = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-wrap justify-center mt-6 -mb-8 space-x-4">
+                    <div className="flex flex-wrap justify-center mt-6 -mb-8 space-x-6">
                         {/* <button type="submit" className="p-2 text-base font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none background-transparent hover:shadow-lg focus:outline-none bg-redcolor">Cancel</button>
                         <button type="submit" className="p-2 text-base font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none background-transparent hover:shadow-lg focus:outline-none bg-maingreen hover:bg-secondarygreen">Submit</button> */}
-                        <button className="bg-maingreen hover:bg-hovergreen p-4 justify-center text-white font-bold ml-12 mb-8 rounded py-2 px-4 w-40">Submit</button>
-                        <button className="bg-red-600 hover:bg-lightred p-4 justify-center text-white font-bold ml-12 mb-8 rounded py-2 px-4 w-40">Cancel</button>
+                        <button className="bg-maingreen hover:bg-hovergreen p-4 justify-center text-white font-bold  mb-8 rounded py-2 px-4 w-40">Submit</button>
+                        <button className="bg-red-600 hover:bg-lightred p-4 justify-center text-white font-bold  mb-8 rounded py-2 px-4 w-40">Cancel</button>
                     </div>
                 </form>
             </div>

@@ -8,13 +8,20 @@ import * as BiIcons from "react-icons/bi";
 import * as TiIcons from "react-icons/ti";
 
 
-export const SidebarData = [
+export const AdminSidebarData = [
     {
         title: 'Dashboard',
-        path: '#',
+        path: '/admin/dashboard',
         icon: <MdIcons.MdDashboard className="w-5 h-5 mr-5 mt-0.5"/>,
         // style: "hover:bg-maingreen bg-hovergreen hover:text-white flex font-bold p-3 rounded w-48",
     }, 
+    {
+        title: 'Notifications',
+        path: '/admin/notifications',
+        icon: <BiIcons.BiNotification className="w-5 h-5 mr-5 mt-0.5"/>,
+        count: 5,
+        // style: "hover:bg-blue-400 bg-blue-200 hover:text-white flex font-bold p-3 rounded w-48",
+    },
     {
         title: 'View Category',
         path: '/admin/categoryView',

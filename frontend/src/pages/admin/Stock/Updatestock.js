@@ -16,7 +16,7 @@ const Updatestock =() => {
     ])
     
         return (
-            <div class="relative p-3 ml-36 z-50 mt-20 mb-20 w-10/12 bg-white shadow-xl ">
+            <div class="relative p-3 ml-36 z-50 mt-10 mb-10 w-10/12 bg-white shadow-xl border">
                 <div class="flex items-center mt-4">
                     <button class="px-14 py-4 font-bold text-white text-xl bg-blue-800 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline" type="submit">
                        Add 
@@ -47,7 +47,7 @@ const Updatestock =() => {
                             <h3 class="ml-14">{stock.unitprice}</h3>
                             <h3 class="ml-14">{stock.date}</h3>
                             
-                            <h3 class="px-3 py-1 ml-5 font-bold text-mainyellow bg-blue-800 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline">{stock.delete}</h3>
+                            <h3 class="px-3 py-1 -ml-10 font-bold text-mainyellow bg-blue-800 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline">{stock.delete}</h3>
                            
 
 
