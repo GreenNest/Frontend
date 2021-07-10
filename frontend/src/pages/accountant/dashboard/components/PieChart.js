@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Chart from "react-google-charts";
 
 const pieOptions = {
-  title: "",
+  title: "Weekly Order Statistics",
   pieHole: 0.6,
   slices: [
     {
@@ -43,7 +43,7 @@ class PieChart extends Component {
         return (
                 <Chart
                     chartType="PieChart"
-                    data={[["Age", "Weight"], ["a", 12], ["b", 5.5]]}
+                    data={[["Age", "Weight"], ["Upcoming Orders", 12], ["Ongoing Orders", 5.5]]}
                     options={pieOptions}
                     graph_id="PieChart"
                     width={"100%"}
