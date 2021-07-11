@@ -29,7 +29,7 @@ import InvoiceHistory from './pages/accountant/InvoiceHistory';
 import Upcomingorders from './pages/moderator/orders/Upcomingorders';
 import Ongoingorders from './pages/moderator/orders/Ongoingorders';
 import Dashboard from './pages/accountant/dashboard/Dashboard';
-import EditStock from './pages/admin/edit-stock/EditStock'
+
 import AddEmployee from './pages/admin/employee/AddEmployee';
 import AddSupplier from './pages/admin/supplier/AddSupplier';
 import Categoryadminview from './pages/admin/categoryadminview/Categoryadminview';
@@ -44,12 +44,12 @@ import Updatestock from './pages/admin/Stock/Updatestock';
 ReactDOM.render(
   <React.StrictMode>
     <Router> 
-      <Header/>
-      {/* <AdminSidebar /> */}
-      {/* <ModeratorSidebar /> */}
-      {/* <AccountantSidebar /> */}
-       <App/> 
-      <Footer/>
+      {/* <Header/> */}
+       {/* <AdminSidebar />   */}
+       {/* <ModeratorSidebar />  */}
+      <AccountantSidebar /> 
+        <App/>  
+      {/* <Footer/> */}
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

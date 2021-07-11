@@ -7,9 +7,9 @@ import {FaClipboardList, FaClipboardCheck} from 'react-icons/fa'
 class AccDashboard extends Component {
     render() {
         return (
-            <div className="grid-container -mt-6">
+            <div className="-mt-6 grid-container">
                 {/* <div class="bg-maingreen h-screen"></div> */}
-                <div className="main-area -ml-4">
+                <div className="-ml-4 main-area">
                     <div class="flex flex-col w-full h-full p-7 justify-between lg:container lg:p-12">
                        <div class="grid h-1/5 w-full grid-cols-3 lg:gap-10 md:gap-5 gap-4">
                             <div class=" w-full flex lg:flex-row flex-col justify-center items-center rounded-sm shadow-lg border-solid border-2 p-3">
