@@ -1,65 +1,68 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { useState } from 'react';
 
-
-const InvoiceHistory = ()=>{
-
-    
+import InvoiceTable from './InvoiceTable';
 
 
-    const [orders, setOrders] = useState([
-        { invoiceid: "CT1001",  viewmore:"View", delete:"Delete" },
-        { invoiceid: "CT1001",  viewmore:"View", delete:"Delete" },
-        { invoiceid: "CT1001",  viewmore:"View", delete:"Delete" },
-        { invoiceid: "CT1001",  viewmore:"View", delete:"Delete" },
-        { invoiceid: "CT1001",  viewmore:"View", delete:"Delete" },
-        { invoiceid: "CT1001",  viewmore:"View", delete:"Delete" },
-        { invoiceid: "CT1001",  viewmore:"View", delete:"Delete" },
-
-    ])
 
 
+
+class InvoiceHistory extends Component{
+    render(){
     return (
-        <div class="justify-center p-3 ml-96 z-50 mt-6 mb-20 w-6/12 bg-white shadow-xl">
-
-            <h1 class="text-4xl text-center mt-6 font-bold font-sans"> Invoice History </h1>
-
-            <div class="grid grid-cols-3 gap-0 mt-10 bg-maingreen p-6 content-center">
-                <div class="ml-12">Invoice ID</div>
-                <div class="ml-12">View More</div>
-                <div class="ml-12">Delete</div>
+        <div>
+            <div className="flex justify-end pb-4 mt-8 mr-10">
+                <div className="w-9/12 p-4 pb-12 mx-4 bg-gray-500 bg-opacity-25 rounded">
                 
 
+                <h1 className="flex justify-center w-full pt-4 text-2xl font-bold text-maingreen">Invoice History</h1>
+                <div className="flex flex-col mt-2 sm:mx-10">
+                <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                    <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+                        <table className="min-w-full divide-y divide-gray-300">
+                            <thead className="bg-gray-500 bg-opacity-25">
+                                <tr>
+                                    <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Invoice ID</th>
+                                    <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">View More</th>
+                         
+                                    <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Delete</th>
 
 
 
-            </div>
+                                </tr>
+                            </thead>
+                            <tbody className="bg-white divide-y divide-gray-200 ">
+                                <InvoiceTable invoice_id="INV 1007" />
+                                <InvoiceTable invoice_id="INV 1009" />
+                                <InvoiceTable invoice_id="INV 1012" />
+                                <InvoiceTable invoice_id="INV 1013" />
+                                <InvoiceTable invoice_id="INV 1017" />
+                                <InvoiceTable invoice_id="INV 1015" />
 
-            <div>
-                {orders.map((order) => (
-                    <div class="flex space-x-36 p-6 mt-10  text-lg bg-gray-200 w-full">
-                        <h3 class="ml-12">{order.invoiceid}</h3>
-                        
+                                
 
-                        <button>
-                        <h3 class="px-3 py-1 ml-7 font-bold text-mainyellow bg-blue-800 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline">{order.viewmore}</h3>
-                        </button>
+                                
 
-                        <button>
-                        <h3 class="px-3 py-1 ml-5 font-bold text-mainyellow bg-gray-800 rounded hover:bg-gray-600 focus:outline-none focus:shadow-outline">{order.delete}</h3>
-                        </button>
+                                
 
-
+                            </tbody>
+                        </table>
                     </div>
-                ))}
+                </div>
             </div>
+        </div>
 
-           
 
+                </div>
+
+            </div>
         </div>
     );
+    }
 
-}
+    }
+
 
 
  export default InvoiceHistory;

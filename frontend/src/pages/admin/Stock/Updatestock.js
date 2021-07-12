@@ -1,65 +1,63 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {useState} from 'react';
+import StockTable from './StockTable';
 
 
-const Updatestock =() => {
 
-    const [stocks, setStock] = useState([
-        {categoryid:"CT1001" , productid:1100 , quantity:15 , unitprice:"100.00"  , date:'2021/06/20' , delete:"Delete"},
-        {categoryid:"CT1001" , productid:1100 , quantity:15 , unitprice:"100.00"  , date:'2021/06/20' , delete:"Delete"},
-        {categoryid:"CT1001" , productid:1100 , quantity:15 , unitprice:"100.00"  , date:'2021/06/20' , delete:"Delete"},
-        {categoryid:"CT1001" , productid:1100 , quantity:15 , unitprice:"100.00"  , date:'2021/06/20' , delete:"Delete"},
-        {categoryid:"CT1001" , productid:1100 , quantity:15 , unitprice:"100.00"  , date:'2021/06/20' , delete:"Delete"},
-        {categoryid:"CT1001" , productid:1100 , quantity:15 , unitprice:"100.00"  , date:'2021/06/20' , delete:"Delete"},
-        {categoryid:"CT1001" , productid:1100 , quantity:15 , unitprice:"100.00"  , date:'2021/06/20' , delete:"Delete"},
-        
-    ])
-    
+    class Updatestock extends Component{
+        render(){
         return (
-            <div class="relative p-3 ml-36 z-50 mt-10 mb-10 w-10/12 bg-white shadow-xl border">
-                <div class="flex items-center mt-4">
-                    <button class="px-14 py-4 font-bold text-white text-xl bg-blue-800 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline" type="submit">
-                       Add 
-                    </button>
-                    
-                </div>
-                <h1 class="text-4xl text-center mt-6 font-bold font-sans"> Update Stock</h1>
+            <div>
+                <div className="flex justify-end pb-4 mt-8 mr-10">
+                    <div className="w-9/12 p-4 pb-12 mx-4 bg-gray-500 bg-opacity-25 rounded">
+                    <button className="justify-center p-4 px-6 py-2 mb-8 ml-12 font-bold text-white rounded bg-maingreen hover:bg-hovergreen">
+                        Add + 
+                        </button>
 
-                <div class="grid grid-cols-6 gap-0 mt-10 bg-maingreen p-6 content-center">
-                    <div class="ml-12">Category ID</div>
-                    <div class="ml-12">Product ID</div>
-                    <div class="ml-12">Quantity</div>
-                    <div class="ml-8">Unit Price</div>
-                    <div class="ml-12">Date</div>
-                    <div class="ml-12">Update</div>
-                    
-
-
-
-                </div>
-
-                <div>
-                    {stocks.map((stock) => (
-                        <div class="flex space-x-36 p-6 mt-10  text-lg bg-gray-200 w-full">
-                            <h3 class="ml-16">{stock.categoryid}</h3>
-                            <h3 class="ml-14">{stock.productid}</h3>
-                            <h3 class="ml-14">{stock.quantity}</h3>
-                            <h3 class="ml-14">{stock.unitprice}</h3>
-                            <h3 class="ml-14">{stock.date}</h3>
-                            
-                            <h3 class="px-3 py-1 -ml-10 font-bold text-mainyellow bg-blue-800 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline">{stock.delete}</h3>
-                           
+                    <h1 className="flex justify-center w-full pt-4 text-2xl font-bold text-maingreen">Update Stock</h1>
+                    <div className="flex flex-col mt-2 sm:mx-10">
+                <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                        <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+                            <table className="min-w-full divide-y divide-gray-300">
+                                <thead className="bg-gray-500 bg-opacity-25">
+                                    <tr>
+                                        <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Category ID</th>
+                                        <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Producy ID</th>
+                                        <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Quantity</th>
+                                        <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Unit Price</th>
+                                        <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Date</th>
+                                        <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Time</th>
+                                        <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Delete</th>
 
 
+
+                                    </tr>
+                                </thead>
+                                <tbody className="bg-white divide-y divide-gray-200 ">
+                                    <StockTable category_id="CT1001"  productid="1100"  quantity="15"  unit_price="100.00"   date='2021/05/20' time='7.00 pm'/>
+                                    <StockTable category_id="CT1005"  productid="2101"  quantity="100"  unit_price="280.00"   date='2021/05/25' time='06.00 am' />
+                                    <StockTable category_id="CT1012"  productid="1290"  quantity="45"  unit_price="50.00"   date='2021/06/04' time='12.00 pm' />
+                                    <StockTable category_id="CT1009"  productid="3120"  quantity="53"  unit_price="130.00"   date='2021/06/10' time='10.00apm' />
+                                    <StockTable category_id="CT1003"  productid="2393"  quantity="67"  unit_price="75.00"   date='2021/06/13' time='08.00 am' />
+                                    <StockTable category_id="CT1006"  productid="2345"  quantity="49"  unit_price="68.00"   date='2021/06/15' time='10.40 am'/>
+                                    <StockTable category_id="CT1045"  productid="1234"  quantity="200"  unit_price="230.00"   date='2021/06/22' time='11.00 am'/>
+
+                                </tbody>
+                            </table>
                         </div>
-                    ))}
+                    </div>
                 </div>
+            </div>
 
-                
-                
+
+                    </div>
+
+                </div>
             </div>
         );
-    
-}
+        }
+
+        }
 
 export default Updatestock;
