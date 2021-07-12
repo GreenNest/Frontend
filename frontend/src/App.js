@@ -55,7 +55,7 @@ function App() {
     <Route exact path="/shop" component={Shop}/>
     <Route exact path="/shop/product" component={Product}/>
     <Route exact path="/cart" component={Cart}/>
-    <Route exact path="/chechout" component={Checkout}/>
+    <Route exact path="/checkout" component={Checkout}/>
     <Route exact path="/profile/orders" component={Orderhistory}/>
     <Route exact path="/profile/order/review" component={Order}/>
 
