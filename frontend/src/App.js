@@ -20,8 +20,8 @@ import Reports from './pages/admin/reports/Reports';
 import AddStock from './pages/admin/add-stock/AddStock';
 import EditStock from './pages/admin/edit-stock/EditStock';
 import Updatestock from './pages/admin/Stock/Updatestock';
-import CategoryAdminView from './pages/admin/categoryadminview/CategoryAdminView';
-import ItemAdminView from './pages/admin/itemadminview/ItemAdminView';
+import CategoryAdminView from './pages/admin/categoryadminview/Categoryadminview';
+import ItemAdminView from './pages/admin/itemadminview/Itemadminview';
 import ViewSupplier from './pages/admin/supplier/ViewSupplier';
 import EditSupplier from './pages/admin/supplier/EditSupplier';
 import AddSupplier from './pages/admin/supplier/AddSupplier';
@@ -55,7 +55,7 @@ function App() {
     <Route exact path="/shop" component={Shop}/>
     <Route exact path="/shop/product" component={Product}/>
     <Route exact path="/cart" component={Cart}/>
-    <Route exact path="/chechout" component={Checkout}/>
+    <Route exact path="/checkout" component={Checkout}/>
     <Route exact path="/profile/orders" component={Orderhistory}/>
     <Route exact path="/profile/order/review" component={Order}/>
 
