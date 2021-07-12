@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import CustomerService from '../../services/CustomerService';
 
 
 class Login extends Component {
@@ -7,28 +8,36 @@ class Login extends Component {
     constructor(props){
         super(props);
         this.state={
-
             email: '',
             password: ''
-
         };
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleEmailChange =(event)=> {
-        this.setState({
-            email: event.target.value
-        })
-    }
 
-    handlePasswordChange =(event)=>{
+    handleChange =(event)=>{
         this.setState({
-            password: event.target.value
-        })
+            [event.target.name]:event.target.value
+        });
     }
 
     handleSubmit = (event)=>{
-        
+        event.preventDefault();
+        let user = {
+            userName: this.state.email,
+            password: this.state.password
+        }
+
+        let newuser = JSON.stringify(user);
+        console.log(newuser);
+        CustomerService.logUser(this.state.email, this.state.password).then((result) => {
+            console.log(result);
+        })
+
+
     }
+
+
     render() {
         return (
             <div class="flex justify-center items-center w-full ">
@@ -44,8 +53,9 @@ class Login extends Component {
                     </label>
                     <input class='w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black' 
                     type="text" placeholder="email" 
+                    name="email"
                     value={this.state.email} 
-                    onChange={this.handleEmailChange}/>
+                    onChange={this.handleChange}/>
                 </div>
 
                 <div class="mb-6">
@@ -54,8 +64,9 @@ class Login extends Component {
                     </label>
                     <input class="w-full px-3 py-2 mb-3 leading-tight text-gray-700 border rounded shadow appearance-none border-500 focus:outline-none focus:shadow-outline  focus:bg-white focus:border-black" 
                     type="password" placeholder="password"
+                    name="password"
                     value={this.state.password}
-                    onChange={this.handlePasswordChange} />
+                    onChange={this.handleChange} />
                 </div>
 
                 <div class="flex items-center justify-center">

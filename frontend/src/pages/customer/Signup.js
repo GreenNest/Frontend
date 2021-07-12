@@ -1,47 +1,119 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import CustomerService from '../../services/CustomerService';
+import { useForm } from 'react-hook-form';
+
+
+const initialState = {
+    firstname: '',
+    lastname:'',
+    email:'',
+    mobilenumber:'',
+    password:'',
+    confirmpassword:'',
+    role: 'customer',
+    password_err:'',
+    email_err: '',
+    mobile_err: '' 
+}
 
 class Signup extends Component {
+    state = initialState;
 
-    constructor(props) {
-        super(props);
-        this.state = { 
-           firstname: '',
-           lastname:'',
-           email:'',
-           mobilenumber:'',
-           password:'',
-           confirmpassword:'',
-           role: 'customer' 
-         };
-         this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = { 
+    //        firstname: '',
+    //        lastname:'',
+    //        email:'',
+    //        mobilenumber:'',
+    //        password:'',
+    //        confirmpassword:'',
+    //        role: 'customer',
+    //        password_err:'' 
+    //      };
+    //      this.handleSubmit = this.handleSubmit.bind(this);
+    // }
 
         handleChange = event => {
+
+        const isCheckbox = event.target.type === "checkbox";
         this.setState({
-            [event.target.name]:event.target.value
-        });
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+    });
+        // this.setState({
+        //     [event.target.name]:event.target.value
+        // });
+        };
+
+
+    validate(){
+        let password_err = "";
+        let email_err = "";
+        let mobile_err = "";
+        let formValid = "";
+        if(this.state.password.length < 8 ){
+            password_err = "Password must be more than 8 characters";
         }
+        else if(this.state.password != this.state.confirmpassword){
+            password_err = "Password does not match"
+        }else{
+            
+           formValid = true;
+        }
+
+        if(!this.state.email.includes("@")){
+           email_err = "Invalida email";
+        }
+
+        if(this.state.mobilenumber.length < 10){
+            mobile_err = "Invalid mobile number";
+        }
+
+        if(password_err || email_err || mobile_err){
+            this.setState({ email_err, mobile_err, password_err})
+            return false;
+        }
+        
+        return true;
+
+    }
 
 
     handleSubmit = (event)=>{
         event.preventDefault();
-        console.log(this.state.mobilenumber);
-        let customer = {
-            first_name: this.state.firstname,
-            last_name: this.state.lastname,
-            email: this.state.email,
-            password: this.state.password,
-            mobile: parseInt(this.state.mobilenumber),
-            role: this.state.role
-            
+        const isValid = this.validate();
+        if(isValid){
+           console.log(this.state);
+
+           this.setState(initialState);
+
         }
-        console.log('customer =>' + JSON.stringify(customer));
-        CustomerService.createCustomer(customer).then((result) => {
-            this.props.history.push('/login');
             
-        });
+        
+
+        
+        
+        
+        // let customer = {
+        //     first_name: this.state.firstname,
+        //     last_name: this.state.lastname,
+        //     mobile: parseInt(this.state.mobilenumber),
+        //     profile:{
+        //         email: this.state.email,
+        //         password: this.state.password,
+        //         role: this.state.role
+        //     }
+            
+        // }
+        // console.log('customer =>' + JSON.stringify(customer));
+        // CustomerService.createCustomer(customer).then((result) => {
+        //     this.props.history.push('/login');
+        //     console.log(result.data);
+            
+        // });
 
     }
     cancel (){
@@ -67,7 +139,7 @@ class Signup extends Component {
                                     name="firstname" 
                                     value={this.state.firstname}
                                     onChange={this.handleChange}
-                                    placeholder="eg: Nimal"/>
+                                    placeholder="eg: Nimal" required/>
                                 </div>
 
                                 <div class="w-full md:w-1/2 px-3 ">
@@ -92,7 +164,8 @@ class Signup extends Component {
                                     name="email" 
                                     value={this.state.email}
                                     onChange={this.handleChange}
-                                    placeholder="eg: hiruni123@gmail.com"/>
+                                    placeholder="eg: hiruni123@gmail.com" required/>
+                                    <div class="text-red-600">{this.state.email_err}</div>
                                 </div>
 
                                 <div class="w-full md:w-1/2 px-3">
@@ -104,7 +177,8 @@ class Signup extends Component {
                                     name="mobilenumber" 
                                     value={this.state.mobilenumber}
                                     onChange={this.handleChange}
-                                    placeholder="eg: Kuliyapitiya"/>
+                                    placeholder="eg: Kuliyapitiya" required/>
+                                    <div class="text-red-600">{this.state.mobile_err}</div>
                                 </div>
 
                                 <div class="w-full md:w-1/2 px-3">
@@ -115,7 +189,8 @@ class Signup extends Component {
                                     type="password"
                                     name="password" 
                                     value={this.state.password}
-                                    onChange={this.handleChange}/>
+                                    onChange={this.handleChange} required/>
+                                    <div class="text-red-600">{this.state.password_err}</div>
                                 </div>
 
                                 <div class="w-full md:w-1/2 px-3">
@@ -126,7 +201,8 @@ class Signup extends Component {
                                     type="password"
                                     name="confirmpassword"
                                     value={this.state.confirmpassword}
-                                    onChange={this.handleChange}/>
+                                    onChange={this.handleChange} required/>
+                        
                                 </div>
 
                                 <div class="justify-center items-center w-full">

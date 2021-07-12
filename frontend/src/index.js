@@ -36,7 +36,6 @@ import LeaveRequest from './pages/LeaveRequest';
 import LeaveStat from './pages/LeaveStat';
 import Reports from './pages/admin/reports/Reports';
 import AddStock from './pages/admin/add-stock/AddStock';
-import EditStock from './pages/admin/edit-stock/EditStock';
 import Updatestock from './pages/admin/Stock/Updatestock';
 
 ReactDOM.render(
