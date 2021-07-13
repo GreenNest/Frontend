@@ -4,12 +4,13 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './styles/index.css';
 
 import App from './App';
-import Product from './pages/customer/product/Product';
 import Header from './components/Header';
+import SignedHeader from './components/SignedHeader';
 import Footer from './components/Footer';
 import AdminSidebar from './pages/admin/components/adminSidebar';
 import ModeratorSidebar from './pages/moderator/components/moderatorSidebar';
 import AccountantSidebar from './pages/accountant/dashboard/components/accountantSidebar';
+import Product from './pages/customer/product/Product';
 import Description from './pages/customer/home/components/Description';
 import Featured from './pages/customer/home/components/Featured';
 import SlideContainer from './pages/customer/home/components/slideContainer';
@@ -44,10 +45,11 @@ import Updatestock from './pages/admin/Stock/Updatestock';
 ReactDOM.render(
   <React.StrictMode>
     <Router> 
-      {/* <Header/> */}
+      <Header/>
+      {/* <SignedHeader /> */}
        {/* <AdminSidebar />   */}
        {/* <ModeratorSidebar />  */}
-      <AccountantSidebar /> 
+      {/* <AccountantSidebar />  */}
         <App/>  
       {/* <Footer/> */}
     </Router>

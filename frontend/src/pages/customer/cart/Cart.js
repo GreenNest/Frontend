@@ -19,7 +19,7 @@ const Cart = () => {
                     <button button className="flex font-bold py-1 px-5 rounded border border-gray-500 bg-hovergreen text-white md:border-gray-500">Item</button>
                 </div>
                 {/* Price */}
-                <div className="flex mr-2 ml-28">
+                <div className="flex mr-2 ml-32">
                     <button className="flex font-bold py-1 px-5 rounded border border-gray-500 bg-hovergreen text-white md:border-gray-500">Price</button>
                 </div>
                 {/* Quantity */}
@@ -27,7 +27,7 @@ const Cart = () => {
                     <button className="flex font-bold py-1 px-5 rounded border border-gray-500 bg-hovergreen text-white md:border-gray-500">Qty</button>
                 </div>
                 {/* Subtotal */}
-                <div className="flex mr-1 ml-32">
+                <div className="flex mr-1 ml-28">
                     <button button className="flex font-bold py-1 px-5 rounded border border-gray-500 bg-hovergreen text-white md:border-gray-500">Subtotal</button>
                 </div>
             </div>
