@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import xxx from '../assets/GreenNest.png';
+import xxx from '../assets/headerLogo.png';
 import {FaAlignRight} from 'react-icons/fa'
 import { Link } from "react-router-dom";
 
@@ -14,7 +14,7 @@ class Header extends Component {
         return (
             <nav class="flex w-screen flex-col justify-between bg-mainyellow lg:flex-row sm:w-full">
             <div class="flex justify-between items-center">
-              <img class="h-30 w-30 ml-2 float-left" width="70" height="70"   src={xxx} alt=""/>
+              <img className="h-30 w-30 ml-2 float-left" width="70" height="70"   src={xxx} alt=""/>
             {/* <nav class="flex w-full flex-col justify-between bg-mainyellow lg:flex-row sm:w-full ">
             <nav class="flex w-full flex-col justify-between bg-mainyellow lg:flex-row sm:w-full">
            <div class="flex justify-between items-center">
