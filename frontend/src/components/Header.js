@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import xxx from '../assets/headerLogo.png';
 import {FaAlignRight} from 'react-icons/fa'
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import '../styles/nav.css'
 
 class Header extends Component {
     state={
@@ -14,7 +15,7 @@ class Header extends Component {
         return (
             <nav class="flex w-screen flex-col justify-between bg-mainyellow lg:flex-row sm:w-full">
             <div class="flex justify-between items-center">
-              <img className="h-30 w-30 ml-2 float-left" width="70" height="70"   src={xxx} alt=""/>
+              <img className="float-left ml-2 h-30 w-30" width="70" height="70"   src={xxx} alt=""/>
             {/* <nav class="flex w-full flex-col justify-between bg-mainyellow lg:flex-row sm:w-full ">
             <nav class="flex w-full flex-col justify-between bg-mainyellow lg:flex-row sm:w-full">
            <div class="flex justify-between items-center">
@@ -26,18 +27,22 @@ class Header extends Component {
                </div>
            </div>
            <div class={ this.state.isOpen ? "flex overflow-hidden justify-center items-center flex-col p-6 h-auto":" hidden lg:flex lg:items-center lg:justify-center"}>
-                <Link to="/" class="block p-2 text-maingreen hover:text-hovergreen font-bold text-20 text-center lg:mr-10">
-                    Home
-                </Link>
-                <Link to="/shop" class="block p-2 text-maingreen hover:text-hovergreen font-bold text-20 text-center lg:mr-10">
-                    Shop
-                </Link>
-                <Link to="/cart" class="block p-2 text-maingreen hover:text-hovergreen font-bold text-20 text-center lg:mr-10">
-                    Cart
-                </Link>
-                <Link to="/profile/orders" class="block p-2 text-maingreen hover:text-hovergreen font-bold text-20 text-center lg:mr-20">
-                    My Orders
-                </Link>
+                <NavLink to="/" exact activeClassName="active">
+                    {/* Home */}
+                    <li className="block p-2 font-bold text-center list-none text-maingreen hover:text-hovergreen text-20 lg:mr-20">Home</li>
+                </NavLink>
+                <NavLink to="/shop" exact activeClassName="active">
+                    {/* Shop */}
+                    <li className="block p-2 font-bold text-center list-none text-maingreen hover:text-hovergreen text-20 lg:mr-20">Shop</li>
+                </NavLink>
+                <NavLink to="/cart" exact activeClassName="active">
+                    {/* Cart */}
+                    <li className="block p-2 font-bold text-center list-none text-maingreen hover:text-hovergreen text-20 lg:mr-20">Cart</li>
+                </NavLink>
+                <NavLink to="/profile/orders" exact activeClassName="active">
+                   <li className="block p-2 font-bold text-center list-none text-maingreen hover:text-hovergreen text-20 lg:mr-20">My Orders</li>
+                   {/* My Orders */}
+                </NavLink>
                 {/* <Link to="/login" class="block text-center w-32 px-4 -ml-3 py-2 text-20 leading-none border rounded text-maingreen border-maingreen hover:border-transparent hover:text-mainyellow hover:bg-maingreen lg:mr-5">
                     Sign In
                 </Link> */}
