@@ -14,7 +14,7 @@ import StockTable from './StockTable';
                         Add + 
                         </button>
 
-                    <h1 className="flex justify-center w-full pt-4 text-2xl font-bold text-maingreen">Update Stock</h1>
+                    <div className="flex justify-center w-full -mt-16 mb-6 text-2xl font-bold text-maingreen">Update Stock</div>
                     <div className="flex flex-col mt-2 sm:mx-10">
                 <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
