@@ -2,6 +2,8 @@ import React from 'react';
 import {useState} from 'react';
 import order from '../../assets/order.jpg';
 import { Link } from "react-router-dom";
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 
  const Orderhistory = () => {
@@ -16,6 +18,8 @@ import { Link } from "react-router-dom";
      {referanceid:10001, orderid:1107, orderplaced:'2021/07/23', items:4 , totalcost:2000,oredrstatus:'Deliverd'}
    ]);
     return (
+      <>
+      <Header/>
      
       <section>
 
@@ -55,6 +59,8 @@ import { Link } from "react-router-dom";
    </div>
    </div>
    </section>
+   <Footer/>
+   </>
     )
 }
 

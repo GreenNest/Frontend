@@ -19,7 +19,7 @@ function Cashondelivery(props) {
               bool="true" 
               Date={item.Date} 
               payment="Pending Payment"
-              icon={<FaArrowAltCircleRight/>}
+              icon={<FaArrowAltCircleRight className="text-maingreen hover:text-hovergreen"/>}
               />
               </div>
           ))}

@@ -1,14 +1,18 @@
 import OrderRequestCard from "./components/OrderRequestCard";
+import ModeratorSidebar from '../components/moderatorSidebar';
 
 const OrderRequest = () => {
     return (
-        <div>
-            <div className="w-3/4 pt-5 mx-auto my-10">
+        <>
+        <ModeratorSidebar/>
+        <div className="w-9/12 ml-72">
+            <div className="pt-6 mx-auto">
                 <OrderRequestCard />
                 <OrderRequestCard />
                 <OrderRequestCard />
             </div>
         </div>
+        </>
     );
 }
 

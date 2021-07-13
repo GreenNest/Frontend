@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import CustomerService from '../../services/CustomerService';
+import { useHistory } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Header from '../../components/Header';
 
-
+toast.configure();
 class Login extends Component {
     
     constructor(props){
@@ -23,15 +27,59 @@ class Login extends Component {
 
     handleSubmit = (event)=>{
         event.preventDefault();
-        let user = {
-            userName: this.state.email,
+        let loginModel = {
+            username: this.state.email,
             password: this.state.password
         }
 
-        let newuser = JSON.stringify(user);
-        console.log(newuser);
-        CustomerService.logUser(this.state.email, this.state.password).then((result) => {
-            console.log(result);
+        let newuser = JSON.stringify(loginModel);
+        console.log(loginModel);
+        CustomerService.logUser(loginModel).then((result) => {
+            console.log(result.data);
+            let response = result.data;
+
+            if(response == "username not found"){
+                console.log(response);
+                toast('username not found', {
+                    autoClose: false,
+                    closeOnClick: true,
+                    progress: false,
+                    position:toast.POSITION.TOP_CENTER
+                });
+            }
+            else if(response == "incorrect password"){
+                console.log(response);
+                toast('incorrect password', {
+                    autoClose: false,
+                    closeOnClick: true,
+                    progress: false,
+                    position:toast.POSITION.TOP_CENTER
+                });
+            }else{
+                console.log(response[0]);
+                let sessionDetails = {
+                    userId: response[1]
+                }
+                CustomerService.cresteSessionKey(sessionDetails).then((result) => {
+                    console.log(result.data);
+                    sessionStorage.setItem("token", result.data);
+                    if(response[0] == "customer"){
+                        this.props.history.push("/");
+                    }else if(response[0] == "admin"){
+                        this.props.history.push("/admin/dashboard");
+                    }else if(response[0] == "moderator"){
+                        this.props.history.push("/moderator/dashboard");
+                    }else if(response[0] == "worker"){
+                        this.props.history.push("/");
+                    }else if(response[0] == "accountant"){
+                        this.props.history.push("/accountant/dashboard");
+                    }else{
+                        console.log("not found");
+                    }
+                   
+                })
+            }
+
         })
 
 
@@ -40,6 +88,8 @@ class Login extends Component {
 
     render() {
         return (
+            <>
+            <Header/>
             <div class="flex justify-center items-center w-full ">
             <div class=" flex justify-center items-center w-1/4 mt-20 mb-16 shadow-xl">
                 
@@ -55,7 +105,7 @@ class Login extends Component {
                     type="text" placeholder="email" 
                     name="email"
                     value={this.state.email} 
-                    onChange={this.handleChange}/>
+                    onChange={this.handleChange} required/>
                 </div>
 
                 <div class="mb-6">
@@ -66,7 +116,7 @@ class Login extends Component {
                     type="password" placeholder="password"
                     name="password"
                     value={this.state.password}
-                    onChange={this.handleChange} />
+                    onChange={this.handleChange} required/>
                 </div>
 
                 <div class="flex items-center justify-center">
@@ -93,7 +143,7 @@ class Login extends Component {
             </div>
             </div>
             
-            
+            </>
 
         );
     }

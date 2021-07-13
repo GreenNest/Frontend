@@ -1,7 +1,7 @@
 import CheckBox from "../components/CheckBox";
 import AdminSidebar from '../components/adminSidebar';
 
-const AddSupplier = (props) => {
+const EditSupplier = (props) => {
     return (
         <>
         <AdminSidebar/>
@@ -9,7 +9,7 @@ const AddSupplier = (props) => {
             
             <div className="flex justify-center mx-10">
                 <form className="w-full p-8  mt-6 bg-gray-500 bg-opacity-25 rounded-md shadow-inner md:w-1/2 sm:w-3/4">
-                <div className="mt-0 mb-6 tracking-wide text-center text-maingreen font-bold text-2xl">Add Supplier</div>
+                <div className="mt-0 mb-6 tracking-wide text-center text-maingreen font-bold text-2xl">Edit Supplier</div>
                     <div className="flex flex-wrap mb-6">
                         <div className="w-full px-3 mb-6 space-y-2 md:w-1/2 md:mb-0">
                             <label className="text-lg p-1 w-1/3 font-semibold" for="grid-first-name">
@@ -73,4 +73,4 @@ const AddSupplier = (props) => {
     );
 }
 
-export default AddSupplier;
+export default EditSupplier;

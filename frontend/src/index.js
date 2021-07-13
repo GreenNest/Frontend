@@ -7,7 +7,9 @@ import App from './App';
 import Product from './pages/customer/product/Product';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Sidebar from './pages/admin/components/Sidebar';
+import AdminSidebar from './pages/admin/components/adminSidebar';
+import ModeratorSidebar from './pages/moderator/components/moderatorSidebar';
+import AccountantSidebar from './pages/accountant/dashboard/components/accountantSidebar';
 import Description from './pages/customer/home/components/Description';
 import Featured from './pages/customer/home/components/Featured';
 import SlideContainer from './pages/customer/home/components/slideContainer';
@@ -27,7 +29,7 @@ import InvoiceHistory from './pages/accountant/InvoiceHistory';
 import Upcomingorders from './pages/moderator/orders/Upcomingorders';
 import Ongoingorders from './pages/moderator/orders/Ongoingorders';
 import Dashboard from './pages/accountant/dashboard/Dashboard';
-import EditStock from './pages/admin/edit-stock/EditStock'
+
 import AddEmployee from './pages/admin/employee/AddEmployee';
 import AddSupplier from './pages/admin/supplier/AddSupplier';
 import Categoryadminview from './pages/admin/categoryadminview/Categoryadminview';
@@ -41,10 +43,12 @@ import Updatestock from './pages/admin/Stock/Updatestock';
 ReactDOM.render(
   <React.StrictMode>
     <Router> 
-      <Header/>
-      {/* <Sidebar /> */}
-       <App/> 
-      <Footer/>
+      {/* <Header/> */}
+       {/* <AdminSidebar />   */}
+       {/* <ModeratorSidebar />  */}
+      {/* <AdminSidebar />  */}
+        <App/>  
+      {/* <Footer/> */}
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

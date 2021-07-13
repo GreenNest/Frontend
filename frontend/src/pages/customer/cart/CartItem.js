@@ -14,7 +14,7 @@ const CartItem = () => {
             <div className="flex-none w-1/12 md:w-2/12 lg:w-1/12 bg-white border-black md:border-black">
                 <img className="w-full " src={item} alt="item-img"/>
             </div>
-            {/* Item */}
+            {/* Item Name*/}
             <div className="flex-auto mr-4 ml-6">
                 <Link to="shop/product">
                     <button className="flex font-bold py-2 px-4 rounded border bg-white hover:text-gray-500 border-black md:border-black">Mango Tree - TK2003</button>

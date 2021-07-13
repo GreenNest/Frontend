@@ -3,14 +3,14 @@ import BarChart from './components/BarChart';
 import LineChart from './components/LineChart';
 import PieChart from './components/PieChart';
 import {FaClipboardList, FaClipboardCheck} from 'react-icons/fa';
-import AccountantSidebar from './components/accountantSidebar';
+import AdminSidebar from '../components/adminSidebar';
 
 
 class AccDashboard extends Component {
     render() {
         return (
             <>
-            <AccountantSidebar/>
+            <AdminSidebar/>
             <div className="-mt-6 grid-container">
                 {/* <div class="bg-maingreen h-screen"></div> */}
                 <div className="-ml-4 main-area">

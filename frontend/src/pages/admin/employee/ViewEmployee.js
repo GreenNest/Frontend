@@ -1,21 +1,27 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
-import AddButton from '../components/AddButton';
-import SearchBtn from '../components/SearchBtn';
+// import AddButton from '../components/AddButton';
+// import SearchBtn from '../components/SearchBtn';
 import JobTypeBtn from '../components/JobTypeBtn';
 import EmployeeTable from '../components/EmployeeTable';
+import Search from '../components/Search';
+import AdminSidebar from '../components/adminSidebar';
 
 const ViewEmployee = () => {
     const [showEmployees,setShowEmployees] = useState(false);
     
     return (
-        <div className="flex flex-col justify-center m-12 gap-y-5 md:mx-40">
-            <div className="flex justify-between">
+        <>
+        <AdminSidebar/>
+        <div className="w-9/12 ml-40 mt-6 flex flex-col  gap-y-5 md:mx-72">
+            <div className="flex justify-between -mb-4">
                 <Link to="/admin/addEmployee">
-                    <AddButton btnValue="+ ADD EMPLOYEE" />
+                    {/* <AddButton btnValue="+ ADD EMPLOYEE" /> */}
+                    <button className="bg-maingreen hover:bg-hovergreen p-4 justify-center text-white font-bold ml-12 mb-8 rounded py-2 px-4">Add Employee + </button>
                 </Link>
-                <SearchBtn />
+                {/* <SearchBtn /> */}
+                <div className="float-right mr-12"><Search /></div>
                 {/* { showEmployees ? (
                     <SearchBtn />
                 ): null } */}
@@ -24,8 +30,8 @@ const ViewEmployee = () => {
             <div className="flex flex-wrap mx-5 sm:justify-center gap-x-5 gap-y-5 md:gap-x-8">
                 <JobTypeBtn jobType="Moderators" />
                 <JobTypeBtn jobType="Accountants" />
-                <JobTypeBtn jobType="Workers" />
                 <JobTypeBtn jobType="Delivery Persons" />
+                <JobTypeBtn jobType="Workers" />
                 {/* <JobTypeBtn jobType="Moderators" viewEmployees={() => setShowEmployees(true)} />
                 <JobTypeBtn jobType="Accountants" viewEmployees={() => setShowEmployees(true)} />
                 <JobTypeBtn jobType="Delivery Persons" viewEmployees={() => setShowEmployees(true)} />
@@ -33,17 +39,17 @@ const ViewEmployee = () => {
             </div>
             
             {/* { showEmployees ? ( */}
-            <div className="flex flex-col mt-5 sm:mx-10">
+            <div className="flex flex-col mt-2 sm:mx-10">
                 <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                         <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
                             <table className="min-w-full divide-y divide-gray-300">
-                                <thead className="bg-gray-100">
+                                <thead className="bg-gray-500 bg-opacity-25">
                                     <tr>
-                                        <th className="px-6 py-3 text-lg font-bold tracking-wider text-left text-gray-700 uppercase">Name</th>
-                                        <th className="px-6 py-3 text-lg font-bold tracking-wider text-left text-gray-700 uppercase">NIC</th>
-                                        <th className="px-6 py-3 text-lg font-bold tracking-wider text-left text-gray-700 uppercase">Address</th>
-                                        <th className="px-6 py-3 text-lg font-bold tracking-wider text-left text-gray-700 uppercase">Mobile</th>
+                                        <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Name</th>
+                                        <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">NIC</th>
+                                        <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Address</th>
+                                        <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Mobile</th>
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
@@ -60,6 +66,7 @@ const ViewEmployee = () => {
             </div>
             {/* ): null } */}
         </div>
+        </>
     );
 }
 

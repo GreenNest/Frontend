@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import CustomerService from '../../services/CustomerService';
-import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Header from '../../components/Header';
 
 
 const initialState = {
@@ -14,8 +16,11 @@ const initialState = {
     role: 'customer',
     password_err:'',
     email_err: '',
-    mobile_err: '' 
+    mobile_err: '' ,
+    message:''
 }
+
+toast.configure();
 
 class Signup extends Component {
     state = initialState;
@@ -35,7 +40,7 @@ class Signup extends Component {
     //      this.handleSubmit = this.handleSubmit.bind(this);
     // }
 
-        handleChange = event => {
+    handleChange = event => {
 
         const isCheckbox = event.target.type === "checkbox";
         this.setState({
@@ -46,7 +51,7 @@ class Signup extends Component {
         // this.setState({
         //     [event.target.name]:event.target.value
         // });
-        };
+    };
 
 
     validate(){
@@ -85,35 +90,47 @@ class Signup extends Component {
     handleSubmit = (event)=>{
         event.preventDefault();
         const isValid = this.validate();
+        
         if(isValid){
-           console.log(this.state);
-
-           this.setState(initialState);
-
-        }
+            let customer = {
+            first_name: this.state.firstname,
+            last_name: this.state.lastname,
+            mobile: parseInt(this.state.mobilenumber),
+            profile:{
+                email: this.state.email,
+                password: this.state.password,
+                role: this.state.role
+                }
             
+            }
+             console.log('customer =>' + JSON.stringify(customer));
+        CustomerService.createCustomer(customer).then((result) => {
+            // this.props.history.push('/login');
+            console.log(result.data);
+            if(result.data == true){
+                toast('Successfully create an account', {
+                   autoClose: false,
+                   closeOnClick: true,
+                   progress: false,
+                   position:toast.POSITION.TOP_CENTER
+                });
+            }
+            else{
+                toast('Already have an account please signup', {
+                    autoClose: false,
+                    closeOnClick: true,
+                    progress: false,
+                    position:toast.POSITION.TOP_CENTER
+                });
+            }
+            this.setState(initialState);
         
+            
+        });
 
+    }
         
-        
-        
-        // let customer = {
-        //     first_name: this.state.firstname,
-        //     last_name: this.state.lastname,
-        //     mobile: parseInt(this.state.mobilenumber),
-        //     profile:{
-        //         email: this.state.email,
-        //         password: this.state.password,
-        //         role: this.state.role
-        //     }
-            
-        // }
-        // console.log('customer =>' + JSON.stringify(customer));
-        // CustomerService.createCustomer(customer).then((result) => {
-        //     this.props.history.push('/login');
-        //     console.log(result.data);
-            
-        // });
+       
 
     }
     cancel (){
@@ -124,6 +141,8 @@ class Signup extends Component {
 
     render() {
         return (
+            <>
+            <Header/>
             <div className='flex justify-center w-full mb-20 '>
                 <div class="w-2/4 shadow-xl mt-12 items-center flex justify-center"> 
                     <form class="w-full max-w-lg justify-center mb-20" onSubmit={this.handleSubmit}>
@@ -139,7 +158,7 @@ class Signup extends Component {
                                     name="firstname" 
                                     value={this.state.firstname}
                                     onChange={this.handleChange}
-                                    placeholder="eg: Nimal" required/>
+                                    placeholder="eg: Nimal"/>
                                 </div>
 
                                 <div class="w-full md:w-1/2 px-3 ">
@@ -164,7 +183,7 @@ class Signup extends Component {
                                     name="email" 
                                     value={this.state.email}
                                     onChange={this.handleChange}
-                                    placeholder="eg: hiruni123@gmail.com" required/>
+                                    placeholder="eg: hiruni123@gmail.com" />
                                     <div class="text-red-600">{this.state.email_err}</div>
                                 </div>
 
@@ -177,7 +196,7 @@ class Signup extends Component {
                                     name="mobilenumber" 
                                     value={this.state.mobilenumber}
                                     onChange={this.handleChange}
-                                    placeholder="eg: Kuliyapitiya" required/>
+                                    placeholder="eg: Kuliyapitiya" />
                                     <div class="text-red-600">{this.state.mobile_err}</div>
                                 </div>
 
@@ -189,7 +208,7 @@ class Signup extends Component {
                                     type="password"
                                     name="password" 
                                     value={this.state.password}
-                                    onChange={this.handleChange} required/>
+                                    onChange={this.handleChange} />
                                     <div class="text-red-600">{this.state.password_err}</div>
                                 </div>
 
@@ -201,7 +220,7 @@ class Signup extends Component {
                                     type="password"
                                     name="confirmpassword"
                                     value={this.state.confirmpassword}
-                                    onChange={this.handleChange} required/>
+                                    onChange={this.handleChange} />
                         
                                 </div>
 
@@ -248,6 +267,7 @@ class Signup extends Component {
                 </form>
                 </div>
             </div>
+            </>
         );
     }
 }

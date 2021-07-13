@@ -2,34 +2,38 @@ import React from 'react';
 import CartItem from "./CartItem";
 import { MdAssignmentReturn } from 'react-icons/md';
 import { Link } from "react-router-dom";
+import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
 // import "../../../styles/style.css";
 
 const Cart = () => {
     return(
+        <>
+        <Header />
         <div className="min-w-full md:min-w-0 sm:p-20 lg:px-32 mt-0">
             {/* Alert-No added items to display */}
             {/* <div className="bg-red-100 border border-red-400 text-red-700 px-7 py-3 rounded relative my-5" role="alert">
                 <span className="block sm:inline">Your cart is empty !</span>
             </div> */}
 
-            {/* <div className="flex grid grid-cols-4 grid-flow-col max-w-7xl justify-center items-center  p-0 rounded-lg mt-2 mb-2 mr-0 ">
-                Item
-                <div className="flex-auto mr-2 ml-2">
-                    <button button className="flex font-bold py-1 px-5 rounded border border-gray-500 md:border-gray-500">Item</button>
+            <div className="flex  max-w-7xl  items-center  p-0 rounded-lg mt-2 mb-2 mr-0 ">
+                {/* Item */}
+                <div className="flex mr-2 ml-64">
+                    <button button className="flex font-bold py-1 px-5 rounded border border-gray-500 bg-hovergreen text-white md:border-gray-500">Item</button>
                 </div>
-                Price
-                <div className="flex-auto mr-2 ml-10">
-                    <button className="flex font-bold py-1 px-5 rounded border border-gray-500 md:border-gray-500">Price</button>
+                {/* Price */}
+                <div className="flex mr-2 ml-32">
+                    <button className="flex font-bold py-1 px-5 rounded border border-gray-500 bg-hovergreen text-white md:border-gray-500">Price</button>
                 </div>
-                Quantity
-                <div className="flex-auto mr-2 ml-10">
-                    <button className="flex font-bold py-1 px-5 rounded border border-gray-500 md:border-gray-500">Qty</button>
+                {/* Quantity */}
+                <div className="flex mr-2 ml-32">
+                    <button className="flex font-bold py-1 px-5 rounded border border-gray-500 bg-hovergreen text-white md:border-gray-500">Qty</button>
                 </div>
-                Subtotal
-                <div className="flex-auto mr-1 ml-10">
-                    <button button className="flex font-bold py-1 px-5 rounded border border-gray-500 md:border-gray-500">Subtotal</button>
+                {/* Subtotal */}
+                <div className="flex mr-1 ml-28">
+                    <button button className="flex font-bold py-1 px-5 rounded border border-gray-500 bg-hovergreen text-white md:border-gray-500">Subtotal</button>
                 </div>
-            </div> */}
+            </div>
 
             {/* Item components */}
             <CartItem />
@@ -60,12 +64,14 @@ const Cart = () => {
                 </div>
                 
             </div>
-            <div className="">
+            <div className="w-44">
             <Link to="shop">
                 <button className="bg-maingreen hover:bg-hovergreen text-white flex font-bold py-2 px-4 rounded"><MdAssignmentReturn className="mt-1 mr-1"/> Return to Shop</button>
             </Link> 
             </div>   
         </div>
+        <Footer/>
+        </>
     );
 }
 

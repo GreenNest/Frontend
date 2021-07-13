@@ -6,7 +6,8 @@ import b_avacado from "../../../assets/b_avacado.jpg"
 import lemmon from "../../../assets/lemmon.jpg"
 import plastic_pot from "../../../assets/plastic_pot.jpg"
 import sensavaria from "../../../assets/sensavaria.jpg"
-
+import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
  const Order = () => {
     const[order]= useState(
         [
@@ -29,10 +30,12 @@ import sensavaria from "../../../assets/sensavaria.jpg"
       }
   
     return (
+      <>
+      <Header />
        
        <div className="bg-gray-200 bg-opacity-25 w-100% h-auto p-6 shadow-xl">             
            <div>
-             <div className=" bg-white shadow-2xl shadow-maingreen w-11/12 pb-20 flex-row m-24  justify-center item-center border-2 border-4 border-gray-400">
+             <div className=" bg-white shadow-2xl shadow-maingreen w-11/12 pb-20 flex-row m-24  justify-center item-center border-4 border-gray-400">
              <div>
                 {model2 &&
                    <Complaintmodel />
@@ -70,6 +73,8 @@ import sensavaria from "../../../assets/sensavaria.jpg"
                 
            </div>
        </div>
+       <Footer/>
+       </>
 
     )
 }
