@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Cart = () => {
     return(
-        <div className="min-w-full -mt-16 md:min-w-0 sm:p-20 lg:px-32">
+        <div className="min-w-full -mt-8 md:min-w-0 sm:p-20 lg:px-32">
             {/* Alert-No added items to display */}
             {/* <div className="relative py-3 my-5 text-red-700 bg-red-100 border border-red-400 rounded px-7" role="alert">
                 <span className="block sm:inline">Your cart is empty !</span>
