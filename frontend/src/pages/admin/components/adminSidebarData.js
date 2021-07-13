@@ -6,6 +6,7 @@ import * as MdIcons from "react-icons/md";
 import * as HiIcons from "react-icons/hi";
 import * as BiIcons from "react-icons/bi";
 import * as TiIcons from "react-icons/ti";
+import * as AiIcons from "react-icons/ai";
 
 
 export const AdminSidebarData = [
@@ -68,6 +69,12 @@ export const AdminSidebarData = [
         title: 'Reports',
         path: '/admin/reports',
         icon: <HiIcons.HiDocumentReport className="w-5 h-5 mr-5 mt-0.5"/>,
+        // style: "hover:bg-yellow-400 bg-yellow-200 hover:text-white flex font-bold p-3 rounded w-48",
+    },
+    {
+        title: 'Logout',
+        path: '#',
+        icon: <AiIcons.AiOutlineLogout className="w-5 h-5 mr-5 mt-0.5"/>,
         // style: "hover:bg-yellow-400 bg-yellow-200 hover:text-white flex font-bold p-3 rounded w-48",
     },
 ]
