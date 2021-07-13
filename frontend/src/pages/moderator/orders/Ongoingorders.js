@@ -25,7 +25,7 @@ const OngoingOrders = () => {
                                 {/* <form className="flex"> */}                       
                                 </form>
                                         <input type="text" placeholder="Date" className="h-8 m-2 p-4 -ml-2 w-48 focus:outline-none rounded"/>
-                                        <input type="text" placeholder="Enter word" className="h-8 m-2 py-4 px-8 md:w-48 focus:outline-none rounded"/>
+                                        <input type="text" placeholder="Enter keyword" className="h-8 m-2 py-4 px-8 md:w-48 focus:outline-none rounded"/>
                                         {/* <input type="button" value="Search" className="h-8 m-3 w-24 focus:outline-none"/>   */}
                             </div>
                                                                 

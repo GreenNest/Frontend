@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import xxx from '../assets/GreenNest.png';
 import {FaAlignRight} from 'react-icons/fa'
 import { Link } from "react-router-dom";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-class Header extends Component {
+class SignedHeader extends Component {
     state={
         isOpen:false
     };
@@ -38,11 +40,8 @@ class Header extends Component {
                 <Link to="/profile/orders" class="block p-2 text-maingreen hover:text-hovergreen font-bold text-20 text-center lg:mr-20">
                     My Orders
                 </Link>
-                {/* <Link to="/login" class="block text-center w-32 px-4 -ml-3 py-2 text-20 leading-none border rounded text-maingreen border-maingreen hover:border-transparent hover:text-mainyellow hover:bg-maingreen lg:mr-5">
-                    Sign In
-                </Link> */}
-                <Link to="/signup" class="block text-center w-32 px-4 ml-5 py-2 text-20 leading-none border rounded text-maingreen border-maingreen hover:border-transparent hover:text-mainyellow hover:bg-maingreen lg:mr-5">
-                    Sign Up
+                <Link to="/login" class="block text-center w-36 px-4 ml-4 py-2 text-20 leading-none border rounded text-maingreen border-maingreen hover:border-transparent hover:text-mainyellow hover:bg-maingreen lg:mr-5">
+                    <FontAwesomeIcon icon={faUser} /> Hi! Nimal
                 </Link>
            </div>
         </nav>
@@ -51,7 +50,7 @@ class Header extends Component {
     }
 }
 
-export default Header;
+export default SignedHeader;
 
 
 

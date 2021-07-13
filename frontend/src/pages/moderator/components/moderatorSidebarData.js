@@ -1,6 +1,6 @@
 import React from 'react'
 import * as FaIcons from "react-icons/fa";
-import * as GrIcons from "react-icons/gr";
+import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 import * as Io5Icons from "react-icons/io5";
 import * as CgIcons from "react-icons/cg";
@@ -61,4 +61,17 @@ export const SidebarData = [
         icon: <FaIcons.FaPeopleCarry className="w-5 h-5 mr-3 mt-0.5"/>,
         // style: "hover:bg-gray-400 bg-gray-300 hover:text-white flex font-bold p-3 rounded w-48",
     },
+    {
+        title: 'Request a Leave',
+        path: '/moderator/leaveRequests',
+        icon: <MdIcons.MdDateRange className="w-5 h-5 mr-3 mt-0.5"/>,
+        // style: "hover:bg-gray-400 bg-gray-300 hover:text-white flex font-bold p-3 rounded w-48",
+    },
+    {
+        title: 'Leave Statistics',
+        path: '/moderator/leaveStats',
+        icon: <AiIcons.AiOutlineBarChart className="w-5 h-5 mr-3 mt-0.5"/>,
+        // style: "hover:bg-gray-400 bg-gray-300 hover:text-white flex font-bold p-3 rounded w-48",
+    },
+
 ]
