@@ -31,59 +31,51 @@ class Login extends Component {
     }
     render() {
         return (
-            <div class="flex justify-center items-center w-full ">
-            <div class=" flex justify-center items-center w-1/4 mt-20 mb-16 shadow-xl">
-                
-                
-            <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8  w-full' 
-            onSubmit={this.handleSubmit}>
-                <p class="text-3xl mb-5 text-center font-bold"> Login </p>
-                <div class='mb-4'>
-                    <label class='block mb-2 text-md font-bold text-gray-700'>
-                        Email
-                    </label>
-                    <input class='w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black' 
-                    type="text" placeholder="email" 
-                    value={this.state.email} 
-                    onChange={this.handleEmailChange}/>
-                </div>
+            <div class="flex justify-center items-center w-full">
+                <div class="flex justify-center items-center mt-14 mb-16 shadow-xl border-2 border-maingreen rounded-md">  
+                    <form class='bg-white shadow-lg rounded w-full px-14 py-8' onSubmit={this.handleSubmit}>
+                        <p class="font-sans text-3xl font-bold text-center mb-8 text-maingreen"> Login </p>
+                        <div class='mb-4'>
+                            <label class='block tracking-wide text-black font-semibold mb-3 mt-4 text-lg'>
+                                Email
+                            </label>
+                            <input class='rounded w-full p-2 border-solid outline-none hover:border-hovergreen focus:border-maingreen border shadow border-black border-opacity-25 leading-tight text-gray-700' 
+                            type="text" placeholder="example@gmail.com" 
+                            value={this.state.email} 
+                            onChange={this.handleEmailChange}/>
+                        </div>
 
-                <div class="mb-6">
-                    <label class="block mb-2 text-md font-bold text-gray-700">
-                        Password
-                    </label>
-                    <input class="w-full px-3 py-2 mb-3 leading-tight text-gray-700 border rounded shadow appearance-none border-500 focus:outline-none focus:shadow-outline  focus:bg-white focus:border-black" 
-                    type="password" placeholder="password"
-                    value={this.state.password}
-                    onChange={this.handlePasswordChange} />
-                </div>
+                        <div class="mb-6">
+                            <label class="block tracking-wide text-black font-semibold mb-3 mt-4 text-lg">
+                                Password
+                            </label>
+                            <input class="rounded w-full p-2 border-solid outline-none hover:border-hovergreen focus:border-maingreen border shadow border-black border-opacity-25 leading-tight text-gray-700" 
+                            type="password" placeholder=""
+                            value={this.state.password}
+                            onChange={this.handlePasswordChange} />
+                        </div>
 
-                <div class="flex items-center justify-center">
-                <a class="inline-block text-md font-bold text-black align-baseline hover:text-green-800" href="#">
-                        Forgot Password?
-                    </a>
-                </div>
+                        <div class="flex items-center justify-center">
+                        <a class="inline-block text-base font-semibold text-black align-baseline hover:text-green-800" href="#">
+                                Forgot Password?
+                            </a>
+                        </div>
 
-                <div class="flex items-center justify-center mt-4">
-                    <button class="px-5 py-2 font-bold text-mainyellow bg-maingreen rounded hover:bg-secondarygreen focus:outline-none focus:shadow-outline" type="submit">
-                        Sign In
-                    </button>
-                    
-                </div>
-                
+                        <div class="flex items-center justify-center mt-4">
+                            <button class="px-8 py-2 font-bold text-white text-lg bg-maingreen rounded hover:bg-secondarygreen focus:outline-none focus:shadow-outline" type="submit">
+                                Sign In
+                            </button> 
+                        </div>
 
-                <div class="mt-4">
-                {/* <a class="inline-block text-md font-bold text-black align-baseline hover:text-green-1000" href="#"> */}
-                    If you don't have an account? 
-                    {/* </a> */}
-                    <Link class="ml-1 inline-block text-md font-bold text-black align-baseline hover:text-green-1000" to="/signup"> Sign Up</Link>
-                 </div> 
-            </form>
+                        <div class="mt-4 text-base font-medium">
+                        {/* <a class="inline-block text-md font-bold text-black align-baseline hover:text-green-1000" href="#"> */}
+                            If you don't have an account? 
+                            {/* </a> */}
+                            <Link class="ml-1 inline-block text-base font-bold text-maingreen align-baseline hover:text-green-1000 tracking-wide" to="/signup"> Sign Up</Link>
+                        </div> 
+                    </form>
+                </div>
             </div>
-            </div>
-            
-            
-
         );
     }
 }

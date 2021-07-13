@@ -57,10 +57,10 @@ class Signup extends Component {
                         <h3 class="font-sans text-3xl font-bold text-center mt-5 mb-8 text-maingreen">Create New Account</h3>
                         <div class="flex flex-wrap -mx-3 mb-6">
                             <div class="w-full md:w-1/2 px-3">
-                                <label class="block tracking-wide text-black font-bold mb-3 mt-4 text-lg">
+                                <label class="block tracking-wide text-black font-semibold mb-3 mt-4 text-lg">
                                     First Name
                                 </label>
-                                <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4" 
+                                <input class="rounded w-full p-2 border-solid outline-none hover:border-hovergreen focus:border-maingreen border shadow border-black border-opacity-25 leading-tight text-gray-700" 
                                 type="text"
                                 name="firstname" 
                                 value={this.state.firstname}
@@ -69,10 +69,10 @@ class Signup extends Component {
                             </div>
 
                             <div class="w-full md:w-1/2 px-3">
-                                <label class="block  tracking-wide text-black font-bold mb-3 mt-4 text-lg">
+                                <label class="block  tracking-wide text-black font-semibold mb-3 mt-4 text-lg">
                                     Last Name
                                 </label>
-                                <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4" 
+                                <input class="rounded w-full p-2 border-solid outline-none hover:border-hovergreen focus:border-maingreen border shadow border-black border-opacity-25 leading-tight text-gray-700" 
                                 type="text"
                                 name="lastname" 
                                 value={this.state.lastname}
@@ -81,22 +81,22 @@ class Signup extends Component {
                             </div>
 
                             <div class="w-full md:w-1/2 px-3">
-                                <label class="block  tracking-wide text-black font-bold mb-3 mt-4 text-lg">
+                                <label class="block  tracking-wide text-black font-semibold mb-3 mt-4 text-lg">
                                     Email
                                 </label>
-                                <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4" 
+                                <input class="rounded w-full p-2 border-solid outline-none hover:border-hovergreen focus:border-maingreen border shadow border-black border-opacity-25 leading-tight text-gray-700" 
                                 type="text"
                                 name="email" 
                                 value={this.state.email}
                                 onChange={this.handleChange}
-                                placeholder="hiruni123@gmail.com"/>
+                                placeholder="example@gmail.com"/>
                             </div>
 
                             <div class="w-full md:w-1/2 px-3">
-                                <label class="block  tracking-wide text-black font-bold mb-3 mt-4 text-lg">
+                                <label class="block  tracking-wide text-black font-semibold mb-3 mt-4 text-lg">
                                     Mobile Number
                                 </label>
-                                <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4" 
+                                <input class="rounded w-full p-2 border-solid outline-none hover:border-hovergreen focus:border-maingreen border shadow border-black border-opacity-25 leading-tight text-gray-700" 
                                 type="text"
                                 name="mobilenumber" 
                                 value={this.state.mobilenumber}
@@ -105,10 +105,10 @@ class Signup extends Component {
                             </div>
 
                             <div class="w-full md:w-1/2 px-3">
-                                <label class="block  tracking-wide text-black font-bold mb-3 mt-4 text-lg">
+                                <label class="block  tracking-wide text-black font-semibold mb-3 mt-4 text-lg">
                                     Password
                                 </label>
-                                <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-2 px-4" 
+                                <input class="rounded w-full p-2 border-solid outline-none hover:border-hovergreen focus:border-maingreen border shadow border-black border-opacity-25 leading-tight text-gray-700" 
                                 type="password"
                                 name="password" 
                                 value={this.state.password}
@@ -116,10 +116,10 @@ class Signup extends Component {
                             </div>
 
                             <div class="w-full md:w-1/2 px-3">
-                                <label class="block  tracking-wide text-black font-bold mb-3 mt-4 text-lg">
+                                <label class="block  tracking-wide text-black font-semibold mb-3 mt-4 text-lg">
                                     Confirm Password
                                 </label>
-                                <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-2 px-4" 
+                                <input class="rounded w-full p-2 border-solid outline-none hover:border-hovergreen focus:border-maingreen border shadow border-black border-opacity-25 leading-tight text-gray-700" 
                                 type="password"
                                 name="confirmpassword"
                                 value={this.state.confirmpassword}

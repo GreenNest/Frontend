@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Cart = () => {
     return(
-        <div className="min-w-full -mt-8 md:min-w-0 sm:p-20 lg:px-32">
+        <div className="min-w-full mb-5 -mt-8 md:min-w-0 sm:p-20 lg:px-32">
             {/* Alert-No added items to display */}
             {/* <div className="relative py-3 my-5 text-red-700 bg-red-100 border border-red-400 rounded px-7" role="alert">
                 <span className="block sm:inline">Your cart is empty !</span>
@@ -16,19 +16,19 @@ const Cart = () => {
             <div className="flex items-center p-0 mt-2 mb-2 mr-0 rounded-lg max-w-7xl ">
                 {/* Item */}
                 <div className="flex ml-64 mr-2">
-                    <button button className="flex px-5 py-1 font-bold text-white rounded bg-hovergreen md:border-gray-500">Item</button>
+                    <button button className="flex px-5 py-1 font-bold text-white rounded bg-hovergreen md:border-gray-500" disabled>Item</button>
                 </div>
                 {/* Price */}
                 <div className="flex ml-32 mr-2">
-                    <button className="flex px-5 py-1 font-bold text-white border border-gray-500 rounded bg-hovergreen md:border-gray-500">Price</button>
+                    <button className="flex px-5 py-1 font-bold text-white rounded bg-hovergreen md:border-gray-500" disabled>Price</button>
                 </div>
                 {/* Quantity */}
                 <div className="flex ml-32 mr-2">
-                    <button className="flex px-5 py-1 font-bold text-white border border-gray-500 rounded bg-hovergreen md:border-gray-500">Qty</button>
+                    <button className="flex px-5 py-1 font-bold text-white rounded bg-hovergreen md:border-gray-500" disabled>Qty</button>
                 </div>
                 {/* Subtotal */}
                 <div className="flex mr-1 ml-28">
-                    <button button className="flex px-5 py-1 font-bold text-white border border-gray-500 rounded bg-hovergreen md:border-gray-500">Subtotal</button>
+                    <button button className="flex px-5 py-1 font-bold text-white rounded bg-hovergreen md:border-gray-500" disabled>Subtotal</button>
                 </div>
             </div>
 
