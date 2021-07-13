@@ -38,7 +38,10 @@ class Header extends Component {
                 <Link to="/profile/orders" class="block p-2 text-maingreen hover:text-hovergreen font-bold text-20 text-center lg:mr-20">
                     My Orders
                 </Link>
-                <Link to="/login" class="block text-center w-32 px-4 ml-5 py-2 text-20 leading-none border rounded text-maingreen border-maingreen hover:border-transparent hover:text-mainyellow hover:bg-maingreen lg:mr-5">
+                {/* <Link to="/login" class="block text-center w-32 px-4 -ml-3 py-2 text-20 leading-none border rounded text-maingreen border-maingreen hover:border-transparent hover:text-mainyellow hover:bg-maingreen lg:mr-5">
+                    Sign In
+                </Link> */}
+                <Link to="/signup" class="block text-center w-32 px-4 ml-5 py-2 text-20 leading-none border rounded text-maingreen border-maingreen hover:border-transparent hover:text-mainyellow hover:bg-maingreen lg:mr-5">
                     Sign Up
                 </Link>
            </div>
