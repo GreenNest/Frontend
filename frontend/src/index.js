@@ -46,10 +46,6 @@ ReactDOM.render(
   <React.StrictMode>
     <Router> 
       <Header/>
-<<<<<<< HEAD
-=======
-      {/* <SignedHeader /> */}
->>>>>>> fb2503b70bc2737e541187a7dbeb3ccd5f45002d
        {/* <AdminSidebar />   */}
        {/* <ModeratorSidebar />  */}
       {/* <AccountantSidebar />  */}

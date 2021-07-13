@@ -4,19 +4,18 @@ import React from 'react'
 const Category = () => {
 
     return (
-        <div className="w-10/12 h-screen md:mt-28 mt-24 ml-12">
-           <div className="mb-24 text-lg  sm:text-l lg:text-xl md:text-2xl font-semibold">Product Categories</div>
-           <div className="text-sm sm:text-lg font-base mb-20 flex-row divide-y-2 divide-gray-300 w-8/12">
-                <div className="my-3 box-border flex-row py-2  text-redcolor font-bold">Indoor Plants</div>
-                <div className="my-3 box-border flex-row py-2 text-maingreen font-bold cursor-pointer">Outdoor Plants</div>
-                <div className="my-3 box-border flex-row py-2 text-maingreen font-bold cursor-pointer">Outdoor Plants</div>
-                <div className="my-3 box-border flex-row py-2 text-maingreen font-bold cursor-pointer">Outdoor Plants</div>
-                <div className="my-3 box-border flex-row py-2 text-maingreen font-bold cursor-pointer">Outdoor Plants</div>
-                <div className="my-3 box-border flex-row py-2 text-maingreen font-bold cursor-pointer">Outdoor Plants</div>
-                <div className="my-3 box-border flex-row py-2 text-maingreen font-bold cursor-pointer">Outdoor Plants</div>
-                <div className="my-3 box-border flex-row py-2 text-maingreen font-bold cursor-pointer">Outdoor Plants</div>
-                <div className="my-3 box-border flex-row py-2 text-maingreen font-bold cursor-pointer">Outdoor Plants</div>
-                <div className="my-3 box-border flex-row py-2 text-maingreen font-bold cursor-pointer">Outdoor Plants</div>
+        <div className="w-10/12 h-screen mt-5 ml-10 md:mt-16">
+           <div className="mb-5 text-lg font-semibold sm:text-l lg:text-xl md:text-2xl">Product Categories</div>
+           <div className="flex-row w-9/12 mb-20 text-sm divide-y-2 divide-gray-300 sm:text-lg font-base">
+                <div className="box-border flex-row py-2 font-bold text-redcolor">Fruit Plants</div>
+                <div className="box-border flex-row py-2 my-3 font-bold cursor-pointer text-maingreen">Flower Plants</div>
+                <div className="box-border flex-row py-2 my-3 font-bold cursor-pointer text-maingreen">Food Plants</div>
+                <div className="box-border flex-row py-2 my-3 font-bold cursor-pointer text-maingreen">Forest Plants</div>
+                <div className="box-border flex-row py-2 my-3 font-bold cursor-pointer text-maingreen">Herbal Plants</div>
+                <div className="box-border flex-row py-2 my-3 font-bold cursor-pointer text-maingreen">Indoor Plants</div>
+                <div className="box-border flex-row py-2 my-3 font-bold cursor-pointer text-maingreen">Outdoor Plants</div>
+                <div className="box-border flex-row py-2 my-3 font-bold cursor-pointer text-maingreen">Small Plants</div>
+                <div className="box-border flex-row py-2 my-3 font-bold cursor-pointer text-maingreen">Table Plants</div>
            </div>
         </div>
       );
