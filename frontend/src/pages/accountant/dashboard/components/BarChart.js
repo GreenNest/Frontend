@@ -6,7 +6,7 @@ import CanvasJSReact from '../../../../lib/canvasjs.react';
 import Chart from "react-google-charts";
 
 const data = [
-  ["Element", "Density", { role: "style" }],
+  ["Element", "No. of Items", { role: "style" }],
   ["Anthurium", 8.94, "#b87333"], // RGB value
   ["Orchid", 10.49, "silver"], // English color name
   ["Mango", 19.3, "gold"],
