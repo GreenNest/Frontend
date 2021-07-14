@@ -5,9 +5,13 @@ import './style/checkout.css';
 import * as FaIcons from "react-icons/fa";
 import { faUser, faEnvelope, faAddressCard, faCity } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
 
 const Checkout = () => {
     return(
+        <>
+        <Header/>
         <div className="w-11/12 mt-8 mb-8 ml-12">
             <div className=""><CheckoutAmount className=""/></div>
             <div className="row">
@@ -80,6 +84,8 @@ const Checkout = () => {
             
         </div>
         </div>
+        <Footer/>
+        </>
     );
 }
 

@@ -6,7 +6,7 @@ import { SidebarData } from './moderatorSidebarData';
 import logo from '../../../assets/GreenNest.png';
 
 function ModeratorSidebar() {
-    const [sidebar, setModeratorSidebar] = useState(false);
+    const [sidebar, setModeratorSidebar] = useState(true);
 
     const showModeratorSidebar = () => setModeratorSidebar(!sidebar);
 

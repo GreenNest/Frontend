@@ -6,7 +6,7 @@ import { AdminSidebarData } from './adminSidebarData';
 import logo from '../../../assets/GreenNest.png';
 
 function AdminSidebar() {
-    const [adminsidebar, setAdminSidebar] = useState(false);
+    const [adminsidebar, setAdminSidebar] = useState(true);
 
     const showAdminSidebar = () => setAdminSidebar(!adminsidebar);
 

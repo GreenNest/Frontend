@@ -1,47 +1,136 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import CustomerService from '../../services/CustomerService';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Header from '../../components/Header';
+
+
+const initialState = {
+    firstname: '',
+    lastname:'',
+    email:'',
+    mobilenumber:'',
+    password:'',
+    confirmpassword:'',
+    role: 'customer',
+    password_err:'',
+    email_err: '',
+    mobile_err: '' ,
+    message:''
+}
+
+toast.configure();
 
 class Signup extends Component {
+    state = initialState;
 
-    constructor(props) {
-        super(props);
-        this.state = { 
-           firstname: '',
-           lastname:'',
-           email:'',
-           mobilenumber:'',
-           password:'',
-           confirmpassword:'',
-           role: 'customer' 
-         };
-         this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = { 
+    //        firstname: '',
+    //        lastname:'',
+    //        email:'',
+    //        mobilenumber:'',
+    //        password:'',
+    //        confirmpassword:'',
+    //        role: 'customer',
+    //        password_err:'' 
+    //      };
+    //      this.handleSubmit = this.handleSubmit.bind(this);
+    // }
 
-        handleChange = event => {
+    handleChange = event => {
+
+        const isCheckbox = event.target.type === "checkbox";
         this.setState({
-            [event.target.name]:event.target.value
-        });
+            [event.target.name]: isCheckbox
+                ? event.target.checked
+                : event.target.value
+    });
+        // this.setState({
+        //     [event.target.name]:event.target.value
+        // });
+    };
+
+
+    validate(){
+        let password_err = "";
+        let email_err = "";
+        let mobile_err = "";
+        let formValid = "";
+        if(this.state.password.length < 8 ){
+            password_err = "Password must be more than 8 characters";
         }
+        else if(this.state.password != this.state.confirmpassword){
+            password_err = "Password does not match"
+        }else{
+            
+           formValid = true;
+        }
+
+        if(!this.state.email.includes("@")){
+           email_err = "Invalida email";
+        }
+
+        if(this.state.mobilenumber.length < 10){
+            mobile_err = "Invalid mobile number";
+        }
+
+        if(password_err || email_err || mobile_err){
+            this.setState({ email_err, mobile_err, password_err})
+            return false;
+        }
+        
+        return true;
+
+    }
 
 
     handleSubmit = (event)=>{
         event.preventDefault();
-        console.log(this.state.mobilenumber);
-        let customer = {
+        const isValid = this.validate();
+        
+        if(isValid){
+            let customer = {
             first_name: this.state.firstname,
             last_name: this.state.lastname,
-            email: this.state.email,
-            password: this.state.password,
             mobile: parseInt(this.state.mobilenumber),
-            role: this.state.role
+            profile:{
+                email: this.state.email,
+                password: this.state.password,
+                role: this.state.role
+                }
             
-        }
-        console.log('customer =>' + JSON.stringify(customer));
+            }
+             console.log('customer =>' + JSON.stringify(customer));
         CustomerService.createCustomer(customer).then((result) => {
-            this.props.history.push('/login');
+            // this.props.history.push('/login');
+            console.log(result.data);
+            if(result.data == true){
+                toast('Successfully create an account', {
+                   autoClose: false,
+                   closeOnClick: true,
+                   progress: false,
+                   position:toast.POSITION.TOP_CENTER
+                });
+            }
+            else{
+                toast('Already have an account please signup', {
+                    autoClose: false,
+                    closeOnClick: true,
+                    progress: false,
+                    position:toast.POSITION.TOP_CENTER
+                });
+            }
+            this.setState(initialState);
+        
             
         });
+
+    }
+        
+       
 
     }
     cancel (){
@@ -51,6 +140,98 @@ class Signup extends Component {
 
     render() {
         return (
+//             <>
+//             <Header/>
+//             <div className='flex justify-center w-full mb-20 '>
+//                 <div class="w-2/4 shadow-xl mt-12 items-center flex justify-center"> 
+//                     <form class="w-full max-w-lg justify-center mb-20" onSubmit={this.handleSubmit}>
+
+//                         <h3 class="font-sans text-2xl font-bold text-center mt-4 mb-8">Create New Account</h3>
+//                             <div class="flex flex-wrap -mx-3 mb-6  ">
+//                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+//                                     <label class="block  tracking-wide text-black font-bold mb-4 mt-4">
+//                                         First Name
+//                                     </label>
+//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3 " 
+//                                     type="text"
+//                                     name="firstname" 
+//                                     value={this.state.firstname}
+//                                     onChange={this.handleChange}
+//                                     placeholder="eg: Nimal"/>
+//                                 </div>
+
+//                                 <div class="w-full md:w-1/2 px-3 ">
+//                                     <label class="block  tracking-wide text-black font-bold mb-4 mt-4">
+//                                         Last Name
+//                                     </label>
+//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
+//                                     type="text"
+//                                     name="lastname" 
+//                                     value={this.state.lastname}
+//                                     onChange={this.handleChange}
+//                                     placeholder="eg: Perera"/>
+//                                 </div>
+
+                                
+//                                 <div class="w-full md:w-1/2 px-3">
+//                                     <label class="block  tracking-wide text-black font-bold mb-4 mt-4">
+//                                         Email
+//                                     </label>
+//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
+//                                     type="text"
+//                                     name="email" 
+//                                     value={this.state.email}
+//                                     onChange={this.handleChange}
+//                                     placeholder="eg: hiruni123@gmail.com" />
+//                                     <div class="text-red-600">{this.state.email_err}</div>
+//                                 </div>
+
+//                                 <div class="w-full md:w-1/2 px-3">
+//                                     <label class="block  tracking-wide text-black font-bold mb-4 mt-4">
+//                                         Mobile Number
+//                                     </label>
+//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
+//                                     type="number"
+//                                     name="mobilenumber" 
+//                                     value={this.state.mobilenumber}
+//                                     onChange={this.handleChange}
+//                                     placeholder="eg: Kuliyapitiya" />
+//                                     <div class="text-red-600">{this.state.mobile_err}</div>
+//                                 </div>
+
+//                                 <div class="w-full md:w-1/2 px-3">
+//                                     <label class="block  tracking-wide text-black font-bold mb-4 mt-4">
+//                                         Password
+//                                     </label>
+//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
+//                                     type="password"
+//                                     name="password" 
+//                                     value={this.state.password}
+//                                     onChange={this.handleChange} />
+//                                     <div class="text-red-600">{this.state.password_err}</div>
+//                                 </div>
+
+//                                 <div class="w-full md:w-1/2 px-3">
+//                                     <label class="block  tracking-wide text-black font-bold mb-4 mt-4">
+//                                         Confirm Password
+//                                     </label>
+//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
+//                                     type="password"
+//                                     name="confirmpassword"
+//                                     value={this.state.confirmpassword}
+//                                     onChange={this.handleChange} />
+                        
+//                                 </div>
+
+//                                 <div class="justify-center items-center w-full">
+//                                 <div class="md:justify-center items-center mt-3 mb-6 w-1/2">
+//                                     <div class="md:w-2/3"></div>
+//                                     <label class="md:w-full block text-black font-bold">
+//                                         <input class="ml-4 form-checkbox h-3 w-3 leading-tight" type="checkbox" />
+//                                             <span class="text-sm ml-2">
+// =======
+<>
+            <Header/>
             <div className="flex justify-center w-full mb-16">
                 <div class="w-2/4 shadow-xl mt-12 items-center flex justify-center border-2 border-green-900 rounded-md"> 
                     <form class="w-full max-w-lg justify-center mb-10" onSubmit={this.handleSubmit}>
@@ -90,6 +271,7 @@ class Signup extends Component {
                                 value={this.state.email}
                                 onChange={this.handleChange}
                                 placeholder="example@gmail.com"/>
+                                <div class="text-red-600">{this.state.email_err}</div>
                             </div>
 
                             <div class="w-full md:w-1/2 px-3">
@@ -102,6 +284,7 @@ class Signup extends Component {
                                 value={this.state.mobilenumber}
                                 onChange={this.handleChange}
                                 placeholder=""/>
+                                <div class="text-red-600">{this.state.mobile_err}</div>
                             </div>
 
                             <div class="w-full md:w-1/2 px-3">
@@ -113,6 +296,7 @@ class Signup extends Component {
                                 name="password" 
                                 value={this.state.password}
                                 onChange={this.handleChange}/>
+                                <div class="text-red-600">{this.state.password_err}</div>
                             </div>
 
                             <div class="w-full md:w-1/2 px-3">
@@ -130,8 +314,7 @@ class Signup extends Component {
                                 <div class="md:justify-center items-center mt-6 mb-6">
                                         <label class="md:w-full block text-black font-medium">
                                             <input class="ml-4 form-checkbox h-3 w-3 leading-tight" type="checkbox" />
-                                            <span class="ml-2 text-base">
-                                                I agree the to terms and conditions
+                                               <span> I agree the to terms and conditions
                                             </span>
                                         </label>
                                 </div>
@@ -157,6 +340,7 @@ class Signup extends Component {
                     </form>
                 </div>
             </div>
+            </>
         );
     }
 }

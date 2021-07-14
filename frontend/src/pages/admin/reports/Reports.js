@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import BarChart from './components/BarChart';
 import LineChart from './components/LineChart';
-// import Sidebar from '../components/Sidebar';
+import AdminSidebar from '../components/adminSidebar';
 
 import sales_report from '../../../assets/reports/sales_reports.jpg';
 
 class Reports extends Component {
     render() {
         return (
+
             <div>
-            {/* <Sidebar /> */}
+            <AdminSidebar />
             <div class="relative p-2 ml-72 z-50 mt-10 mb-20 w-9/12 bg-white shadow-xl">
                 <div class="flex flex-wrap -mx-3 mb-2">
                     <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">

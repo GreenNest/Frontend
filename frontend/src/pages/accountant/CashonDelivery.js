@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import { useState } from 'react';
 import CashonTable from './CashonTable';
 import StatusPopup from './StatusPopup';
+import AccountantSidebar from './dashboard/components/accountantSidebar';
 
 
 
@@ -18,6 +19,7 @@ const CashonDelivery = () => {
 
     return (
         <div>
+        <AccountantSidebar/>
             <div className="flex justify-end pb-4 mt-8 mr-10">
                 <div className="w-9/12 p-4 pb-12 mx-4 bg-gray-500 bg-opacity-25 rounded">
                 

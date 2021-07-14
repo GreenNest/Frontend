@@ -5,11 +5,14 @@ import { Link } from "react-router-dom";
 // import SearchBtn from '../components/SearchBtn';
 import Search from '../components/Search';
 import DetailsCard from '../components/DetailsCard';
+import AdminSidebar from '../components/adminSidebar';
 
 const ViewSupplier = () => {
     const [showAddSupplierPopup,setShowAddSupplierPopup] = useState(false);
     
     return (
+        <>
+        <AdminSidebar/>
         <div className="w-full ml-32">
         <div className="flex flex-col m-5 gap-y-5 md:mx-40">
             <div className="flex justify-between -mb-4">
@@ -29,6 +32,7 @@ const ViewSupplier = () => {
             </div>
         </div>
         </div>
+        </>
     );
 }
 

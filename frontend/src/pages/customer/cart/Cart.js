@@ -3,10 +3,14 @@ import CartItem from "./CartItem";
 import CartAmount from "./component/CartAmount";
 import { MdAssignmentReturn } from 'react-icons/md';
 import { Link } from "react-router-dom";
+import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
 // import "../../../styles/style.css";
 
 const Cart = () => {
     return(
+        <>
+        <Header />
         <div className="min-w-full mb-5 -mt-8 md:min-w-0 sm:p-20 lg:px-32">
             {/* Alert-No added items to display */}
             {/* <div className="relative py-3 my-5 text-red-700 bg-red-100 border border-red-400 rounded px-7" role="alert">
@@ -34,7 +38,7 @@ const Cart = () => {
 
             {/* Item components */}
             <CartItem />
-            <CartItem />
+            
 
             {/* Total amount */}
             <CartAmount />
@@ -65,6 +69,8 @@ const Cart = () => {
             </Link> 
             </div>   
         </div>
+        <Footer/>
+        </>
     );
 }
 

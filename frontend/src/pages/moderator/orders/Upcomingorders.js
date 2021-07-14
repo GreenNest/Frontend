@@ -3,12 +3,15 @@ import {useState} from 'react';
 import Cashondelivery from './Cashondelivery';
 import Onlinedelivery from './Onlinedelivery';
 import Search from './components/Search';
+import ModeratorSidebar from '../components/moderatorSidebar';
+
 const Upcomingorders = () => {
 
     const [active,setActive] =useState("Onlinedelivery");
     
     return ( 
         <div>
+        <ModeratorSidebar/>
             <div className="flex justify-end pb-4 mt-8 mr-10">
                <div className="w-9/12 p-4 pb-12 mx-4 bg-gray-500 bg-opacity-25 rounded">
                    <h1 className="flex justify-center w-full pt-4 text-2xl font-bold text-maingreen">Upcoming Orders</h1>

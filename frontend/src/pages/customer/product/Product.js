@@ -13,12 +13,16 @@ import customer4 from '../../../assets/customer_img/customer4.jpg'
 
 import img1 from '../../../assets/product_img/mango-tree.jpg';
 import mango1 from '../../../assets/product_img/mango1.jpg';
+import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
 import mango2 from '../../../assets/product_img/mango2.jpeg';
 
 const Product = () => {
 
     const [showRequestPopup,setShowRequestPopup] = useState(false);
     return (
+        <>
+        <Header/>
         <div className="min-w-full p-10 sm:p-20 md:px-32">
             <div className="shadow-xl md:flex rounded-xl">
                 <div className="md:w-6/12">
@@ -74,6 +78,8 @@ const Product = () => {
                 <RequestPopup canclePopup={() => setShowRequestPopup(false)}/>
             ): null }
         </div>
+        <Footer/>
+        </>
     );
 }
 

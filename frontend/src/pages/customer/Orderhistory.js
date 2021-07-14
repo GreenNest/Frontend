@@ -1,6 +1,8 @@
 import React from 'react';
 import {useState} from 'react';
 import { Link } from "react-router-dom";
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 
   const Orderhistory = () => {
@@ -16,6 +18,8 @@ import { Link } from "react-router-dom";
     ]);
 
   return (
+    <>
+    <Header/>
     <section>
       <div className="coimage">
         <div class="bg-gray-100 relative p-3 mt-14 mb-20 mx-auto w-5/6 rounded-md">
@@ -53,6 +57,8 @@ import { Link } from "react-router-dom";
         </div>
       </div>
    </section>
+   <Footer/>
+  </>
     )
 }
 

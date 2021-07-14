@@ -6,7 +6,8 @@ import b_avacado from "../../../assets/b_avacado.jpg"
 import lemmon from "../../../assets/lemmon.jpg"
 import plastic_pot from "../../../assets/plastic_pot.jpg"
 import sensavaria from "../../../assets/sensavaria.jpg"
-
+import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
  const Order = () => {
     const[order]= useState(
         [
@@ -29,6 +30,8 @@ import sensavaria from "../../../assets/sensavaria.jpg"
       }
   
     return (
+      <>
+      <Header/>
       <div className="w-100% h-auto mt-14 shadow-xl pb-14">             
         <div>
           <div className="flex-row justify-center w-5/6 mx-auto bg-gray-100 rounded-md item-center">
@@ -69,6 +72,8 @@ import sensavaria from "../../../assets/sensavaria.jpg"
           </div>
         </div>
       </div>
+      <Footer/>
+      </>
     )
 }
 

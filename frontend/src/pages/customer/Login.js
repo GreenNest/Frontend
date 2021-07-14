@@ -1,59 +1,123 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import CustomerService from '../../services/CustomerService';
+import { useHistory } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Header from '../../components/Header';
 
-
+toast.configure();
 class Login extends Component {
     
     constructor(props){
         super(props);
         this.state={
-
             email: '',
             password: ''
-
         };
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleEmailChange =(event)=> {
-        this.setState({
-            email: event.target.value
-        })
-    }
 
-    handlePasswordChange =(event)=>{
+    handleChange =(event)=>{
         this.setState({
-            password: event.target.value
-        })
+            [event.target.name]:event.target.value
+        });
     }
 
     handleSubmit = (event)=>{
-        
+        event.preventDefault();
+        let loginModel = {
+            username: this.state.email,
+            password: this.state.password
+        }
+
+        let newuser = JSON.stringify(loginModel);
+        console.log(loginModel);
+        CustomerService.logUser(loginModel).then((result) => {
+            console.log(result.data);
+            let response = result.data;
+
+            if(response == "username not found"){
+                console.log(response);
+                toast('username not found', {
+                    autoClose: false,
+                    closeOnClick: true,
+                    progress: false,
+                    position:toast.POSITION.TOP_CENTER
+                });
+            }
+            else if(response == "incorrect password"){
+                console.log(response);
+                toast('incorrect password', {
+                    autoClose: false,
+                    closeOnClick: true,
+                    progress: false,
+                    position:toast.POSITION.TOP_CENTER
+                });
+            }else{
+                console.log(response[0]);
+                let sessionDetails = {
+                    userId: response[1]
+                }
+                CustomerService.cresteSessionKey(sessionDetails).then((result) => {
+                    console.log(result.data);
+                    sessionStorage.setItem("token", result.data);
+                    if(response[0] == "customer"){
+                        this.props.history.push("/");
+                    }else if(response[0] == "admin"){
+                        this.props.history.push("/admin/dashboard");
+                    }else if(response[0] == "moderator"){
+                        this.props.history.push("/moderator/dashboard");
+                    }else if(response[0] == "worker"){
+                        this.props.history.push("/");
+                    }else if(response[0] == "accountant"){
+                        this.props.history.push("/accountant/dashboard");
+                    }else{
+                        console.log("not found");
+                    }
+                   
+                })
+            }
+
+        })
+
+
     }
+
+
     render() {
         return (
-            <div class="flex justify-center items-center w-full">
-                <div class="flex justify-center items-center mt-14 mb-16 shadow-xl border-2 border-maingreen rounded-md">  
-                    <form class='bg-white shadow-lg rounded w-full px-14 py-8' onSubmit={this.handleSubmit}>
-                        <p class="font-sans text-3xl font-bold text-center mb-8 text-maingreen"> Login </p>
-                        <div class='mb-4'>
-                            <label class='block tracking-wide text-black font-semibold mb-3 mt-4 text-lg'>
-                                Email
-                            </label>
-                            <input class='rounded w-full p-2 border-solid outline-none hover:border-hovergreen focus:border-maingreen border shadow border-black border-opacity-25 leading-tight text-gray-700' 
-                            type="text" placeholder="example@gmail.com" 
-                            value={this.state.email} 
-                            onChange={this.handleEmailChange}/>
-                        </div>
+            <>
+            <Header/>
+            <div class="flex justify-center items-center w-full ">
+            <div class=" flex justify-center items-center w-1/4 mt-20 mb-16 shadow-xl">
+                
+                
+            <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8  w-full' 
+            onSubmit={this.handleSubmit}>
+                <p class="text-3xl mb-5 text-center font-bold"> Login </p>
+                <div class='mb-4'>
+                    <label class='block mb-2 text-md font-bold text-gray-700'>
+                        Email
+                    </label>
+                    <input class='w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black' 
+                    type="text" placeholder="email" 
+                    name="email"
+                    value={this.state.email} 
+                    onChange={this.handleChange} required/>
+                </div>
 
-                        <div class="mb-6">
-                            <label class="block tracking-wide text-black font-semibold mb-3 mt-4 text-lg">
-                                Password
-                            </label>
-                            <input class="rounded w-full p-2 border-solid outline-none hover:border-hovergreen focus:border-maingreen border shadow border-black border-opacity-25 leading-tight text-gray-700" 
-                            type="password" placeholder=""
-                            value={this.state.password}
-                            onChange={this.handlePasswordChange} />
-                        </div>
+                <div class="mb-6">
+                    <label class="block mb-2 text-md font-bold text-gray-700">
+                        Password
+                    </label>
+                    <input class="w-full px-3 py-2 mb-3 leading-tight text-gray-700 border rounded shadow appearance-none border-500 focus:outline-none focus:shadow-outline  focus:bg-white focus:border-black" 
+                    type="password" placeholder="password"
+                    name="password"
+                    value={this.state.password}
+                    onChange={this.handleChange} required/>
+                </div>
 
                         <div class="flex items-center justify-center">
                         <a class="inline-block text-base font-semibold text-black align-baseline hover:text-green-800" href="#">
@@ -76,6 +140,9 @@ class Login extends Component {
                     </form>
                 </div>
             </div>
+            
+            </>
+
         );
     }
 }

@@ -6,11 +6,14 @@ import { Link } from "react-router-dom";
 import JobTypeBtn from '../components/JobTypeBtn';
 import EmployeeTable from '../components/EmployeeTable';
 import Search from '../components/Search';
+import AdminSidebar from '../components/adminSidebar';
 
 const ViewEmployee = () => {
     const [showEmployees,setShowEmployees] = useState(false);
     
     return (
+        <>
+        <AdminSidebar/>
         <div className="w-9/12 ml-40 mt-6 flex flex-col  gap-y-5 md:mx-72">
             <div className="flex justify-between -mb-4">
                 <Link to="/admin/addEmployee">
@@ -63,6 +66,7 @@ const ViewEmployee = () => {
             </div>
             {/* ): null } */}
         </div>
+        </>
     );
 }
 
