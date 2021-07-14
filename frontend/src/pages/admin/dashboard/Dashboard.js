@@ -4,9 +4,14 @@ import LineChart from './components/LineChart';
 import PieChart from './components/PieChart';
 import {FaClipboardList, FaClipboardCheck} from 'react-icons/fa';
 import AdminSidebar from '../components/adminSidebar';
+import { BrowserRouter as Router, Route, useHistory } from "react-router-dom";
 
 
 class AccDashboard extends Component {
+    constructor(props){
+        super(props);
+    }
+
     render() {
         return (
             <>

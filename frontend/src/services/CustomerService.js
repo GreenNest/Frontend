@@ -5,6 +5,7 @@ const url = "http://localhost:8080/api/v1/login";
 const employee_url = "http://localhost:8080/api/v1/employee";
 const session = "http://localhost:8080/api/v1/sessionKey";
 const login_Credit = "http://localhost:8080/api/v1/checkLoginState";
+const logouturl = "http://localhost:8080/api/v1/logout";
 
 let config = {
     'Content-Type': 'application/json',
@@ -35,6 +36,9 @@ class CustomerService {
     checkUserLogin(token){
         return axios.post(login_Credit, token);
     }
+    // logoutUser(userId){
+    //     return axios.post(logouturl, userId);
+    // }
 
 }
 

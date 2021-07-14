@@ -16,6 +16,7 @@ function Index(props) {
 
     useEffect(async () => {
         if(sessionStorage.getItem("token") != null){
+            console.log(sessionStorage.getItem("token"));
             let loinState = {
                 cipher: sessionStorage.getItem("token")
             }
@@ -24,9 +25,10 @@ function Index(props) {
                 if(result.data.loginState == 1){
                     history.push("/");
                 }
-            })
+            });
         }else{
-            history.push("/");
+            
+            history.push("/shop");
         }
     }, [])
 
