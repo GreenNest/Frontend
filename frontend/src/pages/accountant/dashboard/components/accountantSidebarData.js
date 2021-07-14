@@ -2,7 +2,7 @@ import React from 'react'
 import * as FaIcons from "react-icons/fa";
 import * as GrIcons from "react-icons/gr";
 import * as Io5Icons from "react-icons/io5";
-import * as CgIcons from "react-icons/cg";
+import * as AiIcons from "react-icons/ai";
 import * as MdIcons from "react-icons/md";
 import * as FcIcons from "react-icons/fc";
 import * as BiIcons from "react-icons/bi";
@@ -19,7 +19,7 @@ export const SidebarData = [
     {
         title: 'Notifications',
         path: '/accountant/notifications',
-        icon: <BiIcons.BiNotification className="w-5 h-5 mr-5 mt-0.5"/>,
+        icon: <BiIcons.BiNotification className="w-5 h-5 mr-3 mt-0.5"/>,
         //count: 5,
         // style: "hover:bg-blue-400 bg-blue-200 hover:text-white flex font-bold p-3 rounded w-48",
     },
@@ -36,5 +36,25 @@ export const SidebarData = [
         icon: <GrIcons.GrCurrency className="w-5 h-5 mr-3 mt-0.5"/>,
         // count: 5,
         // style: "hover:bg-blue-400 bg-blue-200 hover:text-white flex font-bold p-3 rounded w-48",
+    },
+    {
+        title: 'Request a Leave',
+        path: '/accountant/leaveRequests',
+        icon: <MdIcons.MdDateRange className="w-5 h-5 mr-3 mt-0.5"/>,
+        // count: 5,
+        // style: "hover:bg-blue-400 bg-blue-200 hover:text-white flex font-bold p-3 rounded w-48",
+    },
+    {
+        title: 'Leave Statistics',
+        path: '/accountant/leaveStats',
+        icon: <AiIcons.AiOutlineBarChart className="w-5 h-5 mr-3 mt-0.5"/>,
+        // count: 5,
+        // style: "hover:bg-blue-400 bg-blue-200 hover:text-white flex font-bold p-3 rounded w-48",
+    },
+    {
+        title: 'Logout',
+        path: '#',
+        icon: <AiIcons.AiOutlineLogout className="w-5 h-5 mr-3 mt-0.5"/>,
+        // style: "hover:bg-yellow-400 bg-yellow-200 hover:text-white flex font-bold p-3 rounded w-48",
     },
 ]

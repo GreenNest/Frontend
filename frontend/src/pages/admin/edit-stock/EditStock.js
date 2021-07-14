@@ -39,7 +39,7 @@ class AddStock extends Component {
                                 <input class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2"  />
                             </div>
                             <div class="flex justify-start items-center p-1 mb-3 w-full">
-                                <label class="text-lg p-2 w-1/3 font-semibold">Item details</label>
+                                <label class="text-lg p-2 w-1/3 font-semibold">Item Details</label>
                                 <input class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2"  />
                             </div>
                         </div>

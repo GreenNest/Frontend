@@ -6,7 +6,7 @@ import { SidebarData } from './accountantSidebarData';
 import logo from '../../../../assets/GreenNest.png';
 
 function AccountantSidebar() {
-    const [sidebar, setAccountantSidebar] = useState(false);
+    const [sidebar, setAccountantSidebar] = useState(true);
 
     const showAccountantSidebar = () => setAccountantSidebar(!sidebar);
 

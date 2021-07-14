@@ -38,11 +38,15 @@ import SystemOrders from './pages/moderator/orders/Systemorders';
 import SupplierList from './pages/moderator/orderRequest/SupplierList';
 import OrderRequest from './pages/moderator/orderRequest/OrderRequest';
 import DeliveryPerson from './pages/moderator/deliveryPerson/DeliveryPerson';
+import ModLeaveRequests from './pages/LeaveRequest';
+import ModLeaveStats from './pages/LeaveStat';
 
 // accountant
 import AccDashboard from './pages/accountant/dashboard/Dashboard';
 import CODeliveries from './pages/accountant/CashonDelivery';
 import InvoiceHistory from './pages/accountant/InvoiceHistory';
+import AccLeaveRequests from './pages/LeaveRequest';
+import AccLeaveStats from './pages/LeaveStat';
 
 
 function App() {
@@ -57,7 +61,7 @@ function App() {
     <Route exact path="/shop" component={Shop}/>
     <Route exact path="/shop/product" component={Product}/>
     <Route exact path="/cart" component={Cart}/>
-    <Route exact path="/chechout" component={Checkout}/>
+    <Route exact path="/checkout" component={Checkout}/>
     <Route exact path="/profile/orders" component={Orderhistory}/>
     <Route exact path="/profile/order/review" component={Order}/>
 
@@ -84,11 +88,15 @@ function App() {
     <Route exact path="/moderator/supplierList" component={SupplierList} />
     <Route exact path="/moderator/orderRequests" component={OrderRequest} />
     <Route exact path="/moderator/deliveryPersons" component={DeliveryPerson} />
+    <Route exact path="/moderator/leaveRequests" component={ModLeaveRequests} />
+    <Route exact path="/moderator/leaveStats" component={ModLeaveStats} />
 
     {/* accountant routes */}
     <Route exact path="/accountant/dashboard" component={AccDashboard} />
     <Route exact path="/accountant/coDeliveries" component={CODeliveries} />
     <Route exact path="/accountant/invoiceHistory" component={InvoiceHistory} />
+    <Route exact path="/accountant/leaveRequests" component={AccLeaveRequests} />
+    <Route exact path="/accountant/leaveStats" component={AccLeaveStats} />
 
     </Switch>
     </>

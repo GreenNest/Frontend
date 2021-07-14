@@ -6,7 +6,7 @@ import { AdminSidebarData } from './adminSidebarData';
 import logo from '../../../assets/GreenNest.png';
 
 function AdminSidebar() {
-    const [adminsidebar, setAdminSidebar] = useState(false);
+    const [adminsidebar, setAdminSidebar] = useState(true);
 
     const showAdminSidebar = () => setAdminSidebar(!adminsidebar);
 
@@ -30,7 +30,7 @@ function AdminSidebar() {
                     <img class="h-30 w-30 mr-80 ml-9" width="150" height="150"   src={logo} alt=""/>
                     {AdminSidebarData.map((item, index) => {
                         return (
-                            <li key={index} className="flex-col p-2 ml-1 -mt-4 flex" >
+                            <li key={index} className="flex-col p-3 ml-1 -mt-7 flex" >
                                 <Link to={item.path}>
                                     <button className="hover:bg-maingreen focus:bg-maingreen hover:text-white focus:text-white outline-none flex font-bold p-3 rounded w-48">
                                         {item.icon}{item.title}

@@ -14,23 +14,23 @@ import Footer from '../../components/Footer';
 function Index(props) {
     var history = useHistory();
 
-    useEffect(async () => {
-        if(sessionStorage.getItem("token") != null){
-            console.log(sessionStorage.getItem("token"));
-            let loinState = {
-                cipher: sessionStorage.getItem("token")
-            }
-            CustomerService.checkUserLogin(loinState).then((result) => {
-                console.log(result);
-                if(result.data.loginState == 1){
-                    history.push("/");
-                }
-            });
-        }else{
+    // useEffect(async () => {
+    //     if(sessionStorage.getItem("token") != null){
+    //         console.log(sessionStorage.getItem("token"));
+    //         let loinState = {
+    //             cipher: sessionStorage.getItem("token")
+    //         }
+    //         CustomerService.checkUserLogin(loinState).then((result) => {
+    //             console.log(result);
+    //             if(result.data.loginState == 1){
+    //                 history.push("/");
+    //             }
+    //         });
+    //     }else{
             
-            history.push("/shop");
-        }
-    }, [])
+    //         history.push("/shop");
+    //     }
+    // }, [])
 
     return (
         <>

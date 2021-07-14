@@ -119,28 +119,26 @@ class Login extends Component {
                     onChange={this.handleChange} required/>
                 </div>
 
-                <div class="flex items-center justify-center">
-                <a class="inline-block text-md font-bold text-black align-baseline hover:text-green-800" href="#">
-                        Forgot Password?
-                    </a>
-                </div>
+                        <div class="flex items-center justify-center">
+                        <a class="inline-block text-base font-semibold text-black align-baseline hover:text-green-800" href="#">
+                                Forgot Password?
+                            </a>
+                        </div>
 
-                <div class="flex items-center justify-center mt-4">
-                    <button class="px-5 py-2 font-bold text-mainyellow bg-maingreen rounded hover:bg-secondarygreen focus:outline-none focus:shadow-outline" type="submit">
-                        Sign In
-                    </button>
-                    
-                </div>
-                
+                        <div class="flex items-center justify-center mt-4">
+                            <button class="px-8 py-2 font-bold text-white text-lg bg-maingreen rounded hover:bg-secondarygreen focus:outline-none focus:shadow-outline" type="submit">
+                                Sign In
+                            </button> 
+                        </div>
 
-                <div class="mt-4">
-                {/* <a class="inline-block text-md font-bold text-black align-baseline hover:text-green-1000" href="#"> */}
-                    If you don't have an account? 
-                    {/* </a> */}
-                    <Link class="ml-1 inline-block text-md font-bold text-black align-baseline hover:text-green-1000" to="/signup"> Sign Up</Link>
-                 </div> 
-            </form>
-            </div>
+                        <div class="mt-4 text-base font-medium">
+                        {/* <a class="inline-block text-md font-bold text-black align-baseline hover:text-green-1000" href="#"> */}
+                            If you don't have an account? 
+                            {/* </a> */}
+                            <Link class="ml-1 inline-block text-base font-bold text-maingreen align-baseline hover:text-green-1000 tracking-wide" to="/signup"> Sign Up</Link>
+                        </div> 
+                    </form>
+                </div>
             </div>
             
             </>
