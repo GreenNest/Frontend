@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
 import CheckoutAmount from "./component/CheckoutAmount";
 import './style/checkout.css';
 import * as FaIcons from "react-icons/fa";
@@ -7,8 +8,30 @@ import { faUser, faEnvelope, faAddressCard, faCity } from "@fortawesome/free-sol
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
+import CustomerService from '../../../services/CustomerService';
 
-const Checkout = () => {
+
+function Checkout(){
+    var history = useHistory();
+
+    useEffect(async () => {
+        if(sessionStorage.getItem("token") != null){
+            console.log(sessionStorage.getItem("token"));
+            let loinState = {
+                cipher: sessionStorage.getItem("token")
+            }
+            CustomerService.checkUserLogin(loinState).then((result) => {
+                console.log(result);
+                if(result.data.loginState != 1){
+                    history.push("/login");
+                }
+            });
+        }else{
+        
+            history.push("/login");
+        }
+    }, [])
+
     return(
         <>
         <Header/>

@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '../../components/Header';
+import axios from 'axios';
 
 toast.configure();
 class Login extends Component {
@@ -13,7 +14,8 @@ class Login extends Component {
         super(props);
         this.state={
             email: '',
-            password: ''
+            password: '',
+            loginState: false,
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -33,7 +35,17 @@ class Login extends Component {
         }
 
         let newuser = JSON.stringify(loginModel);
-        console.log(loginModel);
+        // console.log(loginModel);
+        // axios.post("http://localhost:8080/api/v1/auth/login",
+        // {
+        //     newusername: "piyal",
+        //     userpasswod: "1234"
+        // }).then((response) => {
+        //     console.log(response.data);
+        // }).catch((err) => {
+        //     console.log(err.response.data);
+        // });
+
         CustomerService.logUser(loginModel).then((result) => {
             console.log(result.data);
             let response = result.data;
@@ -64,6 +76,7 @@ class Login extends Component {
                     console.log(result.data);
                     sessionStorage.setItem("token", result.data);
                     if(response[0] == "customer"){
+                        this.setState({loginState: true});
                         this.props.history.push("/");
                     }else if(response[0] == "admin"){
                         this.props.history.push("/admin/dashboard");
@@ -89,7 +102,7 @@ class Login extends Component {
     render() {
         return (
             <>
-            <Header/>
+            <Header isLog={this.state.loginState}/>
             <div class="flex justify-center items-center w-full ">
             <div class=" flex justify-center items-center w-1/4 mt-20 mb-16 shadow-xl">
                 

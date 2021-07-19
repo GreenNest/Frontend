@@ -36,9 +36,9 @@ class CustomerService {
     checkUserLogin(token){
         return axios.post(login_Credit, token);
     }
-    // logoutUser(userId){
-    //     return axios.post(logouturl, userId);
-    // }
+    logoutUser(userId){
+        return axios.post(logouturl, userId);
+    }
 
 }
 
