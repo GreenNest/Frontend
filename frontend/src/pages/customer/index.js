@@ -9,11 +9,13 @@ import Featured from './home/components/Featured';
 import { FaAngleRight} from "react-icons/fa";
 import CustomerService from '../../services/CustomerService';
 import Header from '../../components/Header';
+import SignedHeader from '../../components/SignedHeader';
 import Footer from '../../components/Footer';
 
 function Index(props) {
     var history = useHistory();
     const [logstate, setLogstate] = useState(false);
+    const [header, setHeader] = useState(0);
 
 
     useEffect(async () => {
@@ -27,18 +29,25 @@ function Index(props) {
                 if(result.data.loginState == 1){
                     console.log("you are log to the system");
                     setLogstate(true);
-                    history.push("/");
+                    if(loinState){
+                        setHeader(<SignedHeader/>) 
+                    }
+                    else{
+                        setHeader(<Header/>) 
+                    }
+                }else{
+                    setHeader(<Header/>)
                 }
             });
         }else{
+            setHeader(<Header/>) 
             console.log("you are not log to the system");
-            history.push("/shop");
         }
     }, [])
 
     return (
         <>
-        <Header isLog={logstate}/>
+        {header}
         <Fragment>
            <Slide/>
         </Fragment>

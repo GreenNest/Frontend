@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import CheckoutAmount from "./component/CheckoutAmount";
 import './style/checkout.css';
@@ -13,6 +13,7 @@ import CustomerService from '../../../services/CustomerService';
 
 function Checkout(){
     var history = useHistory();
+    const [logstate, setLogstate] = useState(false);
 
     useEffect(async () => {
         if(sessionStorage.getItem("token") != null){
@@ -27,14 +28,14 @@ function Checkout(){
                 }
             });
         }else{
-        
+            console.log("you are not log to the system");
             history.push("/login");
         }
     }, [])
 
     return(
         <>
-        <Header/>
+        <Header isLog={logstate}/>
         <div className="w-11/12 mt-8 mb-8 ml-12">
             <div className=""><CheckoutAmount className=""/></div>
             <div className="row">

@@ -39,6 +39,9 @@ class CustomerService {
     logoutUser(userId){
         return axios.post(logouturl, userId);
     }
+    getCustomerDetails(id){
+        return axios.get()
+    }
 
 }
 

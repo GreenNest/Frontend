@@ -12,8 +12,8 @@ class Header extends Component {
         super(props);
         this.state={
             isOpen:false,
-            isLoggd: this.props.isLog,
-            logout:''
+            // isLoggd: this.props.isLog,
+            // logout:''
         };
     }
     // state={
@@ -25,45 +25,28 @@ class Header extends Component {
         this.setState({isOpen: !this.state.isOpen});
     }
 
-    logout = async (event) => {
-        let loinState = {
-            cipher: sessionStorage.getItem("token")
-        }
-        CustomerService.logoutUser(loinState).then((res) =>{
-            console.log(res.data);
-            if(res.data == 1){
-                this.props.history.push("/cart");
-                sessionStorage.removeItem("token");
-            }
-            // this.props.history.push("/cart");
+    // logout = async (event) => {
+    //     let loinState = {
+    //         cipher: sessionStorage.getItem("token")
+    //     }
+    //     CustomerService.logoutUser(loinState).then((res) =>{
+    //         console.log(res.data);
+    //         if(res.data == 1){
+    //             this.props.history.push("/");
+    //             sessionStorage.removeItem("token");
+    //         }
+    //         // this.props.history.push("/cart");
             
-        }
-        )
+    //     }
+    //     )
 
         
  
-    }
+    // }
 
 
 
     render() {
-        let logout;
-        if(this.props.isLog){
-            logout = <button onClick = {this.logout}class="block text-center w-32 px-3 -ml-3 py-2 text-20 leading-none border rounded text-maingreen border-maingreen lg:mr-5 font-semibold hover:text-secondarygreen">
-                      logout
-                    </button> ;
-        }else{
-            logout = 
-                <>
-                <Link to="/login" class="block text-center w-32 px-3 -ml-3 py-2 text-20 leading-none border rounded text-maingreen border-maingreen lg:mr-5 font-semibold hover:text-secondarygreen">
-                    Sign In
-                </Link>
-                <Link to="/signup" class="block text-center w-32 px-3 py-2 text-20 leading-none border rounded text-white border-maingreen bg-maingreen lg:mr-8 hover:bg-secondarygreen">
-                    Sign Up
-                </Link>
-                </>
-            
-        }
         return (
             <nav class="flex w-screen flex-col justify-between bg-mainyellow lg:flex-row sm:w-full">
             <div class="flex justify-between items-center">
@@ -95,7 +78,12 @@ class Header extends Component {
                    <li className="block p-2 font-bold text-center list-none text-maingreen hover:text-hovergreen text-20 lg:mr-14">My Orders</li>
                    {/* My Orders */}
                 </NavLink>
-                {logout}
+                <Link to="/login" class="block text-center w-32 px-3 -ml-3 py-2 text-20 leading-none border rounded text-maingreen border-maingreen lg:mr-5 font-semibold hover:text-secondarygreen">
+                    Sign In
+                </Link>
+                <Link to="/signup" class="block text-center w-32 px-3 py-2 text-20 leading-none border rounded text-white border-maingreen bg-maingreen lg:mr-8 hover:bg-secondarygreen">
+                    Sign Up
+                </Link>
 
                 
            </div>
@@ -105,9 +93,6 @@ class Header extends Component {
     }
     
 }
-Header.defaultProps = {
-    isLog: false,
-};
 
 export default withRouter(Header);
 
