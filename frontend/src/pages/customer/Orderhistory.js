@@ -1,11 +1,15 @@
 import React from 'react';
-import {useState} from 'react';
-import { Link } from "react-router-dom";
+import {useState, useEffect} from 'react';
+import { Link, useHistory } from "react-router-dom";
 import Header from '../../components/Header';
+import SignedHeader from '../../components/SignedHeader';
 import Footer from '../../components/Footer';
+import CustomerService from '../../services/CustomerService';
 
 
-  const Orderhistory = () => {
+function Orderhistory() {
+  var history = useHistory();
+  const [header, setHeader] = useState(0);
     const[orders, setOrders]= useState([
       {orderid:1150, orderplaced:'2021/05/20', items:3, totalcost:'200LKR', oredrstatus:'Deliverd'},
       {orderid:1000, orderplaced:'2021/01/01', items:2, totalcost:'1250LKR', oredrstatus:'Deliverd'},
@@ -17,9 +21,29 @@ import Footer from '../../components/Footer';
       {orderid:61, orderplaced:'2019/09/23', items:7, totalcost:'6250LKR', oredrstatus:'Deliverd'}
     ]);
 
+  useEffect(async () => {
+        if(sessionStorage.getItem("token") != null){
+            console.log(sessionStorage.getItem("token"));
+            let loinState = {
+                cipher: sessionStorage.getItem("token")
+            }
+            CustomerService.checkUserLogin(loinState).then((result) => {
+                console.log(result);
+                if(result.data.loginState == 1){    
+                    setHeader(<SignedHeader/>)
+                }else{
+                    setHeader(<Header/>)
+                }
+            });
+        }else{
+            setHeader(<Header/>)
+        }
+    }, [])
+  
+
   return (
     <>
-    <Header/>
+    {header}
     <section>
       <div className="coimage">
         <div class="bg-gray-100 relative p-3 mt-14 mb-20 mx-auto w-5/6 rounded-md">

@@ -8,8 +8,11 @@ import Header from '../../components/Header';
 import axios from 'axios';
 
 toast.configure();
+const initialState = {
+    error: ''
+}
 class Login extends Component {
-    
+     state = initialState;
     constructor(props){
         super(props);
         this.state={
@@ -30,70 +33,80 @@ class Login extends Component {
     handleSubmit = (event)=>{
         event.preventDefault();
         let loginModel = {
-            username: this.state.email,
+            userName: this.state.email,
             password: this.state.password
         }
 
         let newuser = JSON.stringify(loginModel);
-        // console.log(loginModel);
-        // axios.post("http://localhost:8080/api/v1/auth/login",
-        // {
-        //     newusername: "piyal",
-        //     userpasswod: "1234"
-        // }).then((response) => {
-        //     console.log(response.data);
-        // }).catch((err) => {
-        //     console.log(err.response.data);
-        // });
-
-        CustomerService.logUser(loginModel).then((result) => {
-            console.log(result.data);
-            let response = result.data;
-
-            if(response == "username not found"){
-                console.log(response);
-                toast('username not found', {
-                    autoClose: false,
-                    closeOnClick: true,
-                    progress: false,
-                    position:toast.POSITION.TOP_CENTER
-                });
-            }
-            else if(response == "incorrect password"){
-                console.log(response);
-                toast('incorrect password', {
-                    autoClose: false,
-                    closeOnClick: true,
-                    progress: false,
-                    position:toast.POSITION.TOP_CENTER
-                });
-            }else{
-                console.log(response[0]);
-                let sessionDetails = {
-                    userId: response[1]
+        console.log(loginModel);
+        
+        axios.post("http://localhost:8080/api/v1/auth/login", loginModel).then((response) => {
+            console.log(response.data);
+            if(response.data.token){
+                console.log("9999");
+                localStorage.setItem("authorization", JSON.stringify(response.data))
+                const x = JSON.parse(localStorage.getItem('authorization'));
+                console.log(x.token);
+                console.log(x.roles);
+                if(x.roles[0] == 'customer'){
+                    console.log("you are customer");
                 }
-                CustomerService.cresteSessionKey(sessionDetails).then((result) => {
-                    console.log(result.data);
-                    sessionStorage.setItem("token", result.data);
-                    if(response[0] == "customer"){
-                        this.setState({loginState: true});
-                        this.props.history.push("/");
-                    }else if(response[0] == "admin"){
-                        this.props.history.push("/admin/dashboard");
-                    }else if(response[0] == "moderator"){
-                        this.props.history.push("/moderator/dashboard");
-                    }else if(response[0] == "worker"){
-                        this.props.history.push("/");
-                    }else if(response[0] == "accountant"){
-                        this.props.history.push("/accountant/dashboard");
-                    }else{
-                        console.log("not found");
-                    }
-                   
-                })
             }
+        }).catch((err) => {
+            console.log(err.response);
+            if(err && err.response){
+                
+            }
+        });
 
-        })
+        // CustomerService.logUser(loginModel).then((result) => {
+        //     console.log(result.data);
+        //     let response = result.data;
+
+        //     if(response == "username not found"){
+        //         console.log(response);
+        //         toast('username not found', {
+        //             autoClose: false,
+        //             closeOnClick: true,
+        //             progress: false,
+        //             position:toast.POSITION.TOP_CENTER
+        //         });
+        //     }
+        //     else if(response == "incorrect password"){
+        //         console.log(response);
+        //         toast('incorrect password', {
+        //             autoClose: false,
+        //             closeOnClick: true,
+        //             progress: false,
+        //             position:toast.POSITION.TOP_CENTER
+        //         });
+        //     }else{
+        //         console.log(response[0]);
+        //         let sessionDetails = {
+        //             userId: response[1]
+        //         }
+        //         CustomerService.cresteSessionKey(sessionDetails).then((result) => {
+        //             console.log(result.data);
+        //             sessionStorage.setItem("token", result.data);
+        //             if(response[0] == "customer"){
+        //                 this.setState({loginState: true});
+        //                 this.props.history.push("/");
+        //             }else if(response[0] == "admin"){
+        //                 this.props.history.push("/admin/dashboard");
+        //             }else if(response[0] == "moderator"){
+        //                 this.props.history.push("/moderator/dashboard");
+        //             }else if(response[0] == "worker"){
+        //                 this.props.history.push("/");
+        //             }else if(response[0] == "accountant"){
+        //                 this.props.history.push("/accountant/dashboard");
+        //             }else{
+        //                 console.log("not found");
+        //             }
+                   
+        //         })
+        //     }
+
+        // })
 
 
     }
@@ -110,6 +123,7 @@ class Login extends Component {
             <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8  w-full' 
             onSubmit={this.handleSubmit}>
                 <p class="text-3xl mb-5 text-center font-bold"> Login </p>
+                <div class="text-red-600 p-1 flex justify-center">Invalid Password and Email</div>
                 <div class='mb-4'>
                     <label class='block mb-2 text-md font-bold text-gray-700'>
                         Email
@@ -153,6 +167,7 @@ class Login extends Component {
                     </form>
                 </div>
             </div>
+
             
             </>
 

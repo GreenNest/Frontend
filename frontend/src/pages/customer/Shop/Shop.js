@@ -22,13 +22,14 @@ function Shop() {
             }
             CustomerService.checkUserLogin(loinState).then((result) => {
                 console.log(result);
-                if(result.data.loginState == 1){
-                    
+                if(result.data.loginState == 1){    
                     setHeader(<SignedHeader/>)
                 }else{
                     setHeader(<Header/>)
                 }
             });
+        }else{
+            setHeader(<Header/>)
         }
     }, [])
 

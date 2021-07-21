@@ -7,13 +7,14 @@ import * as FaIcons from "react-icons/fa";
 import { faUser, faEnvelope, faAddressCard, faCity } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from '../../../components/Header';
+import SignedHeader from '../../../components/SignedHeader';
 import Footer from '../../../components/Footer';
 import CustomerService from '../../../services/CustomerService';
 
 
 function Checkout(){
     var history = useHistory();
-    const [logstate, setLogstate] = useState(false);
+    const [header, setHeader] = useState(0);
 
     useEffect(async () => {
         if(sessionStorage.getItem("token") != null){
@@ -25,6 +26,8 @@ function Checkout(){
                 console.log(result);
                 if(result.data.loginState != 1){
                     history.push("/login");
+                }else{
+                    setHeader(<SignedHeader/>) 
                 }
             });
         }else{
@@ -35,7 +38,7 @@ function Checkout(){
 
     return(
         <>
-        <Header isLog={logstate}/>
+        {header}
         <div className="w-11/12 mt-8 mb-8 ml-12">
             <div className=""><CheckoutAmount className=""/></div>
             <div className="row">

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import CustomerService from '../../../services/CustomerService';
 
 import Review from './components/Review';
 import RequestPopup from './RequestPopup';
@@ -14,15 +15,39 @@ import customer4 from '../../../assets/customer_img/customer4.jpg'
 import img1 from '../../../assets/product_img/mango-tree.jpg';
 import mango1 from '../../../assets/product_img/mango1.jpg';
 import Header from '../../../components/Header';
+import SignedHeader from '../../../components/SignedHeader';
 import Footer from '../../../components/Footer';
 import mango2 from '../../../assets/product_img/mango2.jpeg';
 
-const Product = () => {
-
+function Product() { 
+    var history = useHistory();
     const [showRequestPopup,setShowRequestPopup] = useState(false);
+    const [header, setHeader] = useState(0);
+
+    useEffect(async () => {
+        if(sessionStorage.getItem("token") != null){
+            console.log(sessionStorage.getItem("token"));
+            let loinState = {
+                cipher: sessionStorage.getItem("token")
+            }
+            CustomerService.checkUserLogin(loinState).then((result) => {
+                console.log(result);
+                if(result.data.loginState == 1){
+                    setHeader(<SignedHeader/>)
+                }else{
+                    setHeader(<SignedHeader/>) 
+                }
+            });
+        }else{
+            console.log("you are not log to the system");
+            setHeader(<Header/>)
+        }
+    }, [])
+
+
     return (
         <>
-        <Header/>
+        {header}
         <div className="min-w-full p-10 sm:p-20 md:px-32">
             <div className="shadow-xl md:flex rounded-xl">
                 <div className="md:w-6/12">

@@ -1,16 +1,41 @@
 import React from 'react';
+import { useEffect, useState } from "react";
 import CartItem from "./CartItem";
 import CartAmount from "./component/CartAmount";
 import { MdAssignmentReturn } from 'react-icons/md';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Header from '../../../components/Header';
+import SignedHeader from '../../../components/SignedHeader';
 import Footer from '../../../components/Footer';
+import CustomerService from '../../../services/CustomerService';
 // import "../../../styles/style.css";
 
-const Cart = () => {
+function Cart() {
+    var history = useHistory();
+    const [header, setHeader] = useState(0);
+
+    useEffect(async () => {
+        if(sessionStorage.getItem("token") != null){
+            console.log(sessionStorage.getItem("token"));
+            let loinState = {
+                cipher: sessionStorage.getItem("token")
+            }
+            CustomerService.checkUserLogin(loinState).then((result) => {
+                console.log(result);
+                if(result.data.loginState == 1){    
+                    setHeader(<SignedHeader/>)
+                }else{
+                    setHeader(<Header/>)
+                }
+            });
+        }else{
+            setHeader(<Header/>)
+        }
+    }, [])
+
     return(
         <>
-        <Header />
+        {header}
         <div className="min-w-full mb-5 -mt-8 md:min-w-0 sm:p-20 lg:px-32">
             {/* Alert-No added items to display */}
             {/* <div className="relative py-3 my-5 text-red-700 bg-red-100 border border-red-400 rounded px-7" role="alert">

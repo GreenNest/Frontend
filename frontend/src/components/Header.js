@@ -25,6 +25,19 @@ class Header extends Component {
         this.setState({isOpen: !this.state.isOpen});
     }
 
+    // clickme = () =>{
+    //     //e.preventDefault();
+    //     CustomerService.getCustomerDetails().then((response) => {
+    //         console.log(response);
+    //     }).catch((err) => {
+    //         console.log(err);
+    //     })
+
+    // }
+
+
+    
+
     // logout = async (event) => {
     //     let loinState = {
     //         cipher: sessionStorage.getItem("token")
