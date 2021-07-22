@@ -19,6 +19,7 @@ class Login extends Component {
             email: '',
             password: '',
             loginState: false,
+            error:''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -50,12 +51,13 @@ class Login extends Component {
                 console.log(x.roles);
                 if(x.roles[0] == 'customer'){
                     console.log("you are customer");
+                    this.props.history.push("/");
                 }
             }
         }).catch((err) => {
             console.log(err.response);
             if(err && err.response){
-                
+                this.setState({error: "Something wet wrong please try again."})
             }
         });
 
@@ -123,7 +125,7 @@ class Login extends Component {
             <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8  w-full' 
             onSubmit={this.handleSubmit}>
                 <p class="text-3xl mb-5 text-center font-bold"> Login </p>
-                <div class="text-red-600 p-1 flex justify-center">Invalid Password and Email</div>
+                <div class="text-red-600 p-1 flex justify-center">{this.state.error}</div>
                 <div class='mb-4'>
                     <label class='block mb-2 text-md font-bold text-gray-700'>
                         Email

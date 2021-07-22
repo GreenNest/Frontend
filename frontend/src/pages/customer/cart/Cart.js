@@ -14,23 +14,31 @@ function Cart() {
     var history = useHistory();
     const [header, setHeader] = useState(0);
 
+    //check the local storage date
+    const x = JSON.parse(localStorage.getItem('authorization'));
+
     useEffect(async () => {
-        if(sessionStorage.getItem("token") != null){
-            console.log(sessionStorage.getItem("token"));
-            let loinState = {
-                cipher: sessionStorage.getItem("token")
-            }
-            CustomerService.checkUserLogin(loinState).then((result) => {
-                console.log(result);
-                if(result.data.loginState == 1){    
-                    setHeader(<SignedHeader/>)
-                }else{
-                    setHeader(<Header/>)
-                }
-            });
-        }else{
+        if(!x){
             setHeader(<Header/>)
+        }else{
+            setHeader(<SignedHeader/>)
         }
+        // if(sessionStorage.getItem("token") != null){
+        //     console.log(sessionStorage.getItem("token"));
+        //     let loinState = {
+        //         cipher: sessionStorage.getItem("token")
+        //     }
+        //     CustomerService.checkUserLogin(loinState).then((result) => {
+        //         console.log(result);
+        //         if(result.data.loginState == 1){    
+        //             setHeader(<SignedHeader/>)
+        //         }else{
+        //             setHeader(<Header/>)
+        //         }
+        //     });
+        // }else{
+        //     setHeader(<Header/>)
+        // }
     }, [])
 
     return(

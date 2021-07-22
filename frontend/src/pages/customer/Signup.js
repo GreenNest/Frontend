@@ -99,10 +99,14 @@ class Signup extends Component {
             profile:{
                 email: this.state.email,
                 password: this.state.password,
-                role: this.state.role
-                }
-            
+                authorities:[
+                    {
+                        roleCode: this.state.role
+                    }
+                ]
             }
+            
+        }
              console.log('customer =>' + JSON.stringify(customer));
         CustomerService.createCustomer(customer).then((result) => {
             // this.props.history.push('/login');

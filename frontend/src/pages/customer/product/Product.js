@@ -23,25 +23,31 @@ function Product() {
     var history = useHistory();
     const [showRequestPopup,setShowRequestPopup] = useState(false);
     const [header, setHeader] = useState(0);
+    const x = JSON.parse(localStorage.getItem('authorization'));
 
     useEffect(async () => {
-        if(sessionStorage.getItem("token") != null){
-            console.log(sessionStorage.getItem("token"));
-            let loinState = {
-                cipher: sessionStorage.getItem("token")
-            }
-            CustomerService.checkUserLogin(loinState).then((result) => {
-                console.log(result);
-                if(result.data.loginState == 1){
-                    setHeader(<SignedHeader/>)
-                }else{
-                    setHeader(<SignedHeader/>) 
-                }
-            });
-        }else{
-            console.log("you are not log to the system");
+        if(!x){
             setHeader(<Header/>)
+        }else{
+            setHeader(<SignedHeader/>)
         }
+        // if(sessionStorage.getItem("token") != null){
+        //     console.log(sessionStorage.getItem("token"));
+        //     let loinState = {
+        //         cipher: sessionStorage.getItem("token")
+        //     }
+        //     CustomerService.checkUserLogin(loinState).then((result) => {
+        //         console.log(result);
+        //         if(result.data.loginState == 1){
+        //             setHeader(<SignedHeader/>)
+        //         }else{
+        //             setHeader(<SignedHeader/>) 
+        //         }
+        //     });
+        // }else{
+        //     console.log("you are not log to the system");
+        //     setHeader(<Header/>)
+        // }
     }, [])
 
 

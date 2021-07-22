@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import xxx from '../assets/GreenNest.png';
 import {FaAlignRight} from 'react-icons/fa'
-import { Link, useHistory } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -17,7 +17,13 @@ class SignedHeader extends Component {
     }
     logout = () =>{
         localStorage.removeItem("authorization");
-        this.props.history.push("/shop");
+        let x = localStorage.getItem('authorization');
+        console.log(x);
+        if(x==null){
+            console.log('log out');
+            this.props.history.push("/");
+
+        }
     }
     render() {
         return (
@@ -60,7 +66,7 @@ class SignedHeader extends Component {
     }
 }
 
-export default SignedHeader;
+export default withRouter(SignedHeader);
 
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Complaintmodel from './Complaintmodel';
 import Ratemodel from './Ratemodel';
 import b_avacado from "../../../assets/b_avacado.jpg"
@@ -7,8 +7,9 @@ import lemmon from "../../../assets/lemmon.jpg"
 import plastic_pot from "../../../assets/plastic_pot.jpg"
 import sensavaria from "../../../assets/sensavaria.jpg"
 import Header from '../../../components/Header';
+import SignedHeader from '../../../components/SignedHeader';
 import Footer from '../../../components/Footer';
- const Order = () => {
+function Order(){
     const[order]= useState(
         [
             {img:b_avacado, Item:"Budded Avacado", price:'350LKR', Qty:1, subtotal:'350LKR', id:1 } ,
@@ -20,6 +21,10 @@ import Footer from '../../../components/Footer';
 
       const [model1,setModel1] =useState(false);
       const [model2,setModel2] =useState(false);
+      const [header, setHeader] = useState(0);
+      
+      const x = JSON.parse(localStorage.getItem('authorization'));
+
 
       const toggleModel = () => {
         setModel1(!model1)
@@ -28,10 +33,23 @@ import Footer from '../../../components/Footer';
       const togglecomplain = () => {
         setModel2(!model2)
       }
+      
+      useEffect(async () => {
+       if(!x){
+           console.log("please login");
+           setHeader(<Header/>)
+       }else{
+           console.log("you are log");
+           setHeader(<SignedHeader/>)
+       }
+      
+    }, [])
+
+
   
     return (
       <>
-      <Header/>
+      {header}
       <div className="w-100% h-auto mt-14 shadow-xl pb-14">             
         <div>
           <div className="flex-row justify-center w-5/6 mx-auto bg-gray-100 rounded-md item-center">

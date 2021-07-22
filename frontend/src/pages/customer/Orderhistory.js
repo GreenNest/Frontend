@@ -10,6 +10,7 @@ import CustomerService from '../../services/CustomerService';
 function Orderhistory() {
   var history = useHistory();
   const [header, setHeader] = useState(0);
+  const x = JSON.parse(localStorage.getItem('authorization'));
     const[orders, setOrders]= useState([
       {orderid:1150, orderplaced:'2021/05/20', items:3, totalcost:'200LKR', oredrstatus:'Deliverd'},
       {orderid:1000, orderplaced:'2021/01/01', items:2, totalcost:'1250LKR', oredrstatus:'Deliverd'},
@@ -22,22 +23,29 @@ function Orderhistory() {
     ]);
 
   useEffect(async () => {
-        if(sessionStorage.getItem("token") != null){
-            console.log(sessionStorage.getItem("token"));
-            let loinState = {
-                cipher: sessionStorage.getItem("token")
-            }
-            CustomerService.checkUserLogin(loinState).then((result) => {
-                console.log(result);
-                if(result.data.loginState == 1){    
-                    setHeader(<SignedHeader/>)
-                }else{
-                    setHeader(<Header/>)
-                }
-            });
-        }else{
-            setHeader(<Header/>)
-        }
+    if(!x){
+           console.log("please login");
+           setHeader(<Header/>)
+       }else{
+           console.log("you are log");
+           setHeader(<SignedHeader/>)
+       }
+        // if(sessionStorage.getItem("token") != null){
+        //     console.log(sessionStorage.getItem("token"));
+        //     let loinState = {
+        //         cipher: sessionStorage.getItem("token")
+        //     }
+        //     CustomerService.checkUserLogin(loinState).then((result) => {
+        //         console.log(result);
+        //         if(result.data.loginState == 1){    
+        //             setHeader(<SignedHeader/>)
+        //         }else{
+        //             setHeader(<Header/>)
+        //         }
+        //     });
+        // }else{
+        //     setHeader(<Header/>)
+        // }
     }, [])
   
 
