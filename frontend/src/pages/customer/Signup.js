@@ -107,7 +107,7 @@ class Signup extends Component {
             }
             
         }
-             console.log('customer =>' + JSON.stringify(customer));
+            //console.log('customer =>' + JSON.stringify(customer));
         CustomerService.createCustomer(customer).then((result) => {
             // this.props.history.push('/login');
             console.log(result.data);
@@ -144,96 +144,6 @@ class Signup extends Component {
 
     render() {
         return (
-//             <>
-//             <Header/>
-//             <div className='flex justify-center w-full mb-20 '>
-//                 <div class="w-2/4 shadow-xl mt-12 items-center flex justify-center"> 
-//                     <form class="w-full max-w-lg justify-center mb-20" onSubmit={this.handleSubmit}>
-
-//                         <h3 class="font-sans text-2xl font-bold text-center mt-4 mb-8">Create New Account</h3>
-//                             <div class="flex flex-wrap -mx-3 mb-6  ">
-//                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-//                                     <label class="block  tracking-wide text-black font-bold mb-4 mt-4">
-//                                         First Name
-//                                     </label>
-//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3 " 
-//                                     type="text"
-//                                     name="firstname" 
-//                                     value={this.state.firstname}
-//                                     onChange={this.handleChange}
-//                                     placeholder="eg: Nimal"/>
-//                                 </div>
-
-//                                 <div class="w-full md:w-1/2 px-3 ">
-//                                     <label class="block  tracking-wide text-black font-bold mb-4 mt-4">
-//                                         Last Name
-//                                     </label>
-//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
-//                                     type="text"
-//                                     name="lastname" 
-//                                     value={this.state.lastname}
-//                                     onChange={this.handleChange}
-//                                     placeholder="eg: Perera"/>
-//                                 </div>
-
-                                
-//                                 <div class="w-full md:w-1/2 px-3">
-//                                     <label class="block  tracking-wide text-black font-bold mb-4 mt-4">
-//                                         Email
-//                                     </label>
-//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
-//                                     type="text"
-//                                     name="email" 
-//                                     value={this.state.email}
-//                                     onChange={this.handleChange}
-//                                     placeholder="eg: hiruni123@gmail.com" />
-//                                     <div class="text-red-600">{this.state.email_err}</div>
-//                                 </div>
-
-//                                 <div class="w-full md:w-1/2 px-3">
-//                                     <label class="block  tracking-wide text-black font-bold mb-4 mt-4">
-//                                         Mobile Number
-//                                     </label>
-//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
-//                                     type="number"
-//                                     name="mobilenumber" 
-//                                     value={this.state.mobilenumber}
-//                                     onChange={this.handleChange}
-//                                     placeholder="eg: Kuliyapitiya" />
-//                                     <div class="text-red-600">{this.state.mobile_err}</div>
-//                                 </div>
-
-//                                 <div class="w-full md:w-1/2 px-3">
-//                                     <label class="block  tracking-wide text-black font-bold mb-4 mt-4">
-//                                         Password
-//                                     </label>
-//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
-//                                     type="password"
-//                                     name="password" 
-//                                     value={this.state.password}
-//                                     onChange={this.handleChange} />
-//                                     <div class="text-red-600">{this.state.password_err}</div>
-//                                 </div>
-
-//                                 <div class="w-full md:w-1/2 px-3">
-//                                     <label class="block  tracking-wide text-black font-bold mb-4 mt-4">
-//                                         Confirm Password
-//                                     </label>
-//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
-//                                     type="password"
-//                                     name="confirmpassword"
-//                                     value={this.state.confirmpassword}
-//                                     onChange={this.handleChange} />
-                        
-//                                 </div>
-
-//                                 <div class="justify-center items-center w-full">
-//                                 <div class="md:justify-center items-center mt-3 mb-6 w-1/2">
-//                                     <div class="md:w-2/3"></div>
-//                                     <label class="md:w-full block text-black font-bold">
-//                                         <input class="ml-4 form-checkbox h-3 w-3 leading-tight" type="checkbox" />
-//                                             <span class="text-sm ml-2">
-// =======
 <>
             <Header/>
             <div className="flex justify-center w-full mb-16">

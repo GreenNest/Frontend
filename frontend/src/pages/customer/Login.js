@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import CustomerService from '../../services/CustomerService';
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '../../components/Header';
@@ -11,6 +11,7 @@ toast.configure();
 const initialState = {
     error: ''
 }
+
 class Login extends Component {
      state = initialState;
     constructor(props){
@@ -19,10 +20,21 @@ class Login extends Component {
             email: '',
             password: '',
             loginState: false,
-            error:''
+            error:'',
+            logout:''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+    // componentDidMount(){
+    //     let x = this.props.location.state.message;
+    //     if(x){
+    //         this.setState({error: this.props.location.state.message});
+    //     }else{
+
+    //     }
+       
+    // }
 
 
     handleChange =(event)=>{
@@ -39,12 +51,10 @@ class Login extends Component {
         }
 
         let newuser = JSON.stringify(loginModel);
-        console.log(loginModel);
         
         axios.post("http://localhost:8080/api/v1/auth/login", loginModel).then((response) => {
             console.log(response.data);
             if(response.data.token){
-                console.log("9999");
                 localStorage.setItem("authorization", JSON.stringify(response.data))
                 const x = JSON.parse(localStorage.getItem('authorization'));
                 console.log(x.token);
@@ -52,6 +62,9 @@ class Login extends Component {
                 if(x.roles[0] == 'customer'){
                     console.log("you are customer");
                     this.props.history.push("/");
+                }else if(x.roles.includes("admin")){
+                    console.log("admin log wela");
+                    this.props.history.push("/admin/dashboard");
                 }
             }
         }).catch((err) => {
@@ -61,55 +74,7 @@ class Login extends Component {
             }
         });
 
-        // CustomerService.logUser(loginModel).then((result) => {
-        //     console.log(result.data);
-        //     let response = result.data;
-
-        //     if(response == "username not found"){
-        //         console.log(response);
-        //         toast('username not found', {
-        //             autoClose: false,
-        //             closeOnClick: true,
-        //             progress: false,
-        //             position:toast.POSITION.TOP_CENTER
-        //         });
-        //     }
-        //     else if(response == "incorrect password"){
-        //         console.log(response);
-        //         toast('incorrect password', {
-        //             autoClose: false,
-        //             closeOnClick: true,
-        //             progress: false,
-        //             position:toast.POSITION.TOP_CENTER
-        //         });
-        //     }else{
-        //         console.log(response[0]);
-        //         let sessionDetails = {
-        //             userId: response[1]
-        //         }
-        //         CustomerService.cresteSessionKey(sessionDetails).then((result) => {
-        //             console.log(result.data);
-        //             sessionStorage.setItem("token", result.data);
-        //             if(response[0] == "customer"){
-        //                 this.setState({loginState: true});
-        //                 this.props.history.push("/");
-        //             }else if(response[0] == "admin"){
-        //                 this.props.history.push("/admin/dashboard");
-        //             }else if(response[0] == "moderator"){
-        //                 this.props.history.push("/moderator/dashboard");
-        //             }else if(response[0] == "worker"){
-        //                 this.props.history.push("/");
-        //             }else if(response[0] == "accountant"){
-        //                 this.props.history.push("/accountant/dashboard");
-        //             }else{
-        //                 console.log("not found");
-        //             }
-                   
-        //         })
-        //     }
-
-        // })
-
+        
 
     }
 
@@ -119,12 +84,14 @@ class Login extends Component {
             <>
             <Header isLog={this.state.loginState}/>
             <div class="flex justify-center items-center w-full ">
+            
             <div class=" flex justify-center items-center w-1/4 mt-20 mb-16 shadow-xl">
                 
                 
             <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8  w-full' 
             onSubmit={this.handleSubmit}>
                 <p class="text-3xl mb-5 text-center font-bold"> Login </p>
+                
                 <div class="text-red-600 p-1 flex justify-center">{this.state.error}</div>
                 <div class='mb-4'>
                     <label class='block mb-2 text-md font-bold text-gray-700'>

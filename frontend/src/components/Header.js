@@ -25,40 +25,6 @@ class Header extends Component {
         this.setState({isOpen: !this.state.isOpen});
     }
 
-    // clickme = () =>{
-    //     //e.preventDefault();
-    //     CustomerService.getCustomerDetails().then((response) => {
-    //         console.log(response);
-    //     }).catch((err) => {
-    //         console.log(err);
-    //     })
-
-    // }
-
-
-    
-
-    // logout = async (event) => {
-    //     let loinState = {
-    //         cipher: sessionStorage.getItem("token")
-    //     }
-    //     CustomerService.logoutUser(loinState).then((res) =>{
-    //         console.log(res.data);
-    //         if(res.data == 1){
-    //             this.props.history.push("/");
-    //             sessionStorage.removeItem("token");
-    //         }
-    //         // this.props.history.push("/cart");
-            
-    //     }
-    //     )
-
-        
- 
-    // }
-
-
-
     render() {
         return (
             <nav class="flex w-screen flex-col justify-between bg-mainyellow lg:flex-row sm:w-full">
