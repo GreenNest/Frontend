@@ -5,7 +5,7 @@ import item from '../../../assets/product_img/mango-tree.jpg';
 
 const CartItem = () => {
     return(
-        <div className="flex max-w-7xl justify-start items-center bg-gray-200 p-6 rounded-lg mt-2 mb-2 ">
+        <div className="flex max-w-7xl justify-start items-center bg-gray-200 p-5 rounded-lg mt-2 mb-2 ">
             {/* Checkbox */}
             <div className="flex-1 mr-2 ml-5 ">
                 <input type="checkbox" checked className="checked:bg-blue-600 checked:border-transparent w-5 h-5"></input>

@@ -1,36 +1,95 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import CustomerService from '../../services/CustomerService';
+import { useHistory } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Header from '../../components/Header';
 
-
+toast.configure();
 class Login extends Component {
     
     constructor(props){
         super(props);
         this.state={
-
             email: '',
             password: ''
-
         };
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleEmailChange =(event)=> {
-        this.setState({
-            email: event.target.value
-        })
-    }
 
-    handlePasswordChange =(event)=>{
+    handleChange =(event)=>{
         this.setState({
-            password: event.target.value
-        })
+            [event.target.name]:event.target.value
+        });
     }
 
     handleSubmit = (event)=>{
-        
+        event.preventDefault();
+        let loginModel = {
+            username: this.state.email,
+            password: this.state.password
+        }
+
+        let newuser = JSON.stringify(loginModel);
+        console.log(loginModel);
+        CustomerService.logUser(loginModel).then((result) => {
+            console.log(result.data);
+            let response = result.data;
+
+            if(response == "username not found"){
+                console.log(response);
+                toast('username not found', {
+                    autoClose: false,
+                    closeOnClick: true,
+                    progress: false,
+                    position:toast.POSITION.TOP_CENTER
+                });
+            }
+            else if(response == "incorrect password"){
+                console.log(response);
+                toast('incorrect password', {
+                    autoClose: false,
+                    closeOnClick: true,
+                    progress: false,
+                    position:toast.POSITION.TOP_CENTER
+                });
+            }else{
+                console.log(response[0]);
+                let sessionDetails = {
+                    userId: response[1]
+                }
+                CustomerService.cresteSessionKey(sessionDetails).then((result) => {
+                    console.log(result.data);
+                    sessionStorage.setItem("token", result.data);
+                    if(response[0] == "customer"){
+                        this.props.history.push("/");
+                    }else if(response[0] == "admin"){
+                        this.props.history.push("/admin/dashboard");
+                    }else if(response[0] == "moderator"){
+                        this.props.history.push("/moderator/dashboard");
+                    }else if(response[0] == "worker"){
+                        this.props.history.push("/");
+                    }else if(response[0] == "accountant"){
+                        this.props.history.push("/accountant/dashboard");
+                    }else{
+                        console.log("not found");
+                    }
+                   
+                })
+            }
+
+        })
+
+
     }
+
+
     render() {
         return (
+            <>
+            <Header/>
             <div class="flex justify-center items-center w-full ">
             <div class=" flex justify-center items-center w-1/4 mt-20 mb-16 shadow-xl">
                 
@@ -44,8 +103,9 @@ class Login extends Component {
                     </label>
                     <input class='w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black' 
                     type="text" placeholder="email" 
+                    name="email"
                     value={this.state.email} 
-                    onChange={this.handleEmailChange}/>
+                    onChange={this.handleChange} required/>
                 </div>
 
                 <div class="mb-6">
@@ -54,35 +114,34 @@ class Login extends Component {
                     </label>
                     <input class="w-full px-3 py-2 mb-3 leading-tight text-gray-700 border rounded shadow appearance-none border-500 focus:outline-none focus:shadow-outline  focus:bg-white focus:border-black" 
                     type="password" placeholder="password"
+                    name="password"
                     value={this.state.password}
-                    onChange={this.handlePasswordChange} />
+                    onChange={this.handleChange} required/>
                 </div>
 
-                <div class="flex items-center justify-center">
-                <a class="inline-block text-md font-bold text-black align-baseline hover:text-green-800" href="#">
-                        Forgot Password?
-                    </a>
-                </div>
+                        <div class="flex items-center justify-center">
+                        <a class="inline-block text-base font-semibold text-black align-baseline hover:text-green-800" href="#">
+                                Forgot Password?
+                            </a>
+                        </div>
 
-                <div class="flex items-center justify-center mt-4">
-                    <button class="px-5 py-2 font-bold text-mainyellow bg-maingreen rounded hover:bg-secondarygreen focus:outline-none focus:shadow-outline" type="submit">
-                        Sign In
-                    </button>
-                    
-                </div>
-                
+                        <div class="flex items-center justify-center mt-4">
+                            <button class="px-8 py-2 font-bold text-white text-lg bg-maingreen rounded hover:bg-secondarygreen focus:outline-none focus:shadow-outline" type="submit">
+                                Sign In
+                            </button> 
+                        </div>
 
-                <div class="mt-4">
-                {/* <a class="inline-block text-md font-bold text-black align-baseline hover:text-green-1000" href="#"> */}
-                    If you don't have an account? 
-                    {/* </a> */}
-                    <Link class="ml-1 inline-block text-md font-bold text-black align-baseline hover:text-green-1000" to="/signup"> Sign Up</Link>
-                 </div> 
-            </form>
-            </div>
+                        <div class="mt-4 text-base font-medium">
+                        {/* <a class="inline-block text-md font-bold text-black align-baseline hover:text-green-1000" href="#"> */}
+                            If you don't have an account? 
+                            {/* </a> */}
+                            <Link class="ml-1 inline-block text-base font-bold text-maingreen align-baseline hover:text-green-1000 tracking-wide" to="/signup"> Sign Up</Link>
+                        </div> 
+                    </form>
+                </div>
             </div>
             
-            
+            </>
 
         );
     }

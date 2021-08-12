@@ -5,6 +5,7 @@ import * as FaIcons from "react-icons/fa";
 import { MdDeleteSweep } from 'react-icons/md';
 import { Link } from "react-router-dom";
 import Search from '../components/Search';
+import AdminSidebar from '../components/adminSidebar';
 
 const ItemAdminView = () => {
 
@@ -30,6 +31,8 @@ const ItemAdminView = () => {
 
 
     return ( 
+        <>
+        <AdminSidebar/>
         <div className="w-11/12 h-full -ml-10 -mt-20 justify-end">
             <div className=" flex-row w-3/4 ml-96 pb-5 mt-24 absoulte grid grid-cols-2">
                     <div>
@@ -60,6 +63,7 @@ const ItemAdminView = () => {
 
             </div>
         </div>
+        </>
      );
 }
  

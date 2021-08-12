@@ -3,44 +3,50 @@ import './styles/index.css';
 import {BrowserRouter as Router , Route , Switch} from "react-router-dom";
 
 // customer
-import Index from './pages/customer/Index';
-import Signup from './pages/customer/Signup';
-import Login from './pages/customer/Login';
-import Shop from './pages/customer/Shop/Shop';
-import Product from './pages/customer/product/Product';
-import Order from './pages/customer/customerorder/Order';
-import Cart from './pages/customer/cart/Cart';
-import Checkout from './pages/customer/cart/Checkout';
-import Orderhistory from './pages/customer/Orderhistory';
+import Index from './pages/customer/Index'; //
+import Signup from './pages/customer/Signup'; //
+import Login from './pages/customer/Login'; //
+import Shop from './pages/customer/Shop/Shop'; //
+import Product from './pages/customer/product/Product'; //
+import Order from './pages/customer/customerorder/Order'; //
+import Cart from './pages/customer/cart/Cart';//
+import Checkout from './pages/customer/cart/Checkout';//
+import Orderhistory from './pages/customer/Orderhistory';//
 
 
 // admin
-import AdminDashboard from './pages/accountant/dashboard/Dashboard';
-import Reports from './pages/admin/reports/Reports';
-import AddStock from './pages/admin/add-stock/AddStock';
-import EditStock from './pages/admin/edit-stock/EditStock';
-import Updatestock from './pages/admin/Stock/Updatestock';
-import CategoryAdminView from './pages/admin/categoryadminview/Categoryadminview';
-import ItemAdminView from './pages/admin/itemadminview/Itemadminview';
-import ViewSupplier from './pages/admin/supplier/ViewSupplier';
-import EditSupplier from './pages/admin/supplier/EditSupplier';
-import AddSupplier from './pages/admin/supplier/AddSupplier';
-import ViewEmployee from './pages/admin/employee/ViewEmployee';
-import AddEmployee from './pages/admin/employee/AddEmployee';
+import AdminDashboard from './pages/admin/dashboard/Dashboard';//
+import Reports from './pages/admin/reports/Reports';//
+import AddStock from './pages/admin/add-stock/AddStock';//
+import EditStock from './pages/admin/edit-stock/EditStock';//
+import Updatestock from './pages/admin/Stock/Updatestock';//
+//import CategoryAdminView from './pages/admin/categoryadminview/CategoryAdminView';
+//import ItemAdminView from './pages/admin/itemadminview/ItemAdminView';
+import CategoryAdminView from './pages/admin/categoryadminview/Categoryadminview';//
+import ItemAdminView from './pages/admin/itemadminview/Itemadminview';//
+import ViewSupplier from './pages/admin/supplier/ViewSupplier';//
+import EditSupplier from './pages/admin/supplier/EditSupplier';//
+import AddSupplier from './pages/admin/supplier/AddSupplier';//
+import ViewEmployee from './pages/admin/employee/ViewEmployee';//
+import AddEmployee from './pages/admin/employee/AddEmployee';//
 
 // moderator
-import ModDashboard from './pages/accountant/dashboard/Dashboard';
+import ModDashboard from './pages/moderator/dashboard/Dashboard';
 import Upcomingorders from './pages/moderator/orders/Upcomingorders';
 import OngoingOrders from './pages/moderator/orders/Ongoingorders';
 import SystemOrders from './pages/moderator/orders/Systemorders';
 import SupplierList from './pages/moderator/orderRequest/SupplierList';
 import OrderRequest from './pages/moderator/orderRequest/OrderRequest';
 import DeliveryPerson from './pages/moderator/deliveryPerson/DeliveryPerson';
+import ModLeaveRequests from './pages/LeaveRequest';
+import ModLeaveStats from './pages/LeaveStat';
 
 // accountant
 import AccDashboard from './pages/accountant/dashboard/Dashboard';
 import CODeliveries from './pages/accountant/CashonDelivery';
 import InvoiceHistory from './pages/accountant/InvoiceHistory';
+import AccLeaveRequests from './pages/LeaveRequest';
+import AccLeaveStats from './pages/LeaveStat';
 
 
 function App() {
@@ -55,7 +61,7 @@ function App() {
     <Route exact path="/shop" component={Shop}/>
     <Route exact path="/shop/product" component={Product}/>
     <Route exact path="/cart" component={Cart}/>
-    <Route exact path="/chechout" component={Checkout}/>
+    <Route exact path="/checkout" component={Checkout}/>
     <Route exact path="/profile/orders" component={Orderhistory}/>
     <Route exact path="/profile/order/review" component={Order}/>
 
@@ -82,11 +88,15 @@ function App() {
     <Route exact path="/moderator/supplierList" component={SupplierList} />
     <Route exact path="/moderator/orderRequests" component={OrderRequest} />
     <Route exact path="/moderator/deliveryPersons" component={DeliveryPerson} />
+    <Route exact path="/moderator/leaveRequests" component={ModLeaveRequests} />
+    <Route exact path="/moderator/leaveStats" component={ModLeaveStats} />
 
     {/* accountant routes */}
     <Route exact path="/accountant/dashboard" component={AccDashboard} />
     <Route exact path="/accountant/coDeliveries" component={CODeliveries} />
     <Route exact path="/accountant/invoiceHistory" component={InvoiceHistory} />
+    <Route exact path="/accountant/leaveRequests" component={AccLeaveRequests} />
+    <Route exact path="/accountant/leaveStats" component={AccLeaveStats} />
 
     </Switch>
     </>

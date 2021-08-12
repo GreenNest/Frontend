@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import { useState } from 'react';
 import CashonTable from './CashonTable';
 import StatusPopup from './StatusPopup';
+import AccountantSidebar from './dashboard/components/accountantSidebar';
 
 
 
@@ -18,6 +19,7 @@ const CashonDelivery = () => {
 
     return (
         <div>
+        <AccountantSidebar/>
             <div className="flex justify-end pb-4 mt-8 mr-10">
                 <div className="w-9/12 p-4 pb-12 mx-4 bg-gray-500 bg-opacity-25 rounded">
                 
@@ -33,7 +35,7 @@ const CashonDelivery = () => {
                                     <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">ORDoice ID</th>
                                     <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Prduct Quantity</th>
                                     <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Total Cost (RS)</th>
-                                    <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Date</th>
+                                    <th className="px-10 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Date</th>
                                     
                                     <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700" >Edit</th>
 

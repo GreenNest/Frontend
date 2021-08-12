@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import ModeratorSidebar from '../components/moderatorSidebar';
 
 const DeliveryPerson = () => {
+    
     return (
+        <>
+        <ModeratorSidebar/>
         <div className="w-11/12 ml-48">
         <div className="flex flex-col mx-8 my-10 mt-0 md:mx-40 sm:mx-10">
             <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -91,8 +95,9 @@ const DeliveryPerson = () => {
                     </div>
                 </div>
             </div>
+            </div>
         </div>
-        </div>
+        </>
     );
 }
 

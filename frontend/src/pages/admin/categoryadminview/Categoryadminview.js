@@ -6,6 +6,7 @@ import {FaClipboardList} from "react-icons/fa";
 import Categorydata from './Categorydata';
 import { Link } from "react-router-dom";
 import Search from '../components/Search';
+import AdminSidebar from '../components/adminSidebar';
 
 const CategoryAdminView = () =>{
 
@@ -30,6 +31,8 @@ const CategoryAdminView = () =>{
 
 
     return (
+        <>
+        <AdminSidebar/>
         <div className="w-11/12 h-full ml-28 justify-end ">
             <div className="w-3/4 ml-96 pb-5">  
               <div>
@@ -46,6 +49,7 @@ const CategoryAdminView = () =>{
                 </div> 
             
         </div>
+        </>
     )
 }
 

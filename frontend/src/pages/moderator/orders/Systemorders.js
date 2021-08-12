@@ -2,10 +2,12 @@ import React from "react";
 // import {FcPaid} from "react-icons/fc";
 // import Filterbtn from "./components/Filterbtn";
 import Search from "./components/Search";
+import ModeratorSidebar from '../components/moderatorSidebar';
 
 const SystemOrders = () => {
     return ( 
         <div className="">
+        <ModeratorSidebar/>
             <div className="flex justify-end pb-6 mt-8 mr-10 ">
                
                <div className="bg-gray-500 bg-opacity-25 w-9/12 p-4 mx-4 pb-12 rounded">
@@ -26,7 +28,7 @@ const SystemOrders = () => {
                                 {/* <form className="flex"> */}                       
                                 </form>
                                         <input type="text" placeholder="Date" className="h-8 m-2 -ml-2 p-4 w-48 focus:outline-none rounded"/>
-                                        <input type="text" placeholder="Enter word" className="h-8 m-2 py-4 px-8 md:w-48 focus:outline-none rounded"/>
+                                        <input type="text" placeholder="Enter keyword" className="h-8 m-2 py-4 px-8 md:w-48 focus:outline-none rounded"/>
                                         {/* <input type="button" value="Search" className="h-8 m-3 w-24 focus:outline-none"/>   */}
                             </div>
                                                                 
@@ -37,7 +39,7 @@ const SystemOrders = () => {
                     </div>
                 <div>    
 
-                   <div className="flex w-full grid grid-rows-6  md:grid-rows-1 md:grid-cols-6 bg-gray-50 border-black border-b shadow p-4 my-4 rounded-md">
+                   <div className="w-full grid grid-rows-6  md:grid-rows-1 md:grid-cols-6 bg-gray-50 border-black border-b shadow p-4 my-4 rounded-md">
                         <div  className="mt-2" >10002</div>
                         <div className="mt-2">H.K.Saman</div>
                         <div className="mt-2">Kurunagala</div>
@@ -45,7 +47,7 @@ const SystemOrders = () => {
                         <div className="mt-2">K.Madhushanka</div>                        
                     </div>
 
-                    <div className="flex w-full grid grid-rows-6 md:grid-rows-1 md:grid-cols-6 bg-gray-50 border-black border-b shadow p-4 my-4 rounded-md">
+                    <div className="w-full grid grid-rows-6 md:grid-rows-1 md:grid-cols-6 bg-gray-50 border-black border-b shadow p-4 my-4 rounded-md">
                         <div  className="mt-2" >10002</div>
                         <div className="mt-2">H.K.Saman</div>
                         <div className="mt-2">Kurunagala</div>
@@ -54,7 +56,7 @@ const SystemOrders = () => {
                         <div className="mt-2"><h3 className="font-semibold text-blue-500 ml-8">Paid </h3></div>                   
                     </div>
 
-                    <div className="flex w-full grid grid-rows-6  md:grid-rows-1 md:grid-cols-6 bg-gray-50 border-black border-b shadow p-4 my-4 rounded-md">
+                    <div className="w-full grid grid-rows-6  md:grid-rows-1 md:grid-cols-6 bg-gray-50 border-black border-b shadow p-4 my-4 rounded-md">
                         <div  className="mt-2" >10002</div>
                         <div className="mt-2">H.K.Saman</div>
                         <div className="mt-2">Kurunagala</div>
@@ -62,7 +64,7 @@ const SystemOrders = () => {
                         <div className="mt-2">K.Madhushanka</div>                        
                     </div>
 
-                    <div className="flex w-full grid grid-rows-6 md:grid-rows-1 md:grid-cols-6 bg-gray-50 border-black border-b shadow p-4 my-4 rounded-md">
+                    <div className="w-full grid grid-rows-6 md:grid-rows-1 md:grid-cols-6 bg-gray-50 border-black border-b shadow p-4 my-4 rounded-md">
                         <div  className="mt-2" >10002</div>
                         <div className="mt-2">H.K.Saman</div>
                         <div className="mt-2">Kurunagala</div>
@@ -71,7 +73,7 @@ const SystemOrders = () => {
                         <div className="mt-2"><h3 className="font-semibold text-blue-500 ml-8">Paid</h3></div>                    
                     </div>
 
-                    <div className="flex w-full grid grid-rows-6  md:grid-rows-1 md:grid-cols-6 bg-gray-50 border-black border-b shadow p-4 my-4 rounded-md">
+                    <div className="w-full grid grid-rows-6  md:grid-rows-1 md:grid-cols-6 bg-gray-50 border-black border-b shadow p-4 my-4 rounded-md">
                         <div  className="mt-2" >10002</div>
                         <div className="mt-2">H.K.Saman</div>
                         <div className="mt-2">Kurunagala</div>
@@ -79,7 +81,7 @@ const SystemOrders = () => {
                         <div className="mt-2">K.Madhushanka</div>                        
                     </div>
 
-                    <div className="flex w-full grid grid-rows-6 md:grid-rows-1 md:grid-cols-6 bg-gray-50 border-black border-b shadow p-4 my-4 rounded-md">
+                    <div className="w-full grid grid-rows-6 md:grid-rows-1 md:grid-cols-6 bg-gray-50 border-black border-b shadow p-4 my-4 rounded-md">
                         <div  className="mt-2" >10002</div>
                         <div className="mt-2">H.K.Saman</div>
                         <div className="mt-2">Kurunagala</div>

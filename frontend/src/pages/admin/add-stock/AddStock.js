@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AdminSidebar from '../components/adminSidebar';
 
 class AddStock extends Component {
     constructor(props) {
@@ -10,7 +11,7 @@ class AddStock extends Component {
     render() {
         return (
             <div>
-
+            <AdminSidebar/>
             <div className="grid-container">
             {/* <div class="bg-maingreen"></div> */}
             <div className="main-area -mt-8 -ml-4">

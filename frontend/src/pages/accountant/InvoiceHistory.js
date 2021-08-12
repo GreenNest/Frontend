@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { useState } from 'react';
 
 import InvoiceTable from './InvoiceTable';
+import AccountantSidebar from './dashboard/components/accountantSidebar';
 
 
 
@@ -11,12 +12,13 @@ class InvoiceHistory extends Component{
     render(){
     return (
         <div>
+        <AccountantSidebar/>
             <div className="flex justify-end pb-4 mt-8 mr-10">
                 <div className="w-9/12 p-4 pb-12 mx-4 bg-gray-500 bg-opacity-25 rounded">
                 
 
                 <h1 className="flex justify-center w-full pt-4 text-2xl font-bold text-maingreen">Invoice History</h1>
-                <div className="flex flex-col mt-2 sm:mx-10">
+                <div className="flex flex-col mt-6 sm:mx-10">
                 <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                     <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
