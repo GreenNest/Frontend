@@ -44,12 +44,12 @@ import Updatestock from './pages/admin/Stock/Updatestock';
 ReactDOM.render(
   <React.StrictMode>
     <Router> 
-      {/* <SignedHeader /> */}
-       {/* <AdminSidebar />   */}
-       {/* <ModeratorSidebar />  */}
-      {/* <AdminSidebar />  */}
-      {/* <AccountantSidebar />  */}
+       <Header/>  
+        {/* <AdminSidebar />   */}
+        {/* <ModeratorSidebar />   */}
+        {/* <AccountantSidebar />   */}
         <App/>  
+      <Footer/>  
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
