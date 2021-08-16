@@ -48,6 +48,8 @@ import InvoiceHistory from './pages/accountant/InvoiceHistory';
 import AccLeaveRequests from './pages/LeaveRequest';
 import AccLeaveStats from './pages/LeaveStat';
 
+import Error from './pages/Error';
+
 
 function App() {
   return (
@@ -97,7 +99,7 @@ function App() {
     <Route exact path="/accountant/invoiceHistory" component={InvoiceHistory} />
     <Route exact path="/accountant/leaveRequests" component={AccLeaveRequests} />
     <Route exact path="/accountant/leaveStats" component={AccLeaveStats} />
-
+    <Route exact path="/error" component={Error}/>
     </Switch>
     </>
   );

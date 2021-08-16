@@ -9,6 +9,8 @@ const session = "http://localhost:8080/api/v1/sessionKey";
 const login_Credit = "http://localhost:8080/api/v1/checkLoginState";
 const logouturl = "http://localhost:8080/api/v1/logout";
 const pp = "http://localhost:8080/api/v1/user";
+const product = "http://localhost:8080/api/v1/add/product";
+
 
 let config = {
     'Content-Type': 'application/json',
@@ -54,6 +56,9 @@ class CustomerService {
             'Authorization': 'Bearer '+x.token
             },
         })
+    }
+    addProduct(data){
+        return axios.post(product, data)
     }
 
 }

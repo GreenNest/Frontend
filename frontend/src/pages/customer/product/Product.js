@@ -31,23 +31,6 @@ function Product() {
         }else{
             setHeader(<SignedHeader/>)
         }
-        // if(sessionStorage.getItem("token") != null){
-        //     console.log(sessionStorage.getItem("token"));
-        //     let loinState = {
-        //         cipher: sessionStorage.getItem("token")
-        //     }
-        //     CustomerService.checkUserLogin(loinState).then((result) => {
-        //         console.log(result);
-        //         if(result.data.loginState == 1){
-        //             setHeader(<SignedHeader/>)
-        //         }else{
-        //             setHeader(<SignedHeader/>) 
-        //         }
-        //     });
-        // }else{
-        //     console.log("you are not log to the system");
-        //     setHeader(<Header/>)
-        // }
     }, [])
 
 

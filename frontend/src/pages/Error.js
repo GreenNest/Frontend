@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function Eror() {
+function Error() {
     return (
         <div>
-            Page ot found
+            Page not found
         </div>
     )
 }
+
+export default Error

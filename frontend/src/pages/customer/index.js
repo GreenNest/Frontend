@@ -28,31 +28,6 @@ function Index(props) {
            console.log("you are log");
            setHeader(<SignedHeader/>)
        }
-        //console.log(session.roles.authority);
-        // if(sessionStorage.getItem("token") != null){
-        //     console.log(sessionStorage.getItem("token"));
-        //     let loinState = {
-        //         cipher: sessionStorage.getItem("token")
-        //     }
-        //     CustomerService.checkUserLogin(loinState).then((result) => {
-        //         console.log(result);
-        //         if(result.data.loginState == 1){
-        //             console.log("you are log to the system");
-        //             setLogstate(true);
-        //             if(loinState){
-        //                 setHeader(<SignedHeader/>) 
-        //             }
-        //             else{
-        //                 setHeader(<Header/>) 
-        //             }
-        //         }else{
-        //             setHeader(<Header/>)
-        //         }
-        //     });
-        // }else{
-        //     setHeader(<Header/>) 
-        //     console.log("you are not log to the system");
-        // }
     }, [])
 
     return (
