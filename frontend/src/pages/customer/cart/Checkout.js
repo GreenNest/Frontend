@@ -11,8 +11,7 @@ import Footer from '../../../components/Footer';
 const Checkout = () => {
     return(
         <>
-        <Header/>
-        <div className="w-11/12 mt-8 mb-8 ml-12">
+        <div className="w-11/12 mt-12 mb-8 ml-12">
             <div className=""><CheckoutAmount className=""/></div>
             <div className="row">
             <div className="col-75">
