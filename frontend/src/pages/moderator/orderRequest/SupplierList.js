@@ -1,7 +1,10 @@
 import SupplierTable from "./components/SupplierTable";
+import ModeratorSidebar from '../components/moderatorSidebar';
 
 const SupplierList = () => {
     return (
+        <>
+        <ModeratorSidebar/>
         <div className="w-11/12 ml-48">
         <div className="flex flex-col mx-8 my-10 mt-0 md:mx-40 sm:mx-10">
             <div className="flex mb-10 mt-8 justify-center font-bold text-2xl text-maingreen">Fruit Plants Suppliers</div>
@@ -59,6 +62,7 @@ const SupplierList = () => {
             </div>
         </div>
         </div>
+        </>
     );
 }
 

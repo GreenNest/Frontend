@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import BarChart from './components/BarChart';
 import LineChart from './components/LineChart';
 import PieChart from './components/PieChart';
-import {FaClipboardList, FaClipboardCheck} from 'react-icons/fa'
+import {FaClipboardList, FaClipboardCheck} from 'react-icons/fa';
+import AccountantSidebar from './components/accountantSidebar';
+
 
 class AccDashboard extends Component {
     render() {
         return (
+            <>
+            <AccountantSidebar/>
             <div className="-mt-6 grid-container">
                 {/* <div class="bg-maingreen h-screen"></div> */}
                 <div className="-ml-4 main-area">
@@ -36,6 +40,7 @@ class AccDashboard extends Component {
                     
                 </div>
             </div>
+            </>
         );
     }
 }

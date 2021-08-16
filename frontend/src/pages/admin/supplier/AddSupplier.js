@@ -1,7 +1,10 @@
 import CheckBox from "../components/CheckBox";
+import AdminSidebar from '../components/adminSidebar';
 
 const AddSupplier = (props) => {
     return (
+        <>
+        <AdminSidebar/>
         <div className="flex flex-col space-y-10 ml-48 w-11/12">
             
             <div className="flex justify-center mx-16">
@@ -66,6 +69,7 @@ const AddSupplier = (props) => {
                 </form>
             </div>
         </div>
+        </>
     );
 }
 

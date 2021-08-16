@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
+import AccountantSidebar from './accountant/dashboard/components/accountantSidebar';
 
 class LeaveRequest extends Component {
     
     render() {
         return (
+            <>
+            <AccountantSidebar/>
           <div className='flex justify-center w-full'>
             <div class="w-2/4 shadow-xl mt-8 ml-64 bg-gray-500 bg-opacity-25 rounded items-center flex justify-center"> 
                 <form class="w-full max-w-lg justify-center mb-12" >
@@ -81,6 +84,7 @@ class LeaveRequest extends Component {
                 </form>
             </div>
         </div>
+        </>
         );
     }
 }
