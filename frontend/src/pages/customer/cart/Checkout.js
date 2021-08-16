@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Checkout = () => {
     return(
-        <div className="w-11/12 mt-2 ml-12 mb-6">
+        <div className="w-11/12 mt-12 ml-12 mb-6">
             <div className=""><CheckoutAmount className=""/></div>
             <div className="row">
             <div className="col-75">
