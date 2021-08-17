@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import CustomerService from '../../../services/CustomerService';
 
 import Review from './components/Review';
@@ -24,6 +24,9 @@ function Product() {
     const [showRequestPopup,setShowRequestPopup] = useState(false);
     const [header, setHeader] = useState(0);
     const x = JSON.parse(localStorage.getItem('authorization'));
+    let { id } = useParams();
+
+    console.log(id);
 
     useEffect(async () => {
         if(!x){
