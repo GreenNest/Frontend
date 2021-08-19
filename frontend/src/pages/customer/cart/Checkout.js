@@ -30,7 +30,8 @@ function Checkout(){
     return(
         <>
         {header}
-        <div className="w-11/12 mt-8 mb-8 ml-12">
+{ /* <div className="w-11/12 mt-8 mb-8 m */}
+        <div className="w-11/12 mt-12 mb-8 ml-12">
             <div className=""><CheckoutAmount className=""/></div>
             <div className="row">
             <div className="col-75">
