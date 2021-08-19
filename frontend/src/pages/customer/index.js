@@ -9,32 +9,30 @@ import Featured from './home/components/Featured';
 import { FaAngleRight} from "react-icons/fa";
 import CustomerService from '../../services/CustomerService';
 import Header from '../../components/Header';
+import SignedHeader from '../../components/SignedHeader';
 import Footer from '../../components/Footer';
 
 function Index(props) {
     var history = useHistory();
+    const [logstate, setLogstate] = useState(false);
+    const [header, setHeader] = useState(0);
+    const session = localStorage.getItem('authorization');
 
-    // useEffect(async () => {
-    //     if(sessionStorage.getItem("token") != null){
-    //         console.log(sessionStorage.getItem("token"));
-    //         let loinState = {
-    //             cipher: sessionStorage.getItem("token")
-    //         }
-    //         CustomerService.checkUserLogin(loinState).then((result) => {
-    //             console.log(result);
-    //             if(result.data.loginState == 1){
-    //                 history.push("/");
-    //             }
-    //         });
-    //     }else{
-            
-    //         history.push("/shop");
-    //     }
-    // }, [])
+    const x = JSON.parse(localStorage.getItem('authorization'));
+
+    useEffect(async () => {
+       if(!x){
+           console.log("please login");
+           setHeader(<Header/>)
+       }else{
+           console.log("you are log");
+           setHeader(<SignedHeader/>)
+       }
+    }, [])
 
     return (
         <>
-        <Header/>
+        {header}
         <Fragment>
            <Slide/>
         </Fragment>

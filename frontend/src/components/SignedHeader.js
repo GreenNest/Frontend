@@ -1,16 +1,30 @@
 import React, { Component } from 'react';
 import xxx from '../assets/GreenNest.png';
 import {FaAlignRight} from 'react-icons/fa'
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+let x =  JSON.parse(localStorage.getItem('authorization'));
+
 class SignedHeader extends Component {
-    state={
-        isOpen:false
-    };
+    constructor(props){
+        super(props);
+        this.state={
+            isOpen:false,
+            login:''
+        };
+    }
+    componentDidMount(){
+
+    }
     handleToggle=()=> {
         this.setState({isOpen: !this.state.isOpen});
+    }
+    logout = () =>{
+        localStorage.removeItem("authorization");
+        this.props.history.push('/login');
+        // this.props.history.push({pathname: '/login',state: { message: "Log out successfully" }});
     }
     render() {
         return (
@@ -41,8 +55,11 @@ class SignedHeader extends Component {
                     My Orders
                 </Link>
                 <Link to="/login" class="block text-center w-36 px-4 ml-4 py-2 text-20 leading-none border rounded text-maingreen border-maingreen hover:border-transparent hover:text-mainyellow hover:bg-maingreen lg:mr-5">
-                    <FontAwesomeIcon icon={faUser} /> Hi! Nimal
+                    <FontAwesomeIcon icon={faUser} /> {x.name}
                 </Link>
+                <button onClick={this.logout} class="block p-2 text-maingreen hover:text-hovergreen font-bold text-20 text-center lg:mr-20 outline-none">
+                    log out
+                </button>
            </div>
         </nav>
         
@@ -50,7 +67,7 @@ class SignedHeader extends Component {
     }
 }
 
-export default SignedHeader;
+export default withRouter(SignedHeader);
 
 
 

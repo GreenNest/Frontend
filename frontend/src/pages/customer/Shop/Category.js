@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const Category = () => {
+function Category(){
 
     return (
         <div className="w-10/12 h-screen mt-5 ml-10 md:mt-16">

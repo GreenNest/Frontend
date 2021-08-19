@@ -1,16 +1,30 @@
 import React, { Component } from 'react';
+import { useEffect} from "react";
 import xxx from '../assets/headerLogo.png';
 import {FaAlignRight} from 'react-icons/fa'
 import { NavLink, Link } from "react-router-dom";
-import '../styles/nav.css'
+import { withRouter } from "react-router-dom";
+import '../styles/nav.css';
+import CustomerService from '../services/CustomerService';
 
 class Header extends Component {
-    state={
-        isOpen:false
-    };
+    constructor(props){
+        super(props);
+        this.state={
+            isOpen:false,
+            // isLoggd: this.props.isLog,
+            // logout:''
+        };
+    }
+    // state={
+    //     isOpen:false,
+    //     isLoggd: this.props.isLog,
+    // };
+
     handleToggle=()=> {
         this.setState({isOpen: !this.state.isOpen});
     }
+
     render() {
         return (
             <nav class="flex w-screen flex-col justify-between bg-mainyellow lg:flex-row sm:w-full">
@@ -49,14 +63,17 @@ class Header extends Component {
                 <Link to="/signup" class="block text-center w-32 px-3 py-2 text-20 leading-none border rounded text-white border-maingreen bg-maingreen lg:mr-8 hover:bg-secondarygreen">
                     Sign Up
                 </Link>
+
+                
            </div>
         </nav>
         
         );
     }
+    
 }
 
-export default Header;
+export default withRouter(Header);
 
 
 

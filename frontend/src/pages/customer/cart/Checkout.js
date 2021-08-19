@@ -1,16 +1,36 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import CheckoutAmount from "./component/CheckoutAmount";
 import './style/checkout.css';
 import * as FaIcons from "react-icons/fa";
 import { faUser, faEnvelope, faAddressCard, faCity } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from '../../../components/Header';
+import SignedHeader from '../../../components/SignedHeader';
 import Footer from '../../../components/Footer';
+import CustomerService from '../../../services/CustomerService';
 
-const Checkout = () => {
+
+function Checkout(){
+    var history = useHistory();
+    const [header, setHeader] = useState(0);
+    const x = JSON.parse(localStorage.getItem('authorization'));
+
+    useEffect(async () => {
+        if(!x){
+            history.push("/login");
+            setHeader(<Header/>)
+        }else{
+            setHeader(<SignedHeader/>)
+        }
+       
+    }, [])
+
     return(
         <>
+        {header}
+{ /* <div className="w-11/12 mt-8 mb-8 m */}
         <div className="w-11/12 mt-12 mb-8 ml-12">
             <div className=""><CheckoutAmount className=""/></div>
             <div className="row">

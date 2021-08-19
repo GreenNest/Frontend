@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useHistory, useParams } from 'react-router-dom';
+import CustomerService from '../../../services/CustomerService';
 
 import Review from './components/Review';
 import RequestPopup from './RequestPopup';
@@ -14,15 +15,31 @@ import customer4 from '../../../assets/customer_img/customer4.jpg'
 import img1 from '../../../assets/product_img/mango-tree.jpg';
 import mango1 from '../../../assets/product_img/mango1.jpg';
 import Header from '../../../components/Header';
+import SignedHeader from '../../../components/SignedHeader';
 import Footer from '../../../components/Footer';
 import mango2 from '../../../assets/product_img/mango2.jpeg';
 
-const Product = () => {
-
+function Product() { 
+    var history = useHistory();
     const [showRequestPopup,setShowRequestPopup] = useState(false);
+    const [header, setHeader] = useState(0);
+    const x = JSON.parse(localStorage.getItem('authorization'));
+    let { id } = useParams();
+
+    console.log(id);
+
+    useEffect(async () => {
+        if(!x){
+            setHeader(<Header/>)
+        }else{
+            setHeader(<SignedHeader/>)
+        }
+    }, [])
+
+
     return (
         <>
-        <Header/>
+        {header}
         <div className="min-w-full p-10 sm:p-20 md:px-32">
             <div className="shadow-xl md:flex rounded-xl">
                 <div className="md:w-6/12">
