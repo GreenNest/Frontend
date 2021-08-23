@@ -16,6 +16,7 @@ module.exports = {
        x: '200px',
        icon: '6rem',
        border: '2px',
+       card:'400px'
     },
     fontSize:{
       '50': '50px',

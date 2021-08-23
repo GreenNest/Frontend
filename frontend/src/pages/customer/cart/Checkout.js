@@ -19,7 +19,7 @@ function Checkout(){
 
     useEffect(async () => {
         if(!x){
-            history.push("/login");
+            //history.push("/login");
             setHeader(<Header/>)
         }else{
             setHeader(<SignedHeader/>)

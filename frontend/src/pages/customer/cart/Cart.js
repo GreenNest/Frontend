@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import CartItem from "./CartItem";
 import CartAmount from "./component/CartAmount";
 import { MdAssignmentReturn } from 'react-icons/md';
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import Header from '../../../components/Header';
 import SignedHeader from '../../../components/SignedHeader';
 import Footer from '../../../components/Footer';
@@ -13,6 +13,7 @@ import CustomerService from '../../../services/CustomerService';
 function Cart() {
     var history = useHistory();
     const [header, setHeader] = useState(0);
+    const { amount, id } = useParams();
 
     //check the local storage date
     const x = JSON.parse(localStorage.getItem('authorization'));
@@ -97,7 +98,7 @@ function Cart() {
                 
             </div> */}
             <div className="w-44">
-            <Link to="shop">
+            <Link to="/shop">
                 <button className="flex px-4 py-2 font-bold text-white rounded bg-maingreen hover:bg-hovergreen"><MdAssignmentReturn className="mt-1 mr-1"/> Return to Shop</button>
             </Link> 
             </div>   

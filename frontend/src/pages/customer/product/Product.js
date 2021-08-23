@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import CustomerService from '../../../services/CustomerService';
+import axios from 'axios';
 
 import Review from './components/Review';
 import RequestPopup from './RequestPopup';
@@ -23,62 +24,104 @@ function Product() {
     var history = useHistory();
     const [showRequestPopup,setShowRequestPopup] = useState(false);
     const [header, setHeader] = useState(0);
+    const [data, setData] = useState([]);
+    const [images, setImages] = useState([]);
+    const [number, setNumber] = useState(0);
+    const [isloading, setIsloading] = useState(true);
+    const [stock, setStock] = useState(0);
+    const[message, setMessage] = useState('');
     const x = JSON.parse(localStorage.getItem('authorization'));
-    let { id } = useParams();
-
-    console.log(id);
+    const {id} = useParams();
 
     useEffect(async () => {
+        //console.log(id);
+        const storage = await JSON.parse(localStorage.getItem('authorization'));
         if(!x){
             setHeader(<Header/>)
         }else{
             setHeader(<SignedHeader/>)
         }
-    }, [])
+        const values = await axios.get("http://localhost:8080/api/v1/get/product/" +id).then((response) => {
+            //console.log(response.data.data);
+            setData(response.data.data);
+            setImages(response.data.data.subImages);
+            //console.log(data.name);
+            //console.log(images);
+        }).then(setIsloading(false)).catch((err) => {
+            console.log(err.response);
+        })
+
+    }, []);
+
+    // function addToCart() {
+    //     console.log(stock);
+    // }
+
+    const addToCart = (evt) => {
+        evt.preventDefault();
+        if(stock){
+            console.log(stock);
+            history.push('/cart/3/4')
+        }else{
+            setMessage("Please select the amount");
+        }
+        //() => history.push('/login')
+    }
 
 
     return (
         <>
         {header}
-        <div className="min-w-full p-10 sm:p-20 md:px-32">
-            <div className="shadow-xl md:flex rounded-xl">
-                <div className="md:w-6/12">
-                    <img className="min-w-full" src={mango1} alt="Main Image"/>
-                    <div className="flex flex-row flex-wrap justify-center py-3 mt-5 mb-5 border-t-2 border-b-2 border-gray-300 gap-x-8 gap-y-5">
-                        <ImageCard img1={img1} />
-                        <ImageCard img1={mango2} />
-                        <ImageCard img1={img1} />
-                    </div>
-                </div>
-                <div className="p-4 md:ml-10 sm:mt-10 sm:mx-5">
-                    <h1 className="font-sans text-4xl font-bold">Mango Plant | F701</h1>
-                    <p className="mt-3 text-2xl font-semibold text-red-500 font-moon">150LKR</p>
-                    <StarRating />
-                    <div className="mt-10 text-lg font-normal">
-                        <p>- FREE Delivery (Kurunagala District only)</p>
-                        <p>- Payment Methods : Cash on Delivery / Online Payement</p>
-                    </div>
-                    <div className="mt-16">
-                        <p className="text-lg font-semibold text-secondarygreen">60 in stock</p>
-                        <form className="flex flex-wrap mt-5">
-                            <div className="mr-3">
-                                <input type="number" className="w-10 h-10 text-2xl text-center border rounded" value="1"/>
+        <div className="min-w-full p-4 sm:pt-20 md:px-20">
+            <div className="shadow-xl flex flex-col rounded-xl h-screen w-full">
+                <div className="flex flex-row h-2/3 w-full">
+                    <img className="w-2/5" src={"data:image/jpeg;base64," +data.mainImage} alt="Main Image"/>
+                    <div className="sm:mt-5 mx-5 md:ml-10">
+                        <h1 className="font-sans text-4xl font-bold">{data.name}</h1>
+                        <p className="mt-3 text-2xl font-semibold text-red-500 font-moon">{data.price} LKR</p>
+                        <StarRating />
+                        <div className="mt-5 text-lg font-normal">
+                            <div>- FREE Delivery (Kurunagala District only)</div>
+                            <div>- Payment Methods: Cash on Delivery/ Online Payement</div>
+                        </div>
+                        <div className="mt-4">
+                            <p className="text-lg font-semibold text-secondarygreen">{data.amount} in stock</p>
+                            <div className="text-red-500 text-sm">{message}</div>
+                            <form className="flex flex-col flex-wrap mt-5 xl:flex-row w-full">
+                                <div className="mr-3">
+                                    <input className="w-12 h-12 p-1 text-20 text-center border rounded outline-none" placeholder="1"
+                                        type="number"
+                                        name="stock"
+                                        value={stock}
+                                        onChange={e => setStock(e.target.value)}/>
+                                </div>
+                                <div className="flex mt-5 gap-x-3 sm:mt-0 md:gap-x-0 sm:gap-x-0">
+                                    {/* <Link to="/cart" type="button" className="p-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none">ADD TO CART</Link> */}
+                                    <button className="p-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none" onClick={addToCart}>ADD TO CART</button>
+                                    <Link to="/checkout" type="button" className="p-2 font-bold text-white rounded bg-redcolor sm:ml-2 lg:ml-4 focus:outline-none hover:bg-lightred flex justify-center items-center">BUY NOW</Link>
+                                    <button className="p-2 font-bold text-white rounded cursor-pointer bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none" onClick={() => setShowRequestPopup(true)}>REQUEST ORDER</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div className="mt-3 border-t-2 border-gray-300 md:mt-6 w-full">
+                            <div className="mt-3">
+                                <span className="font-medium text-md">CATEGORIES: </span>
+                                <a>Fruit Plants</a>,
+                                <a>Outdoor Plants</a>
                             </div>
-                            <div className="flex mt-5 gap-x-3 sm:mt-0 md:gap-x-0 sm:gap-x-0">
-                                <Link to="/cart" type="button" className="p-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none">ADD TO CART</Link>
-                                <Link to="/checkout" type="button" className="p-2 font-bold text-white rounded bg-redcolor sm:ml-2 lg:ml-4 focus:outline-none hover:bg-lightred">BUY NOW</Link>
-                                <div type="button" className="p-2 font-bold text-white rounded cursor-pointer bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none" onClick={() => setShowRequestPopup(true)}>REQUEST ORDER</div>
+                            <div className="mt-3">
+                                <span className="font-medium text-md">Description: {data.description}</span>
                             </div>
-                        </form>
-                    </div>
-                    <div className="mt-10 border-t-2 border-gray-300 md:mt-16">
-                        <div className="mt-3">
-                            <span className="font-medium text-md">CATEGORIES: </span>
-                            <a>Fruit Plants</a>,
-                            <a>Outdoor Plants</a>
                         </div>
                     </div>
+                    
                 </div>
+                <div className="flex flex-row flex-wrap mt-3 justify-start h-full items-center border-t-2 border-b-2 border-gray-300 gap-x-8">
+                    <ImageCard img1={"data:image/jpeg;base64," +images[0]} />
+                    <ImageCard img1={"data:image/jpeg;base64," +images[1]} />
+                    <ImageCard img1={"data:image/jpeg;base64," +images[2]} />
+                </div>
+                
             </div>
             <div className="mt-16">
                 <div className="text-4xl font-bold text-center text-black text-opacity-70">Item Reviews</div>

@@ -22,12 +22,12 @@ function Featured() {
    
     
     return (
-        <div class="h-auto grid lg:grid-cols-feature md:grid-cols-feature gap-10 md:mr-24 md:ml-24 md:mb-16 mr-8 ml-8 mb-4 grid-cols-feature2">
+        <div class="grid h-auto lg:grid-cols-feature md:grid-cols-feature gap-10 md:mr-24 md:ml-24 md:mb-16 mr-8 ml-8 mb-4 grid-cols-feature2">
     
            {
             data.map((item) => 
-                //  <h3 key={item.id}>{item.name}</h3>
-                 <Card key={item.id} image={"data:image/jpeg;base64," +item.fileName} title={item.name} price={item.price} stock={item.amount} value={item.id}/> 
+                //  <h3 keyy={item.id}>{item.name}</h3>
+                 <Card key={item.id} image={"data:image/jpeg;base64," +item.mainImage} title={item.name} price={item.price} stock={item.amount} value={item.id}/> 
             )
  
            }
