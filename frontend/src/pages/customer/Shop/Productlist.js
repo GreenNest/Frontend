@@ -2,7 +2,8 @@ import React from 'react'
 import Productcard from './Productcard';
 import product_data from "./productdata";
 
-function Productlist (){
+function Productlist (props){
+    console.log(props.hero);
     return (
         <div className="mr-5 main">         
          <h3 className="items-center justify-center mx-12 mt-10 mb-4 text-2xl font-bold sm:text-5xl text-maingreen" >Fruit Plants</h3>      
@@ -31,6 +32,9 @@ function Productlist (){
     )
 
 }
+Productlist.defaultProps={
+    hero:"defaultHero"
+};
 
 export default Productlist;
 

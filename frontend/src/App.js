@@ -48,6 +48,8 @@ import InvoiceHistory from './pages/accountant/InvoiceHistory';
 import AccLeaveRequests from './pages/LeaveRequest';
 import AccLeaveStats from './pages/LeaveStat';
 
+import Error from './pages/Error';
+
 
 function App() {
   return (
@@ -59,7 +61,7 @@ function App() {
     <Route exact path="/signup" component={Signup} />
     <Route exact path="/login" component={Login}/>
     <Route exact path="/shop" component={Shop}/>
-    <Route exact path="/shop/product" component={Product}/>
+    <Route exact path="/shop/product/:id" component={Product}/>
     <Route exact path="/cart" component={Cart}/>
     <Route exact path="/checkout" component={Checkout}/>
     <Route exact path="/profile/orders" component={Orderhistory}/>
@@ -97,7 +99,7 @@ function App() {
     <Route exact path="/accountant/invoiceHistory" component={InvoiceHistory} />
     <Route exact path="/accountant/leaveRequests" component={AccLeaveRequests} />
     <Route exact path="/accountant/leaveStats" component={AccLeaveStats} />
-
+    <Route exact path="/error" component={Error}/>
     </Switch>
     </>
   );

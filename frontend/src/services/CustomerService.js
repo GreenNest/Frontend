@@ -1,18 +1,31 @@
 import axios from 'axios';
+import LocalStorage from './LocalStorage';
 
 const CUSTOMER_API_BASE_URL = "http://localhost:8080/api/v1/customer";
 const url = "http://localhost:8080/api/v1/login";
+const url2 = "http://localhost:8080/api/v1/auth/login";
 const employee_url = "http://localhost:8080/api/v1/employee";
 const session = "http://localhost:8080/api/v1/sessionKey";
 const login_Credit = "http://localhost:8080/api/v1/checkLoginState";
 const logouturl = "http://localhost:8080/api/v1/logout";
+HEAD
 // const employees_url = "http://localhost:8080/api/v1/employees";
+
+const pp = "http://localhost:8080/api/v1/user";
+const product = "http://localhost:8080/api/v1/add/product";
+
 
 let config = {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': "*"
 }
 //;charset=UTF-8
+
+const getToken=()=>{
+    const x = JSON.parse(localStorage.getItem('authorization'));
+    return x.token;
+}
+const x = JSON.parse(localStorage.getItem('authorization'));
 
 class CustomerService {
     getCustomer(){
@@ -24,7 +37,7 @@ class CustomerService {
     }
 
     logUser(user){
-        return axios.post(url, user);
+        return axios.post(url2, user);
     }
 
     createEmployee(employee){
@@ -37,9 +50,19 @@ class CustomerService {
     checkUserLogin(token){
         return axios.post(login_Credit, token);
     }
-    // logoutUser(userId){
-    //     return axios.post(logouturl, userId);
-    // }
+    logoutUser(userId){
+        return axios.post(logouturl, userId);
+    }
+    getCustomerDetails(){
+        return axios.get(pp, { headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer '+x.token
+            },
+        })
+    }
+    addProduct(data){
+        return axios.post(product, data)
+    }
 
     // getEmployees(){
     //     return axios.get(employees_url);
