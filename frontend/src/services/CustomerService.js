@@ -8,9 +8,6 @@ const employee_url = "http://localhost:8080/api/v1/employee";
 const session = "http://localhost:8080/api/v1/sessionKey";
 const login_Credit = "http://localhost:8080/api/v1/checkLoginState";
 const logouturl = "http://localhost:8080/api/v1/logout";
-HEAD
-// const employees_url = "http://localhost:8080/api/v1/employees";
-
 const pp = "http://localhost:8080/api/v1/user";
 const product = "http://localhost:8080/api/v1/add/product";
 
@@ -63,10 +60,6 @@ class CustomerService {
     addProduct(data){
         return axios.post(product, data)
     }
-
-    // getEmployees(){
-    //     return axios.get(employees_url);
-    // }
 
 }
 
