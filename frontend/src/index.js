@@ -46,12 +46,12 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
     <Router> 
-       <Header/>  
+       {/* <Header/>   */}
         {/* <AdminSidebar />   */}
         {/* <ModeratorSidebar />   */}
         {/* <AccountantSidebar />   */}
         <App/>  
-      <Footer/>  
+      {/* <Footer/>   */}
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
