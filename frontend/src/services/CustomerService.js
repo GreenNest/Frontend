@@ -6,6 +6,7 @@ const employee_url = "http://localhost:8080/api/v1/employee";
 const session = "http://localhost:8080/api/v1/sessionKey";
 const login_Credit = "http://localhost:8080/api/v1/checkLoginState";
 const logouturl = "http://localhost:8080/api/v1/logout";
+// const employees_url = "http://localhost:8080/api/v1/employees";
 
 let config = {
     'Content-Type': 'application/json',
@@ -38,6 +39,10 @@ class CustomerService {
     }
     // logoutUser(userId){
     //     return axios.post(logouturl, userId);
+    // }
+
+    // getEmployees(){
+    //     return axios.get(employees_url);
     // }
 
 }
