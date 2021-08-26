@@ -10,6 +10,7 @@ import AdminSidebar from '../components/adminSidebar';
 import api from '../../../axiosContact';
 
 function ViewEmployee() {
+    
     const [showEmployees,setShowEmployees] = useState(false);
     const [contacts, setContacts] = useState([]);
 
@@ -24,23 +25,6 @@ function ViewEmployee() {
             setContacts(allContacts);
         };
     }
-    
-    // const retrieveContacts = async () => {
-    //     const res = await api.get("/employees");
-    //     return res.data;
-    // }
-
-    // useEffect(() => {
-    //     const getAllContacts = async () => {
-    //         const allContacts = await retrieveContacts();
-    //         if (allContacts) {
-    //             setContacts(allContacts);
-    //         }
-    //     };
-
-    //     getAllContacts();
-    //     console.log(contacts);
-    // }, []);
     
     return (
         <>
@@ -77,6 +61,8 @@ function ViewEmployee() {
                                         <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">NIC</th>
                                         <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Address</th>
                                         <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Mobile</th>
+                                        <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700"></th>
+                                        <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700"></th>
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
@@ -93,13 +79,6 @@ function ViewEmployee() {
             </div>
             ): null }
 
-            {/* <div>
-                {
-                    contacts.map((cont) => (
-                        <h1>{cont.first_name}</h1>
-                    ))
-                }
-            </div> */}
         </div>
         </>
     );
