@@ -11,7 +11,7 @@ const EmployeeTable = (props) => {
             </td>
             <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">{props.nic}</td>
             <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">{props.address}</td>
-            <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">{props.mobile}</td>
+            <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">0{props.mobile}</td>
             {/* <td>
                 <Link to="/admin/editSupplier">
                     <FaIcons.FaEdit className="w-5 h-5 mt-2 hover:text-hovergreen"/>
