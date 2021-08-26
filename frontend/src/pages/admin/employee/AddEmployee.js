@@ -75,7 +75,11 @@ class AddEmployee extends Component{
                userProfile: {
                    email: this.state.email,
                    password: this.state.password,
-                   role: this.state.role
+                   authorities:[
+                    {
+                        roleCode: this.state.role
+                    }
+                ]
                }
            }
 
@@ -113,14 +117,14 @@ class AddEmployee extends Component{
         <div className="flex flex-col space-y-5">
             
             <div className="flex justify-center mx-10">
-                <form className="w-full p-8 mb-6 ml-64 mt-4 bg-gray-500 bg-opacity-25 rounded shadow-inner md:w-1/2 sm:w-3/4"  onSubmit={this.handleSubmit}>
-                <div className="-mt-2 mb-8 tracking-wide text-center text-maingreen font-bold text-2xl">Add Employeee</div>
+                <form className="w-full p-8 mt-4 mb-6 ml-64 bg-gray-500 bg-opacity-25 rounded shadow-inner md:w-1/2 sm:w-3/4"  onSubmit={this.handleSubmit}>
+                <div className="mb-8 -mt-2 text-2xl font-bold tracking-wide text-center text-maingreen">Add Employeee</div>
                     <div className="flex flex-wrap mb-2">
                         <div className="w-full px-3 mb-6 space-y-2 md:w-1/2 md:mb-0">
                             <label className="block text-lg font-semibold tracking-wide text-black" for="grid-first-name">
                                 First Name
                             </label>
-                            <input className="block w-full px-4 py-3 leading-tight text-black outline-none hover:border-hovergreen focus:border-maingreen border-2 rounded" id="grid-first-name" 
+                            <input className="block w-full px-4 py-3 leading-tight text-black border-2 rounded outline-none hover:border-hovergreen focus:border-maingreen" id="grid-first-name" 
                             type="text" 
                             name="firstname"
                             value={this.state.firstname}
@@ -131,7 +135,7 @@ class AddEmployee extends Component{
                             <label className="block text-lg font-semibold tracking-wide text-black" for="grid-last-name">
                                 Last Name
                             </label>
-                            <input className="block w-full px-4 py-3 leading-tight text-black outline-none hover:border-hovergreen focus:border-maingreen border-2 rounded" id="grid-last-name" 
+                            <input className="block w-full px-4 py-3 leading-tight text-black border-2 rounded outline-none hover:border-hovergreen focus:border-maingreen" id="grid-last-name" 
                             type="text"
                             name="lastname"
                             value={this.state.lastname}
@@ -144,7 +148,7 @@ class AddEmployee extends Component{
                             <label className="block text-lg font-semibold tracking-wide text-black" for="grid-address">
                                 Address
                             </label>
-                            <input className="block w-full px-4 py-3 leading-tight text-black outline-none hover:border-hovergreen focus:border-maingreen border-2 rounded" id="grid-address" 
+                            <input className="block w-full px-4 py-3 leading-tight text-black border-2 rounded outline-none hover:border-hovergreen focus:border-maingreen" id="grid-address" 
                             type="text"
                             name="address"
                             value={this.state.address}
@@ -157,7 +161,7 @@ class AddEmployee extends Component{
                             <label className="block text-lg font-semibold tracking-wide text-black" for="grid-nic">
                                 NIC
                             </label>
-                            <input className="block w-full px-4 py-3 leading-tight text-black outline-none hover:border-hovergreen focus:border-maingreen border-2 rounded" id="grid-nic" 
+                            <input className="block w-full px-4 py-3 leading-tight text-black border-2 rounded outline-none hover:border-hovergreen focus:border-maingreen" id="grid-nic" 
                             type="text"
                             name="nic"
                             value={this.state.nic}
@@ -170,7 +174,7 @@ class AddEmployee extends Component{
                             <label className="block text-lg font-semibold tracking-wide text-black" for="grid-first-name">
                                 Email
                             </label>
-                            <input className="block w-full px-4 py-3 leading-tight text-black outline-none hover:border-hovergreen focus:border-maingreen border-2 rounded" id="grid-first-name" 
+                            <input className="block w-full px-4 py-3 leading-tight text-black border-2 rounded outline-none hover:border-hovergreen focus:border-maingreen" id="grid-first-name" 
                             type="text"
                             name="email"
                             value={this.state.email}
@@ -182,7 +186,7 @@ class AddEmployee extends Component{
                             <label className="block text-lg font-semibold tracking-wide text-black" for="grid-last-name">
                                 Mobile
                             </label>
-                            <input className="block w-full px-4 py-3 leading-tight text-black outline-none hover:border-hovergreen focus:border-maingreen border-2 rounded" id="grid-last-name" 
+                            <input className="block w-full px-4 py-3 leading-tight text-black border-2 rounded outline-none hover:border-hovergreen focus:border-maingreen" id="grid-last-name" 
                             type="number"
                             name="mobile"
                             value={this.state.mobile}
@@ -197,7 +201,7 @@ class AddEmployee extends Component{
                                 State
                             </label>
                             <div className="relative">
-                                <select className="block w-full px-4 py-3 pr-8 leading-tight text-black outline-none hover:border-hovergreen focus:border-maingreen border-2 rounded" 
+                                <select className="block w-full px-4 py-3 pr-8 leading-tight text-black border-2 rounded outline-none hover:border-hovergreen focus:border-maingreen" 
                                 id="role" 
                                 name="role" 
                                 value={this.state.role} 
@@ -213,8 +217,8 @@ class AddEmployee extends Component{
                     <div className="flex flex-wrap justify-center mt-4 -mb-4 space-x-8">
                         {/* <button type="submit" className="p-2 text-base font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none background-transparent hover:shadow-lg focus:outline-none bg-redcolor">Cancel</button>
                         <button type="submit" className="p-2 text-base font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none background-transparent hover:shadow-lg focus:outline-none bg-maingreen hover:bg-secondarygreen">Submit</button> */}
-                        <button className="bg-maingreen hover:bg-hovergreen p-4 justify-center text-white font-bold rounded py-2 px-4 w-40" type="submit">Submit</button>
-                        <button className="bg-red-600 hover:bg-lightred p-4 justify-center text-white font-bold rounded py-2 px-4 w-40" type="cancel">Cancel</button>
+                        <button className="justify-center w-40 p-4 px-4 py-2 font-bold text-white rounded bg-maingreen hover:bg-hovergreen" type="submit">Submit</button>
+                        <button className="justify-center w-40 p-4 px-4 py-2 font-bold text-white bg-red-600 rounded hover:bg-lightred" type="cancel">Cancel</button>
                     </div>
                 </form>
             </div>

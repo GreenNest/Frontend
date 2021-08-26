@@ -59,11 +59,7 @@ function ViewEmployee() {
             </div>
             
             <div className="flex flex-wrap mx-5 sm:justify-center gap-x-5 gap-y-5 md:gap-x-8">
-                {/* <JobTypeBtn jobType="Moderators" />
-                <JobTypeBtn jobType="Accountants" />
-                <JobTypeBtn jobType="Delivery Persons" />
-                <JobTypeBtn jobType="Workers" /> */}
-                <JobTypeBtn jobType="Moderators" contactEmployees={getEmployees(1)} />
+                <JobTypeBtn jobType="Moderators" contactEmployees={() => getEmployees(1)} />
                 <JobTypeBtn jobType="Accountants" contactEmployees={() => getEmployees(2)} />
                 <JobTypeBtn jobType="Delivery Persons" contactEmployees={() => getEmployees(3)} />
                 <JobTypeBtn jobType="Workers" contactEmployees={() => getEmployees(4)} />
@@ -84,11 +80,11 @@ function ViewEmployee() {
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
-                                    <EmployeeTable name="Sulakshanee Theja" email="sulakshanee@gmail.com" nic="977766551v" address="Sooriyawewa, Hambantota" mobile="0711234553" />
-                                    <EmployeeTable name="Chathurika Perera" email="chathurika@gmail.com" nic="974618119v" address="No.265, Kurunagala" mobile="0715428643" />
-                                    <EmployeeTable name="Hiruni Amarakoon" email="hiruni@gmail.com" nic="994161628v" address="Kuliyapitiya, Kurunagala" mobile="0715829347" />
-                                    <EmployeeTable name="Piyumi Dulanjalee" email="piyumi@gmail.com" nic="984141094v" address="No.456, Matara" mobile="0772036782" />
-                                    <EmployeeTable name="Hashan Chandima" email="hashan@gmail.com" nic="991643484v" address="No.89, Kurunagala" mobile="0769299923" />
+                                    {
+                                        contacts.map((contact) => (
+                                            <EmployeeTable name={contact.first_name} email={contact.userProfile.email} nic={contact.nic} address={contact.address} mobile={contact.mobile} />
+                                        ))
+                                    }
                                 </tbody>
                             </table>
                         </div>
@@ -97,13 +93,13 @@ function ViewEmployee() {
             </div>
             ): null }
 
-            <div>
+            {/* <div>
                 {
                     contacts.map((cont) => (
                         <h1>{cont.first_name}</h1>
                     ))
                 }
-            </div>
+            </div> */}
         </div>
         </>
     );
