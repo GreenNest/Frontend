@@ -1,8 +1,24 @@
 import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import { MdDeleteSweep } from 'react-icons/md';
+import api from '../../../axiosContact';
+import { toast } from 'react-toastify';
 
-const EmployeeTable = (props) => {
+function EmployeeTable(props) {
+
+    const deleteEmployee = async (id) => {
+        await api.put(`/deleteEmployee/${id}`).then((res) => {
+            if(res.data == 1){
+                toast('Successfully delete an account', {
+                    autoClose: false,
+                    closeOnClick: true,
+                    progress: false,
+                    position:toast.POSITION.TOP_CENTER
+                });
+            }
+        })
+    };
+
     return (
         <tr>
             <td className="px-6 py-4 whitespace-nowrap">
@@ -18,7 +34,7 @@ const EmployeeTable = (props) => {
                 </Link>
             </td>
             <td>
-                <MdDeleteSweep className="w-6 h-6 hover:text-red-700 mt-1.5"/>
+                <MdDeleteSweep className="w-6 h-6 hover:text-red-700 mt-1.5" onClick={() => deleteEmployee(props.nic)}/>
             </td>
         </tr>                    
     );
