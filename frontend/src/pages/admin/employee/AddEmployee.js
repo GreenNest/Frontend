@@ -75,7 +75,11 @@ class AddEmployee extends Component{
                userProfile: {
                    email: this.state.email,
                    password: this.state.password,
-                   role: this.state.role
+                   authorities:[
+                    {
+                        roleCode: this.state.role
+                    }
+                ]
                }
            }
 

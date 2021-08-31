@@ -36,7 +36,7 @@ function Product() {
     useEffect(async () => {
         //console.log(id);
         const storage = await JSON.parse(localStorage.getItem('authorization'));
-        if(!x){
+        if(!storage){
             setHeader(<Header/>)
         }else{
             setHeader(<SignedHeader/>)
@@ -45,7 +45,7 @@ function Product() {
             //console.log(response.data.data);
             setData(response.data.data);
             setImages(response.data.data.subImages);
-            //console.log(data.name);
+            console.log(data.name);
             //console.log(images);
         }).then(setIsloading(false)).catch((err) => {
             console.log(err.response);
@@ -53,15 +53,11 @@ function Product() {
 
     }, []);
 
-    // function addToCart() {
-    //     console.log(stock);
-    // }
-
     const addToCart = (evt) => {
         evt.preventDefault();
         if(stock){
             console.log(stock);
-            history.push('/cart/3/4')
+            history.push("/cart/"+stock+"/"+id)
         }else{
             setMessage("Please select the amount");
         }

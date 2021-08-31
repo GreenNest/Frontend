@@ -32,9 +32,9 @@ function Productlist (props){
     )
 
 }
-Productlist.defaultProps={
-    hero:"defaultHero"
-};
+// Productlist.defaultProps={
+//     hero:"defaultHero"
+// };
 
 export default Productlist;
 
