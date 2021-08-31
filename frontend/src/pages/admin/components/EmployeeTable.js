@@ -1,14 +1,32 @@
+
 import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import { MdDeleteSweep } from 'react-icons/md';
 import api from '../../../axiosContact';
 import { toast } from 'react-toastify';
+import React, { useState } from "react";
+
 
 function EmployeeTable(props) {
 
     const deleteEmployee = async (id) => {
-        await api.put(`/deleteEmployee/${id}`).then((res) => {
-            if(res.data == 1){
+        const res = await api.put(`/deleteEmployee/${id}`);
+        return res.data;
+    };
+
+    const removeEmployee = async (id) => {
+        if (window.confirm("Are you sure to remove this employee?")) {
+            const result = await deleteEmployee(id);
+            if(result == 1){
+               if(props.type[0].active == "moderators"){
+                   props.getEmp(1)
+               } else if(props.type[0].active == "accountants"){
+                props.getEmp(2)
+            } else if(props.type[0].active == "delivery_persons"){  
+                props.getEmp(3)
+            }  else if(props.type[0].active == "workers"){  
+                props.getEmp(4)
+            }
                 toast('Successfully delete an account', {
                     autoClose: false,
                     closeOnClick: true,
@@ -16,8 +34,8 @@ function EmployeeTable(props) {
                     position:toast.POSITION.TOP_CENTER
                 });
             }
-        })
-    };
+        }
+    }
 
     return (
         <tr>
@@ -34,7 +52,7 @@ function EmployeeTable(props) {
                 </Link>
             </td>
             <td>
-                <MdDeleteSweep className="w-6 h-6 hover:text-red-700 mt-1.5" onClick={() => deleteEmployee(props.nic)}/>
+                <MdDeleteSweep className="w-6 h-6 hover:text-red-700 mt-1.5" onClick={() => removeEmployee(props.nic)}/>
             </td>
         </tr>                    
     );
