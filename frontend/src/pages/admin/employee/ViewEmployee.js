@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-
-// import AddButton from '../components/AddButton';
-// import SearchBtn from '../components/SearchBtn';
 import JobTypeBtn from '../components/JobTypeBtn';
 import EmployeeTable from '../components/EmployeeTable';
 import Search from '../components/Search';
 import AdminSidebar from '../components/adminSidebar';
 import api from '../../../axiosContact';
+// import AddButton from '../components/AddButton';
+// import SearchBtn from '../components/SearchBtn';
 
 function ViewEmployee() {
     
-    const [showEmployees,setShowEmployees] = useState(false);
     const [contacts, setContacts] = useState([]);
     const [active, setactive] = useState({
-        active: "moderators"
+        active: "Moderators"
     });
-    const [del, setdel] = useState("abc");
 
     useEffect(() => {
         getEmployees(1);
@@ -36,7 +33,6 @@ function ViewEmployee() {
     
     return (
         <>
-        {console.log(del)}
             <AdminSidebar/>
             <div className="flex flex-col w-9/12 mt-6 ml-40 gap-y-5 md:mx-72">
                 <div className="flex justify-between -mb-4">
@@ -46,16 +42,13 @@ function ViewEmployee() {
                     </Link>
                     {/* <SearchBtn /> */}
                     <div className="float-right mr-12"><Search /></div>
-                    {/* { showEmployees ? (
-                        <SearchBtn />
-                    ): null } */}
                 </div>
                 
                 <div className="flex flex-wrap mx-5 sm:justify-center gap-x-5 gap-y-5 md:gap-x-8">
-                    <JobTypeBtn jobType="Moderators" value="moderators" user_state={[active, setactive]} num={1} contactEmployees={getEmployees} />
-                    <JobTypeBtn jobType="Accountants" value="accountants" user_state={[active, setactive]} num={2} contactEmployees={getEmployees} />
-                    <JobTypeBtn jobType="Delivery Persons" value="delivery_persons" user_state={[active, setactive]} num={3} contactEmployees={getEmployees} />
-                    <JobTypeBtn jobType="Workers" value="workers" user_state={[active, setactive]} num={4} contactEmployees={getEmployees} />
+                    <JobTypeBtn jobType="Moderators" userState={[active, setactive]} userType={1} contactEmployees={getEmployees} />
+                    <JobTypeBtn jobType="Accountants" userState={[active, setactive]} userType={2} contactEmployees={getEmployees} />
+                    <JobTypeBtn jobType="Delivery Persons" userState={[active, setactive]} userType={3} contactEmployees={getEmployees} />
+                    <JobTypeBtn jobType="Workers" userState={[active, setactive]} userType={4} contactEmployees={getEmployees} />
                 </div>
 
                 { contacts.length != 0 ? (
@@ -77,7 +70,7 @@ function ViewEmployee() {
                                     <tbody className="bg-white divide-y divide-gray-200">
                                         {
                                             contacts.map((contact) => (
-                                                <EmployeeTable type = {[active, setactive]} getEmp = {getEmployees} name={contact.first_name} email={contact.userProfile.email} nic={contact.nic} address={contact.address} mobile={contact.mobile} delete_state={[del, setdel]} />
+                                                <EmployeeTable userState={[active, setactive]} getEmp={getEmployees} name={contact.first_name} email={contact.userProfile.email} nic={contact.nic} address={contact.address} mobile={contact.mobile} />
                                             ))
                                         }
                                     </tbody>
@@ -86,9 +79,10 @@ function ViewEmployee() {
                         </div>
                     </div>
                 </div>
-                ): <h4>
-                    No Records
-                </h4> }
+                ):  <h4 className="m-auto mt-10 text-xl font-medium">
+                        There are no {active.active.toLowerCase()} in the company.
+                    </h4> 
+                }
             </div>
         </>
     );

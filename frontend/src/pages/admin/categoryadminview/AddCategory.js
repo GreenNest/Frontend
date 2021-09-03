@@ -6,14 +6,6 @@ function AddCategory() {
 
     const [category, setcategory] = useState("");
 
-    // const categoryAdd = async () => {
-    //     const res = await api.post("/addCategory", {
-    //         categoryName: category,
-    //     });
-    //     return res.data;
-    // }
-
-    // var hello
     const categoryAdd = async () => {
         const res = await api.get(`/addCategory/${category}`);
         return res.data;
@@ -22,7 +14,7 @@ function AddCategory() {
     const addCategory = async () => {
         const result = await categoryAdd();
         if(result == 1){
-            toast('Successfully add category', {
+            toast('Successfully Add Category', {
                 autoClose: false,
                 closeOnClick: true,
                 progress: false,
@@ -33,9 +25,8 @@ function AddCategory() {
 
     return (
         <div className="absolute z-50 p-6 ml-20 bg-gray-300 rounded-sm shadow-xl mt-36">
-            {console.log(category)}
             <form className="w-96 ">
-                <h2 className="my-6 ml-20 text-lg">Add Category</h2>
+                <h2 className="justify-center mb-6 text-xl font-medium text-center">Add Category</h2>
                 <input className="w-5/6 h-16 ml-8 placeholder-gray-500 placeholder-opacity-100 border-2 border-black "
                     placeholder="Enter Category Name"
                     name="category"
