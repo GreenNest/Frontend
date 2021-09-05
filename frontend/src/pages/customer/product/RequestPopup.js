@@ -1,5 +1,6 @@
+import React from 'react';
 
-const RequestPopup = (props) => {
+function RequestPopup(props){
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
       <div className="relative w-auto max-w-3xl mx-auto my-6">
@@ -53,7 +54,8 @@ const RequestPopup = (props) => {
               className="px-6 py-2 mb-1 mr-2 text-base font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-redcolor background-transparent hover:shadow-lg focus:outline-none hover:bg-lightred"
               type="button"
               onClick={props.canclePopup}
-            >
+              >
+              {/* onClick={props.canclePopup} */}
               Cancel
             </button>
             <button 

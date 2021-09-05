@@ -13,7 +13,7 @@ function Featured() {
 
     useEffect(async () => {
         axios.get("http://localhost:8080/api/v1/get/featured/true").then((response) => {
-            //console.log(response.data);
+            console.log(response.data);
             setData(response.data)
         }).then(setIsloading(false));
         

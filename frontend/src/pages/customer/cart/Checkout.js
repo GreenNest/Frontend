@@ -28,7 +28,7 @@ function Checkout(){
     }, [])
 
     return(
-        <>
+        <>cd
         {header}
         <div className="w-11/12 mt-8 mb-8 ml-12">
             <div className=""><CheckoutAmount className=""/></div>

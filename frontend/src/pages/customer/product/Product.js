@@ -13,16 +13,14 @@ import customer3 from '../../../assets/customer_img/customer3.jpg';
 import customer2 from '../../../assets/customer_img/customer2.jpg'
 import customer4 from '../../../assets/customer_img/customer4.jpg'
 
-import img1 from '../../../assets/product_img/mango-tree.jpg';
-import mango1 from '../../../assets/product_img/mango1.jpg';
 import Header from '../../../components/Header';
 import SignedHeader from '../../../components/SignedHeader';
 import Footer from '../../../components/Footer';
-import mango2 from '../../../assets/product_img/mango2.jpeg';
 
 function Product() { 
     var history = useHistory();
     const [showRequestPopup,setShowRequestPopup] = useState(false);
+    const [model2,setModel2] =useState(false);
     const [header, setHeader] = useState(0);
     const [data, setData] = useState([]);
     const [images, setImages] = useState([]);
@@ -32,43 +30,49 @@ function Product() {
     const[message, setMessage] = useState('');
     const x = JSON.parse(localStorage.getItem('authorization'));
     const {id} = useParams();
+    const [category, setCategory] = useState([]);
 
     useEffect(async () => {
-        //console.log(id);
-        const storage = await JSON.parse(localStorage.getItem('authorization'));
-        if(!storage){
-            setHeader(<Header/>)
+        if(!x){
+            history.push("/login");
         }else{
             setHeader(<SignedHeader/>)
         }
         const values = await axios.get("http://localhost:8080/api/v1/get/product/" +id).then((response) => {
-            //console.log(response.data.data);
             setData(response.data.data);
             setImages(response.data.data.subImages);
-            console.log(data.name);
+            setCategory(response.data.data.categories);
             //console.log(images);
         }).then(setIsloading(false)).catch((err) => {
             console.log(err.response);
         })
 
-    }, []);
+    }, [])
+
+    const togglecomplain = () => {
+        setModel2(!model2)
+      }
 
     const addToCart = (evt) => {
-        evt.preventDefault();
+        //evt.preventDefault();
         if(stock){
             console.log(stock);
-            history.push("/cart/"+stock+"/"+id)
+            //history.push("/cart/"+stock+"/"+id)
         }else{
             setMessage("Please select the amount");
         }
         //() => history.push('/login')
     }
 
+    const categoryContent = category.map((item) =>
+        <a key={item}>{item},</a>
+    );
+
 
     return (
         <>
         {header}
-        <div className="min-w-full p-4 sm:pt-20 md:px-20">
+        <div className="min-w-full p-4 sm:pt-24 md:px-28">
             <div className="shadow-xl flex flex-col rounded-xl h-screen w-full">
                 <div className="flex flex-row h-2/3 w-full">
                     <img className="w-2/5" src={"data:image/jpeg;base64," +data.mainImage} alt="Main Image"/>
@@ -83,7 +87,7 @@ function Product() {
                         <div className="mt-4">
                             <p className="text-lg font-semibold text-secondarygreen">{data.amount} in stock</p>
                             <div className="text-red-500 text-sm">{message}</div>
-                            <form className="flex flex-col flex-wrap mt-5 xl:flex-row w-full">
+                            <div className="flex flex-col flex-wrap mt-5 xl:flex-row w-full">
                                 <div className="mr-3">
                                     <input className="w-12 h-12 p-1 text-20 text-center border rounded outline-none" placeholder="1"
                                         type="number"
@@ -94,16 +98,15 @@ function Product() {
                                 <div className="flex mt-5 gap-x-3 sm:mt-0 md:gap-x-0 sm:gap-x-0">
                                     {/* <Link to="/cart" type="button" className="p-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none">ADD TO CART</Link> */}
                                     <button className="p-2 font-bold text-white rounded bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none" onClick={addToCart}>ADD TO CART</button>
-                                    <Link to="/checkout" type="button" className="p-2 font-bold text-white rounded bg-redcolor sm:ml-2 lg:ml-4 focus:outline-none hover:bg-lightred flex justify-center items-center">BUY NOW</Link>
-                                    <button className="p-2 font-bold text-white rounded cursor-pointer bg-maingreen hover:bg-secondarygreen sm:ml-2 lg:ml-4 focus:outline-none" onClick={() => setShowRequestPopup(true)}>REQUEST ORDER</button>
+                                    {/* <Link to="/checkout" type="button" className="p-2 font-bold text-white rounded bg-redcolor sm:ml-2 lg:ml-4 focus:outline-none hover:bg-lightred flex justify-center items-center">BUY NOW</Link> */}
+                                    <button className="p-2 font-bold text-white rounded cursor-pointer bg-redcolor hover:bg-lightred sm:ml-2 lg:ml-4 focus:outline-none" onClick={togglecomplain}>REQUEST ORDER</button>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                         <div className="mt-3 border-t-2 border-gray-300 md:mt-6 w-full">
                             <div className="mt-3">
                                 <span className="font-medium text-md">CATEGORIES: </span>
-                                <a>Fruit Plants</a>,
-                                <a>Outdoor Plants</a>
+                                {categoryContent}
                             </div>
                             <div className="mt-3">
                                 <span className="font-medium text-md">Description: {data.description}</span>
@@ -130,9 +133,14 @@ function Product() {
                 <Productlist />
             </div>
 
-            { showRequestPopup ? (
-                <RequestPopup canclePopup={() => setShowRequestPopup(false)}/>
-            ): null }
+            { model2 ? 
+                <RequestPopup canclePopup={() =>  setModel2(false)}/>
+            : null }
+            {/* <div>
+                {model2 &&
+                    <RequestPopup />
+                }
+            </div> */}
         </div>
         <Footer/>
         </>
