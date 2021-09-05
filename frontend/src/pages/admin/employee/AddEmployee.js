@@ -187,7 +187,7 @@ class AddEmployee extends Component{
                                 Mobile
                             </label>
                             <input className="block w-full px-4 py-3 leading-tight text-black border-2 rounded outline-none hover:border-hovergreen focus:border-maingreen" id="grid-last-name" 
-                            type="number"
+                            type="text"
                             name="mobile"
                             value={this.state.mobile}
                             onChange={this.handleChange}
