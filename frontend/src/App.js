@@ -71,7 +71,7 @@ function App() {
 
 
     {/* admin routes */}
-    <Route exact path="/admin/dashboard" component={AdminDashboard} />
+    {/* <Route exact path="/" component={AdminDashboard} /> */}
     <Route exact path="/admin/reports" component={Reports} />
     <Route exact path="/admin/addItem" component={AddStock} />
     <Route exact path="/admin/editItem" component={EditStock} />

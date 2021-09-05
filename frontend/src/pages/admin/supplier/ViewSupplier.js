@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 
 // import AddButton from '../components/AddButton';
@@ -8,8 +8,7 @@ import DetailsCard from '../components/DetailsCard';
 import AdminSidebar from '../components/adminSidebar';
 
 const ViewSupplier = () => {
-    const [showAddSupplierPopup,setShowAddSupplierPopup] = useState(false);
-    
+
     return (
         <>
         <AdminSidebar/>
@@ -18,7 +17,7 @@ const ViewSupplier = () => {
             <div className="flex justify-between -mb-4">
                 <Link to="/admin/addSupplier">
                     {/* <AddButton btnValue="+ ADD SUPPLIER" /> */}
-                    <button className="bg-maingreen hover:bg-hovergreen p-4 justify-center text-white font-bold ml-12 mb-8 rounded py-2 px-4">Add Supplier + </button>
+                    <button className="justify-center p-4 px-4 py-2 mb-8 ml-12 font-bold text-white rounded bg-maingreen hover:bg-hovergreen">Add Supplier + </button>
                 </Link>
                 {/* <SearchBtn /> */}
                 <div className="float-right mr-12"><Search /></div>
