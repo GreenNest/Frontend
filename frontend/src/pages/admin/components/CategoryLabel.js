@@ -1,8 +1,8 @@
 
-const CategoryLabel = (props) => {
+function CategoryLabel(props) {
     return (
         <div className="flex">
-            <div className="flex-initial px-2 border border-hovergreen bg-hovergreen text-white rounded-md font-semibold">{props.categoryName}</div>
+            <label className="flex-initial p-1 px-2 font-semibold text-white border rounded-md border-hovergreen bg-hovergreen">{props.categoryName}</label>
         </div>
     );
 }
