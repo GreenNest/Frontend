@@ -3,42 +3,49 @@ import { useEffect, useState } from "react";
 import CartItem from "./CartItem";
 import CartAmount from "./component/CartAmount";
 import { MdAssignmentReturn } from 'react-icons/md';
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import Header from '../../../components/Header';
 import SignedHeader from '../../../components/SignedHeader';
 import Footer from '../../../components/Footer';
 import CustomerService from '../../../services/CustomerService';
+import axios from 'axios';
 // import "../../../styles/style.css";
 
 function Cart() {
     var history = useHistory();
     const [header, setHeader] = useState(0);
+    const { amount, id } = useParams();
+    const [data, setData] = useState([]);
+    const [images, setImages] = useState([]);
+    const [isloading, setIsloading] = useState(true);
+    const [cartList, setCartList] = useState([]);
 
     //check the local storage date
-    const x = JSON.parse(localStorage.getItem('authorization'));
+    //const x = JSON.parse(localStorage.getItem('authorization'));
+    console.log(amount);
+    console.log(id);
 
     useEffect(async () => {
-        if(!x){
+        const storage = await JSON.parse(localStorage.getItem('authorization'));
+        if(!storage){
             setHeader(<Header/>)
         }else{
             setHeader(<SignedHeader/>)
         }
-        // if(sessionStorage.getItem("token") != null){
-        //     console.log(sessionStorage.getItem("token"));
-        //     let loinState = {
-        //         cipher: sessionStorage.getItem("token")
-        //     }
-        //     CustomerService.checkUserLogin(loinState).then((result) => {
-        //         console.log(result);
-        //         if(result.data.loginState == 1){    
-        //             setHeader(<SignedHeader/>)
-        //         }else{
-        //             setHeader(<Header/>)
-        //         }
-        //     });
-        // }else{
-        //     setHeader(<Header/>)
+        const values = await axios.get("http://localhost:8080/api/v1/get/product/" +id).then((response) => {
+            //console.log(response.data.data);
+            setData(response.data.data);
+            setImages(response.data.data.subImages);
+            //console.log(data.name);
+            //console.log(images);
+        }).then(setIsloading(false)).catch((err) => {
+            console.log(err.response);
+        });
+
+        // if(status === "true"){
+        //     setCartList(cartList.concat(<CartItem key={cartList.length} image={"data:image/jpeg;base64," +data.mainImage} price={data.price} name={data.name} totalAmount={amount}/>))
         // }
+        
     }, [])
 
     return(
@@ -70,34 +77,14 @@ function Cart() {
             </div>
 
             {/* Item components */}
-            <CartItem />
+            {/* <CartItem image={"data:image/jpeg;base64," +data.mainImage} price={data.price} name={data.name} totalAmount={amount}/> */}
             
 
             {/* Total amount */}
             <CartAmount />
-            {/* <div className="flex flex-col items-center justify-center float-right w-4/12 p-2 mb-2 bg-gray-200 rounded-lg m:w-2/12 sm:w-3/12">
-                <div className="flex-auto">
-                    <p className="font-bold">Total Amount</p>
-                </div>
-                <div className="grid justify-center flex-auto grid-flow-col grid-cols-2 grid-rows-3 gap-3 mt-3 ">
-                    <div className="float-left text-sm">Items cost :</div>
-                    <div className="text-sm">Delivery cost :</div>
-                    <div className="mt-1 text-sm font-bold">Total :</div>
-
-
-                    <div className="text-sm">1200 LKR</div>
-                    <div className="text-sm"> 200 LKR</div>
-                    <div className="text-sm font-bold">1400 LKR</div>
-                </div>
-                <div className="flex-auto mt-4">
-                    <Link to="checkout">
-                        <button className="flex px-4 py-2 font-bold text-white rounded bg-maingreen hover:bg-hovergreen">Place Order</button>
-                    </Link>
-                </div>
-                
-            </div> */}
+            
             <div className="w-44">
-            <Link to="shop">
+            <Link to="/shop">
                 <button className="flex px-4 py-2 font-bold text-white rounded bg-maingreen hover:bg-hovergreen"><MdAssignmentReturn className="mt-1 mr-1"/> Return to Shop</button>
             </Link> 
             </div>   

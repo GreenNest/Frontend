@@ -5,18 +5,21 @@ import { Link, withRouter } from "react-router-dom";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-let x =  JSON.parse(localStorage.getItem('authorization'));
+// let x =  JSON.parse(localStorage.getItem('authorization'));
+//console.log(x);
 
 class SignedHeader extends Component {
     constructor(props){
         super(props);
         this.state={
             isOpen:false,
-            login:''
+            login:'',
+            x:''
         };
     }
     componentDidMount(){
-
+        let y =  JSON.parse(localStorage.getItem('authorization'));
+        this.setState({x: y});
     }
     handleToggle=()=> {
         this.setState({isOpen: !this.state.isOpen});
@@ -45,7 +48,7 @@ class SignedHeader extends Component {
                 <Link to="/" class="block p-2 text-maingreen hover:text-hovergreen font-bold text-20 text-center lg:mr-10">
                     Home
                 </Link>
-                <Link to="/shop" class="block p-2 text-maingreen hover:text-hovergreen font-bold text-20 text-center lg:mr-10">
+                <Link to="/shop/fruits" class="block p-2 text-maingreen hover:text-hovergreen font-bold text-20 text-center lg:mr-10">
                     Shop
                 </Link>
                 <Link to="/cart" class="block p-2 text-maingreen hover:text-hovergreen font-bold text-20 text-center lg:mr-10">
@@ -55,10 +58,10 @@ class SignedHeader extends Component {
                     My Orders
                 </Link>
                 <Link to="/login" class="block text-center w-36 px-4 ml-4 py-2 text-20 leading-none border rounded text-maingreen border-maingreen hover:border-transparent hover:text-mainyellow hover:bg-maingreen lg:mr-5">
-                    <FontAwesomeIcon icon={faUser} /> {x.name}
+                    <FontAwesomeIcon icon={faUser} /> {this.state.x.name}
                 </Link>
                 <button onClick={this.logout} class="block p-2 text-maingreen hover:text-hovergreen font-bold text-20 text-center lg:mr-20 outline-none">
-                    log out
+                    Log Out
                 </button>
            </div>
         </nav>

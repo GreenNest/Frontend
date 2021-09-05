@@ -45,7 +45,7 @@ class Header extends Component {
                     {/* Home */}
                     <li className="block p-2 font-bold text-center list-none text-maingreen hover:text-hovergreen text-20 lg:mr-14">Home</li>
                 </NavLink>
-                <NavLink to="/shop" exact activeClassName="active">
+                <NavLink to="/shop/fruits" exact activeClassName="active">
                     {/* Shop */}
                     <li className="block p-2 font-bold text-center list-none text-maingreen hover:text-hovergreen text-20 lg:mr-14">Shop</li>
                 </NavLink>

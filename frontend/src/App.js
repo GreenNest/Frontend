@@ -7,6 +7,7 @@ import Index from './pages/customer/Index'; //
 import Signup from './pages/customer/Signup'; //
 import Login from './pages/customer/Login'; //
 import Shop from './pages/customer/Shop/Shop'; //
+import FruitsList from './pages/customer/Shop/FruitsList'; 
 import Product from './pages/customer/product/Product'; //
 import Order from './pages/customer/customerorder/Order'; //
 import Cart from './pages/customer/cart/Cart';//
@@ -60,7 +61,8 @@ function App() {
     <Route exact path="/" component={Index}/>
     <Route exact path="/signup" component={Signup} />
     <Route exact path="/login" component={Login}/>
-    <Route exact path="/shop" component={Shop}/>
+    <Route exact path="/shop/:category" component={Shop}/>
+    <Route exact path="/fruits" component={FruitsList}/>
     <Route exact path="/shop/product/:id" component={Product}/>
     <Route exact path="/cart" component={Cart}/>
     <Route exact path="/checkout" component={Checkout}/>
