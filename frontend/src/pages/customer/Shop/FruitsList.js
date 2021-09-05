@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import Category from './Category';
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Productlist from './Productlist';
 import Header from '../../../components/Header';
 import SignedHeader from '../../../components/SignedHeader';
@@ -10,7 +10,7 @@ import CustomerService from '../../../services/CustomerService';
 import axios from 'axios';
 
 
-function Shop() {
+function FruitsList() {
     var history = useHistory();
     const [logstate, setLogstate] = useState(false);
     const [header, setHeader] = useState(0);
@@ -18,8 +18,6 @@ function Shop() {
     const x = JSON.parse(localStorage.getItem('authorization'));
     const [categories, setCategories] = useState([]);
     const [data, setData] = useState([]); 
-    const { category } = useParams();
-    //console.log(category);
 
     useEffect(async () => {
         if(!x){
@@ -28,9 +26,8 @@ function Shop() {
             setHeader(<SignedHeader/>)
         }
         axios.get("http://localhost:8080/api/v1/get/categories").then((response) => {
-      //console.log(response.data.data)
+      console.log(response.data)
       setData(response.data.data)
-      //console.log(data[0])
     }).catch((err) => {
       console.log(err.response);
     })
@@ -45,7 +42,7 @@ function Shop() {
             </div>
 
             <div className="box-border flex flex-col w-5/6 mb-10">
-                <Productlist type={category}/>               
+                <Productlist />               
             </div>
         </div>
         <Footer/>
@@ -53,6 +50,6 @@ function Shop() {
      );
 }
  
-export default Shop;
+export default FruitsList;
 
 

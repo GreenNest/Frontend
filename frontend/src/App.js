@@ -3,15 +3,17 @@ import './styles/index.css';
 import {BrowserRouter as Router , Route , Switch} from "react-router-dom";
 
 // customer
-import Index from './pages/customer/Index';
-import Signup from './pages/customer/Signup';
-import Login from './pages/customer/Login';
-import Shop from './pages/customer/Shop/Shop';
-import Product from './pages/customer/product/Product';
-import Order from './pages/customer/customerorder/Order';
-import Cart from './pages/customer/cart/Cart';
-import Checkout from './pages/customer/cart/Checkout';
-import Orderhistory from './pages/customer/Orderhistory';
+import Index from './pages/customer/Index'; //
+import Signup from './pages/customer/Signup'; //
+import Login from './pages/customer/Login'; //
+import Shop from './pages/customer/Shop/Shop'; //
+import FruitsList from './pages/customer/Shop/FruitsList'; 
+import Product from './pages/customer/product/Product'; //
+import Order from './pages/customer/customerorder/Order'; //
+import Cart from './pages/customer/cart/Cart';//
+import Checkout from './pages/customer/cart/Checkout';//
+import Orderhistory from './pages/customer/Orderhistory';//
+
 
 // admin
 import AdminDashboard from './pages/admin/dashboard/Dashboard';
@@ -59,7 +61,8 @@ function App() {
     {/* <Route exact path="/" component={Index}/> */}
     <Route exact path="/signup" component={Signup} />
     <Route exact path="/login" component={Login}/>
-    <Route exact path="/shop" component={Shop}/>
+    <Route exact path="/shop/:category" component={Shop}/>
+    <Route exact path="/fruits" component={FruitsList}/>
     <Route exact path="/shop/product/:id" component={Product}/>
     <Route exact path="/cart" component={Cart}/>
     <Route exact path="/checkout" component={Checkout}/>

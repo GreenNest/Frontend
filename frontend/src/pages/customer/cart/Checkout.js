@@ -19,7 +19,7 @@ function Checkout(){
 
     useEffect(async () => {
         if(!x){
-            history.push("/login");
+            //history.push("/login");
             setHeader(<Header/>)
         }else{
             setHeader(<SignedHeader/>)
@@ -28,7 +28,7 @@ function Checkout(){
     }, [])
 
     return(
-        <>
+        <>cd
         {header}
 { /* <div className="w-11/12 mt-8 mb-8 m */}
         <div className="w-11/12 mt-12 mb-8 ml-12">
