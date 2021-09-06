@@ -41,11 +41,11 @@ function ViewSupplier () {
                         <div className="float-right mr-12"><Search /></div>
                     </div>
 
-                    { contacts.length != 0 ? (
+                    { contacts.length !== 0 ? (
                         <div className="flex flex-wrap justify-center gap-y-5 md:justify-around">
                             {
-                                contacts.map((contact) => (
-                                    <DetailsCard getSup={getSuppliers} first_name={contact.first_name} last_name={contact.last_name} address={contact.address} mobile={contact.mobile} email={contact.email} id={contact.supplier_id} categories={contact.categories} />
+                                contacts.map((contact, index) => (
+                                    <DetailsCard key={index} getSup={getSuppliers} first_name={contact.first_name} last_name={contact.last_name} address={contact.address} mobile={contact.mobile} email={contact.email} id={contact.supplier_id} categories={contact.categories} />
                                 ))
                             }
                         </div>

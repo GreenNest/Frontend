@@ -16,20 +16,21 @@ import Orderhistory from './pages/customer/Orderhistory';//
 
 
 // admin
-import AdminDashboard from './pages/admin/dashboard/Dashboard';//
-import Reports from './pages/admin/reports/Reports';//
-import AddStock from './pages/admin/add-stock/AddStock';//
-import EditStock from './pages/admin/edit-stock/EditStock';//
-import Updatestock from './pages/admin/Stock/Updatestock';//
+import AdminDashboard from './pages/admin/dashboard/Dashboard';
+import Reports from './pages/admin/reports/Reports';
+import AddStock from './pages/admin/add-stock/AddStock';
+import EditStock from './pages/admin/edit-stock/EditStock';
+import Updatestock from './pages/admin/Stock/Updatestock';
 //import CategoryAdminView from './pages/admin/categoryadminview/CategoryAdminView';
 //import ItemAdminView from './pages/admin/itemadminview/ItemAdminView';
-import CategoryAdminView from './pages/admin/categoryadminview/Categoryadminview';//
-import ItemAdminView from './pages/admin/itemadminview/Itemadminview';//
-import ViewSupplier from './pages/admin/supplier/ViewSupplier';//
-import EditSupplier from './pages/admin/supplier/EditSupplier';//
-import AddSupplier from './pages/admin/supplier/AddSupplier';//
-import ViewEmployee from './pages/admin/employee/ViewEmployee';//
-import AddEmployee from './pages/admin/employee/AddEmployee';//
+import ViewCategories from './pages/admin/category/ViewCategories';
+import ItemAdminView from './pages/admin/itemadminview/Itemadminview';
+import ViewSupplier from './pages/admin/supplier/ViewSupplier';
+import EditSupplier from './pages/admin/supplier/EditSupplier';
+import AddSupplier from './pages/admin/supplier/AddSupplier';
+import ViewEmployee from './pages/admin/employee/ViewEmployee';
+import AddEmployee from './pages/admin/employee/AddEmployee';
+import EditEmployee from './pages/admin/employee/EditEmployee';
 
 // moderator
 import ModDashboard from './pages/moderator/dashboard/Dashboard';
@@ -51,14 +52,13 @@ import AccLeaveStats from './pages/LeaveStat';
 
 import Error from './pages/Error';
 
-
 function App() {
   return (
     <>
     <Switch>
 
     {/* customer routes */}
-    <Route exact path="/" component={Index}/>
+    {/* <Route exact path="/" component={Index}/> */}
     <Route exact path="/signup" component={Signup} />
     <Route exact path="/login" component={Login}/>
     <Route exact path="/shop/:category" component={Shop}/>
@@ -69,20 +69,20 @@ function App() {
     <Route exact path="/profile/orders" component={Orderhistory}/>
     <Route exact path="/profile/order/review" component={Order}/>
 
-
     {/* admin routes */}
-    {/* <Route exact path="/" component={AdminDashboard} /> */}
+    <Route exact path="/" component={AdminDashboard} />
     <Route exact path="/admin/reports" component={Reports} />
     <Route exact path="/admin/addItem" component={AddStock} />
     <Route exact path="/admin/editItem" component={EditStock} />
     <Route exact path="/admin/updateStock" component={Updatestock} />
-    <Route exact path="/admin/categoryView"  component={CategoryAdminView} />
+    <Route exact path="/admin/viewCategories"  component={ViewCategories} />
     <Route exact path="/admin/categoryView/itemView"  component={ItemAdminView} />
     <Route exact path="/admin/viewSupplier"  component={ViewSupplier} />
     <Route exact path="/admin/editSupplier" component={EditSupplier} />
     <Route exact path="/admin/addSupplier" component={AddSupplier} />
     <Route exact path="/admin/viewEmployee" component={ViewEmployee} />
     <Route exact path="/admin/addEmployee" component={AddEmployee} />
+    <Route exact path="/admin/editEmployee" component={EditEmployee} />
 
     {/* moderator routes */}
     <Route exact path="/moderator/dashboard" component={ModDashboard} />

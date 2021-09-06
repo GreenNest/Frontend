@@ -16,7 +16,7 @@ function DetailsCard(props) {
     const supplierDelete = async (id) => {
         if (window.confirm("Are you sure to remove this supplier?")) {
             const result = await deleteSupplier(id);
-            if(result == 1){
+            if(result === 1){
                 props.getSup();
                 toast('Successfully Delete Supplier', {
                     autoClose: false,
@@ -45,8 +45,8 @@ function DetailsCard(props) {
             
             <div className="grid items-center grid-cols-2 mt-5 text-sm gap-y-3 sm:grid-cols-3 sm:gap-x-2">
                 {
-                    props.categories.map((category) => (
-                        <CategoryLabel categoryName={category.category_name} />
+                    props.categories.map((category, index) => (
+                        <CategoryLabel key={index} categoryName={category.category_name} />
                     ))
                 }
             </div>
