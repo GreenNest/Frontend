@@ -13,7 +13,7 @@ function AddCategory(props) {
 
     const addCategory = async () => {
         const result = await categoryAdd();
-        if(result == 1){
+        if(result === 1){
             toast('Successfully Add Category', {
                 autoClose: false,
                 closeOnClick: true,
@@ -24,23 +24,22 @@ function AddCategory(props) {
     }
 
     return (
-        // <div className="fixed inset-0 flex items-center justify-center w-1/3 p-6 overflow-x-hidden overflow-y-auto bg-gray-300 rounded-sm shadow-xl outline-none z-100 focus:outline-none"></div>
-        <div className="absolute z-50 p-6 ml-20 bg-gray-300 rounded-sm shadow-xl mt-36">
-            <form className="w-96 ">
-                <h2 className="justify-center mb-6 text-xl font-medium text-center">Add Category</h2>
-                <input className="w-5/6 h-16 ml-8 placeholder-gray-500 placeholder-opacity-100 border-2 border-black "
-                    placeholder="Enter Category Name"
+        <div className="absolute flex justify-center w-full">
+            <div className="flex flex-col items-center justify-center w-1/3 p-8 mt-20 bg-gray-200 border-2 border-gray-400 rounded-md shadow-2xl border-opacity-1000 gap-y-4">
+                <h2 className="mb-5 text-2xl font-bold text-center text-maingreen">Add Category</h2>
+                <input className="w-4/6 placeholder-gray-500 placeholder-opacity-100 border-2 outline-none h-14 hover:border-hovergreen focus:border-maingreen"
+                    placeholder="Eg: Fruit Plants"
                     name="category"
                     type="text"
                     onChange={(e) => {
                         setcategory(e.target.value);
                     }}
                 />
-                <div className="flex items-center justify-center m-8"> 
-                    <button className="w-24 p-2 text-center text-white rounded-sm bg-secondarygreen hover:bg-lightgreen mr-7 focus:outline-none" onClick={addCategory}>Add</button>
-                    <button className="w-24 p-2 text-center text-white rounded-sm bg-redcolor focus:outline-none" onClick={props.canclePopup} >Close</button>
+                <div className="flex flex-wrap gap-x-5"> 
+                    <button className="justify-center p-4 px-4 py-2 font-bold text-white rounded w-36 bg-maingreen hover:bg-hovergreen" onClick={addCategory}>Submit</button>
+                    <button className="justify-center p-4 px-4 py-2 font-bold text-white bg-red-600 rounded w-36 hover:bg-lightred" onClick={props.canclePopup}>Cancel</button>
                 </div>
-            </form>
+            </div>
         </div>
     );
 }

@@ -51,7 +51,7 @@ function ViewEmployee() {
                     <JobTypeBtn jobType="Workers" userState={[active, setactive]} userType={4} contactEmployees={getEmployees} />
                 </div>
 
-                { contacts.length != 0 ? (
+                { contacts.length !== 0 ? (
                 <div className="flex flex-col mt-2 sm:mx-10">
                     <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -69,8 +69,8 @@ function ViewEmployee() {
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
                                         {
-                                            contacts.map((contact) => (
-                                                <EmployeeTable userState={[active, setactive]} getEmp={getEmployees} name={contact.first_name} email={contact.userProfile.email} nic={contact.nic} address={contact.address} mobile={contact.mobile} />
+                                            contacts.map((contact, index) => (
+                                                <EmployeeTable key={index} userState={[active, setactive]} getEmp={getEmployees} name={contact.first_name} email={contact.userProfile.email} nic={contact.nic} address={contact.address} mobile={contact.mobile} />
                                             ))
                                         }
                                     </tbody>
