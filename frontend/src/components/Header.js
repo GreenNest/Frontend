@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { useEffect} from "react";
 import xxx from '../assets/headerLogo.png';
 import {FaAlignRight} from 'react-icons/fa'
 import { NavLink, Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import '../styles/nav.css';
-import CustomerService from '../services/CustomerService';
 
 class Header extends Component {
     constructor(props){
@@ -45,7 +43,7 @@ class Header extends Component {
                     {/* Home */}
                     <li className="block p-2 font-bold text-center list-none text-maingreen hover:text-hovergreen text-20 lg:mr-14">Home</li>
                 </NavLink>
-                <NavLink to="/shop/fruits" exact activeClassName="active">
+                <NavLink to="/shop" exact activeClassName="active">
                     {/* Shop */}
                     <li className="block p-2 font-bold text-center list-none text-maingreen hover:text-hovergreen text-20 lg:mr-14">Shop</li>
                 </NavLink>

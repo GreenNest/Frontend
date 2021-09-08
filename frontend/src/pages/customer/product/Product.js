@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import CustomerService from '../../../services/CustomerService';
+import api from '../../../axiosContact';
 import axios from 'axios';
 
 import Review from './components/Review';
@@ -53,15 +54,32 @@ function Product() {
         setModel2(!model2)
       }
 
-    const addToCart = (evt) => {
-        //evt.preventDefault();
+    const addToCart = () => {
+        let price = stock * data.price;
         if(stock){
-            console.log(stock);
-            //history.push("/cart/"+stock+"/"+id)
+
+            if(stock > data.amount){
+                setMessage("Invalid amount");
+            }else{
+                let cart = {
+                    quantity: parseInt(stock),
+                    totalPrice: price,
+                    product:{
+                        product_id: parseInt(id)
+                    },
+                    customer:{
+                        customer_id: parseInt(x.id)
+                   }
+                }
+                console.log(cart);
+                CustomerService.addToCart(cart).then((response) => {
+                    setMessage(response.data.message);
+                })
+            }
+            
         }else{
             setMessage("Please select the amount");
         }
-        //() => history.push('/login')
     }
 
     const categoryContent = category.map((item) =>
@@ -134,7 +152,7 @@ function Product() {
             </div>
 
             { model2 ? 
-                <RequestPopup canclePopup={() =>  setModel2(false)}/>
+                <RequestPopup canclePopup={() =>  setModel2(false)} categoryName={category} productName={data.name} productId={id}/>
             : null }
             {/* <div>
                 {model2 &&

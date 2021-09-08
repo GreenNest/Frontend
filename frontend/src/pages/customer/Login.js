@@ -57,8 +57,6 @@ class Login extends Component {
             if(response.data.token){
                 localStorage.setItem("authorization", JSON.stringify(response.data))
                 const x = JSON.parse(localStorage.getItem('authorization'));
-                console.log(x.token);
-                console.log(x.roles);
                 if(x.roles[0] == 'customer'){
                     console.log("you are customer");
                     this.props.history.push("/");

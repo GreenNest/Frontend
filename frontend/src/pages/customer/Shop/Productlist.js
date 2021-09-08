@@ -5,35 +5,40 @@ import axios from 'axios';
 
 function Productlist (props){
     //console.log(props.hero);
-    const [data, setData] = useState([]);
-    const name = "Indoor plants"
+    // const [data, setData] = useState([]);
+    // const [loading, setLoading] = useState(false);
+    const data = props.type;
+    //const name = "Fruits Plant"
+    //console.log(name);
 
-    useEffect(async() => {
-       axios.get("http://localhost:8080/api/v1/product/" +name).then((response) => {
-           //console.log(response.data.data);
-           setData(response.data.data);
-       })
-    }, [])
+    // useEffect(async() => {
+    //    axios.get("http://localhost:8080/api/v1/product/" +name).then((response) => {
+    //        console.log(response.data.data);
+    //        setData(response.data.data);
+    //    }).then(setLoading(true));
+    // }, [props.type])
 
 
     return (
         <div className="mr-5 main">         
-         <h3 className="items-center justify-center mx-12 mt-10 mb-4 text-2xl font-bold sm:text-5xl text-maingreen" >Fruit Plants</h3>      
+         <h3 className="items-center justify-center mx-12 mt-10 mb-4 text-2xl font-bold sm:text-5xl text-maingreen" >{props.type}</h3>      
            <div className="box-border relative mr-4 cursor-pointer">
                 <div className="grid md:grid-cols-4">
-                    {data.map((item) => (
-                    <div 
-                    key={item.id}
-                    >
-                    <Productcard 
-                    id={item.id}
-                    product_name={item.name}
-                    price={item.price}
-                    description={item.description}
-                    image={"data:image/jpeg;base64," +item.mainImage}
-                    />
-                    </div>
-                ))}
+                {
+                //     data.map((item) => (
+                //     <div 
+                //     key={item.id}
+                //     >
+                //     <Productcard 
+                //     id={item.id}
+                //     product_name={item.name}
+                //     price={item.price}
+                //     description={item.description}
+                //     image={"data:image/jpeg;base64," +item.mainImage}
+                //     />
+                //     </div>
+                //    ))
+                }
                     
                 </div>
             
@@ -44,7 +49,7 @@ function Productlist (props){
 
 }
 // Productlist.defaultProps={
-//     hero:"defaultHero"
+//     hero:"Cactus"
 // };
 
 export default Productlist;

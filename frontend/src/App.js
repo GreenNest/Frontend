@@ -23,7 +23,7 @@ import EditStock from './pages/admin/edit-stock/EditStock';//
 import Updatestock from './pages/admin/Stock/Updatestock';//
 //import CategoryAdminView from './pages/admin/categoryadminview/CategoryAdminView';
 //import ItemAdminView from './pages/admin/itemadminview/ItemAdminView';
-import CategoryAdminView from './pages/admin/categoryadminview/Categoryadminview';//
+//import CategoryAdminView from './pages/admin/categoryadminview/Categoryadminview';//
 import ItemAdminView from './pages/admin/itemadminview/Itemadminview';//
 import ViewSupplier from './pages/admin/supplier/ViewSupplier';//
 import EditSupplier from './pages/admin/supplier/EditSupplier';//
@@ -61,7 +61,8 @@ function App() {
     <Route exact path="/" component={Index}/>
     <Route exact path="/signup" component={Signup} />
     <Route exact path="/login" component={Login}/>
-    <Route exact path="/shop/:category" component={Shop}/>
+    <Route exact path="/shop" component={Shop}/>
+    {/* <Route exact path="/shop/:category" component={Shop}/> */}
     <Route exact path="/fruits" component={FruitsList}/>
     <Route exact path="/shop/product/:id" component={Product}/>
     <Route exact path="/cart" component={Cart}/>
@@ -71,12 +72,12 @@ function App() {
 
 
     {/* admin routes */}
-    {/* <Route exact path="/" component={AdminDashboard} /> */}
+    <Route exact path="/admin/dashboard" component={AdminDashboard} />
     <Route exact path="/admin/reports" component={Reports} />
     <Route exact path="/admin/addItem" component={AddStock} />
     <Route exact path="/admin/editItem" component={EditStock} />
     <Route exact path="/admin/updateStock" component={Updatestock} />
-    <Route exact path="/admin/categoryView"  component={CategoryAdminView} />
+    {/* <Route exact path="/admin/categoryView"  component={CategoryAdminView} /> */}
     <Route exact path="/admin/categoryView/itemView"  component={ItemAdminView} />
     <Route exact path="/admin/viewSupplier"  component={ViewSupplier} />
     <Route exact path="/admin/editSupplier" component={EditSupplier} />
