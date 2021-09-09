@@ -46,7 +46,7 @@ function DetailsCard(props) {
             <div className="grid items-center grid-cols-2 mt-5 text-sm gap-y-3 sm:grid-cols-3 sm:gap-x-2">
                 {
                     props.categories.map((category, index) => (
-                        <CategoryLabel key={index} categoryName={category.category_name} />
+                        <CategoryLabel key={index} categoryName={category.categoryName} />
                     ))
                 }
             </div>

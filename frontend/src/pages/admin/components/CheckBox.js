@@ -4,7 +4,7 @@ function CheckBox(props) {
             <input
                 className="w-4 h-4"
                 type="checkbox"
-                value={props.id}
+                value={props.name}
                 onChange={(e) => {
                     const isChecked = e.target.checked;
                     // console.log(isChecked)

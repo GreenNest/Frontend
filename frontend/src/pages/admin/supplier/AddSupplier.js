@@ -1,34 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CheckBox from "../components/CheckBox";
 import AdminSidebar from '../components/adminSidebar';
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import api from '../../../axiosContact';
 
 function AddSupplier(props) {
 
+    const [allCategories, setallCategories] = useState([]);
+    const [usedCategory, setusedCategory] = useState([]);
     const [firstName, setfirstName] = useState("");
     const [lastName, setlastName] = useState("");
     const [address, setaddress] = useState("");
     const [email, setemail] = useState("");
     const [mobile, setmobile] = useState();
+    const [email_error, setemail_error] = useState("");
+    const [mobile_error, setmobile_error] = useState("");
+
+    useEffect(() => {
+        getCategories();
+    }, [])
+
+    const retrieveCategories = async () => {
+        const res = await api.get("/get/categories");
+        return res.data;
+    };
+
+    const getCategories  = async () => {
+        const categories = await retrieveCategories();
+        if (categories) {
+            setallCategories(categories.data);
+        };
+    }
 
     const validate = () => {
-        let email_err= "";
-        let mobile_err = "";
-        let formValid = "";
 
         if(!email.includes("@")){
-           email_err = "Invalida email";
-           formValid = false;
+            setemail_error("Invalida email");
+            // formValid = false;
         }
 
         if(mobile.length < 10){
-            mobile_err = "Invalid mobile number";
-            formValid = false;
+            setmobile_error("Invalid mobile number");
+            // formValid = false;
         }
 
-        if(email_err || mobile_err){
-            // this.setState({ email_err, mobile_err})
+        if(email_error || mobile_error){
             return false;
         }
         
@@ -42,15 +59,24 @@ function AddSupplier(props) {
             address: address,
             email: email,
             mobile: mobile,
+            account_status: 0,
+            categories: usedCategory,
         });
         return res.data;
     }
 
+    // const usedCategoryAdd = async (categories) => {
+    //     // console.log(categories)
+    //     const res = await api.get(`/usedCategoryAdd/${categories}`);
+    //     return res.data;
+    // }
+
     const addSupplier = () => {
         const isValid = validate();
+        console.log(isValid)
         if (isValid) {
-            const result = supplierAdd();
-            if(result == 1){
+            const result = supplierAdd(usedCategory);
+            if(result){
                 toast('Successfully add supplier', {
                     autoClose: false,
                     closeOnClick: true,
@@ -71,10 +97,10 @@ function AddSupplier(props) {
                         <div className="flex flex-wrap mb-4">
                             <div className="w-full px-3 mb-4 space-y-2 md:w-1/2 md:mb-0">
                                 <label className="w-2/3 p-1 text-lg font-semibold" for="grid-first-name">First Name</label>
-                                <input className="block w-full p-2 px-4 py-3 text-lg leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
+                                <input className="block w-full p-2 px-4 py-3 leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
                                     name="firstName"
                                     type="text"
-                                    placeholder=""
+                                    placeholder="Eg: Theja"
                                     onChange={(e) => {
                                         setfirstName(e.target.value);
                                     }}
@@ -82,10 +108,10 @@ function AddSupplier(props) {
                             </div>
                             <div className="w-full px-3 space-y-2 md:w-1/2">
                                 <label className="w-2/3 p-1 text-lg font-semibold" for="grid-last-name">Last Name</label>
-                                <input className="block w-full p-2 px-4 py-3 text-lg leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
+                                <input className="block w-full p-2 px-4 py-3 leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
                                     name="lastName"
                                     type="text"
-                                    placeholder=""
+                                    placeholder="Eg: Kumari"
                                     onChange={(e) => {
                                         setlastName(e.target.value);
                                     }}
@@ -95,10 +121,10 @@ function AddSupplier(props) {
                         <div className="flex flex-wrap mb-4">
                             <div className="w-full px-3 space-y-2">
                                 <label className="w-1/3 p-1 text-lg font-semibold" for="grid-address">Address</label>
-                                <input className="block w-full p-2 px-4 py-3 text-lg leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
+                                <input className="block w-full p-2 px-4 py-3 leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
                                     name="address"
                                     type="text"
-                                    placeholder=""
+                                    placeholder="Eg: No.379, Temple Road, Galle"
                                     onChange={(e) => {
                                         setaddress(e.target.value);
                                     }}
@@ -108,42 +134,42 @@ function AddSupplier(props) {
                         <div className="flex flex-wrap mb-4">
                             <div className="w-full px-3 mb-6 space-y-2 md:mb-0 md:w-1/2">
                                 <label className="w-1/3 p-1 text-lg font-semibold" for="grid-first-name">Email</label>
-                                <input className="block w-full p-2 px-4 py-3 text-sm leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
+                                <input className="block w-full p-2 px-4 py-3 leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
                                     name="email"
                                     type="text"
-                                    placeholder=""
+                                    placeholder="Eg: thejakuma@gmail.com"
                                     onChange={(e) => {
                                         setemail(e.target.value);
                                     }}
                                 />
+                                <div class="text-red-600 pl-1">{email_error}</div>
                             </div>
                             <div className="w-full px-3 space-y-2 md:w-1/2">
                                 <label className="w-1/3 p-1 text-lg font-semibold" for="grid-last-name">Mobile</label>
-                                <input className="block w-full p-2 px-4 py-3 text-lg leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
+                                <input className="block w-full p-2 px-4 py-3 leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
                                     name="mobile"
                                     type="text"
-                                    placeholder=""
+                                    placeholder="Eg: 0775433332"
                                     onChange={(e) => {
                                         setmobile(e.target.value);
                                     }}
                                 />
+                                <div class="text-red-600 pl-1">{mobile_error}</div>
                             </div>
                         </div>
                         <div className="flex flex-wrap mb-6">
                             <div className="w-full px-3 space-y-2">
                                 <label className="w-2/3 p-2 text-lg font-semibold" for="grid-state">Product Categories</label>
                                 <div className="grid grid-cols-2 gap-2 mt-2 ml-6 md:grid-cols-3">
-                                    <CheckBox name="Fruit Plants" />
-                                    <CheckBox name="Food Plants" />
-                                    <CheckBox name="Flower Plants" />
-                                    <CheckBox name="Indoor Plants" />
-                                    <CheckBox name="Outdoor Plants" />
+                                    {
+                                        allCategories.map((category,index) => (
+                                            <CheckBox key={index} name={category} type={[usedCategory, setusedCategory]} />
+                                        ))
+                                    }
                                 </div>
                             </div>
                         </div>
                         <div className="flex flex-wrap justify-center mt-6 -mb-12 space-x-6">
-                            {/* <button type="submit" className="p-2 text-base font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none background-transparent hover:shadow-lg focus:outline-none bg-redcolor">Cancel</button>
-                            <button type="submit" className="p-2 text-base font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none background-transparent hover:shadow-lg focus:outline-none bg-maingreen hover:bg-secondarygreen">Submit</button> */}
                             <button className="justify-center w-40 p-4 px-4 py-2 mb-8 font-bold text-white rounded bg-maingreen hover:bg-hovergreen" onClick={addSupplier}>Submit</button>
                             <button className="justify-center w-40 p-4 px-4 py-2 mb-8 font-bold text-white bg-red-600 rounded hover:bg-lightred">Cancel</button>
                         </div>
