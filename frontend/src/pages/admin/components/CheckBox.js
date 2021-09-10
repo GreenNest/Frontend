@@ -1,11 +1,30 @@
-
-const CheckBox = (props) => {
+function CheckBox(props) {
     return (
         <div className="inline-flex items-center">
-            {/* <label className="inline-flex items-center"> */}
-                <input type="checkbox" className="w-4 h-4" />
-                <span className="ml-2 font-medium">{props.name}</span>
-            {/* </label> */}
+            <input
+                className="w-4 h-4"
+                type="checkbox"
+                value={props.id}
+                onChange={(e) => {
+                    const isChecked = e.target.checked;
+                    // console.log(isChecked)
+                    if (isChecked) {
+                        props.type[1]([...props.type[0],e.target.value]);
+                    }
+                    else{
+                        const index = props.type[0].indexOf(props.id.toString())
+                        // console.log(index)
+                        // console.log(props.id)
+                        if(index > -1){
+                            props.type[0].splice(index, 1)
+                        }
+
+                        props.type[1](props.type[0]);
+
+                    }
+                }}
+            />
+            <span className="ml-2 font-medium">{props.name}</span>
         </div>
     );
 }
