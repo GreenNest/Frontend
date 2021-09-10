@@ -58,7 +58,7 @@ function App() {
     <Switch>
 
     {/* customer routes */}
-    {/* <Route exact path="/" component={Index}/> */}
+    <Route exact path="/" component={Index}/>
     <Route exact path="/signup" component={Signup} />
     <Route exact path="/login" component={Login}/>
     <Route exact path="/shop" component={Shop}/>
@@ -76,9 +76,9 @@ function App() {
     <Route exact path="/admin/addItem" component={AddStock} />
     <Route exact path="/admin/editItem" component={EditStock} />
     <Route exact path="/admin/updateStock" component={Updatestock} />
-    <Route exact path="/admin/viewCategories"  component={ViewCategories} />
-    <Route exact path="/admin/categoryView/itemView"  component={ItemAdminView} />
-    <Route exact path="/admin/viewSupplier"  component={ViewSupplier} />
+    <Route exact path="/admin/viewCategories" component={ViewCategories} />
+    <Route exact path="/admin/categoryView/itemView/:name" component={ItemAdminView} />
+    <Route exact path="/admin/viewSupplier" component={ViewSupplier} />
     <Route exact path="/admin/editSupplier" component={EditSupplier} />
     <Route exact path="/admin/addSupplier" component={AddSupplier} />
     <Route exact path="/admin/viewEmployee" component={ViewEmployee} />

@@ -206,7 +206,7 @@ class AddStock extends Component {
                                     onChange={this.handleFileChange} required/>
                             </div>
                             <div class="flex justify-start items-center p-1 mb-3 w-full">
-                                <label className="text-lg p-2 w-1/3 font-semibold">Other Images(3)</label>
+                                <label className="w-1/3 p-2 text-lg font-semibold">Other Images(3)</label>
                                 <input class="w-1/2 outline-none text-sm rounded p-2 border-solid block border-2" 
                                     type="file"
                                     name="image_file3"
@@ -216,13 +216,13 @@ class AddStock extends Component {
                             
                             
                         </div>
-                        <div className="flex justify-start w-full flex-col p-1">
-                        <p className="text-lg p-2 w-1/3 font-semibold">Categories</p>
+                        <div className="flex flex-col justify-start w-full p-1">
+                        <p className="w-1/3 p-2 text-lg font-semibold">Categories</p>
                         <div class="grid grid-cols-2 w-full gap-2 md:grid-cols-3">
                         
                         {
                             this.state.data.map((item, index) => 
-                                <div key={index} className="font-semibold pl-2">
+                                <div key={index} className="pl-2 font-semibold">
                                     <label> {item}
                                     <input
                                         value={item}
