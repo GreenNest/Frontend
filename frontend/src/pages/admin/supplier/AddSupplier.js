@@ -65,12 +65,6 @@ function AddSupplier(props) {
         return res.data;
     }
 
-    // const usedCategoryAdd = async (categories) => {
-    //     // console.log(categories)
-    //     const res = await api.get(`/usedCategoryAdd/${categories}`);
-    //     return res.data;
-    // }
-
     const addSupplier = () => {
         const isValid = validate();
         console.log(isValid)
@@ -90,11 +84,11 @@ function AddSupplier(props) {
     return (
         <>
             <AdminSidebar/>
-            <div className="flex flex-col w-11/12 ml-48 space-y-10">
+            <div className="flex flex-col w-full ml-28">
                 <div className="flex justify-center mx-16">
-                    <div className="w-full p-8 mt-6 bg-gray-500 bg-opacity-25 rounded-md shadow-inner md:w-1/2 sm:w-3/4">
-                        <div className="mt-0 mb-6 text-2xl font-bold tracking-wide text-center text-maingreen">Add Supplier</div>
-                        <div className="flex flex-wrap mb-4">
+                    <div className="w-full p-8 my-8 bg-gray-500 bg-opacity-25 rounded-md shadow-inner md:w-1/2 sm:w-3/4">
+                        <h4 className="text-3xl font-bold text-center text-maingreen">Add Suppliers</h4>
+                        <div className="flex flex-wrap mt-8 mb-4">
                             <div className="w-full px-3 mb-4 space-y-2 md:w-1/2 md:mb-0">
                                 <label className="w-2/3 p-1 text-lg font-semibold" for="grid-first-name">First Name</label>
                                 <input className="block w-full p-2 px-4 py-3 leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
@@ -169,7 +163,7 @@ function AddSupplier(props) {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-wrap justify-center mt-6 -mb-12 space-x-6">
+                        <div className="flex flex-wrap justify-center mt-12 -mb-8 space-x-6">
                             <button className="justify-center w-40 p-4 px-4 py-2 mb-8 font-bold text-white rounded bg-maingreen hover:bg-hovergreen" onClick={addSupplier}>Submit</button>
                             <button className="justify-center w-40 p-4 px-4 py-2 mb-8 font-bold text-white bg-red-600 rounded hover:bg-lightred">Cancel</button>
                         </div>

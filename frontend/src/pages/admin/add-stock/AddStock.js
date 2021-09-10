@@ -121,45 +121,8 @@ class AddStock extends Component {
                   <form class="w-full justify-start p-4 flex flex-col items-center"  onSubmit={this.handleSubmit} > 
                         <div class=" text-maingreen font-bold text-2xl pb-2 mb-2">Add Item</div>
                         
-<<<<<<< HEAD
                         <div class="grid grid-cols-1 w-full md:grid-cols-2">
                             
-=======
-                        <div class="grid grid-cols-2 w-full">
-                            {/* <div class="flex justify-start items-center p-1 mb-3 w-full">
-                                <label class="p-2 w-1/3 text-lg font-semibold">Category Name</label>
-                                <select class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2"
-                                    id = "category"
-                                    name= "category"
-                                    value={this.state.category}
-                                    onChange={this.handleChange}>
-                                    <option value="fruits">Fruits</option>
-                                    <option value="flowers">Flowers</option>
-                                    <option value="herbal">Flowers</option>
-                                    <option value="vegetables">Vegetables</option>
-                                </select>
-                            </div> */}
-                            <div class="flex justify-start items-center p-1 mb-3 w-full">
-                                <label class="text-lg p-2 w-1/3 font-semibold">Item ID</label>
-                                <input class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2" 
-                                    type="text"
-                                    name="itemid"
-                                    value={this.state.itemid}
-                                    onChange={this.handleChange}
-                                    placeholder="1"  />
-                            </div>
-                            <div class="flex justify-start items-center p-1 mb-3 w-full">
-                                <label class="text-lg p-2 w-1/3 font-semibold">Item Quality</label>
-                                <input class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2"  
-                                    type="integer"
-                                    name="quantity"
-                                    value={this.state.quantity}
-                                    onChange={this.handleChange}
-                                    placeholder="1" />
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-2 w-full">
->>>>>>> 162bdb823cb11d4751e11446e2767dac31ee9dd6
                             <div class="flex justify-start items-center p-1 mb-3 w-full">
                                 <label class=" text-lg p-2 w-1/3 font-semibold">Item Name</label>
                                 <input class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2" 
@@ -171,7 +134,6 @@ class AddStock extends Component {
                                     required/>
                             </div>
                             <div class="flex justify-start items-center p-1 mb-3 w-full">
-<<<<<<< HEAD
                                 <label class="text-lg p-2 w-1/3 font-semibold">Item details</label>
                                 <input class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2"  
                                     type="text"
@@ -183,17 +145,6 @@ class AddStock extends Component {
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 w-full"> 
                             
-=======
-                                <label class=" text-lg p-2 w-1/3 font-semibold">Main Image</label>
-                                <input class="w-1/2 outline-none text-sm rounded p-2 border-solid block border-2" 
-                                    type="file"
-                                    name="file"
-                                    value={this.state.file[0]}
-                                    onChange={this.handleFileChange} />
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-2 w-full">
->>>>>>> 162bdb823cb11d4751e11446e2767dac31ee9dd6
                             <div class="flex justify-start items-center p-1 mb-3 w-full">
                                 <label class=" text-lg p-2 w-1/3 font-semibold">Price</label>
                                 <input class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2" 
@@ -218,7 +169,6 @@ class AddStock extends Component {
                         <div class="grid grid-cols-1 md:grid-cols-2 w-full">
                             
                             <div class="flex justify-start items-center p-1 mb-3 w-full">
-<<<<<<< HEAD
                                 <label class="text-lg p-2 w-1/3 font-semibold">Item Quality</label>
                                 <input class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2"  
                                     type="integer"
@@ -227,17 +177,6 @@ class AddStock extends Component {
                                     onChange={this.handleChange}
                                     placeholder="1" required/>
                             </div>
-=======
-                                <label class="text-lg p-2 w-1/3 font-semibold">Other Images</label>
-                                <input class="w-1/2 outline-none text-sm rounded p-2 border-solid block border-2" 
-                                    type="file"
-                                    name="image"
-                                    value={this.state.image}
-                                    onChange={this.handleFileChange}/>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-2 w-full">
->>>>>>> 162bdb823cb11d4751e11446e2767dac31ee9dd6
                             <div class="flex justify-start items-center p-1 mb-3 w-full">
                                 <label class=" text-lg p-2 w-1/3 font-semibold">Reorder Level</label>
                                 <input class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2"  
@@ -267,7 +206,6 @@ class AddStock extends Component {
                                     onChange={this.handleFileChange} required/>
                             </div>
                         </div>
-<<<<<<< HEAD
                         <div class="grid grid-cols-1 md:grid-cols-2 w-full">
                             
                             <div class="flex justify-start items-center p-1 mb-3 w-full">
@@ -279,7 +217,7 @@ class AddStock extends Component {
                                     onChange={this.handleFileChange} required/>
                             </div>
                             <div class="flex justify-start items-center p-1 mb-3 w-full">
-                                <label className="text-lg p-2 w-1/3 font-semibold">Other Images(3)</label>
+                                <label className="w-1/3 p-2 text-lg font-semibold">Other Images(3)</label>
                                 <input class="w-1/2 outline-none text-sm rounded p-2 border-solid block border-2" 
                                     type="file"
                                     name="image_file3"
@@ -289,13 +227,13 @@ class AddStock extends Component {
                             
                             
                         </div>
-                        <div className="flex justify-start w-full flex-col p-1">
-                        <p className="text-lg p-2 w-1/3 font-semibold">Categories</p>
+                        <div className="flex flex-col justify-start w-full p-1">
+                        <p className="w-1/3 p-2 text-lg font-semibold">Categories</p>
                         <div class="grid grid-cols-2 w-full gap-2 md:grid-cols-3">
                         
                         {
                             this.state.data.map((item, index) => 
-                                <div key={index} className="font-semibold pl-2">
+                                <div key={index} className="pl-2 font-semibold">
                                     <label> {item}
                                     <input
                                         value={item}
@@ -308,28 +246,6 @@ class AddStock extends Component {
                         }
                             
                         </div>
-=======
-                        <div class="grid grid-cols-2 w-full">
-                            <div className="w-full p-1">
-                                <label className="w-2/3 p-2 text-lg font-semibold">Product Categories</label>
-                                <div className="grid grid-cols-2 gap-2 mt-2 ml-6 md:grid-cols-2">
-                                    <CheckBox name="Fruit Plants" />
-                                    <CheckBox name="Food Plants" />
-                                    <CheckBox name="Flower Plants" />
-                                    <CheckBox name="Indoor Plants" />
-                                    <CheckBox name="Outdoor Plants" />
-                                </div>
-                            </div>
-                            <div class="flex justify-start p-1 mb-3 w-full">
-                                <label class="text-lg p-2 w-1/3 font-semibold">Item details</label>
-                                <textarea class="h-20 w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2"  
-                                    type="text"
-                                    name="details"
-                                    value={this.state.details}
-                                    onChange={this.handleChange}
-                                    placeholder="description...." />
-                            </div>
->>>>>>> 162bdb823cb11d4751e11446e2767dac31ee9dd6
                         </div>
                         <div class="flex w-full justify-center items-center mt-7 -mb-5">
                             {/* <div class=" w-1/3 p-3 bg-secondarygreen text-mainyellow font-bold text-lg rounded-sm mt-5 mb-5 flex justify-center items-center cursor-pointer mr-8">Submit</div> */}

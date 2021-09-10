@@ -17,7 +17,6 @@ function ViewCategories() {
 
     const retrieveCategories = async () => {
         const res = await api.get("/get/categories");
-        // console.log(res.data)
         return res.data;
     };
 
@@ -31,9 +30,9 @@ function ViewCategories() {
     return (
         <>
             <AdminSidebar/>
-            <div className="justify-end w-11/12 h-full ml-28 ">
+            <div className="w-11/12 h-full ml-28 ">
                 <div className="float-right w-5/6 mt-10 mb-8 mr-5 bg-gray-500 bg-opacity-25 rounded" >
-                    <h4 className="flex justify-center m-8 text-2xl font-bold text-maingreen">View Category</h4>
+                    <h4 className="m-8 text-3xl font-bold text-center text-maingreen">View Category</h4>
                     <div className="float-right mr-12">
                         <Search />
                     </div>
@@ -41,12 +40,12 @@ function ViewCategories() {
                     <div className="flex flex-wrap items-center -mt-1 cursor-pointer">
                         {
                             allCategories.map((category, index) => (
-                                <Link to="/admin/categoryView/itemView">
-                                    <div key={index} className="grid items-center justify-center w-64 h-40 mt-6 mb-10 bg-white rounded shadow-xl grid-rows mx-11" key={category.id}>
+                                <Link key={index} to={`/admin/categoryView/itemView/${category}`}>
+                                    <div className="grid items-center justify-center w-64 h-40 mt-6 mb-10 bg-white rounded shadow-xl grid-rows mx-11" key={category.id}>
                                         <FaClipboardList className="w-12 h-8 -mt-2 text-maingreen"/>  
                                         <div className="w-full h-20 font-semibold">
-                                            <div className="mt-8 text-xl font-medium hover:text-hovergreen">{category}</div>
-                                            <h3 className="font-bold text-green-800">Items :10</h3>
+                                            <div className="mt-8 text-xl font-bold text-maingreen">{category}</div>
+                                            <h3 className="font-bold text-green-700">Items :10</h3>
                                         </div>
                                     </div>
                                 </Link>

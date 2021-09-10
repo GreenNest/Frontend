@@ -29,7 +29,7 @@ function DetailsCard(props) {
     }
 
     return (
-        <div className="w-full px-4 py-1 border-2 rounded-lg shadow-xl border-maingreen hover:bg-gray-500 hover:bg-opacity-25 sm:w-3/4 md:w-5/12">
+        <div className="w-full px-4 py-1 bg-white border-2 rounded-lg shadow-xl border-maingreen sm:w-3/4 md:w-5/12">
             <div className="flex justify-end space-x-3">
                 <Link to="/admin/editSupplier">
                         <FaIcons.FaEdit className="w-5 h-5 mt-2 hover:text-hovergreen"/>
