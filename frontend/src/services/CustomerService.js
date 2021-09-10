@@ -1,6 +1,7 @@
 import axios from 'axios';
 import LocalStorage from './LocalStorage';
 
+const API = "http://localhost:8080/api/v1/";
 const CUSTOMER_API_BASE_URL = "http://localhost:8080/api/v1/customer";
 const url = "http://localhost:8080/api/v1/login";
 const url2 = "http://localhost:8080/api/v1/auth/login";
@@ -59,6 +60,14 @@ class CustomerService {
     }
     addProduct(data){
         return axios.post(product, data)
+    }
+
+    addResponse(response){
+        return  axios.post(`${API}request/add`, response)
+    }
+
+    addToCart(cart){
+        return axios.post(`${API}cart/add`, cart)
     }
 
 }

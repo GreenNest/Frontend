@@ -25,20 +25,7 @@ toast.configure();
 class Signup extends Component {
     state = initialState;
 
-    // constructor(props) {
-    //     super(props);
-    //     this.state = { 
-    //        firstname: '',
-    //        lastname:'',
-    //        email:'',
-    //        mobilenumber:'',
-    //        password:'',
-    //        confirmpassword:'',
-    //        role: 'customer',
-    //        password_err:'' 
-    //      };
-    //      this.handleSubmit = this.handleSubmit.bind(this);
-    // }
+
 
     handleChange = event => {
 

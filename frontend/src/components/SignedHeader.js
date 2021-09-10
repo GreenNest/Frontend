@@ -48,7 +48,7 @@ class SignedHeader extends Component {
                 <Link to="/" class="block p-2 text-maingreen hover:text-hovergreen font-bold text-20 text-center lg:mr-10">
                     Home
                 </Link>
-                <Link to="/shop/fruits" class="block p-2 text-maingreen hover:text-hovergreen font-bold text-20 text-center lg:mr-10">
+                <Link to="/shop" class="block p-2 text-maingreen hover:text-hovergreen font-bold text-20 text-center lg:mr-10">
                     Shop
                 </Link>
                 <Link to="/cart" class="block p-2 text-maingreen hover:text-hovergreen font-bold text-20 text-center lg:mr-10">
