@@ -14,7 +14,7 @@ class AddStock extends Component {
             <AdminSidebar/>
             <div className="grid-container">
             {/* <div class="bg-maingreen"></div> */}
-            <div className="main-area -mt-8 -ml-4">
+            <div className="-mt-8 -ml-4 main-area">
                <div class="w-full m-16 bg-gray-500 bg-opacity-25 rounded ">
                   <form class="w-full justify-center p-4 flex flex-col items-center">
                         <div class=" text-maingreen font-bold text-2xl p-2 mb-4">Edit Item</div>
@@ -78,8 +78,8 @@ class AddStock extends Component {
                         </div>
                         <div class="flex w-full justify-center items-center mt-7 -mb-5">
                             {/* <div class=" w-1/3 p-3 bg-secondarygreen text-mainyellow font-bold text-lg rounded-sm mt-5 mb-5 flex justify-center items-center cursor-pointer mr-8">Submit</div> */}
-                            <button className="bg-maingreen hover:bg-hovergreen p-4 justify-center text-white font-bold  mb-8 rounded py-2 px-4 w-40">Submit</button>
-                            <button className="bg-red-600 hover:bg-lightred p-4 justify-center text-white font-bold ml-12 mb-8 rounded py-2 px-4 w-40">Cancel</button>
+                            <button className="justify-center w-40 p-4 px-4 py-2 mb-8 font-bold text-white rounded bg-maingreen hover:bg-hovergreen">Submit</button>
+                            <button className="justify-center w-40 p-4 px-4 py-2 mb-8 ml-12 font-bold text-white bg-red-600 rounded hover:bg-lightred">Cancel</button>
                             {/* <div class="w-1/3 p-3 bg-redcolor text-mainyellow font-bold text-lg rounded-sm mt-5 mb-5 flex justify-center items-center cursor-pointer">Cancel</div> */}
                         </div>
                   </form>
