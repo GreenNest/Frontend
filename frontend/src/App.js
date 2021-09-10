@@ -19,12 +19,10 @@ import Orderhistory from './pages/customer/Orderhistory';//
 import AdminDashboard from './pages/admin/dashboard/Dashboard';
 import Reports from './pages/admin/reports/Reports';
 import AddStock from './pages/admin/add-stock/AddStock';
-import EditStock from './pages/admin/edit-stock/EditStock';
-import Updatestock from './pages/admin/Stock/Updatestock';
-//import CategoryAdminView from './pages/admin/categoryadminview/CategoryAdminView';
-//import ItemAdminView from './pages/admin/itemadminview/ItemAdminView';
+import EditStock from './pages/admin/stock/EditStock';
+import Updatestock from './pages/admin/stock/Updatestock';
 import ViewCategories from './pages/admin/category/ViewCategories';
-import ItemAdminView from './pages/admin/itemadminview/Itemadminview';
+import ProductByCategory from './pages/admin/stock/ProductByCategory';
 import ViewSupplier from './pages/admin/supplier/ViewSupplier';
 import EditSupplier from './pages/admin/supplier/EditSupplier';
 import AddSupplier from './pages/admin/supplier/AddSupplier';
@@ -77,7 +75,7 @@ function App() {
     <Route exact path="/admin/editItem" component={EditStock} />
     <Route exact path="/admin/updateStock" component={Updatestock} />
     <Route exact path="/admin/viewCategories" component={ViewCategories} />
-    <Route exact path="/admin/categoryView/itemView/:name" component={ItemAdminView} />
+    <Route exact path="/admin/categoryView/productsView/:name" component={ProductByCategory} />
     <Route exact path="/admin/viewSupplier" component={ViewSupplier} />
     <Route exact path="/admin/editSupplier" component={EditSupplier} />
     <Route exact path="/admin/addSupplier" component={AddSupplier} />

@@ -40,7 +40,7 @@ function ViewCategories() {
                     <div className="flex flex-wrap items-center -mt-1 cursor-pointer">
                         {
                             allCategories.map((category, index) => (
-                                <Link key={index} to={`/admin/categoryView/itemView/${category}`}>
+                                <Link key={index} to={`/admin/categoryView/productsView/${category}`}>
                                     <div className="grid items-center justify-center w-64 h-40 mt-6 mb-10 bg-white rounded shadow-xl grid-rows mx-11" key={category.id}>
                                         <FaClipboardList className="w-12 h-8 -mt-2 text-maingreen"/>  
                                         <div className="w-full h-20 font-semibold">
