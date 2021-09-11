@@ -115,11 +115,10 @@ class AddEmployee extends Component{
             <>
             <AdminSidebar/>
         <div className="flex flex-col space-y-5">
-            
             <div className="flex justify-center mx-10">
-                <form className="w-full p-8 mt-4 mb-6 ml-64 bg-gray-500 bg-opacity-25 rounded shadow-inner md:w-1/2 sm:w-3/4"  onSubmit={this.handleSubmit}>
-                <div className="mb-8 -mt-2 text-2xl font-bold tracking-wide text-center text-maingreen">Add Employeee</div>
-                    <div className="flex flex-wrap mb-2">
+                <form className="w-full p-8 mt-10 mb-10 ml-64 bg-gray-500 bg-opacity-25 rounded shadow-inner md:w-1/2 sm:w-3/4"  onSubmit={this.handleSubmit}>
+                    <h4 className="mb-8 text-3xl font-bold text-center text-maingreen">Add Employee</h4>
+                    <div className="flex flex-wrap mb-5">
                         <div className="w-full px-3 mb-6 space-y-2 md:w-1/2 md:mb-0">
                             <label className="block text-lg font-semibold tracking-wide text-black" for="grid-first-name">
                                 First Name
@@ -129,7 +128,7 @@ class AddEmployee extends Component{
                             name="firstname"
                             value={this.state.firstname}
                             onChange={this.handleChange}
-                            placeholder="eg: Nimal" />
+                            placeholder="Eg: Nimal" />
                         </div>
                         <div className="w-full px-3 space-y-2 md:w-1/2">
                             <label className="block text-lg font-semibold tracking-wide text-black" for="grid-last-name">
@@ -140,10 +139,10 @@ class AddEmployee extends Component{
                             name="lastname"
                             value={this.state.lastname}
                             onChange={this.handleChange} 
-                            placeholder="" />
+                            placeholder="Eg: Senarathna" />
                         </div>
                     </div>
-                    <div className="flex flex-wrap mb-2">
+                    <div className="flex flex-wrap mb-5">
                         <div className="w-full px-3 space-y-2">
                             <label className="block text-lg font-semibold tracking-wide text-black" for="grid-address">
                                 Address
@@ -153,10 +152,10 @@ class AddEmployee extends Component{
                             name="address"
                             value={this.state.address}
                             onChange={this.handleChange} 
-                            placeholder="" />
+                            placeholder="Eg: No.65, Malwaththa Road, Pannipitiya" />
                         </div>
                     </div>
-                    <div className="flex flex-wrap mb-2">
+                    <div className="flex flex-wrap mb-5">
                         <div className="w-full px-3 space-y-2 md:w-1/2">
                             <label className="block text-lg font-semibold tracking-wide text-black" for="grid-nic">
                                 NIC
@@ -166,10 +165,10 @@ class AddEmployee extends Component{
                             name="nic"
                             value={this.state.nic}
                             onChange={this.handleChange} 
-                            placeholder="" />
+                            placeholder="Eg: 975643123v" />
                         </div>
                     </div>
-                    <div className="flex flex-wrap mb-2">
+                    <div className="flex flex-wrap mb-5">
                         <div className="w-full px-3 mb-6 space-y-2 md:mb-0 md:w-1/2">
                             <label className="block text-lg font-semibold tracking-wide text-black" for="grid-first-name">
                                 Email
@@ -179,7 +178,7 @@ class AddEmployee extends Component{
                             name="email"
                             value={this.state.email}
                             onChange={this.handleChange} 
-                            placeholder="" />
+                            placeholder="Eg: nimalsena1@gmail.com" />
                             <div class="text-red-600 pl-1">{this.state.email_err}</div>
                         </div>
                         <div className="w-full px-3 space-y-2 md:w-1/2">
@@ -187,15 +186,15 @@ class AddEmployee extends Component{
                                 Mobile
                             </label>
                             <input className="block w-full px-4 py-3 leading-tight text-black border-2 rounded outline-none hover:border-hovergreen focus:border-maingreen" id="grid-last-name" 
-                            type="number"
+                            type="text"
                             name="mobile"
                             value={this.state.mobile}
                             onChange={this.handleChange}
-                            placeholder="" />
+                            placeholder="Eg: 0775642311" />
                             <div class="text-red-600 pl-1">{this.state.mobile_err}</div>
                         </div>
                     </div>
-                    <div className="flex flex-wrap mb-2">
+                    <div className="flex flex-wrap mb-5">
                         <div className="w-full px-3 space-y-2 md:w-1/2">
                             <label className="block text-lg font-semibold tracking-wide text-black" for="role">
                                 State
@@ -214,9 +213,7 @@ class AddEmployee extends Component{
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-wrap justify-center mt-4 -mb-4 space-x-8">
-                        {/* <button type="submit" className="p-2 text-base font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none background-transparent hover:shadow-lg focus:outline-none bg-redcolor">Cancel</button>
-                        <button type="submit" className="p-2 text-base font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none background-transparent hover:shadow-lg focus:outline-none bg-maingreen hover:bg-secondarygreen">Submit</button> */}
+                    <div className="flex flex-wrap justify-center mt-10 space-x-8">
                         <button className="justify-center w-40 p-4 px-4 py-2 font-bold text-white rounded bg-maingreen hover:bg-hovergreen" type="submit">Submit</button>
                         <button className="justify-center w-40 p-4 px-4 py-2 font-bold text-white bg-red-600 rounded hover:bg-lightred" type="cancel">Cancel</button>
                     </div>
