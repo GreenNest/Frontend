@@ -20,10 +20,13 @@ function Shop() {
     const [ active, setActive] = useState({
         active: "Cactus"
     });
+    const [loading, setLoading] = useState(true);
   
     useEffect(() => {
         getHeader();
+        getProductList("Cactus");
         getCategory();
+
     }, [])
 
     const getHeader = async() => {
@@ -40,19 +43,14 @@ function Shop() {
             console.log(response.data.data);
             setCategories(response.data.data);
         })
-
-        // const res2 = await api.get(`/product/${categories[0]}`).then((response) =>{
-            
-        //     setData(response.data.data)
-        // })
-    }
+    };
 
     const getProductList = async(categoryType) => {
-        const allcategories = await api.get(`/product/${categoryType}`).then((response) => {
-            setData(response.data.data);
-            //console.log(response.data.data);
-        })
-    }
+        const allcategories = await api.get(`/product/${categoryType}`);
+        if(allcategories){
+            setData(allcategories.data.data);
+        }
+    };
 
 
     return ( 
@@ -97,7 +95,7 @@ function Shop() {
                         </div>      
                     </div>
                 ) : <h4 className="m-auto mt-10 text-xl font-medium">
-                        There are no products related to this category.
+                        Loading...
                     </h4>
             }
             {/* {data.length != 0 ?

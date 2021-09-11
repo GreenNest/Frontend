@@ -7,56 +7,55 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import Header from '../../../components/Header';
 import SignedHeader from '../../../components/SignedHeader';
 import Footer from '../../../components/Footer';
-import CustomerService from '../../../services/CustomerService';
-import axios from 'axios';
-// import "../../../styles/style.css";
+import api from '../../../axiosContact';
 
 function Cart() {
     var history = useHistory();
     const [header, setHeader] = useState(0);
-    const { amount, id } = useParams();
     const [data, setData] = useState([]);
-    const [images, setImages] = useState([]);
     const [isloading, setIsloading] = useState(true);
     const [cartList, setCartList] = useState([]);
+    const [subtotal, setSubtotal] = useState(0);
 
-    //check the local storage date
-    //const x = JSON.parse(localStorage.getItem('authorization'));
-    console.log(amount);
-    console.log(id);
+    useEffect(() => {
+        getCartItems();   
+        getHeader();         
+    }, [])
 
-    useEffect(async () => {
-        const storage = await JSON.parse(localStorage.getItem('authorization'));
-        if(!storage){
+    const getHeader = async() => {
+        const x = JSON.parse(localStorage.getItem('authorization'));
+        if(!x){
             setHeader(<Header/>)
         }else{
             setHeader(<SignedHeader/>)
         }
-        const values = await axios.get("http://localhost:8080/api/v1/get/product/" +id).then((response) => {
-            //console.log(response.data.data);
-            setData(response.data.data);
-            setImages(response.data.data.subImages);
-            //console.log(data.name);
-            //console.log(images);
-        }).then(setIsloading(false)).catch((err) => {
-            console.log(err.response);
-        });
+    };
 
-        // if(status === "true"){
-        //     setCartList(cartList.concat(<CartItem key={cartList.length} image={"data:image/jpeg;base64," +data.mainImage} price={data.price} name={data.name} totalAmount={amount}/>))
-        // }
-        
-    }, [])
+    const getCartItems = async() => {
+        const y = JSON.parse(localStorage.getItem('authorization'));
+        const id =  parseInt(y.id);
+        const result = await api.get(`/cart/get/${id}`);
+        if(result){
+            setData(result.data.data);
+            
+        }
+    } 
+
+    const calculation = (res) => {
+        let total = 0;
+        res.map((x) => {
+                total= total+ x.price;
+            })
+        return total;
+    }
+
+    
+
 
     return(
         <>
         {header}
         <div className="min-w-full mb-5 -mt-8 md:min-w-0 sm:p-20 lg:px-32">
-            {/* Alert-No added items to display */}
-            {/* <div className="relative py-3 my-5 text-red-700 bg-red-100 border border-red-400 rounded px-7" role="alert">
-                <span className="block sm:inline">Your cart is empty !</span>
-            </div> */}
-
             <div className="flex items-center p-0 mt-2 mb-2 mr-0 rounded-lg max-w-7xl ">
                 {/* Item */}
                 <div className="flex ml-64 mr-2">
@@ -75,19 +74,18 @@ function Cart() {
                     <button button className="flex px-5 py-1 font-bold text-white rounded bg-hovergreen md:border-gray-500" disabled>Subtotal</button>
                 </div>
             </div>
-
-            {/* Item components */}
-            {/* <CartItem image={"data:image/jpeg;base64," +data.mainImage} price={data.price} name={data.name} totalAmount={amount}/> */}
+            {
+                data.length != 0 ? ( 
+                    data.map((item) => (
+                        <CartItem name={item.name} price={item.price} totalAmount={item.quantity} key={item.id} cartId={item.id} getItems={getCartItems} productId={item.product_id}/>
+                    )) 
+                ) : <h4 className="m-auto mt-10 text-xl font-medium">
+                        Empty Cart.
+                    </h4>
+            }
             
-
-            {/* Total amount */}
-            <CartAmount />
+            <CartAmount sum={calculation(data)}/>
             
-            <div className="w-44">
-            <Link to="/shop">
-                <button className="flex px-4 py-2 font-bold text-white rounded bg-maingreen hover:bg-hovergreen"><MdAssignmentReturn className="mt-1 mr-1"/> Return to Shop</button>
-            </Link> 
-            </div>   
         </div>
         <Footer/>
         </>

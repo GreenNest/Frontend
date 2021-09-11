@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import CustomerService from '../../../services/CustomerService';
 import api from '../../../axiosContact';
-import axios from 'axios';
 
 import Review from './components/Review';
 import RequestPopup from './RequestPopup';
@@ -39,7 +38,7 @@ function Product() {
         }else{
             setHeader(<SignedHeader/>)
         }
-        const values = await axios.get("http://localhost:8080/api/v1/get/product/" +id).then((response) => {
+        const values = await api.get(`/get/product/${id}`).then((response) => {
             setData(response.data.data);
             setImages(response.data.data.subImages);
             setCategory(response.data.data.categories);
@@ -52,7 +51,11 @@ function Product() {
 
     const togglecomplain = () => {
         setModel2(!model2)
-      }
+    }
+
+    const updateStock = async(newStock) => {
+        const res = await api.put(`/product/update/${id}/${newStock}`);
+    }
 
     const addToCart = () => {
         let price = stock * data.price;
@@ -75,6 +78,7 @@ function Product() {
                 CustomerService.addToCart(cart).then((response) => {
                     setMessage(response.data.message);
                 })
+                updateStock(data.amount - parseInt(stock));
             }
             
         }else{

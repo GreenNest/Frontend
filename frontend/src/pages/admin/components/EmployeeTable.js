@@ -5,7 +5,6 @@ import { MdDeleteSweep } from 'react-icons/md';
 import api from '../../../axiosContact';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 function EmployeeTable(props) {
 
     const deleteEmployee = async (id) => {
