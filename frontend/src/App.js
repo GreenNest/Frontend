@@ -20,7 +20,7 @@ import AdminDashboard from './pages/admin/dashboard/Dashboard';
 import Reports from './pages/admin/reports/Reports';
 import AddStock from './pages/admin/add-stock/AddStock';
 import EditStock from './pages/admin/stock/EditStock';
-import Updatestock from './pages/admin/stock/Updatestock';
+import UpdateStock from './pages/admin/stock/UpdateStock';
 import ViewCategories from './pages/admin/category/ViewCategories';
 import ProductByCategory from './pages/admin/stock/ProductByCategory';
 import ViewSupplier from './pages/admin/supplier/ViewSupplier';
@@ -73,7 +73,7 @@ function App() {
     <Route exact path="/admin/reports" component={Reports} />
     <Route exact path="/admin/addItem" component={AddStock} />
     <Route exact path="/admin/editItem" component={EditStock} />
-    <Route exact path="/admin/updateStock" component={Updatestock} />
+    <Route exact path="/admin/updateStock" component={UpdateStock} />
     <Route exact path="/admin/viewCategories" component={ViewCategories} />
     <Route exact path="/admin/categoryView/productsView/:name" component={ProductByCategory} />
     <Route exact path="/admin/viewSupplier" component={ViewSupplier} />

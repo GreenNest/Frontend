@@ -12,7 +12,7 @@ function CheckBox(props) {
                         props.type[1]([...props.type[0],e.target.value]);
                     }
                     else{
-                        const index = props.type[0].indexOf(props.id.toString())
+                        const index = props.type[0].indexOf(props.name.toString())
                         // console.log(index)
                         // console.log(props.id)
                         if(index > -1){
