@@ -1,67 +1,71 @@
+import React, { useState, useEffect} from "react";
 import SupplierTable from "./components/SupplierTable";
 import ModeratorSidebar from '../components/moderatorSidebar';
+import api from "../../../axiosContact";
 
-const SupplierList = () => {
+function SupplierList () {
+
+    const [suppliers, setsuppliers] = useState([]);
+
+    const retrieveSuppliers = async () => {
+        const res = await api.get("/suppliersByCategory");
+        return res.data.data;
+    };
+
+    const getSuppliers = async () => {
+        const allSuppliers = await retrieveSuppliers();
+        if (allSuppliers) {
+            setsuppliers(allSuppliers);
+        };
+    }
+
+    useEffect(() => {
+        getSuppliers();
+    }, [])
+
     return (
         <>
-        <ModeratorSidebar/>
-        <div className="w-11/12 ml-48">
-        <div className="flex flex-col mx-8 my-10 mt-0 md:mx-40 sm:mx-10">
-            <div className="flex mb-10 mt-8 justify-center font-bold text-2xl text-maingreen">Fruit Plants Suppliers</div>
-            <div className="-my-2 flex overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                    <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
-                        <table className="min-w-full divide-y divide-gray-200">
-                            <thead className="bg-gray-500 bg-opacity-25">
-                                <tr>
-                                    <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left">Name</th>
-                                    <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left">Address</th>
-                                    <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left">Mobile</th>
-                                    <th className="relative px-6 py-3">
-                                        <span className="sr-only">Edit</span>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody className="bg-white divide-y divide-gray-200">
-                                <SupplierTable name="Sulakshanee Theja" email="sulakshanee@gmail.com" address="Pala Thawana, Sooriyawewa, Hambantota" mobile="0711234553" />
-                                <SupplierTable name="Chathurika Perera" email="chathurika@gmail.com" address="Green House, No.265, Kurunagala" mobile="0715428643" />
-                                <SupplierTable name="Hiruni Amarakoon" email="hiruni@gmail.com" address="Thuru Wimana, Kuliyapitiya, Kurunagala" mobile="0715829347" />
-                                <SupplierTable name="Piyumi Dulanjalee" email="piyumi@gmail.com" address="Plant House, No.456, Matara" mobile="0772036782" />
-                                <SupplierTable name="Hashan Chandima" email="hashan@gmail.com" address="Thuru Thuru, No.89, Kurunagala" mobile="0769299923" />
-                            </tbody>
-                        </table>
-                    </div>
+            <ModeratorSidebar/>
+            <div className="flex items-start justify-end mt-8 mb-10 ml-10">
+                <div className="w-3/4 px-10 pt-10 bg-gray-500 bg-opacity-25 rounded sm:mx-10">
+                    {
+                        suppliers.length !== 0 ? (
+                            suppliers.map((contact, index) => (
+                                contact.suppliers.length !== 0 ? (
+                                    <div key={index}>
+                                        <h4 className="text-3xl font-bold text-center text-maingreen">{contact.categoryName}</h4>
+                                        <div className="flex mt-6 mb-12 overflow-x-auto border-b border-gray-200 shadow verflow-hidden sm:rounded-lg">
+                                            <table className="min-w-full divide-y divide-gray-200">
+                                                <thead className="bg-gray-500 bg-opacity-25">
+                                                    <tr>
+                                                        <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left">Name</th>
+                                                        <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left">Address</th>
+                                                        <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left">Mobile</th>
+                                                        <th className="relative px-6 py-3">
+                                                            <span className="sr-only">Edit</span>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody className="bg-white divide-y divide-gray-200">
+                                                    {
+                                                        contact.suppliers.map((supplier, index) => (
+                                                            supplier.account_status == 0 ? (
+                                                                <SupplierTable key={index} first_name={supplier.first_name} last_name={supplier.last_name} address={supplier.address} email={supplier.email} mobile={supplier.mobile} />
+                                                            ): null
+                                                        ))
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                ): null
+                            ))
+                        ):  <h4 className="m-auto mt-10 mb-10 text-2xl font-medium text-center text-red-500">
+                                There are no Suppliers joing with the company.
+                            </h4> 
+                    }
                 </div>
             </div>
-
-            <div className="flex mb-10 mt-8 justify-center font-bold text-2xl text-maingreen">Flower Plants Suppliers</div>
-            <div className="-my-2 flex overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                    <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
-                        <table className="min-w-full divide-y divide-gray-200">
-                            <thead className="bg-gray-500 bg-opacity-25">
-                                <tr>
-                                    <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left">Name</th>
-                                    <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left">Address</th>
-                                    <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left">Mobile</th>
-                                    <th className="relative px-6 py-3">
-                                        <span className="sr-only">Edit</span>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody className="bg-white divide-y divide-gray-200">
-                                <SupplierTable name="Sulakshanee Theja" email="sulakshanee@gmail.com" address="Pala Thawana, Sooriyawewa, Hambantota" mobile="0711234553" />
-                                <SupplierTable name="Chathurika Perera" email="chathurika@gmail.com" address="Green House, No.265, Kurunagala" mobile="0715428643" />
-                                <SupplierTable name="Hiruni Amarakoon" email="hiruni@gmail.com" address="Thuru Wimana, Kuliyapitiya, Kurunagala" mobile="0715829347" />
-                                <SupplierTable name="Piyumi Dulanjalee" email="piyumi@gmail.com" address="Plant House, No.456, Matara" mobile="0772036782" />
-                                <SupplierTable name="Hashan Chandima" email="hashan@gmail.com" address="Thuru Thuru, No.89, Kurunagala" mobile="0769299923" />
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
         </>
     );
 }
