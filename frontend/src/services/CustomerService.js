@@ -105,6 +105,10 @@ class CustomerService {
     updatePassword(data){
         return axios.put(`${API}userPassword/get`, data)
     }
+    getAllCoOrders(){
+        return axios.get(`${API}orders/cashOnDelivery`)
+    }
+
 
 
 
