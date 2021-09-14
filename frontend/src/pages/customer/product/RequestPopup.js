@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import CustomerService from '../../../services/CustomerService';
-import axios from 'axios';
 
 function RequestPopup(props){
   const[descriptions, setDescriptions] = useState('');
@@ -19,9 +18,7 @@ function RequestPopup(props){
         customer_id: x.id
       }
     }
-    console.log(response);
     CustomerService.addResponse(response).then((result) => {
-      console.log(result.data);
       setMessage(result.data.message);
     }).catch((error) => {
       console.log(error.response);

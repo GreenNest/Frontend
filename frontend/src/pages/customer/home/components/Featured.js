@@ -19,15 +19,6 @@ function Featured(props) {
         }).then(setIsloading(false));
         
     }, [])
-
-//    const getFeaturedProduct = async() => {
-//         const result = await api.get(`get/featured/true`);
-//         if(result){
-//             console.log(result.data.data);
-//             setData(result.data.data);
-//         }
-
-//     }
  
     return (
         <div class="grid h-auto lg:grid-cols-feature md:grid-cols-feature gap-10 md:mr-24 md:ml-24 md:mb-16 mr-8 ml-8 mb-4 grid-cols-feature2">

@@ -7,7 +7,7 @@ function CartAmount(props) {
     return (
         <div>
         {/* Total amount */}
-        <div className="w-4/12 m:w-2/12 sm:w-3/12 flex flex-col float-right justify-center items-center bg-gray-200 p-2 rounded-lg  mb-2">
+        <div className="w-4/12 sm:w-2/6 flex flex-col float-right justify-center items-center bg-gray-200 p-2 rounded-lg  mb-2">
         <div className="flex-auto">
             <p className="font-bold">Total Amount</p>
         </div>
@@ -17,14 +17,18 @@ function CartAmount(props) {
             <div className="font-bold text-sm mt-1">Total :</div>
 
 
-            <div className="text-sm">{props.sum} LKR</div>
-            <div className="text-sm"> 200 LKR</div>
-            <div className="font-bold text-sm">{totalPrice} LKR</div>
+            <div className="text-sm">{props.sum.toFixed(2)} LKR</div>
+            <div className="text-sm"> 200.00 LKR</div>
+            <div className="font-bold text-sm">{totalPrice.toFixed(2)} LKR</div>
         </div>
-        <div className="flex-auto mt-4">
+        <div className="mt-4 inline-flex">
             <Link to="checkout">
-                <button className="bg-maingreen hover:bg-hovergreen text-white flex font-bold py-2 px-4 rounded">Place Order</button>
+                <button className="bg-maingreen hover:bg-hovergreen text-white flex font-bold py-2 px-4 rounded mr-4">Cash on Delivery</button>
             </Link>
+            <Link to="checkout">
+                <button className="bg-maingreen hover:bg-hovergreen text-white flex font-bold py-2 px-4 rounded">Online</button>
+            </Link>
+            
         </div>
         
     </div>

@@ -72,3 +72,8 @@
 .selected li {
   color: #bc4749;
 }
+.star {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}

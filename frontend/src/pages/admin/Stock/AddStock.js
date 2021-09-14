@@ -28,9 +28,7 @@ class AddStock extends Component {
 
     componentDidMount(){
         axios.get("http://localhost:8080/api/v1/get/categories").then((response) => {
-            console.log(response.data.data);
             this.setState({data: response.data.data});
-            console.log(this.state.data);
         })
     }
 

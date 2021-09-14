@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams, Redirect } from 'react-router-dom';
 import CustomerService from '../../../services/CustomerService';
 import api from '../../../axiosContact';
 
@@ -16,6 +16,7 @@ import customer4 from '../../../assets/customer_img/customer4.jpg'
 import Header from '../../../components/Header';
 import SignedHeader from '../../../components/SignedHeader';
 import Footer from '../../../components/Footer';
+import Featured from '../home/components/Featured';
 
 function Product() { 
     var history = useHistory();
@@ -28,26 +29,55 @@ function Product() {
     const [isloading, setIsloading] = useState(true);
     const [stock, setStock] = useState(0);
     const[message, setMessage] = useState('');
+    const [reviewsData, setReviewsData] = useState([]);
     const x = JSON.parse(localStorage.getItem('authorization'));
     const {id} = useParams();
     const [category, setCategory] = useState([]);
 
     useEffect(async () => {
+        getHeader();
+        getProductDetails();
+        productRivews();
+
+    }, [])
+
+    const getHeader = async() => {
+        const x = JSON.parse(localStorage.getItem('authorization'));
         if(!x){
-            history.push("/login");
+            <Redirect to='/login' />
+            setHeader(<Header/>)
+            
         }else{
             setHeader(<SignedHeader/>)
         }
-        const values = await api.get(`/get/product/${id}`).then((response) => {
-            setData(response.data.data);
-            setImages(response.data.data.subImages);
-            setCategory(response.data.data.categories);
-            //console.log(images);
-        }).then(setIsloading(false)).catch((err) => {
-            console.log(err.response);
-        })
+    }
 
-    }, [])
+    const getProductDetails = async() => {
+        const x = JSON.parse(localStorage.getItem('authorization'));
+        
+        CustomerService.getSingleProduct(id).then((response) => {
+            if(response.data.status == 200){
+               setData(response.data.data);
+               setImages(response.data.data.subImages);
+               setCategory(response.data.data.categories);
+            }
+        }).catch((err) => {
+            console.log(err.response.status);
+            if(err.response.status == 401){
+                history.push("/login");
+            }
+        })
+        
+    }
+
+    const productRivews = async() => {
+        const res = await api.get(`/reviews/get/${id}`);
+        console.log(res.data.status);
+        if(res.data.data != null){
+            setReviewsData(res.data.data);
+            console.log(res.data);
+        }
+    }
 
     const togglecomplain = () => {
         setModel2(!model2)
@@ -56,6 +86,7 @@ function Product() {
     const updateStock = async(newStock) => {
         const res = await api.put(`/product/update/${id}/${newStock}`);
     }
+
 
     const addToCart = () => {
         let price = stock * data.price;
@@ -145,14 +176,16 @@ function Product() {
                 
             </div>
             <div className="mt-16">
-                <div className="text-4xl font-bold text-center text-black text-opacity-70">Item Reviews</div>
-                <Review image={customer3} name="Sulakshanee Theja" date="2 days ago" review="Recived a healthy plant, with more than 10 fresh leaves. It was grafted well. The plant was nicely packed in hard cardboard. I have tried few other sellers earlier who were worse and expensive. So this one is comparatively good. After observation of 5 days, its visible that the plant is improving on its growth day by day."/>
-                <Review image={customer4} name="Hashan Chandima" date="4 days ago" review="Received a wilted plant (no roots were visible) which didn’t stand a chance to survive even in the rainy conditions. It was not grafted as well. Tried reviving the plant but didn't work out. All leaves dried up and the stem is also drying up. A waste of effort, and money.Don't use this nursary to place order plants."/>
-                <Review image={customer2} name="Hiruni Amarakoon" date="10 days ago" review="Recived a healthy plant, with more than 10 fresh leaves. It was grafted well. The plant was nicely packed in hard cardboard. I have tried few other sellers earlier who were worse and expensive. So this one is comparatively good. After observation of 5 days, its visible that the plant is improving on its growth day by day."/>
-            </div>
+            <div className="text-4xl font-bold text-center text-black text-opacity-70">Item Reviews</div>
+            { reviewsData.length != 0 ? ( reviewsData.map((item, id) => (
+                <Review image={customer3} name={item.customerName} date={item.date.substring(0,10)} review={item.reviews} key={id}/>
+            ))) : null
+            }
+             </div>
+            
             <div className="mt-16">
-                <div className="text-4xl font-bold text-center text-black text-opacity-70">Related Products</div>
-                <Productlist />
+                <div className="text-4xl font-bold text-center text-black text-opacity-70 mb-8">Related Products</div>
+                <Featured />
             </div>
 
             { model2 ? 

@@ -26,16 +26,6 @@ class Login extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // componentDidMount(){
-    //     let x = this.props.location.state.message;
-    //     if(x){
-    //         this.setState({error: this.props.location.state.message});
-    //     }else{
-
-    //     }
-       
-    // }
-
 
     handleChange =(event)=>{
         this.setState({
@@ -51,6 +41,7 @@ class Login extends Component {
         }
 
         let newuser = JSON.stringify(loginModel);
+        console.log(loginModel);
         
         axios.post("http://localhost:8080/api/v1/auth/login", loginModel).then((response) => {
             console.log(response.data);
@@ -114,9 +105,12 @@ class Login extends Component {
                 </div>
 
                         <div class="flex items-center justify-center">
-                        <a class="inline-block text-base font-semibold text-black align-baseline hover:text-green-800" href="#">
-                                Forgot Password?
-                            </a>
+                        {/* <Link to="/user/changePassword" class="inline-block text-base font-semibold text-black align-baseline hover:text-green-800" href="#">
+                            Forgot Password?
+                        </Link> */}
+                        <Link to="/forgetpassword" class="inline-block text-base font-semibold text-black align-baseline hover:text-green-800" href="#">
+                            Forgot Password?
+                        </Link>
                         </div>
 
                         <div class="flex items-center justify-center mt-4">

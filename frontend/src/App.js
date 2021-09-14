@@ -5,6 +5,9 @@ import {BrowserRouter as Router , Route , Switch} from "react-router-dom";
 // customer
 import Index from './pages/customer/Index'; //
 import Signup from './pages/customer/Signup'; //
+import ForgetPassword from './pages/customer/ForgetPassword';
+import ResetPassword from './pages/customer/ResetPassword';
+import OTPcheck from './pages/customer/OTPcheck';
 import Login from './pages/customer/Login'; //
 import Shop from './pages/customer/Shop/Shop'; //
 import FruitsList from './pages/customer/Shop/FruitsList'; 
@@ -18,11 +21,11 @@ import Orderhistory from './pages/customer/Orderhistory';//
 // admin
 import AdminDashboard from './pages/admin/dashboard/Dashboard';
 import Reports from './pages/admin/reports/Reports';
-import AddStock from './pages/admin/add-stock/AddStock';
-import EditStock from './pages/admin/stock/EditStock';
-import UpdateStock from './pages/admin/stock/UpdateStock';
+import AddStock from './pages/admin/Stock/AddStock';
+import EditStock from './pages/admin/Stock/EditStock';
+import Updatestock from './pages/admin/Stock/Updatestock';
 import ViewCategories from './pages/admin/category/ViewCategories';
-import ProductByCategory from './pages/admin/stock/ProductByCategory';
+import ProductByCategory from './pages/admin/Stock/ProductByCategory';
 import ViewSupplier from './pages/admin/supplier/ViewSupplier';
 import EditSupplier from './pages/admin/supplier/EditSupplier';
 import AddSupplier from './pages/admin/supplier/AddSupplier';
@@ -66,7 +69,10 @@ function App() {
     <Route exact path="/cart" component={Cart}/>
     <Route exact path="/checkout" component={Checkout}/>
     <Route exact path="/profile/orders" component={Orderhistory}/>
-    <Route exact path="/profile/order/review" component={Order}/>
+    <Route exact path="/profile/order/review/:oId" component={Order}/>
+    <Route exact path="/forgetpassword" component={ForgetPassword}/>
+    <Route exact path="/user/changePassword/:email" component={ResetPassword}/>
+    <Route exact path="/verify/code/:email" component={OTPcheck}/>
 
     {/* admin routes */}
     <Route exact path="/admin/dashboard" component={AdminDashboard} />
