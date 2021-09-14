@@ -29,7 +29,7 @@ function ViewSupplier () {
         <>
             <AdminSidebar/>
             <div className="w-10/12 h-full ml-44">
-                <div className="float-right w-5/6 mt-10 mb-8 mr-5 bg-gray-500 bg-opacity-25 rounded" >
+                <div className="float-right w-5/6 mt-10 mb-8 mr-5 bg-gray-500 bg-opacity-25 rounded">
                     <h4 className="m-8 text-3xl font-bold text-center text-maingreen">All Suppliers</h4>
                     <div className="float-right mr-12">
                         <Search />

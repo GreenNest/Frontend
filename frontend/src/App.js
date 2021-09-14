@@ -79,7 +79,7 @@ function App() {
     <Route exact path="/admin/reports" component={Reports} />
     <Route exact path="/admin/addItem" component={AddStock} />
     <Route exact path="/admin/editItem" component={EditStock} />
-    <Route exact path="/admin/updateStock" component={Updatestock} />
+    <Route exact path="/admin/updateStock" component={UpdateStock} />
     <Route exact path="/admin/viewCategories" component={ViewCategories} />
     <Route exact path="/admin/categoryView/productsView/:name" component={ProductByCategory} />
     <Route exact path="/admin/viewSupplier" component={ViewSupplier} />

@@ -69,7 +69,7 @@ function AddSupplier(props) {
         const isValid = validate();
         console.log(isValid)
         if (isValid) {
-            const result = supplierAdd(usedCategory);
+            const result = supplierAdd();
             if(result){
                 toast('Successfully add supplier', {
                     autoClose: false,
@@ -98,6 +98,7 @@ function AddSupplier(props) {
                                     onChange={(e) => {
                                         setfirstName(e.target.value);
                                     }}
+                                    required
                                 />
                             </div>
                             <div className="w-full px-3 space-y-2 md:w-1/2">
@@ -109,6 +110,7 @@ function AddSupplier(props) {
                                     onChange={(e) => {
                                         setlastName(e.target.value);
                                     }}
+                                    required
                                 />
                             </div>
                         </div>
@@ -122,6 +124,7 @@ function AddSupplier(props) {
                                     onChange={(e) => {
                                         setaddress(e.target.value);
                                     }}
+                                    required
                                 />
                             </div>
                         </div>
@@ -135,6 +138,7 @@ function AddSupplier(props) {
                                     onChange={(e) => {
                                         setemail(e.target.value);
                                     }}
+                                    required
                                 />
                                 <div class="text-red-600 pl-1">{email_error}</div>
                             </div>
@@ -147,6 +151,7 @@ function AddSupplier(props) {
                                     onChange={(e) => {
                                         setmobile(e.target.value);
                                     }}
+                                    required
                                 />
                                 <div class="text-red-600 pl-1">{mobile_error}</div>
                             </div>

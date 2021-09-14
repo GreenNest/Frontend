@@ -23,9 +23,9 @@ class AddStock extends Component {
             error: null,
             data: []
         };
-        this.handleSubmit = this.handleSubmit.bind(this);
-        
+        this.handleSubmit = this.handleSubmit.bind(this);  
     }
+
     componentDidMount(){
         axios.get("http://localhost:8080/api/v1/get/categories").then((response) => {
             this.setState({data: response.data.data});
@@ -37,16 +37,19 @@ class AddStock extends Component {
             [event.target.name]:event.target.value
         });
     };
+
     handleChecked=(event) => {
         let selected = this.state.category;
         selected.push(event.target.value);
         this.setState({ selected });
     }
+
     handleFileChange = (event) => {
         this.setState({
             [event.target.name]:event.target.files[0],
         });
     };
+
     handleFilesChange = (event) => {
         this.setState({
             [event.target.name]:event.target.files,
@@ -80,10 +83,10 @@ class AddStock extends Component {
             console.log(error.respose);
             })
         this.setState();
-
     }
+
     render() {
-        const msg =this.state.error ? <div class="flex justify-center items-center text-maingreen">{this.state.error}</div>:'';
+        const msg = this.state.error ? <div class="flex justify-center items-center text-maingreen">{this.state.error}</div> : '';
         const categories = this.state.data.map((item, index) => {
             <div key={index}>
                 <label> {item}
@@ -92,159 +95,162 @@ class AddStock extends Component {
                         name={item}
                         type="checkbox"
                         checked={this.state.isGoing}
-                        onChange={this.handleInputChange} />
+                        onChange={this.handleInputChange}
+                    />
                 </label>
             </div>
-                             });
+        });
 
         return (
-            <div>
-            <AdminSidebar/>
-            <div className="grid-container">
-            {/* <div class="bg-maingreen"></div> */}
-            <div className="mt-6 -ml-4 main-area">
-               <div class="w-full m-16 bg-gray-500 bg-opacity-25 rounded ">
-               {msg}
-                  <form class="w-full justify-start p-4 flex flex-col items-center"  onSubmit={this.handleSubmit} > 
-                        <div class=" text-maingreen font-bold text-2xl pb-2 mb-2">Add Item</div>
-                        
-                        <div class="grid grid-cols-1 w-full md:grid-cols-2">
-                            
-                            <div class="flex justify-start items-center p-1 mb-3 w-full">
-                                <label class=" text-lg p-2 w-1/3 font-semibold">Item Name</label>
-                                <input class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2" 
-                                    type="text"
-                                    name="name"
-                                    value={this.state.name}
-                                    onChange={this.handleChange}
-                                    placeholder="Mango"
-                                    required/>
-                            </div>
-                            <div class="flex justify-start items-center p-1 mb-3 w-full">
-                                <label class="text-lg p-2 w-1/3 font-semibold">Item details</label>
-                                <input class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2"  
-                                    type="text"
-                                    name="details"
-                                    value={this.state.details}
-                                    onChange={this.handleChange}
-                                    placeholder="description...." required/>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 w-full"> 
-                            
-                            <div class="flex justify-start items-center p-1 mb-3 w-full">
-                                <label class=" text-lg p-2 w-1/3 font-semibold">Price</label>
-                                <input class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2" 
-                                    type="integer"
-                                    name="price"
-                                    value={this.state.price}
-                                    onChange={this.handleChange}
-                                    placeholder="100" required/>
-                            </div>
-                            <div class="flex justify-start items-center p-1 mb-3 w-full">
-                                <label class="text-lg p-2 w-1/3 font-semibold">Featured</label>
-                                <select class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2"
-                                    id = "isfeatured"
-                                    name= "isfeatured"
-                                    value={this.state.isfeatured}
-                                    onChange={this.handleChange}>
-                                    <option value="true">True</option>
-                                    <option value="false">False</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 w-full">
-                            
-                            <div class="flex justify-start items-center p-1 mb-3 w-full">
-                                <label class="text-lg p-2 w-1/3 font-semibold">Item Quality</label>
-                                <input class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2"  
-                                    type="integer"
-                                    name="quantity"
-                                    value={this.state.quantity}
-                                    onChange={this.handleChange}
-                                    placeholder="1" required/>
-                            </div>
-                            <div class="flex justify-start items-center p-1 mb-3 w-full">
-                                <label class=" text-lg p-2 w-1/3 font-semibold">Reorder Level</label>
-                                <input class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2"  
-                                    type="integer"
-                                    name="reorder_level"
-                                    value={this.state.reorder_level}
-                                    onChange={this.handleChange}
-                                    placeholder="1" required/>
-                            </div>
-                        </div>
-                       <div class="grid grid-cols-1 md:grid-cols-2 w-full">
-                            
-                            <div class="flex justify-start items-center p-1 mb-3 w-full">
-                                <label class=" text-lg p-2 w-1/3 font-semibold">Main Image</label>
-                                <input class="w-1/2 outline-none text-sm rounded p-2 border-solid block border-2" 
-                                    type="file"
-                                    name="file"
-                                    value={this.state.file[0]}
-                                    onChange={this.handleFileChange} required/>
-                            </div>
-                            <div class="flex justify-start items-center p-1 mb-3 w-full">
-                                <label class="text-lg p-2 w-1/3 font-semibold">Other Images(1)</label>
-                                <input class="w-1/2 outline-none text-sm rounded p-2 border-solid block border-2" 
-                                    type="file"
-                                    name="image_file1"
-                                    value={this.state.image_file1[0]}
-                                    onChange={this.handleFileChange} required/>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 w-full">
-                            
-                            <div class="flex justify-start items-center p-1 mb-3 w-full">
-                                <label class="text-lg p-2 w-1/3 font-semibold">Other Images(2)</label>
-                                <input class="w-1/2 outline-none text-sm rounded p-2 border-solid block border-2" 
-                                    type="file"
-                                    name="image_file2"
-                                    value={this.state.image_file2[0]}
-                                    onChange={this.handleFileChange} required/>
-                            </div>
-                            <div class="flex justify-start items-center p-1 mb-3 w-full">
-                                <label className="w-1/3 p-2 text-lg font-semibold">Other Images(3)</label>
-                                <input class="w-1/2 outline-none text-sm rounded p-2 border-solid block border-2" 
-                                    type="file"
-                                    name="image_file3"
-                                    value={this.state.image_file3[0]}
-                                    onChange={this.handleFileChange} required/>
-                            </div>
-                            
-                            
-                        </div>
-                        <div className="flex flex-col justify-start w-full p-1">
-                        <p className="w-1/3 p-2 text-lg font-semibold">Categories</p>
-                        <div class="grid grid-cols-2 w-full gap-2 md:grid-cols-3">
-                        
-                        {
-                            this.state.data.map((item, index) => 
-                                <div key={index} className="pl-2 font-semibold">
-                                    <label> {item}
-                                    <input
-                                        value={item}
-                                        type="checkbox"
-                                        className="w-4 h-4 ml-2" 
-                                        onChange={this.handleChecked}/>
-                                </label>
+            <>
+                <AdminSidebar/>
+                <div className="w-10/12 h-full ml-44">
+                    <div class="float-right w-5/6 mt-10 mb-8 mr-5 bg-gray-500 bg-opacity-25 rounded">
+                        {msg}
+                        <form class="w-full justify-start p-4 flex flex-col items-center ml-3 -mt-3" onSubmit={this.handleSubmit}> 
+                            <h4 className="m-8 text-3xl font-bold text-center text-maingreen">Add Item</h4>
+                            <div class="grid grid-cols-1 w-full md:grid-cols-2">
+                                <div class="flex justify-start items-center p-1 mb-3 w-full">
+                                    <label class=" text-lg p-2 w-1/3 font-semibold">Item Name</label>
+                                    <input class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2" 
+                                        type="text"
+                                        name="name"
+                                        value={this.state.name}
+                                        onChange={this.handleChange}
+                                        placeholder="Eg: Mango"
+                                        required
+                                    />
                                 </div>
-                            )
-                        }
-                            
-                        </div>
-                        </div>
-                        <div class="flex w-full justify-center items-center mt-7 -mb-5">
-                            {/* <div class=" w-1/3 p-3 bg-secondarygreen text-mainyellow font-bold text-lg rounded-sm mt-5 mb-5 flex justify-center items-center cursor-pointer mr-8">Submit</div> */}
-                            <button className="justify-center w-40 p-4 px-4 py-2 mb-8 font-bold text-white rounded bg-maingreen hover:bg-hovergreen" type="submit">Submit</button>
-                            <button className="justify-center w-40 p-4 px-4 py-2 mb-8 ml-12 font-bold text-white bg-red-600 rounded hover:bg-lightred" type="cancel">Cancel</button>
-                            {/* <div class="w-1/3 p-3 bg-redcolor text-mainyellow font-bold text-lg rounded-sm mt-5 mb-5 flex justify-center items-center cursor-pointer">Cancel</div> */}
-                        </div>
-                  </form>
-               </div>
-            </div>
-            </div>
-            </div>
+                                <div class="flex justify-start items-center p-1 mb-3 w-full">
+                                    <label class="text-lg p-2 w-1/3 font-semibold">Item Details</label>
+                                    <input class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2"  
+                                        type="text"
+                                        name="details"
+                                        value={this.state.details}
+                                        onChange={this.handleChange}
+                                        placeholder="Eg: Description"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 w-full">
+                                <div class="flex justify-start items-center p-1 mb-3 w-full">
+                                    <label class=" text-lg p-2 w-1/3 font-semibold">Item Price</label>
+                                    <input class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2" 
+                                        type="integer"
+                                        name="price"
+                                        value={this.state.price}
+                                        onChange={this.handleChange}
+                                        placeholder="Eg: 250"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex justify-start items-center p-1 mb-3 w-full">
+                                    <label class="text-lg p-2 w-1/3 font-semibold">Featured</label>
+                                    <select class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2"
+                                        id = "isfeatured"
+                                        name= "isfeatured"
+                                        value={this.state.isfeatured}
+                                        onChange={this.handleChange}>
+                                        <option value="true">True</option>
+                                        <option value="false">False</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 w-full">
+                                <div class="flex justify-start items-center p-1 mb-3 w-full">
+                                    <label class="text-lg p-2 w-1/3 font-semibold">Item Quantity</label>
+                                    <input class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2"  
+                                        type="integer"
+                                        name="quantity"
+                                        value={this.state.quantity}
+                                        onChange={this.handleChange}
+                                        placeholder="Eg: 100"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex justify-start items-center p-1 mb-3 w-full">
+                                    <label class=" text-lg p-2 w-1/3 font-semibold">Reorder Level</label>
+                                    <input class="w-1/2 outline-none text-sm rounded p-2 border-solid hover:border-hovergreen focus:border-maingreen border-2"  
+                                        type="integer"
+                                        name="reorder_level"
+                                        value={this.state.reorder_level}
+                                        onChange={this.handleChange}
+                                        placeholder="Eg: 10"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 w-full">
+                                <div class="flex justify-start items-center p-1 mb-3 w-full">
+                                    <label class=" text-lg p-2 w-1/3 font-semibold">Main Image</label>
+                                    <input class="w-1/2 outline-none text-sm rounded p-2 border-solid block border-2" 
+                                        type="file"
+                                        name="file"
+                                        value={this.state.file[0]}
+                                        onChange={this.handleFileChange}
+                                        required
+                                    />
+                                </div>
+                                <div class="flex justify-start items-center p-1 mb-3 w-full">
+                                    <label class="text-lg p-2 w-1/3 font-semibold">Other Images(1)</label>
+                                    <input class="w-1/2 outline-none text-sm rounded p-2 border-solid block border-2" 
+                                        type="file"
+                                        name="image_file1"
+                                        value={this.state.image_file1[0]}
+                                        onChange={this.handleFileChange}
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 w-full">
+                                <div class="flex justify-start items-center p-1 mb-3 w-full">
+                                    <label class="text-lg p-2 w-1/3 font-semibold">Other Images(2)</label>
+                                    <input class="w-1/2 outline-none text-sm rounded p-2 border-solid block border-2" 
+                                        type="file"
+                                        name="image_file2"
+                                        value={this.state.image_file2[0]}
+                                        onChange={this.handleFileChange}
+                                        required
+                                    />
+                                </div>
+                                <div class="flex justify-start items-center p-1 mb-3 w-full">
+                                    <label className="w-1/3 p-2 text-lg font-semibold">Other Images(3)</label>
+                                    <input class="w-1/2 outline-none text-sm rounded p-2 border-solid block border-2" 
+                                        type="file"
+                                        name="image_file3"
+                                        value={this.state.image_file3[0]}
+                                        onChange={this.handleFileChange}
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div className="flex flex-col justify-start w-full p-1">
+                                <label className="w-1/3 p-2 text-lg font-semibold">Item Categories</label>
+                                <div class="grid grid-cols-2 gap-2 mt-1 ml-6 md:grid-cols-4">
+                                    {
+                                        this.state.data.map((item, index) => 
+                                            <div key={index} className="inline-flex items-center">
+                                                <input
+                                                    value={item}
+                                                    type="checkbox"
+                                                    className="w-4 h-4" 
+                                                    onChange={this.handleChecked}
+                                                />
+                                                <label className="mt-1 ml-4 font-medium">{item}</label>
+                                            </div>
+                                        )
+                                    }
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap justify-center mt-8 space-x-8 -mb-3">
+                                <button className="justify-center w-40 p-4 px-4 py-2 mb-8 font-bold text-white rounded bg-maingreen hover:bg-hovergreen">Submit</button>
+                                <button className="justify-center w-40 p-4 px-4 py-2 mb-8 font-bold text-white bg-red-600 rounded hover:bg-lightred">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </>
         );
     }
 }
