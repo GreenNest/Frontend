@@ -21,11 +21,11 @@ import Orderhistory from './pages/customer/Orderhistory';//
 // admin
 import AdminDashboard from './pages/admin/dashboard/Dashboard';
 import Reports from './pages/admin/reports/Reports';
-import AddStock from './pages/admin/Stock/AddStock';
-import EditStock from './pages/admin/Stock/EditStock';
-import Updatestock from './pages/admin/Stock/Updatestock';
+import AddStock from './pages/admin/stock/AddStock';
+import EditStock from './pages/admin/stock/EditStock';
+import Updatestock from './pages/admin/stock/UpdateStock';
 import ViewCategories from './pages/admin/category/ViewCategories';
-import ProductByCategory from './pages/admin/Stock/ProductByCategory';
+import ProductByCategory from './pages/admin/stock/ProductByCategory';
 import ViewSupplier from './pages/admin/supplier/ViewSupplier';
 import EditSupplier from './pages/admin/supplier/EditSupplier';
 import AddSupplier from './pages/admin/supplier/AddSupplier';

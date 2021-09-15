@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import React from 'react'
-import nelli from "../../../assets/product_img/nelli.jpg"
+import React from 'react';
 
 function Productcard(props){
     const id = props.id;

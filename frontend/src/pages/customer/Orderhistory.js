@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Header from '../../components/Header';
 import SignedHeader from '../../components/SignedHeader';
 import Footer from '../../components/Footer';
@@ -39,9 +39,9 @@ function Orderhistory() {
     }
 
   const checkStatus = (name) => {
-    if(name == "Pending"){
+    if(name === "Pending"){
       return <div className="ml-4 font-medium text-red-600">{name}</div>
-    }else if(name == "Processing"){
+    }else if(name === "Processing"){
       return <div className="ml-4 font-medium text-yellow-500">{name}</div>
     }else{
       return <div className="ml-4 font-medium text-maingreen">{name}</div>
@@ -64,7 +64,7 @@ function Orderhistory() {
               <div className="">Order Status</div>
             </div> 
 
-            {data.length != 0  ? (data.map((order)=>(
+            {data.length !== 0  ? (data.map((order)=>(
               <div class="grid grid-cols-5 p-6 mt-8 text-lg bg-white"  key={order.order_id}>
                 <div className="ml-4">{order.order_id}</div>
                 <div className="ml-4">{order.date.substring(0,10)}</div>

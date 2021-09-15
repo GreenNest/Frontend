@@ -1,26 +1,22 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import Category from './Category';
-import { useHistory, useParams } from "react-router-dom";
-import Productlist from './Productlist';
 import Header from '../../../components/Header';
 import SignedHeader from '../../../components/SignedHeader';
 import Footer from '../../../components/Footer';
-import CustomerService from '../../../services/CustomerService';
 import api from '../../../axiosContact';
 import Productcard from './Productcard';
 
-
 function Shop() {
-    var history = useHistory();
-    const [logstate, setLogstate] = useState(false);
+    // var history = useHistory();
+    // const [logstate, setLogstate] = useState(false);
     const [header, setHeader] = useState(0);
     const [categories, setCategories] = useState([]);
     const [data, setData] = useState([]); 
     const [ active, setActive] = useState({
         active: "Cactus"
     });
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
   
     useEffect(() => {
         getHeader();
@@ -64,7 +60,7 @@ function Shop() {
                 <div className="w-10/12 h-screen mt-5 ml-10 md:mt-16">
                     <div className="mb-5 text-lg font-semibold sm:text-l lg:text-xl md:text-2xl">Product Categories</div>
                     <div className="flex flex-col w-9/12 mb-20 text-sm divide-y-2 divide-gray-300 sm:text-lg font-base">
-                         { categories.length !=0 ? (
+                         { categories.length !== 0 ? (
                             categories.map((item) => 
                                 <Category key={item} type={item} categoryState={[active, setActive]} productDetails={getProductList}/>
                             )
@@ -75,7 +71,7 @@ function Shop() {
             </div>
             <div className="box-border flex flex-col w-5/6 mb-10">
             {
-                data.length != 0 ? (
+                data.length !== 0 ? (
                     <div className="mr-5 main">         
                         <h3 className="items-center justify-center mx-12 mt-10 mb-4 text-2xl font-bold sm:text-5xl text-maingreen" ></h3>      
                         <div className="box-border relative mr-4 cursor-pointer">
