@@ -1,44 +1,55 @@
-
-// import { ButtonIcon } from 'react-rainbow-components';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import {
-//     faTrashAlt,
-//     faPencilAlt,
-// } from '@fortawesome/free-solid-svg-icons';
-
 import CategoryLabel from './CategoryLabel';
 import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import { MdDeleteSweep } from 'react-icons/md';
+import api from '../../../axiosContact';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const DetailsCard = (props) => {
+function DetailsCard(props) {
+
+    const deleteSupplier = async (id) => {
+        const res = await api.put(`/deleteSupplier/${id}`);
+        return res.data;
+    };
+
+    const supplierDelete = async (id) => {
+        if (window.confirm("Are you sure to remove this supplier?")) {
+            const result = await deleteSupplier(id);
+            if(result === 1){
+                props.getSup();
+                toast('Successfully Delete Supplier', {
+                    autoClose: false,
+                    closeOnClick: true,
+                    progress: false,
+                    position:toast.POSITION.TOP_CENTER
+                });
+            }
+        }
+    }
+
     return (
-        <div className="w-full p-5 border-2 border-maingreen hover:bg-gray-500 hover:bg-opacity-25 rounded-lg shadow-xl sm:w-3/4 md:w-5/12">
+        <div className="w-full px-4 py-1 bg-white border-2 rounded-lg shadow-xl border-maingreen sm:w-3/4 md:w-5/12">
             <div className="flex justify-end space-x-3">
-            {/* <ButtonIcon className="w-7 h-7" size="mediam" icon={<FontAwesomeIcon icon={faPencilAlt} />} />
-            <ButtonIcon className="w-7 h-7" size="mediam" icon={<FontAwesomeIcon className="hover:text-red-700" icon={faTrashAlt} />} /> */}
-            <Link to="/admin/editSupplier">
-                    <FaIcons.FaEdit className="w-5 h-5 mt-2 hover:text-hovergreen"/>
-            </Link>
-            <MdDeleteSweep className="w-6 h-6 hover:text-red-700 mt-1.5"/>
+                <Link to="/admin/editSupplier">
+                        <FaIcons.FaEdit className="w-5 h-5 mt-2 hover:text-hovergreen"/>
+                </Link>
+                <MdDeleteSweep className="w-6 h-6 hover:text-red-700 mt-1.5" onClick={() => supplierDelete(props.id)} />
             </div>
             <div className="ml-1 font-medium">
-                <p>{props.name}</p>
+                <p>{props.first_name} {props.last_name}</p>
                 <p>{props.address}</p>
-                <p>{props.mobile}</p>
+                <p>0{props.mobile}</p>
                 <p>{props.email}</p>
             </div>
             
-            {props.supplier ? (
-                <div className="grid grid-cols-2 items-center text-sm mt-5 gap-y-3 sm:grid-cols-3 sm:gap-x-2">
-                    <CategoryLabel categoryName="Fruit Plants" />
-                    <CategoryLabel categoryName="Indoor Plants" />
-                    <CategoryLabel categoryName="Outdoor Plants" />
-                    <CategoryLabel categoryName="Outdoor Plants" />
-                    <CategoryLabel categoryName="Fruit Plants" />
-                    <CategoryLabel categoryName="Indoor Plants" />
-                </div>
-            ) : null }
+            <div className="grid items-center grid-cols-2 mt-5 text-sm gap-y-3 sm:grid-cols-3 sm:gap-x-2">
+                {
+                    props.categories.map((category, index) => (
+                        <CategoryLabel key={index} categoryName={category.categoryName} />
+                    ))
+                }
+            </div>
         </div>
     );
 }

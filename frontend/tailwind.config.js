@@ -16,6 +16,7 @@ module.exports = {
        x: '200px',
        icon: '6rem',
        border: '2px',
+       card:'400px'
     },
     fontSize:{
       '50': '50px',
@@ -44,7 +45,8 @@ module.exports = {
          'feature2': 'repeat(2, minmax(0, 1fr))',
          'sidebar-colums': '0.8fr 3fr',
          'sidebar-rows': 'auto',
-         'dashboard': '40% 40%'
+         'dashboard': '40% 40%',
+         'cart':'25% 15% 7% 15% 8% 15% 15% '
     },
     screens: {
       xxxsm: "280px",

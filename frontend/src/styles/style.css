@@ -1,16 +1,17 @@
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 5px;
   height: 6px;
 }
-::-webkit-scrollbar-track{
-  box-shadow: inset 0 0 5px #6A994E;
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #6a994e;
   border-radius: 10px;
 }
-::-webkit-scrollbar-thumb{
-  background: #6A994E; /*rgb(2, 36, 110);*/
+::-webkit-scrollbar-thumb {
+  background: #6a994e; /*rgb(2, 36, 110);*/
   border-radius: 10px;
-}::-webkit-scrollbar-thumb:hover{
-  background: #6A994E;/*#a5aaad;*/
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6a994e; /*#a5aaad;*/
 }
 
 .active {
@@ -55,18 +56,24 @@
   align-items: center;
   width: 100%;
 }
-.dashboard-area{
+.dashboard-area {
   display: grid;
   height: 100vh;
   grid-template-columns: 1.5fr 1.5fr;
   grid-template-rows: auto auto;
-  grid-area: 
-  "part1 part2"
-  "maindash maindash";
+  grid-area: "part1 part2" "maindash maindash";
 }
-.first-graph{
+.first-graph {
   width: 100%;
 }
 .dropdown:hover .dropdown-menu {
   display: block;
+}
+.selected li {
+  color: #bc4749;
+}
+.star {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
 }

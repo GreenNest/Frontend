@@ -25,7 +25,7 @@ export const AdminSidebarData = [
     },
     {
         title: 'View Category',
-        path: '/admin/categoryView',
+        path: '/admin/viewCategories',
         icon: <GrIcons.GrView className="w-5 h-5 mr-5 mt-0.5"/>,
         // style: "hover:bg-blue-400 bg-blue-200 hover:text-white flex font-bold p-3 rounded w-48",
     },

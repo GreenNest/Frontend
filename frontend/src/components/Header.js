@@ -2,24 +2,32 @@ import React, { Component } from 'react';
 import xxx from '../assets/headerLogo.png';
 import {FaAlignRight} from 'react-icons/fa'
 import { NavLink, Link } from "react-router-dom";
-import '../styles/nav.css'
+import { withRouter } from "react-router-dom";
+import '../styles/nav.css';
 
 class Header extends Component {
-    state={
-        isOpen:false
-    };
+    constructor(props){
+        super(props);
+        this.state={
+            isOpen:false,
+            // isLoggd: this.props.isLog,
+            // logout:''
+        };
+    }
+    // state={
+    //     isOpen:false,
+    //     isLoggd: this.props.isLog,
+    // };
+
     handleToggle=()=> {
         this.setState({isOpen: !this.state.isOpen});
     }
+
     render() {
         return (
             <nav class="flex w-screen flex-col justify-between bg-mainyellow lg:flex-row sm:w-full">
             <div class="flex justify-between items-center">
               <img className="float-left ml-5 h-30 w-30" width="70" height="70"   src={xxx} alt=""/>
-            {/* <nav class="flex w-full flex-col justify-between bg-mainyellow lg:flex-row sm:w-full ">
-            <nav class="flex w-full flex-col justify-between bg-mainyellow lg:flex-row sm:w-full">
-           <div class="flex justify-between items-center">
-              <img class="h-30 w-30 mr-80 ml-2" width="70" height="70"   src={xxx} alt=""/> */}
               <div class="block lg:hidden">
                 <button class="flex items-center justify-center px-3 py-2 mr-4 border rounded text-teal-lighter border-teal-light hover:text-maingreen hover:border-maingreen outline-none" onClick={this.handleToggle}>
                     <FaAlignRight class="h-3 w-3"/>
@@ -49,14 +57,17 @@ class Header extends Component {
                 <Link to="/signup" class="block text-center w-32 px-3 py-2 text-20 leading-none border rounded text-white border-maingreen bg-maingreen lg:mr-8 hover:bg-secondarygreen">
                     Sign Up
                 </Link>
+
+                
            </div>
         </nav>
         
         );
     }
+    
 }
 
-export default Header;
+export default withRouter(Header);
 
 
 

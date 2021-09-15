@@ -1,5 +1,31 @@
+import React, { useState } from 'react';
+import CustomerService from '../../../services/CustomerService';
 
-const RequestPopup = (props) => {
+function RequestPopup(props){
+  const[descriptions, setDescriptions] = useState('');
+  const [amount, setAmount] = useState(0);
+  const id =props.productId;
+  const x = JSON.parse(localStorage.getItem('authorization'));
+  const [ message, setMessage] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let response = {
+      description: descriptions,
+      quantity: parseInt(amount),
+      productName: props.productName,
+      customer:{
+        customer_id: x.id
+      }
+    }
+    CustomerService.addResponse(response).then((result) => {
+      setMessage(result.data.message);
+    }).catch((error) => {
+      console.log(error.response);
+    })
+
+  }
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
       <div className="relative w-auto max-w-3xl mx-auto my-6">
@@ -9,8 +35,9 @@ const RequestPopup = (props) => {
           <div className="flex items-start justify-center p-5 border-b border-gray-400 border-solid rounded-t">
             <h3 className="text-2xl font-bold text-maingreen">ADD ORDER REQUEST</h3>
           </div>
-
+           <div className="flex justify-center items-center w-full text-maingreen">{message}</div>
           {/*body*/}
+          <form onSubmit={e => {handleSubmit(e)}}>
           <div className="relative flex-auto p-6">
             <div>
               <label className="font-medium">Product Category</label>
@@ -18,7 +45,7 @@ const RequestPopup = (props) => {
                 type='text'
                 className="w-full p-2 mb-4 text-sm transition duration-150 ease-in-out border rounded-md outline-none text-primary"
                 id='productCategory'
-                value="Fruit Plant"
+                value={props.categoryName}
               />
             </div>
             <div>
@@ -27,22 +54,28 @@ const RequestPopup = (props) => {
                 type='text'
                 className="w-full p-2 mb-4 text-sm transition duration-150 ease-in-out border rounded-md outline-none text-primary"
                 id='product'
-                value="Mango Plant"
+                value={props.productName}
               />
             </div>
             <div>
-              <label className="font-medium">Quentity</label>
+              <label className="font-medium">Quantity</label>
               <input
-                type='text'
+                type='number'
+                name = "amount"
                 className="w-full p-2 mb-4 text-sm transition duration-150 ease-in-out border rounded-md outline-none text-primary"
-                id='quentity'
+                value={amount}
+                onChange = {e => setAmount(e.target.value)}
+                required
               />
             </div>
             <div>
               <label className="font-medium">Description</label>
               <textarea
                 className="w-full p-2 mb-2 text-sm transition duration-150 ease-in-out border rounded-md outline-none text-primary"
-                id='description'
+                name="descriptions"
+                value={descriptions}
+                onChange = {e => setDescriptions(e.target.value)}
+                required
               />
             </div>
           </div>
@@ -53,17 +86,19 @@ const RequestPopup = (props) => {
               className="px-6 py-2 mb-1 mr-2 text-base font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-redcolor background-transparent hover:shadow-lg focus:outline-none hover:bg-lightred"
               type="button"
               onClick={props.canclePopup}
-            >
+              >
+              {/* onClick={props.canclePopup} */}
               Cancel
             </button>
             <button 
               className="px-6 py-2 mb-1 mr-1 text-base font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-maingreen hover:shadow-lg focus:outline-none hover:bg-secondarygreen"
-              type="button"
+              type="submit"
               // onClick={() => setShowModal(false)}
             >
               Submit
             </button>
           </div>
+          </form>
         </div>
       </div>
     </div>
