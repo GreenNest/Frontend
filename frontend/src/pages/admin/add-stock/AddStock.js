@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import AdminSidebar from '../components/adminSidebar';
 import CustomerService from "../../../services/CustomerService";
 import axios from 'axios';
-import CheckBox from "../components/CheckBox";
 
 class AddStock extends Component {
     constructor(props) {
@@ -89,7 +88,7 @@ class AddStock extends Component {
 
     render() {
         const msg = this.state.error ? <div class="flex justify-center items-center text-maingreen">{this.state.error}</div> : '';
-        const categories = this.state.data.map((item, index) => {
+        this.state.data.map((item, index) => (
             <div key={index}>
                 <label> {item}
                     <input
@@ -101,7 +100,7 @@ class AddStock extends Component {
                     />
                 </label>
             </div>
-        });
+        ));
 
         return (
             <>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CanvasJSReact from '../../../../lib/canvasjs.react';
 //var CanvasJSReact = require('./canvasjs.react');
 // var CanvasJS = CanvasJSReact.CanvasJS;
 // var CanvasJSChart = CanvasJSReact.CanvasJSChart;

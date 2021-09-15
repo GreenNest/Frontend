@@ -1,12 +1,6 @@
 import React, {Component} from 'react';
-import { useState } from 'react';
-
 import InvoiceTable from './InvoiceTable';
 import AccountantSidebar from './dashboard/components/accountantSidebar';
-
-
-
-
 
 class InvoiceHistory extends Component{
     render(){

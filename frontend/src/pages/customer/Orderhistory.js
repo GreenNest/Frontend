@@ -4,11 +4,10 @@ import { Link, useHistory } from "react-router-dom";
 import Header from '../../components/Header';
 import SignedHeader from '../../components/SignedHeader';
 import Footer from '../../components/Footer';
-import CustomerService from '../../services/CustomerService';
-
 
 function Orderhistory() {
-  var history = useHistory();
+
+  // var history = useHistory();
   const [header, setHeader] = useState(0);
   const x = JSON.parse(localStorage.getItem('authorization'));
     const[orders, setOrders]= useState([

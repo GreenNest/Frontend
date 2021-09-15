@@ -36,13 +36,13 @@ function AddSupplier(props) {
     const validate = () => {
 
         if(!email.includes("@")){
-            setemail_error("Invalida email");
-            // formValid = false;
+            setemail_error("Invalid email");
+            return false;
         }
 
-        if(mobile.length < 10){
+        else if(mobile.length < 10){
             setmobile_error("Invalid mobile number");
-            // formValid = false;
+            return false;
         }
 
         if(email_error || mobile_error){
@@ -65,12 +65,18 @@ function AddSupplier(props) {
         return res.data;
     }
 
-    const addSupplier = () => {
+    const addSupplier = (e) => {
+        e.preventDefault();
         const isValid = validate();
         console.log(isValid)
         if (isValid) {
             const result = supplierAdd();
             if(result){
+                setfirstName("");
+                setlastName("");
+                setaddress("");
+                setemail("");
+                setmobile();
                 toast('Successfully add supplier', {
                     autoClose: false,
                     closeOnClick: true,
@@ -95,6 +101,7 @@ function AddSupplier(props) {
                                     name="firstName"
                                     type="text"
                                     placeholder="Eg: Theja"
+                                    value={firstName}
                                     onChange={(e) => {
                                         setfirstName(e.target.value);
                                     }}
@@ -106,6 +113,7 @@ function AddSupplier(props) {
                                 <input className="block w-full p-2 px-4 py-3 leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
                                     name="lastName"
                                     type="text"
+                                    value={lastName}
                                     placeholder="Eg: Kumari"
                                     onChange={(e) => {
                                         setlastName(e.target.value);
@@ -120,6 +128,7 @@ function AddSupplier(props) {
                                 <input className="block w-full p-2 px-4 py-3 leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
                                     name="address"
                                     type="text"
+                                    value={address}
                                     placeholder="Eg: No.379, Temple Road, Galle"
                                     onChange={(e) => {
                                         setaddress(e.target.value);
@@ -134,6 +143,7 @@ function AddSupplier(props) {
                                 <input className="block w-full p-2 px-4 py-3 leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
                                     name="email"
                                     type="text"
+                                    value={email}
                                     placeholder="Eg: thejakuma@gmail.com"
                                     onChange={(e) => {
                                         setemail(e.target.value);
@@ -147,6 +157,7 @@ function AddSupplier(props) {
                                 <input className="block w-full p-2 px-4 py-3 leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
                                     name="mobile"
                                     type="text"
+                                    value={mobile}
                                     placeholder="Eg: 0775433332"
                                     onChange={(e) => {
                                         setmobile(e.target.value);
