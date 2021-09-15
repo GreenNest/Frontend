@@ -1,10 +1,16 @@
 import React,{useState} from 'react';
+import CustomerService from "../../services/CustomerService";
 function StatusPopup(props){
   const [status, setStatus] = useState(false);
+  const [message, setMessage] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(status);
+    CustomerService.updateCoDeliveryStatus(props.id, status).then((result) => {
+      setMessage(result.data.message);
+    }).catch((err)=>{
+      setMessage(err.response.message);
+    })
   }
 
 
@@ -19,11 +25,12 @@ function StatusPopup(props){
               </div>
     
               {/*body*/}
-              <div className="relative flex-auto p-6">
+              <div className="flex p-4 justify-center items-center flex-col">
+              <div className="inline-flex items-center justify-center text-redcolor font-semibold text-lg">{message}</div>
               <label class="inline-flex items-center justify-center mt-3">
                 <input type="checkbox" class="form-checkbox h-8 w-8 text-green-600" 
                   value={status}
-                  onChange={e => setStatus(true)}/><span class="ml-6 text-gray-700 text-xl" >Paid</span>
+                  onChange={e => setStatus(true)} required/><span class="ml-6 text-gray-700 text-xl">Paid</span>
                 </label>
 
                 </div>

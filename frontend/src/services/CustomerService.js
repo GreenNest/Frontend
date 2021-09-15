@@ -108,6 +108,9 @@ class CustomerService {
     getAllCoOrders(){
         return axios.get(`${API}orders/cashOnDelivery`)
     }
+    updateCoDeliveryStatus(id, status){
+        return axios.put(`${API}orderStatus/update/${id}/${status}`)
+    }
 
 
 

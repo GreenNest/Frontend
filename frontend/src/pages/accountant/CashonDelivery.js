@@ -54,19 +54,9 @@ function CashonDelivery() {
                             <tbody className="bg-white divide-y divide-gray-200 ">
                             {data.length !=0 ? data.map((item, id) => 
                                 <CashonTable order_id={item.id} product_quantity={item.items} total_cost={item.cost} date={item.date} key={id} />
-                            ) : <div className="flex justify-center items-center text-lg">empty</div>}
-                                {/* <CashonTable order_id="ORD 1007"  product_quantity='5' total_cost='1200' date='2021/05/23'   />
-                                <CashonTable order_id="ORD 1009"  product_quantity='2' total_cost='600' date='2021/05/30'   />
-                                <CashonTable order_id="ORD 1017"  product_quantity='3' total_cost='680' date='2021/06/01'   />
-                                <CashonTable order_id="ORD 1025"  product_quantity='4' total_cost='1000' date='2021/06/06'   />
-                                <CashonTable order_id="ORD 1028"  product_quantity='20' total_cost='8500' date='2021/06/12'   />
-                                <CashonTable order_id="ORD 1030"  product_quantity='15' total_cost='6820' date='2021/06/21'   />
-                                <CashonTable order_id="ORD 1037"  product_quantity='6' total_cost='990' date='2021/06/23'   /> */}
-                                
-
-                                
-
-                                
+                            ) : <tr className="flex justify-center items-center text-lg overflow-hidden">
+                                 <td>Empty</td>
+                            </tr>}
 
                                 
 
