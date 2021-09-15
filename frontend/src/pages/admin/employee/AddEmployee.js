@@ -36,17 +36,13 @@ class AddEmployee extends Component{
     validate(){
         let email_err= "";
         let mobile_err = "";
-        let formValid = "";
-
 
         if(!this.state.email.includes("@")){
            email_err = "Invalida email";
-           formValid = false;
         }
 
         if(this.state.mobile.length < 10){
             mobile_err = "Invalid mobile number";
-            formValid = false;
         }
 
         if(email_err || mobile_err){
@@ -68,7 +64,7 @@ class AddEmployee extends Component{
            let employee = {
                nic: this.state.nic,
                first_name: this.state.firstname,
-               last_name: this.state.last_name,
+               last_name: this.state.lastname,
                address: this.state.address,
                mobile: parseInt(this.state.mobile),
                account_status: 0,
@@ -86,7 +82,7 @@ class AddEmployee extends Component{
            console.log("employee = " + JSON.stringify(employee));
            CustomerService.createEmployee(employee).then((result) => {
                console.log(result);
-               if(result.data == true){
+               if(result.data === true){
                    toast('Successfully create an account', {
                    autoClose: false,
                    closeOnClick: true,

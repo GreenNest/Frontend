@@ -6,9 +6,9 @@ import SignedHeader from '../../components/SignedHeader';
 import Footer from '../../components/Footer';
 import api from '../../axiosContact';
 
-
 function Orderhistory() {
-  var history = useHistory();
+
+  // var history = useHistory();
   const [header, setHeader] = useState(0);
   const [data, setData] = useState([]);
   const [message, setMessage] = useState('');
@@ -72,7 +72,7 @@ function Orderhistory() {
                 {checkStatus(order.order_status)}
                 <Link to={"/profile/order/review/" +order.order_id} ><button className="w-20 ml-5 text-base font-medium text-blue-500 hover:text-blue-700 focus:outline-none focus:border-none">View more</button></Link>
               </div>
-            ))) : <div className="font-bold text-20 p-2 flex justify-center items-center">{message}</div>}
+            ))) : <div className="flex items-center justify-center p-2 font-bold text-20">{message}</div>}
           </div>
         </div>
       </div>

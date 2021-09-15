@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/index.css';
-import {BrowserRouter as Router , Route , Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 // customer
 import Index from './pages/customer/Index'; //
@@ -83,7 +83,7 @@ function App() {
     <Route exact path="/admin/viewCategories" component={ViewCategories} />
     <Route exact path="/admin/categoryView/productsView/:name" component={ProductByCategory} />
     <Route exact path="/admin/viewSupplier" component={ViewSupplier} />
-    <Route exact path="/admin/editSupplier" component={EditSupplier} />
+    <Route exact path="/admin/editSupplier/:id" component={EditSupplier} />
     <Route exact path="/admin/addSupplier" component={AddSupplier} />
     <Route exact path="/admin/viewEmployee" component={ViewEmployee} />
     <Route exact path="/admin/addEmployee" component={AddEmployee} />

@@ -1,5 +1,4 @@
 import React from 'react';
-import google from '../assets/google.png';
 import facebook from '../assets/facebook.svg';
 import instagram from '../assets/instagram.svg';
 import playstore from '../assets/playstore.svg';

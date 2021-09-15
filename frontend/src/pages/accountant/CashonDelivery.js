@@ -40,12 +40,12 @@ function CashonDelivery() {
                         <table className="min-w-full divide-y divide-gray-300">
                             <thead className="bg-gray-500 bg-opacity-25">
                                 <tr>
-                                    <th className="py-3 w-1/5 text-lg font-semibold tracking-wider text-gray-700">ORDoice ID</th>
-                                    <th className="py-3 w-1/5 text-lg font-semibold tracking-wider text-gray-700">Prduct Quantity</th>
-                                    <th className="py-3 w-1/5 text-lg font-semibold tracking-wider text-gray-700">Total Cost (RS)</th>
-                                    <th className="py-3 w-1/5 text-lg font-semibold tracking-wider text-gray-700">Date</th>
+                                    <th className="w-1/5 py-3 text-lg font-semibold tracking-wider text-gray-700">ORDoice ID</th>
+                                    <th className="w-1/5 py-3 text-lg font-semibold tracking-wider text-gray-700">Prduct Quantity</th>
+                                    <th className="w-1/5 py-3 text-lg font-semibold tracking-wider text-gray-700">Total Cost (RS)</th>
+                                    <th className="w-1/5 py-3 text-lg font-semibold tracking-wider text-gray-700">Date</th>
                                     
-                                    <th className="py-3 w-1/5 text-lg font-semibold tracking-wider  text-gray-700" >Edit</th>
+                                    <th className="w-1/5 py-3 text-lg font-semibold tracking-wider text-gray-700" >Edit</th>
 
 
 
@@ -54,7 +54,7 @@ function CashonDelivery() {
                             <tbody className="bg-white divide-y divide-gray-200 ">
                             {data.length !=0 ? data.map((item, id) => 
                                 <CashonTable order_id={item.id} product_quantity={item.items} total_cost={item.cost} date={item.date} key={id} />
-                            ) : <tr className="flex justify-center items-center text-lg overflow-hidden">
+                            ) : <tr className="flex items-center justify-center overflow-hidden text-lg">
                                  <td>Empty</td>
                             </tr>}
 

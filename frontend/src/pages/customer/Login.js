@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import CustomerService from '../../services/CustomerService';
-import { useHistory, useLocation } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '../../components/Header';
@@ -48,7 +46,7 @@ class Login extends Component {
             if(response.data.token){
                 localStorage.setItem("authorization", JSON.stringify(response.data))
                 const x = JSON.parse(localStorage.getItem('authorization'));
-                if(x.roles[0] == 'customer'){
+                if(x.roles[0] === 'customer'){
                     console.log("you are customer");
                     this.props.history.push("/");
                 }else if(x.roles.includes("admin")){
