@@ -37,6 +37,7 @@ function Cart() {
         const result = await api.get(`/cart/get/${id}`);
         if(result){
             setData(result.data.data);
+            console.log(result.data.data);
             
         }
     } 
@@ -55,29 +56,32 @@ function Cart() {
     return(
         <>
         {header}
-        <div className="min-w-full mb-5 -mt-8 md:min-w-0 sm:p-20 lg:px-32">
-            <div className="flex items-center p-0 mt-2 mb-2 mr-0 rounded-lg max-w-7xl ">
+        <div className="min-w-full mb-5 -mt-8 md:min-w-0 sm:p-20 lg:px-32 ">
+            <div className="grid bg-gray-500 grid-cols-cart p-6 mb-4 text-xl font-bold item-center w-full">
                 {/* Item */}
-                <div className="flex ml-64 mr-2">
-                    <button button className="flex px-5 py-1 font-bold text-white rounded bg-hovergreen md:border-gray-500" disabled>Item</button>
+                <div className="flex justify-center items-center">
+                    <button className="flex px-5 py-1 font-bold text-white rounded bg-hovergreen md:border-gray-500" disabled>Item</button>
                 </div>
                 {/* Price */}
-                <div className="flex ml-32 mr-2">
+                <div className="flex justify-center items-center">
                     <button className="flex px-5 py-1 font-bold text-white rounded bg-hovergreen md:border-gray-500" disabled>Price</button>
                 </div>
+                <div className="flex justify-center items-center"></div>
                 {/* Quantity */}
-                <div className="flex ml-32 mr-2">
-                    <button className="flex px-5 py-1 font-bold text-white rounded bg-hovergreen md:border-gray-500" disabled>Qty</button>
+                <div className="flex justify-center items-center ">
+                    <button className="flex px-5 py-1 font-bold text-white rounded bg-hovergreen md:border-gray-500" disabled>Quantity</button>
                 </div>
                 {/* Subtotal */}
-                <div className="flex mr-1 ml-28">
+                <div className="flex justify-center items-center"></div>
+                <div className="flex justify-center items-center">
                     <button button className="flex px-5 py-1 font-bold text-white rounded bg-hovergreen md:border-gray-500" disabled>Subtotal</button>
                 </div>
+                <div className="flex justify-center items-center"></div>
             </div>
             {
                 data.length != 0 ? ( 
                     data.map((item) => (
-                        <CartItem name={item.name} price={item.price} totalAmount={item.quantity} key={item.id} cartId={item.id} getItems={getCartItems} productId={item.product_id}/>
+                        <CartItem name={item.name} price={item.price} totalAmount={item.quantity} key={item.id} cartId={item.id} getItems={getCartItems} productId={item.product_id} singlePrice={item.singlePrice}/>
                     )) 
                 ) : <h4 className="m-auto mt-10 text-xl font-medium">
                         Empty Cart.

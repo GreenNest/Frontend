@@ -9,25 +9,23 @@ import sensavaria from "../../../assets/sensavaria.jpg"
 import Header from '../../../components/Header';
 import SignedHeader from '../../../components/SignedHeader';
 import Footer from '../../../components/Footer';
+import api from '../../../axiosContact';
+import { useParams } from 'react-router-dom';
 function Order(){
-    const[order]= useState(
-        [
-            {img:b_avacado, Item:"Budded Avacado", price:'350LKR', Qty:1, subtotal:'350LKR', id:1 } ,
-            {img:lemmon,Item:"Lemmon plant", price:'950LKR', Qty:1, subtotal:'950LKR', id:2 } ,
-            {img:sensavaria,Item:"Sensavaria", price:'1750LKR', Qty:1, subtotal:'1750LKR', id:3 } ,
-            {img:plastic_pot,Item:"Pastic Pot", price:'250LKR', Qty:2, subtotal:'500LKR', id:4 } 
-        ] 
-      );
-
       const [model1,setModel1] =useState(false);
       const [model2,setModel2] =useState(false);
       const [header, setHeader] = useState(0);
+      const [data, setData] = useState([]);
+      const [product, setProduct] = useState(0);
+      const [order, setOrder] = useState(0);
+      const { oId } = useParams();
       
       const x = JSON.parse(localStorage.getItem('authorization'));
 
 
-      const toggleModel = () => {
-        setModel1(!model1)
+      const toggleModel = (id) => {
+        setModel1(!model1);
+        setProduct(id);
       }
 
       const togglecomplain = () => {
@@ -35,15 +33,26 @@ function Order(){
       }
       
       useEffect(async () => {
-       if(!x){
-           console.log("please login");
-           setHeader(<Header/>)
-       }else{
-           console.log("you are log");
-           setHeader(<SignedHeader/>)
-       }
+        getHeader();
+        getOrderItems();
       
     }, [])
+
+    const getHeader = async() => {
+        const x = JSON.parse(localStorage.getItem('authorization'));
+        if(!x){
+            setHeader(<Header/>)
+        }else{
+            setHeader(<SignedHeader/>)
+        }
+    }
+
+    const getOrderItems = async(id) => {
+      const res = await api.get(`/orderItems/get/1`);
+      if(res.data.data != null){
+        setData(res.data.data);
+      }
+    }
 
 
   
@@ -54,37 +63,35 @@ function Order(){
         <div>
           <div className="flex-row justify-center w-5/6 mx-auto bg-gray-100 rounded-md item-center">
             <div>
-              {model2 &&
-                  <Complaintmodel />
+              {model2 ?
+                  <Complaintmodel canclePopup2={() => setModel2(false)} customerId={parseInt(x.id)} orderId={parseInt(oId)}/> :null
               }
-              {model1 && 
-                  <Ratemodel />
+              {model1 ?  
+                  <Ratemodel canclePopup1={() => setModel1(false)} customerId={parseInt(x.id)} pId={product}/> : null
               }
             </div>
             <div className="grid grid-cols-6 p-6 mb-4 text-xl font-bold item-center">
               <div className="mx-2 "></div>
               <div className="mx-2 ">Ordered Items</div>
               <div className="mx-2 ml-8">Price</div>
-              <div className="mx-2 ">Qty</div>
+              <div className="mx-2 ">Quantity</div>
               <div className="mx-2 -ml-3">Subtotal</div>
               <div className="mx-2 "></div>
             </div>
             <div className="p-6 ml-12 text-lg divide-y item-center">
-              {order.map((item)=>(
-                <div class=" grid grid-cols-6 " key={item.id} >
-                  <div className="my-4 "><img className="w-12 h-12 " src={item.img} alt="not found" /></div>
-                  <div className="my-4 -ml-5">{item.Item}</div>
-                  <div className="my-4 ">{item.price}</div>
-                  <div className="my-4 ">{item.Qty}</div>
-                  <div className="my-4 -ml-4">{item.subtotal}</div>
-                  <div className="my-4 "><button className="h-12 text-base font-medium text-black bg-yellow-200 rounded w-36 hover:bg-yellow-300 focus:outline-none" onClick={toggleModel}>Review & Rate </button></div>                          
+              {data.length != 0 ? ( data.map((item, id)=>(
+                <div class=" grid grid-cols-6 " key={id} >
+                  <div className="my-4 "><img className="w-12 h-12 " src={"data:image/jpeg;base64," +item.image} alt="not found" /></div>
+                  <div className="my-4 -ml-5">{item.name}</div>
+                  <div className="my-4 ">{item.price/item.quantity} LKR</div>
+                  <div className="my-4 ">{item.quantity}</div>
+                  <div className="my-4 -ml-4">{item.price.toFixed(2)} LKR</div>
+                  <div className="my-4 "><button className="h-12 text-base font-medium text-black bg-yellow-200 rounded w-36 hover:bg-yellow-300 focus:outline-none" onClick={() => toggleModel(item.productId)}>Review & Rate </button></div>                          
                 </div>                        
-              ))}                     
+              ) )) : <div className="font-bold text-20 p-2 flex justify-center items-center">Loading...</div>}                     
             </div>
 
             <div className="flex justify-end pb-10 mr-14">
-              <div className="flex pr-1 text-xl font-medium">Total :</div>
-              <div className="mr-20 text-xl font-medium">3550LKR</div>
               <button className="h-12 text-base font-medium text-white bg-red-800 rounded place-content-end w-36 hover:bg-red-600 focus:outline-none" onClick={togglecomplain}>Complain</button>                   
             </div>
           </div>

@@ -41,13 +41,16 @@ function Shop() {
     const getCategory = async () => {
         const res = await api.get(`/get/categories`).then((response) => {
             console.log(response.data.data);
-            setCategories(response.data.data);
+            if(response.data.data != null){
+               setCategories(response.data.data);
+            }
+            
         })
     };
 
     const getProductList = async(categoryType) => {
         const allcategories = await api.get(`/product/${categoryType}`);
-        if(allcategories){
+        if(allcategories.data.data != null){
             setData(allcategories.data.data);
         }
     };
