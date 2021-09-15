@@ -25,8 +25,8 @@ function StatusPopup(props){
               </div>
     
               {/*body*/}
-              <div className="flex p-4 justify-center items-center flex-col">
-              <div className="inline-flex items-center justify-center text-redcolor font-semibold text-lg">{message}</div>
+              <div className="flex flex-col items-center justify-center p-4">
+              <div className="inline-flex items-center justify-center text-lg font-semibold text-redcolor">{message}</div>
               <label class="inline-flex items-center justify-center mt-3">
                 <input type="checkbox" class="form-checkbox h-8 w-8 text-green-600" 
                   value={status}
@@ -37,14 +37,14 @@ function StatusPopup(props){
               {/*footer*/}
               <div className="flex items-center justify-center p-4 border-t border-gray-400 border-solid rounded-b">
                 <button 
-                  className="w-24 bg-redcolor p-2 mr-7 text-white text-center rounded-sm focus:outline-none cursor-pointer"
+                  className="w-24 p-2 text-center text-white rounded-sm cursor-pointer bg-redcolor mr-7 focus:outline-none"
                   type="button"
                   onClick={props.canclePopup}>
                   Cancel
                 </button>
                 <button 
-                  className="w-24 bg-secondarygreen hover:bg-lightgreen p-2 text-white text-center rounded-sm focus:outline-none cursor-pointer" type="submit"
-                  type="submit">
+                  className="w-24 p-2 text-center text-white rounded-sm cursor-pointer bg-secondarygreen hover:bg-lightgreen focus:outline-none" type="submit"
+                >
                   Done
                 </button>
                 
