@@ -9,7 +9,6 @@ import api from '../../../axiosContact';
 function EditSupplier () {
 
     const { id } = useParams();
-    const [supplier, setsupplier] = useState([]);
     const [allCategories, setallCategories] = useState([]);
     const [usedCategory, setusedCategory] = useState([]);
     const [firstName, setfirstName] = useState("");
@@ -19,6 +18,7 @@ function EditSupplier () {
     const [mobile, setmobile] = useState();
     const [email_error, setemail_error] = useState("");
     const [mobile_error, setmobile_error] = useState("");
+    const [errorProfile, seterrorProfile] = useState("");
 
     const retrieveCategories = async () => {
         const res = await api.get("/get/categories");
@@ -38,9 +38,13 @@ function EditSupplier () {
     };
 
     const getSupplier = async (id) => {
-        const data = await retrieveSuppplier(id);
-        if (data) {
-            setsupplier(data);
+        const supplierData = await retrieveSuppplier(id);
+        if (supplierData) {
+            setfirstName(supplierData.first_name);
+            setlastName(supplierData.last_name);
+            setaddress(supplierData.address);
+            setemail(supplierData.email);
+            setmobile(supplierData.mobile);
         };
     }
 
@@ -49,22 +53,31 @@ function EditSupplier () {
         getSupplier(id);
     }, [])
 
+    const closeForm = async () => {
+        setfirstName("");
+        setlastName("");
+        setaddress("");
+        setemail("");
+        setmobile( );
+        setusedCategory([]);
+        seterrorProfile("");
+    }
+
     const validate = () => {
 
-        if(!email.includes("@")){
-            setemail_error("Invalida email");
-            // formValid = false;
-        }
+        if (!email.includes("@") || mobile.length < 10) {
 
-        if(mobile.length < 10){
-            setmobile_error("Invalid mobile number");
-            // formValid = false;
-        }
+            if (!email.includes("@")) {
+                setemail_error("Invalid email");
+            }
+            
+            if (mobile.length < 10) {
+                setmobile_error("Invalid mobile number");
+            }
 
-        if(email_error || mobile_error){
             return false;
         }
-        
+
         return true;
     }
 
@@ -86,36 +99,43 @@ function EditSupplier () {
         console.log(isValid)
         if (isValid) {
             const result = supplierEdit();
-            if(result){
-                setfirstName("");
-                setlastName("");
-                setaddress("");
-                setemail("");
-                setmobile();
+            console.log(result)
+            if (result == 1) {
+                closeForm();
                 toast('Successfully add supplier', {
                     autoClose: false,
                     closeOnClick: true,
                     progress: false,
-                    position:toast.POSITION.TOP_CENTER
+                    position: toast.POSITION.TOP_CENTER
                 });
+            }else {
+                seterrorProfile("Already created supplier using this email.");
             }
         }
     }
 
     return (
         <>
+        {
+            console.log(errorProfile)
+        }
             <AdminSidebar/>
             <div className="flex flex-col w-full ml-28">
                 <div className="flex justify-center mx-16">
                     <div className="w-full p-8 my-8 bg-gray-500 bg-opacity-25 rounded-md shadow-inner md:w-1/2 sm:w-3/4">
                         <h4 className="text-3xl font-bold text-center text-maingreen">Edit Supplier</h4>
+                        {
+                            errorProfile.length !== 0 ? (
+                                <div className="px-3 mt-3 -mb-3 text-xl text-red-600">{errorProfile}</div>
+                            ): null
+                        }
                         <div className="flex flex-wrap mt-8 mb-4">
                             <div className="w-full px-3 mb-4 space-y-2 md:w-1/2 md:mb-0">
                                 <label className="w-2/3 p-1 text-lg font-semibold" for="grid-first-name">First Name</label>
                                 <input className="block w-full p-2 px-4 py-3 leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
                                     name="firstName"
                                     type="text"
-                                    value={supplier.first_name}
+                                    value={firstName}
                                     placeholder="Eg: Theja"
                                     onChange={(e) => {
                                         setfirstName(e.target.value);
@@ -128,7 +148,7 @@ function EditSupplier () {
                                 <input className="block w-full p-2 px-4 py-3 leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
                                     name="lastName"
                                     type="text"
-                                    value={supplier.last_name}
+                                    value={lastName}
                                     placeholder="Eg: Kumari"
                                     onChange={(e) => {
                                         setlastName(e.target.value);
@@ -143,7 +163,7 @@ function EditSupplier () {
                                 <input className="block w-full p-2 px-4 py-3 leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
                                     name="address"
                                     type="text"
-                                    value={supplier.address}
+                                    value={address}
                                     placeholder="Eg: No.379, Temple Road, Galle"
                                     onChange={(e) => {
                                         setaddress(e.target.value);
@@ -158,7 +178,7 @@ function EditSupplier () {
                                 <input className="block w-full p-2 px-4 py-3 leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
                                     name="email"
                                     type="text"
-                                    value={supplier.email}
+                                    value={email}
                                     placeholder="Eg: thejakuma@gmail.com"
                                     onChange={(e) => {
                                         setemail(e.target.value);
@@ -172,7 +192,7 @@ function EditSupplier () {
                                 <input className="block w-full p-2 px-4 py-3 leading-tight text-black border-2 border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen"
                                     name="mobile"
                                     type="text"
-                                    value={supplier.mobile}
+                                    value={mobile}
                                     placeholder="Eg: 0775433332"
                                     onChange={(e) => {
                                         setmobile(e.target.value);
@@ -196,7 +216,7 @@ function EditSupplier () {
                         </div>
                         <div className="flex flex-wrap justify-center mt-12 -mb-8 space-x-6">
                             <button className="justify-center w-40 p-4 px-4 py-2 mb-8 font-bold text-white rounded bg-maingreen hover:bg-hovergreen" onClick={editSupplier}>Submit</button>
-                            <button className="justify-center w-40 p-4 px-4 py-2 mb-8 font-bold text-white bg-red-600 rounded hover:bg-lightred">Cancel</button>
+                            <button className="justify-center w-40 p-4 px-4 py-2 mb-8 font-bold text-white bg-red-600 rounded hover:bg-lightred" onClick={closeForm}>Cancel</button>
                         </div>
                     </div>
                 </div>
