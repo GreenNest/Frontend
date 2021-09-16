@@ -23,7 +23,7 @@ import AdminDashboard from './pages/admin/dashboard/Dashboard';
 import Reports from './pages/admin/reports/Reports';
 import AddStock from './pages/admin/Stock/AddStock';
 import EditStock from './pages/admin/Stock/EditStock';
-import Updatestock from './pages/admin/Stock/Updatestock';
+import UpdateStock from './pages/admin/Stock/Updatestock';
 import ViewCategories from './pages/admin/category/ViewCategories';
 import ProductByCategory from './pages/admin/Stock/ProductByCategory';
 import ViewSupplier from './pages/admin/supplier/ViewSupplier';

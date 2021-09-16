@@ -10,12 +10,21 @@ import Header from '../../../components/Header';
 import SignedHeader from '../../../components/SignedHeader';
 import Footer from '../../../components/Footer';
 import CustomerService from '../../../services/CustomerService';
+import api from '../../../axiosContact';
 
 
 function Checkout(){
     var history = useHistory();
     const [header, setHeader] = useState(0);
     const x = JSON.parse(localStorage.getItem('authorization'));
+    const [data, setData] = useState([]);
+    const [cartList, setCartList] = useState([]);
+    const [subtotal, setSubtotal] = useState(0);
+
+    useEffect(() => {
+        getCartItems();   
+        getHeader();         
+    }, [])
 
     useEffect(async () => {
         if(!x){
@@ -27,16 +36,50 @@ function Checkout(){
        
     }, [])
 
+    const getHeader = async() => {
+        const x = JSON.parse(localStorage.getItem('authorization'));
+        if(!x){
+            setHeader(<Header/>)
+        }else{
+            setHeader(<SignedHeader/>)
+        }
+    };
+
+    const getCartItems = async() => {
+        const y = JSON.parse(localStorage.getItem('authorization'));
+        const id =  parseInt(y.id);
+        const result = await api.get(`/cart/get/${id}`);
+        if(result){
+            setData(result.data.data);
+            console.log(result.data.data);
+            
+        }
+    } 
+
+    const calculation = (res) => {
+        let total = 0;
+        res.map((x) => {
+                total= total+ x.price;
+            })
+        return total;
+    }
+
+    // handleButtonClicked() {
+    //     var searchQuery = this.state.searchQuery;
+    
+    //     window.location.href = "https://www.payhere.lk/pay/checkout";
+    //   }
+
     return(
         <>
         {header}
 { /* <div className="w-11/12 mt-8 mb-8 m */}
         <div className="w-11/12 mt-12 mb-8 ml-12">
-            <div className=""><CheckoutAmount className=""/></div>
+            <div className=""><CheckoutAmount sum={calculation(data)}/></div>
             <div className="row">
             <div className="col-75">
                 <div className="container bg-gray-500 bg-opacity-25 rounded-md">
-                    <form id="validate" action="/action_page.php">
+                    <form id="validate" action="https://www.payhere.lk/pay/checkout">
                         <div className="row">
                             <div className="col-50">
                                 <div className="m-4 ml-0 text-lg font-bold text-maingreen">Billing Address</div>
@@ -96,7 +139,7 @@ function Checkout(){
                         <label>
                         <input type="checkbox" checked="checked" name="sameadr"/> Shipping address same as billing
                         </label>
-                        <button className="justify-center p-4 px-4 py-3 mt-3 mb-2 ml-56 text-lg font-bold text-white rounded bg-maingreen hover:bg-hovergreen w-96">Continue to Checkout</button>
+                        <button className="justify-center p-4 px-4 py-3 mt-3 mb-2 ml-56 text-lg font-bold text-white rounded bg-maingreen hover:bg-hovergreen w-96" type="submit">Continue to Checkout</button>
                     </form>
                 </div>
             </div>

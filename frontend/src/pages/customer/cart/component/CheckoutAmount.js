@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-const CheckoutAmount = () => {
+function CheckoutAmount(props) {
+    const totalPrice = props.sum + 200;
+
     return (
         <div>
         {/* Total amount */}
@@ -15,9 +17,9 @@ const CheckoutAmount = () => {
             <div className="font-bold text-sm mt-1">Total :</div>
 
 
-            <div className="text-sm">1200 LKR</div>
-            <div className="text-sm"> 200 LKR</div>
-            <div className="font-bold text-sm">1400 LKR</div>
+            <div className="text-sm">{props.sum.toFixed(2)} LKR</div>
+            <div className="text-sm"> 200.00 LKR</div>
+            <div className="font-bold text-sm">{totalPrice.toFixed(2)} LKR</div>
         </div>
         <div className="flex-auto mt-4">
             <Link to="#">
