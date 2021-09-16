@@ -48,6 +48,7 @@ import ModLeaveStats from './pages/LeaveStat';
 import AccDashboard from './pages/accountant/dashboard/Dashboard';
 import CODeliveries from './pages/accountant/CashonDelivery';
 import InvoiceHistory from './pages/accountant/InvoiceHistory';
+import EmployeeSalary from './pages/accountant/EmployeeSalary';
 import AccLeaveRequests from './pages/LeaveRequest';
 import AccLeaveStats from './pages/LeaveStat';
 
@@ -106,6 +107,7 @@ function App() {
     <Route exact path="/accountant/invoiceHistory" component={InvoiceHistory} />
     <Route exact path="/accountant/leaveRequests" component={AccLeaveRequests} />
     <Route exact path="/accountant/leaveStats" component={AccLeaveStats} />
+    <Route exact path="/accountant/salary" component={EmployeeSalary} />
     <Route exact path="/error" component={Error}/>
     </Switch>
     </>

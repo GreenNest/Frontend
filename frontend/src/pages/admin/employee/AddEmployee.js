@@ -68,7 +68,7 @@ class AddEmployee extends Component{
            let employee = {
                nic: this.state.nic,
                first_name: this.state.firstname,
-               last_name: this.state.last_name,
+               last_name: this.state.lastname,
                address: this.state.address,
                mobile: parseInt(this.state.mobile),
                account_status: 0,

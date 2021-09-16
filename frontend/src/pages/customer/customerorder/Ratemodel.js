@@ -25,7 +25,6 @@ function Ratemodel(props) {
         CustomerService.addReview(rate).then((result) => {
             setMessage(result.data.message);
         })
-        console.log(rate);
     }
     
     return (

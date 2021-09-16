@@ -3,11 +3,14 @@ import { MdDeleteSweep } from 'react-icons/md';
 import { Link } from "react-router-dom";
 import item from '../../../assets/product_img/mango-tree.jpg';
 import api from '../../../axiosContact';
+import CustomerService from '../../../services/CustomerService';
 
 function CartItem(props){
 
     const deleteData = async(id) =>{
-        const result = await api.delete(`/cart/delete/${id}`);
+        // const result = await api.delete(`/cart/delete/${id}`);
+        CustomerService.deleteCartItems(parseInt(id));
+
     }
 
     const deleteCartItem = async(id) => {

@@ -38,6 +38,13 @@ export const SidebarData = [
         // style: "hover:bg-blue-400 bg-blue-200 hover:text-white flex font-bold p-3 rounded w-48",
     },
     {
+        title: 'Salary Handling',
+        path: '/accountant/salary',
+        icon: <MdIcons.MdDateRange className="w-5 h-5 mr-3 mt-0.5"/>,
+        // count: 5,
+        // style: "hover:bg-blue-400 bg-blue-200 hover:text-white flex font-bold p-3 rounded w-48",
+    },
+    {
         title: 'Request a Leave',
         path: '/accountant/leaveRequests',
         icon: <MdIcons.MdDateRange className="w-5 h-5 mr-3 mt-0.5"/>,
@@ -51,10 +58,10 @@ export const SidebarData = [
         // count: 5,
         // style: "hover:bg-blue-400 bg-blue-200 hover:text-white flex font-bold p-3 rounded w-48",
     },
-    {
-        title: 'Logout',
-        path: '#',
-        icon: <AiIcons.AiOutlineLogout className="w-5 h-5 mr-3 mt-0.5"/>,
-        // style: "hover:bg-yellow-400 bg-yellow-200 hover:text-white flex font-bold p-3 rounded w-48",
-    },
+    // {
+    //     title: 'Logout',
+    //     path: '#',
+    //     icon: <AiIcons.AiOutlineLogout className="w-5 h-5 mr-3 mt-0.5"/>,
+    //     // style: "hover:bg-yellow-400 bg-yellow-200 hover:text-white flex font-bold p-3 rounded w-48",
+    // },
 ]

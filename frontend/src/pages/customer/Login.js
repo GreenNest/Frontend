@@ -54,6 +54,8 @@ class Login extends Component {
                 }else if(x.roles.includes("admin")){
                     console.log("admin log wela");
                     this.props.history.push("/admin/dashboard");
+                }else if(x.roles.includes("accountant")){
+                    this.props.history.push("/accountant/dashboard");
                 }
             }
         }).catch((err) => {
