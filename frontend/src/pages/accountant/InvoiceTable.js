@@ -1,7 +1,4 @@
-import { Link } from "react-router-dom";
-import * as FaIcons from "react-icons/fa";
 import { MdDeleteSweep } from 'react-icons/md';
-import {MdExpandMore} from 'react-icons/md';
 //import {BsViewStacked} from 'react-icons/md';
 import {FaArrowAltCircleRight} from "react-icons/fa";
 

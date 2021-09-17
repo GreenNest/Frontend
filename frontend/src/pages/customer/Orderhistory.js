@@ -1,14 +1,14 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Header from '../../components/Header';
 import SignedHeader from '../../components/SignedHeader';
 import Footer from '../../components/Footer';
 import api from '../../axiosContact';
 
-
 function Orderhistory() {
-  var history = useHistory();
+
+  // var history = useHistory();
   const [header, setHeader] = useState(0);
   const [data, setData] = useState([]);
   const [message, setMessage] = useState('');
@@ -39,9 +39,9 @@ function Orderhistory() {
     }
 
   const checkStatus = (name) => {
-    if(name == "Pending"){
+    if(name === "Pending"){
       return <div className="ml-4 font-medium text-red-600">{name}</div>
-    }else if(name == "Processing"){
+    }else if(name === "Processing"){
       return <div className="ml-4 font-medium text-yellow-500">{name}</div>
     }else{
       return <div className="ml-4 font-medium text-maingreen">{name}</div>
@@ -64,7 +64,7 @@ function Orderhistory() {
               <div className="">Order Status</div>
             </div> 
 
-            {data.length != 0  ? (data.map((order)=>(
+            {data.length !== 0  ? (data.map((order)=>(
               <div class="grid grid-cols-5 p-6 mt-8 text-lg bg-white"  key={order.order_id}>
                 <div className="ml-4">{order.order_id}</div>
                 <div className="ml-4">{order.date.substring(0,10)}</div>
@@ -72,7 +72,7 @@ function Orderhistory() {
                 {checkStatus(order.order_status)}
                 <Link to={"/profile/order/review/" +order.order_id} ><button className="w-20 ml-5 text-base font-medium text-blue-500 hover:text-blue-700 focus:outline-none focus:border-none">View more</button></Link>
               </div>
-            ))) : <div className="font-bold text-20 p-2 flex justify-center items-center">{message}</div>}
+            ))) : <div className="flex items-center justify-center p-2 font-bold text-20">{message}</div>}
           </div>
         </div>
       </div>

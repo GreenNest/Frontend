@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-import {Link} from 'react-router-dom';
 import CustomerService from '../../services/CustomerService';
-import { useHistory, useLocation, useParams } from "react-router-dom";
-import { toast } from 'react-toastify';
+import { useHistory, useParams } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
-import Header from '../../components/Header';
-import axios from 'axios';
 
 function ResetPassword(){
     const {email} = useParams();
@@ -39,7 +35,7 @@ function ResetPassword(){
     }
 
     const validate = () =>{
-        if(newPassword != confirmPassword){
+        if(newPassword !== confirmPassword){
             setError("Password did not match");
             return false;
         }    
