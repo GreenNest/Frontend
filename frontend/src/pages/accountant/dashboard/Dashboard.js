@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import BarChart from './components/BarChart';
-import LineChart from './components/LineChart';
 import PieChart from './components/PieChart';
 import {FaClipboardList, FaClipboardCheck} from 'react-icons/fa';
 import AccountantSidebar from './components/accountantSidebar';
-
 
 class AccDashboard extends Component {
     render() {

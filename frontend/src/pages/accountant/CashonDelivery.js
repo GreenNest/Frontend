@@ -1,6 +1,5 @@
 import React,{useState, useEffect} from 'react';
 import CashonTable from './CashonTable';
-import StatusPopup from './StatusPopup';
 import AccountantSidebar from './dashboard/components/accountantSidebar';
 import CustomerService from '../../services/CustomerService';
 
@@ -8,7 +7,7 @@ import CustomerService from '../../services/CustomerService';
 
 function CashonDelivery() {
     const [data, setData] = useState([]);
-    const [message, setMessage] = useState([]);
+    // const [message, setMessage] = useState([]);
 
     useEffect(() => {
         getOrders();
@@ -17,7 +16,7 @@ function CashonDelivery() {
     const getOrders = async()=> {
         const x = await CustomerService.getAllCoOrders().then((result) => {
             console.log(result.data.data);
-            if(result.data.data != null){
+            if(result.data.data !== null){
                 setData(result.data.data);
                 console.log(data);
             }
@@ -40,21 +39,21 @@ function CashonDelivery() {
                         <table className="min-w-full divide-y divide-gray-300">
                             <thead className="bg-gray-500 bg-opacity-25">
                                 <tr>
-                                    <th className="py-3 w-1/5 text-lg font-semibold tracking-wider text-gray-700">ORDoice ID</th>
-                                    <th className="py-3 w-1/5 text-lg font-semibold tracking-wider text-gray-700">Prduct Quantity</th>
-                                    <th className="py-3 w-1/5 text-lg font-semibold tracking-wider text-gray-700">Total Cost (RS)</th>
-                                    <th className="py-3 w-1/5 text-lg font-semibold tracking-wider text-gray-700">Date</th>
+                                    <th className="w-1/5 py-3 text-lg font-semibold tracking-wider text-gray-700">ORDoice ID</th>
+                                    <th className="w-1/5 py-3 text-lg font-semibold tracking-wider text-gray-700">Prduct Quantity</th>
+                                    <th className="w-1/5 py-3 text-lg font-semibold tracking-wider text-gray-700">Total Cost (RS)</th>
+                                    <th className="w-1/5 py-3 text-lg font-semibold tracking-wider text-gray-700">Date</th>
                                     
-                                    <th className="py-3 w-1/5 text-lg font-semibold tracking-wider  text-gray-700" >Edit</th>
+                                    <th className="w-1/5 py-3 text-lg font-semibold tracking-wider text-gray-700" >Edit</th>
 
 
 
                                 </tr>
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-200 ">
-                            {data.length !=0 ? data.map((item, id) => 
+                            {data.length !== 0 ? data.map((item, id) => 
                                 <CashonTable order_id={item.id} product_quantity={item.items} total_cost={item.cost} date={item.date} key={id} />
-                            ) : <tr className="flex justify-center items-center text-lg overflow-hidden">
+                            ) : <tr className="flex items-center justify-center overflow-hidden text-lg">
                                  <td>Empty</td>
                             </tr>}
 

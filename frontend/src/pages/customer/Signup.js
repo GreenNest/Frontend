@@ -49,7 +49,7 @@ class Signup extends Component {
         if(this.state.password.length < 8 ){
             password_err = "Password must be more than 8 characters";
         }
-        else if(this.state.password != this.state.confirmpassword){
+        else if(this.state.password !== this.state.confirmpassword){
             password_err = "Password does not match"
         }else{
             
@@ -98,7 +98,7 @@ class Signup extends Component {
         CustomerService.createCustomer(customer).then((result) => {
             // this.props.history.push('/login');
             console.log(result.data);
-            if(result.data == true){
+            if(result.data === true){
                 toast('Successfully create an account', {
                    autoClose: false,
                    closeOnClick: true,

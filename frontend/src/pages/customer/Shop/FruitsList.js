@@ -1,22 +1,20 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import Category from './Category';
-import { useHistory } from "react-router-dom";
 import Productlist from './Productlist';
 import Header from '../../../components/Header';
 import SignedHeader from '../../../components/SignedHeader';
 import Footer from '../../../components/Footer';
-import CustomerService from '../../../services/CustomerService';
 import axios from 'axios';
 
 
 function FruitsList() {
-    var history = useHistory();
-    const [logstate, setLogstate] = useState(false);
+    // var history = useHistory();
+    // const [logstate, setLogstate] = useState(false);
     const [header, setHeader] = useState(0);
 
     const x = JSON.parse(localStorage.getItem('authorization'));
-    const [categories, setCategories] = useState([]);
+    // const [categories, setCategories] = useState([]);
     const [data, setData] = useState([]); 
 
     useEffect(async () => {

@@ -1,9 +1,9 @@
 import React from 'react';
 import './styles/index.css';
-import {BrowserRouter as Router , Route , Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 // customer
-import Index from './pages/customer/Index'; //
+import Index from './pages/customer/index'; //
 import Signup from './pages/customer/Signup'; //
 import ForgetPassword from './pages/customer/ForgetPassword';
 import ResetPassword from './pages/customer/ResetPassword';
@@ -21,11 +21,11 @@ import Orderhistory from './pages/customer/Orderhistory';//
 // admin
 import AdminDashboard from './pages/admin/dashboard/Dashboard';
 import Reports from './pages/admin/reports/Reports';
-import AddStock from './pages/admin/Stock/AddStock';
-import EditStock from './pages/admin/Stock/EditStock';
-import Updatestock from './pages/admin/Stock/Updatestock';
+import AddStock from './pages/admin/stock/AddStock';
+import EditStock from './pages/admin/stock/EditStock';
+import Updatestock from './pages/admin/stock/UpdateStock';
 import ViewCategories from './pages/admin/category/ViewCategories';
-import ProductByCategory from './pages/admin/Stock/ProductByCategory';
+import ProductByCategory from './pages/admin/stock/ProductByCategory';
 import ViewSupplier from './pages/admin/supplier/ViewSupplier';
 import EditSupplier from './pages/admin/supplier/EditSupplier';
 import AddSupplier from './pages/admin/supplier/AddSupplier';
@@ -84,11 +84,11 @@ function App() {
     <Route exact path="/admin/viewCategories" component={ViewCategories} />
     <Route exact path="/admin/categoryView/productsView/:name" component={ProductByCategory} />
     <Route exact path="/admin/viewSupplier" component={ViewSupplier} />
-    <Route exact path="/admin/editSupplier" component={EditSupplier} />
+    <Route exact path="/admin/editSupplier/:id" component={EditSupplier} />
     <Route exact path="/admin/addSupplier" component={AddSupplier} />
     <Route exact path="/admin/viewEmployee" component={ViewEmployee} />
     <Route exact path="/admin/addEmployee" component={AddEmployee} />
-    <Route exact path="/admin/editEmployee" component={EditEmployee} />
+    <Route exact path="/admin/editEmployee/:nic" component={EditEmployee} />
 
     {/* moderator routes */}
     <Route exact path="/moderator/dashboard" component={ModDashboard} />

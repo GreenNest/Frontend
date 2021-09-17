@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import BarChart from './components/BarChart';
-import LineChart from './components/LineChart';
 import AdminSidebar from '../components/adminSidebar';
-
-import sales_report from '../../../assets/reports/sales_reports.jpg';
 
 class Reports extends Component {
     render() {

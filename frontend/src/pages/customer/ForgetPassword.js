@@ -1,11 +1,11 @@
 import React,{useState} from 'react';
 import CustomerService from '../../services/CustomerService';
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function ForgetPassword() {
     const [userEmail, setUserEmail] = useState('');
     const [message, setMessage] = useState('');
-    const [err, setErr] = useState('');
+    // const [err, setErr] = useState('');
     const history = useHistory();
 
      const handleSubmit = (e) => {
@@ -30,13 +30,13 @@ function ForgetPassword() {
 
 
     return (
-        <div className="w-full h-screen flex justify-center items-center">
-           <div className="w-3/6 bg-white rounded shadow-lg border-gray-400 border-solid border">
+        <div className="flex items-center justify-center w-full h-screen">
+           <div className="w-3/6 bg-white border border-gray-400 border-solid rounded shadow-lg">
               <form className="p-6" onSubmit={e => {handleSubmit(e)}}>
-              <h2 className="flex justify-center items-center font-bold text-30 text-maingreen">Forget Password</h2>
-              <div className="flex justify-start items-center flex-col">
-              <div className="flex justify-center items-center text-xs text-redcolor">{message}</div>
-              <label className="text-lg w-full font-semibold">Enter your email</label>
+              <h2 className="flex items-center justify-center font-bold text-30 text-maingreen">Forget Password</h2>
+              <div className="flex flex-col items-center justify-start">
+              <div className="flex items-center justify-center text-xs text-redcolor">{message}</div>
+              <label className="w-full text-lg font-semibold">Enter your email</label>
               <input class="rounded w-full p-2 border-solid outline-none hover:border-hovergreen focus:border-maingreen border shadow border-black border-opacity-25 leading-tight text-gray-700"
                 type="text"
                 name="userEmail"
