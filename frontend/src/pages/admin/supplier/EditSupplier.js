@@ -94,15 +94,16 @@ function EditSupplier () {
         return res.data;
     }
 
-    const editSupplier = () => {
+    const editSupplier = (event) => {
+        event.preventDefault();
         const isValid = validate();
         console.log(isValid)
         if (isValid) {
             const result = supplierEdit();
             console.log(result)
-            if (result == 1) {
+            if (result === 1) {
                 closeForm();
-                toast('Successfully add supplier', {
+                toast('Successfully Edit Supplier', {
                     autoClose: false,
                     closeOnClick: true,
                     progress: false,

@@ -1,5 +1,5 @@
 
-const SupplierTable = (props) => {
+const DeliveryPersonTable = (props) => {
     return (
         <tr>
             <td className="px-6 py-4 whitespace-nowrap">
@@ -10,6 +10,12 @@ const SupplierTable = (props) => {
                 <div className="text-base font-medium text-gray-900">{props.address}</div>
             </td>
             <td className="px-6 py-4 text-base font-medium text-gray-900 whitespace-nowrap">0{props.mobile}</td>
+            {
+                props.status === 1 ? (
+                    <td className="px-6 py-4 text-base font-medium text-green-800 whitespace-nowrap">Available</td>
+                ) :
+                    <td className="px-6 py-4 text-base font-medium text-red-800 whitespace-nowrap">Not Available</td>
+            }
             <td className="px-6 py-4 text-base font-medium text-left whitespace-nowrap">
                 <a href="#" className="text-indigo-600 hover:text-indigo-900">
                     Contact
@@ -19,4 +25,4 @@ const SupplierTable = (props) => {
     );
 }
 
-export default SupplierTable;
+export default DeliveryPersonTable;
