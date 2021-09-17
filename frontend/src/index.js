@@ -41,16 +41,18 @@ import reportWebVitals from './reportWebVitals';
 // import Reports from './pages/admin/reports/Reports';
 // import AddStock from './pages/admin/add-stock/AddStock';
 // import Updatestock from './pages/admin/Stock/Updatestock';
+import Invoice from './pages/accountant/Invoice';
 
 
 ReactDOM.render(
   <React.StrictMode>
     <Router> 
+    <Invoice/>
        {/* <Header/>   */}
         {/* <AdminSidebar />   */}
         {/* <ModeratorSidebar />   */}
         {/* <AccountantSidebar />   */}
-        <App/>  
+        {/* <App/>   */}
       {/* <Footer/>   */}
     </Router>
   </React.StrictMode>,

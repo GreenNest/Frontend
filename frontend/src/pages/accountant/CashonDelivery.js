@@ -15,7 +15,7 @@ function CashonDelivery() {
     }, [])
 
     const getOrders = async()=> {
-        CustomerService.getAllCoOrders().then((result) => {
+        const x = await CustomerService.getAllCoOrders().then((result) => {
             console.log(result.data.data);
             if(result.data.data != null){
                 setData(result.data.data);
