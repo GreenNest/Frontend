@@ -87,7 +87,7 @@ function App() {
     <Route exact path="/admin/addSupplier" component={AddSupplier} />
     <Route exact path="/admin/viewEmployee" component={ViewEmployee} />
     <Route exact path="/admin/addEmployee" component={AddEmployee} />
-    <Route exact path="/admin/editEmployee" component={EditEmployee} />
+    <Route exact path="/admin/editEmployee/:nic" component={EditEmployee} />
 
     {/* moderator routes */}
     <Route exact path="/moderator/dashboard" component={ModDashboard} />
