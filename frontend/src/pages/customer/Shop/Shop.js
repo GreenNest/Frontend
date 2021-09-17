@@ -14,14 +14,15 @@ function Shop() {
     const [categories, setCategories] = useState([]);
     const [data, setData] = useState([]); 
     const [ active, setActive] = useState({
-        active: "Cactus"
+        active: ''
     });
     // const [loading, setLoading] = useState(true);
   
     useEffect(() => {
         getHeader();
-        getProductList("Cactus");
         getCategory();
+        console.log(categories[0]);
+        getProductList(categories[0]);
 
     }, [])
 
@@ -39,6 +40,8 @@ function Shop() {
             console.log(response.data.data);
             if(response.data.data != null){
                setCategories(response.data.data);
+               setActive({active: categories[0]})
+               console.log(active);
             }
             
         })

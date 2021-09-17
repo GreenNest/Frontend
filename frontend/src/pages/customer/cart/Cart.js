@@ -8,6 +8,7 @@ import Header from '../../../components/Header';
 import SignedHeader from '../../../components/SignedHeader';
 import Footer from '../../../components/Footer';
 import api from '../../../axiosContact';
+import CustomerService from '../../../services/CustomerService';
 
 function Cart() {
     var history = useHistory();
@@ -25,8 +26,12 @@ function Cart() {
     const getHeader = async() => {
         const x = JSON.parse(localStorage.getItem('authorization'));
         if(!x){
+            history.push("/error");
             setHeader(<Header/>)
         }else{
+            if(!x.roles.includes("customer")){
+                history.push("/error");
+            }
             setHeader(<SignedHeader/>)
         }
     };
@@ -34,12 +39,17 @@ function Cart() {
     const getCartItems = async() => {
         const y = JSON.parse(localStorage.getItem('authorization'));
         const id =  parseInt(y.id);
-        const result = await api.get(`/cart/get/${id}`);
-        if(result){
+
+        CustomerService.getCartItems(id).then((result) => {
+            if(result.data.data != null){
             setData(result.data.data);
-            console.log(result.data.data);
-            
-        }
+            console.log(result.data.data); 
+            }
+        }).catch((err) => {
+            if(err.response.status == 401){
+                history.push("/login");
+            }
+        })
     } 
 
     const calculation = (res) => {

@@ -48,13 +48,14 @@ function Product() {
             setHeader(<Header/>)
             
         }else{
+            if(!x.roles.includes("customer")){
+                history.push("/error");
+            }
             setHeader(<SignedHeader/>)
         }
     }
 
-    const getProductDetails = async() => {
-        const x = JSON.parse(localStorage.getItem('authorization'));
-        
+    const getProductDetails = async() => {        
         CustomerService.getSingleProduct(id).then((response) => {
             if(response.data.status == 200){
                setData(response.data.data);
@@ -71,12 +72,12 @@ function Product() {
     }
 
     const productRivews = async() => {
-        const res = await api.get(`/reviews/get/${id}`);
-        console.log(res.data.status);
-        if(res.data.data != null){
-            setReviewsData(res.data.data);
-            console.log(res.data);
-        }
+
+        CustomerService.getProductRivews(id).then((res) => {
+            if(res.data.data != null){
+                setReviewsData(res.data.data);
+            }
+        })
     }
 
     const togglecomplain = () => {
@@ -84,7 +85,8 @@ function Product() {
     }
 
     const updateStock = async(newStock) => {
-        const res = await api.put(`/product/update/${id}/${newStock}`);
+        CustomerService.updateStockAmount(newStock, id);
+        // const res = await api.put(`/product/update/${id}/${newStock}`);
     }
 
 

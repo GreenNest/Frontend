@@ -30,8 +30,7 @@ class AddEmployee extends Component{
                 ? event.target.checked
                 : event.target.value
         });
-    };
-
+    }; 
     validate(){
         let email_err= "";
         let mobile_err = "";
@@ -57,42 +56,43 @@ class AddEmployee extends Component{
         event.preventDefault();
         const isValid = this.validate();
         if(isValid){
-            console.log(this.state);
-            let employee = {
-                nic: this.state.nic,
-                first_name: this.state.firstname,
-                last_name: this.state.lastname,
-                address: this.state.address,
-                mobile: parseInt(this.state.mobile),
-                account_status: 0,
-                userProfile: {
-                    email: this.state.email,
-                    password: this.state.password,
-                    authorities:[
-                        {
-                            roleCode: this.state.role
-                        }
-                    ]
-                }
-            }
+           console.log(this.state);
 
-            console.log("employee = " + JSON.stringify(employee));
-            CustomerService.createEmployee(employee).then((result) => {
-                console.log(result);
-                if(result.data === true){
-                    toast('Successfully create an account', {
+           let employee = {
+               nic: this.state.nic,
+               first_name: this.state.firstname,
+               last_name: this.state.lastname,
+               address: this.state.address,
+               mobile: parseInt(this.state.mobile),
+               account_status: 0,
+               userProfile: {
+                   email: this.state.email,
+                   password: this.state.password,
+                   authorities:[
+                    {
+                        roleCode: this.state.role
+                    }
+                ]
+               }
+           }
+
+           console.log("employee = " + JSON.stringify(employee));
+           CustomerService.createEmployee(employee).then((result) => {
+               console.log(result);
+               if(result.data == true){
+                   toast('Successfully create an account', {
+                   autoClose: false,
+                   closeOnClick: true,
+                   progress: false,
+                   position:toast.POSITION.TOP_CENTER
+                   });
+               }
+               else{
+                   toast('Already have an account please signup', {
                     autoClose: false,
                     closeOnClick: true,
                     progress: false,
                     position:toast.POSITION.TOP_CENTER
-                    });
-                }
-                else{
-                    toast('Already have an account', {
-                        autoClose: false,
-                        closeOnClick: true,
-                        progress: false,
-                        position:toast.POSITION.TOP_CENTER
                     });
                 }
             })

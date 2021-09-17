@@ -107,7 +107,7 @@ class Signup extends Component {
                 });
             }
             else{
-                toast('Already have an account please signup', {
+                toast('Already have an account with this email', {
                     autoClose: false,
                     closeOnClick: true,
                     progress: false,
