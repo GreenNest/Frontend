@@ -48,16 +48,9 @@ function Order(){
         }
     }
 
-<<<<<<< HEAD
     const getOrderItems = async(oId) => {
       CustomerService.getOrders(oId).then((res) => {
         if(res.data.data != null){
-=======
-    const getOrderItems = async(id) => {
-      const res = await api.get(`/orderItems/get/${oId}`);
-      if(res.data.data != null){
-        console.log(res.data.data)
->>>>>>> 3f40a79679a92656d2db82f7369d4c023c40aca7
         setData(res.data.data);
       }
       }).catch((err) => {

@@ -30,8 +30,7 @@ class AddEmployee extends Component{
                 ? event.target.checked
                 : event.target.value
         });
-    };
-
+    }; 
     validate(){
         let email_err= "";
         let mobile_err = "";
@@ -94,14 +93,6 @@ class AddEmployee extends Component{
                     closeOnClick: true,
                     progress: false,
                     position:toast.POSITION.TOP_CENTER
-                    });
-                }
-                else{
-                    toast('Already have an account', {
-                        autoClose: false,
-                        closeOnClick: true,
-                        progress: false,
-                        position:toast.POSITION.TOP_CENTER
                     });
                 }
             })
