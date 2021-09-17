@@ -3,7 +3,7 @@ import './styles/index.css';
 import {BrowserRouter as Router , Route , Switch} from "react-router-dom";
 
 // customer
-import Index from './pages/customer/Index'; //
+import Index from './pages/customer/index'; //
 import Signup from './pages/customer/Signup'; //
 import ForgetPassword from './pages/customer/ForgetPassword';
 import ResetPassword from './pages/customer/ResetPassword';

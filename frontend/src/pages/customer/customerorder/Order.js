@@ -48,8 +48,9 @@ function Order(){
     }
 
     const getOrderItems = async(id) => {
-      const res = await api.get(`/orderItems/get/1`);
+      const res = await api.get(`/orderItems/get/${oId}`);
       if(res.data.data != null){
+        console.log(res.data.data)
         setData(res.data.data);
       }
     }
@@ -88,7 +89,7 @@ function Order(){
                   <div className="my-4 -ml-4">{item.price.toFixed(2)} LKR</div>
                   <div className="my-4 "><button className="h-12 text-base font-medium text-black bg-yellow-200 rounded w-36 hover:bg-yellow-300 focus:outline-none" onClick={() => toggleModel(item.productId)}>Review & Rate </button></div>                          
                 </div>                        
-              ) )) : <div className="font-bold text-20 p-2 flex justify-center items-center">Loading...</div>}                     
+              ) )) : <div className="flex items-center justify-center p-2 font-bold text-20">Loading...</div>}                     
             </div>
 
             <div className="flex justify-end pb-10 mr-14">

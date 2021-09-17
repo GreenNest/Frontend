@@ -36,7 +36,7 @@ function AddSupplier(props) {
     const validate = () => {
 
         if(!email.includes("@")){
-            setemail_error("Invalida email");
+            setemail_error("Invalid email");
             // formValid = false;
         }
 
