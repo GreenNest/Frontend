@@ -62,8 +62,8 @@ function AddSupplier(props) {
         return true;
     }
 
-    const supplierAdd = async () => {
-        const res = await api.post("/addSupplier", {
+    const supplierAdd =  () => {
+        const res =  api.post("/addSupplier", {
             first_name: firstName,
             last_name: lastName,
             address: address,
@@ -71,8 +71,10 @@ function AddSupplier(props) {
             mobile: mobile,
             account_status: 0,
             categories: usedCategory,
-        });
-        console.log(usedCategory);
+        }).then((result)=>{
+            console.log(result)
+        })
+        console.log(res)
         return res.data;
     }
 
@@ -82,17 +84,17 @@ function AddSupplier(props) {
         // console.log(isValid)
         if (isValid) {
             const result = supplierAdd();
-            console.log(result)
+             console.log(result)
             if (result === 1) {
                 closeForm();
-                toast('Successfully add supplier', {
+                toast('Successfully add the supplier', {
                     autoClose: false,
                     closeOnClick: true,
                     progress: false,
                     position: toast.POSITION.TOP_CENTER
                 });
             }else {
-                seterrorProfile("Already created this supplier.");
+                seterrorProfile("Already added this supplier.");
             }
         }
     }
@@ -100,7 +102,7 @@ function AddSupplier(props) {
     return (
         <>
         {
-            console.log(errorProfile)
+            // console.log(errorProfile)
         }
             <AdminSidebar />
             <div className="flex flex-col w-full ml-28">
