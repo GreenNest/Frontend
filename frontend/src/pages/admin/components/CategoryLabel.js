@@ -1,7 +1,9 @@
 
-const CategoryLabel = (props) => {
+function CategoryLabel(props) {
     return (
-        <label className="px-1 rounded-md bg-lightgreen">{props.categoryName}</label>
+        <div className="flex">
+            <label className="flex-initial p-1 px-2 font-semibold text-white border rounded-md border-hovergreen bg-hovergreen">{props.categoryName}</label>
+        </div>
     );
 }
 

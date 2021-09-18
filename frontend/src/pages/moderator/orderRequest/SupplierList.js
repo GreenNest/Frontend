@@ -1,74 +1,72 @@
+import React, { useState, useEffect} from "react";
+import SupplierTable from "./components/SupplierTable";
+import ModeratorSidebar from '../components/moderatorSidebar';
+import api from "../../../axiosContact";
 
-const SupplierList = () => {
+function SupplierList () {
+
+    const [suppliers, setsuppliers] = useState([]);
+
+    const retrieveSuppliers = async () => {
+        const res = await api.get("/suppliersByCategory");
+        return res.data.data;
+    };
+
+    const getSuppliers = async () => {
+        const allSuppliers = await retrieveSuppliers();
+        if (allSuppliers) {
+            setsuppliers(allSuppliers);
+        };
+    }
+
+    useEffect(() => {
+        getSuppliers();
+    }, [])
+
     return (
-        <div className="flex flex-col my-10 lg:mx-32 sm:mx-10">
-            <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div className="mb-10 text-3xl font-bold">Fruit Plants Suppliers</div>
-                <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                    <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
-                        <table className="min-w-full divide-y divide-gray-200">
-                            <thead className="bg-gray-50">
-                                <tr>
-                                    <th className="px-6 py-3 text-base font-semibold tracking-wider text-left text-gray-500 uppercase">Name</th>
-                                    <th className="px-6 py-3 text-base font-semibold tracking-wider text-left text-gray-500 uppercase">Address</th>
-                                    <th className="px-6 py-3 text-base font-semibold tracking-wider text-left text-gray-500 uppercase">Mobile</th>
-                                    <th className="relative px-6 py-3">
-                                        <span className="sr-only">Edit</span>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody className="bg-white divide-y divide-gray-200">
-                                <tr>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <div className="text-base font-medium text-gray-900">Sulakshanee Theja</div>
-                                        <div className="text-base text-gray-500">Sulakshanee@gmail.com</div>
-                                    </td>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <div className="text-base text-gray-900">GreenHut, Digana, Kandy</div>
-                                    </td>
-                                    <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">0711229957</td>
-                                    <td className="px-6 py-4 text-base font-medium text-left whitespace-nowrap">
-                                        <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                            Contact
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <div className="text-base font-medium text-gray-900">Sulakshanee Theja</div>
-                                        <div className="text-base text-gray-500">Sulakshanee@gmail.com</div>
-                                    </td>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <div className="text-base text-gray-900">GreenHut, Digana, Kandy</div>
-                                    </td>
-                                    <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">0711229957</td>
-                                    <td className="px-6 py-4 text-base font-medium text-left whitespace-nowrap">
-                                        <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                            Contact
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <div className="text-base font-medium text-gray-900">Sulakshanee Theja</div>
-                                        <div className="text-base text-gray-500">Sulakshanee@gmail.com</div>
-                                    </td>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <div className="text-base text-gray-900">GreenHut, Digana, Kandy</div>
-                                    </td>
-                                    <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">0711229957</td>
-                                    <td className="px-6 py-4 text-base font-medium text-left whitespace-nowrap">
-                                        <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                            Contact
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+        <>
+            <ModeratorSidebar/>
+            <div className="flex items-start justify-end mt-8 mb-10 ml-10">
+                <div className="w-3/4 px-10 pt-10 bg-gray-500 bg-opacity-25 rounded sm:mx-10">
+                    {
+                        suppliers.length !== 0 ? (
+                            suppliers.map((contact, index) => (
+                                contact.suppliers.length !== 0 ? (
+                                    <div key={index}>
+                                        <h4 className="text-3xl font-bold text-center text-maingreen">{contact.categoryName}</h4>
+                                        <div className="flex mt-6 mb-12 overflow-x-auto border-b border-gray-200 shadow verflow-hidden sm:rounded-lg">
+                                            <table className="min-w-full divide-y divide-gray-200">
+                                                <thead className="bg-gray-500 bg-opacity-25">
+                                                    <tr>
+                                                        <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left">Name</th>
+                                                        <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left">Address</th>
+                                                        <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left">Mobile</th>
+                                                        <th className="relative px-6 py-3">
+                                                            <span className="sr-only">Edit</span>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody className="bg-white divide-y divide-gray-200">
+                                                    {
+                                                        contact.suppliers.map((supplier, index) => (
+                                                            supplier.account_status == 0 ? (
+                                                                <SupplierTable key={index} first_name={supplier.first_name} last_name={supplier.last_name} address={supplier.address} email={supplier.email} mobile={supplier.mobile} />
+                                                            ): null
+                                                        ))
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                ): null
+                            ))
+                        ):  <h4 className="m-auto mt-10 mb-10 text-2xl font-medium text-center text-red-500">
+                                There are no Suppliers joing with the company.
+                            </h4> 
+                    }
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 
