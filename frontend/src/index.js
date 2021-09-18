@@ -47,12 +47,12 @@ import Invoice from './pages/accountant/Invoice';
 ReactDOM.render(
   <React.StrictMode>
     <Router> 
-    {/* <Invoice/> */}
+    <Invoice/>
        {/* <Header/>   */}
         {/* <AdminSidebar />   */}
         {/* <ModeratorSidebar />   */}
         {/* <AccountantSidebar />   */}
-        <App/>  
+        {/* <App/>   */}
       {/* <Footer/>   */}
     </Router>
   </React.StrictMode>,

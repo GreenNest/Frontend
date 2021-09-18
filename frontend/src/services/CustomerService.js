@@ -129,7 +129,9 @@ class CustomerService {
     getOrders(id){
         return axios.get(`${API}orderItems/get/${id}`, data())
     }
-    
+    getInvoiceDetails(id){
+        return axios.get(`${API}get/invoiceDetails/${id}`)
+    }
 
 
 
