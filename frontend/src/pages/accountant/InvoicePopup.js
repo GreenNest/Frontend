@@ -3,11 +3,27 @@ import CustomerService from "../../services/CustomerService";
 import { Link } from "react-router-dom";
 import Invoice from './Invoice';
 function InvoicePopup(props){
-  const [invoice, setInvoice] = useState('');
+  const [finvoice, setFinvoice] = useState('');
   const [message, setMessage] = useState('');
+  console.log(props.id);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let file= {
+        invoice: finvoice,
+        id:props.id
+    }
+    let formData = new FormData();
+    Object.keys(file).forEach((key) => {
+        formData.append(key, file[key])
+    })
+
+    CustomerService.sendInvoice(formData).then((res) => {
+        setMessage(res.data.message);
+    })
+
+    console.log(formData);
+
    
   }
 
@@ -24,11 +40,11 @@ function InvoicePopup(props){
     
               {/*body*/}
               <div className="flex flex-col items-center justify-center p-4">
-              <div className="inline-flex items-center justify-center text-20 font-semibold text-redcolor">{message}</div>
+              <div className="inline-flex items-center justify-center text-sm font-semibold text-redcolor mb-1">{message}</div>
                 <input type="file" 
-                  name={invoice}
-                  value={invoice[0]}
-                  onChange={e => setInvoice(e.target.file[0])} required/>
+                  name={finvoice}
+                  value={finvoice[0]}
+                  onChange={e => setFinvoice(e.target.files[0])} required/>
 
                 </div>
               {/*footer*/}
@@ -37,7 +53,7 @@ function InvoicePopup(props){
                   className="w-24 p-2 text-center text-white rounded-sm cursor-pointer bg-redcolor mr-7 focus:outline-none"
                   type="button"
                   onClick={props.canclePopup}>
-                  Cancel
+                  Close
                 </button>
                 <button 
                   className="w-24 p-2 text-center text-white rounded-sm cursor-pointer bg-secondarygreen hover:bg-lightgreen focus:outline-none" type="submit"

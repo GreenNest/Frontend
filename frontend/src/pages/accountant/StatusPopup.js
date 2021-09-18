@@ -1,18 +1,19 @@
 import React,{useState} from 'react';
 import CustomerService from "../../services/CustomerService";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Invoice from './Invoice';
 function StatusPopup(props){
   const [status, setStatus] = useState(false);
   const [message, setMessage] = useState('');
+  var history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     CustomerService.updateCoDeliveryStatus(props.id, status).then((result) => {
       setMessage(result.data.message);
-      // setTimeout(() => {
-      //      history.push("/accountant/invoice");
-      //    }, 3000);
+      setTimeout(() => {
+           history.push("/accountant/invoice/" +props.id);
+         }, 3000);
     }).catch((err)=>{
       setMessage(err.response.message);
     })

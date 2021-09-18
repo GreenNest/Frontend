@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { useParams } from "react-router-dom";
 import ReactDOMServer from "react-dom/server";
 import * as htmlToImage from 'html-to-image';
 import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
@@ -14,13 +15,17 @@ export class Invoice extends Component {
             data:[],
             message:'',
             items:[],
-            showPopUp: false
+            showPopUp: false,
+            orderId: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount(){
-        CustomerService.getInvoiceDetails(2).then((res) => {
+        const { id } =this.props.match.params;
+        this.setState({orderId: id})
+        console.log(id);
+        CustomerService.getInvoiceDetails(parseInt(id)).then((res) => {
             console.log("data");
             console.log(res.data.data);
             this.setState({data: res.data.data});
@@ -56,16 +61,25 @@ export class Invoice extends Component {
        this.setState({showPopUp: true});
     }
 
+    calculation = (res) => {
+        let total = 0;
+        this.state.items.map((x) => {
+            total= total+ (x.quantity * x.price);
+            })
+        return total;
+    }
+
     render() {
         var newDate= this.state.data.date;
-        console.log(typeof newDate);
+        var total = this.calculation(this.state.data) + 200;
+        var newId = this.state.orderId;
         return (
             <>
             <div className="h-auto w-full flex justify-center items-center" id="my-node"> 
             { this.state.showPopUp ? (
-                <InvoicePopup canclePopup={this.cancelPupUp} id={2}/>
+                <InvoicePopup canclePopup={this.cancelPupUp} id={parseInt(newId)}/>
             ) : null}
-                <div className="flex w-8/12 justify-start flex-col" id="content">
+                <div className="flex w-8/12 justify-start flex-col mt-20" id="content">
                     <div className="w-full h-auto pt-2 pb-2 text-maingreen font-bold text-30 inline-flex justify-center item-center border-b-2">Green Nest</div>
                     {/* <div className="mt-4 ml-9 text-xl text-secondarygreen font-semibold bottom-1">Thank you for your order</div> */}
                     {/* <div className="mt-3 ml-9">Hi Hiruni, </div>
@@ -89,7 +103,7 @@ export class Invoice extends Component {
                     </table>
                     <div className="w-10/12 mt-2 grid justify-start items-center grid-cols-invoice ml-9">
                         <div className="text-base">Subtotal</div>
-                        <div className="flex justify-center items-center text-base">500 LKR</div>
+                        <div className="flex justify-center items-center text-base">{this.calculation(this.state.data)} LKR</div>
                     </div>
                     <div className="w-10/12 grid justify-start items-center grid-cols-invoice ml-9">
                         <div className="text-base">Delivery charge</div>
@@ -97,7 +111,7 @@ export class Invoice extends Component {
                     </div>
                     <div className="w-10/12 grid justify-start items-center grid-cols-invoice ml-9">
                         <div className="text-base">Total</div>
-                        <div className="flex justify-center items-center text-base">500 LKR</div>
+                        <div className="flex justify-center items-center text-base">{total} LKR</div>
                     </div>
 
                     <div className="mt-3 ml-9 text-secondarygreen">Address</div>

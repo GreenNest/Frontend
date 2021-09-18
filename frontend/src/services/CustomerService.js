@@ -132,6 +132,9 @@ class CustomerService {
     getInvoiceDetails(id){
         return axios.get(`${API}get/invoiceDetails/${id}`)
     }
+    sendInvoice(file){
+        return axios.post(`${API}invoice/send`, file)
+    }
 
 
 

@@ -109,7 +109,7 @@ function App() {
     <Route exact path="/accountant/leaveRequests" component={AccLeaveRequests} />
     <Route exact path="/accountant/leaveStats" component={AccLeaveStats} />
     <Route exact path="/accountant/salary" component={EmployeeSalary} />
-    <Route exact path="/accountant/invoice" component={Invoice}/>
+    <Route exact path="/accountant/invoice/:id" component={Invoice}/>
     <Route exact path="/error" component={Error}/>
     </Switch>
     </>
