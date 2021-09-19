@@ -83,9 +83,15 @@ function Cart() {
                     data.map((item) => (
                         <CartItem name={item.name} price={item.price} totalAmount={item.quantity} key={item.id} cartId={item.id} getItems={getCartItems} productId={item.product_id} singlePrice={item.singlePrice}/>
                     )) 
-                ) : <h4 className="m-auto mt-10 text-xl font-medium">
-                        Empty Cart.
+                ) : <h4 className="m-auto mt-10 text-xl text-red-700 font-medium">
+                        Your Cart is Empty!
+                        {/* <div className="flex-auto mt-4"> */}
+                            <Link to="/shop">
+                                 <button className="bg-maingreen hover:bg-hovergreen text-white flex font-bold py-2 px-4 mt-2 rounded">Back to Shop</button>
+                            </Link>
+                        {/* </div> */}
                     </h4>
+                    
             }
             
             <CartAmount sum={calculation(data)}/>

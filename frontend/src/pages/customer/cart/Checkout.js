@@ -93,9 +93,9 @@ function Checkout(props){
                                 <input type="hidden" name="notify_url" value="http://localhost:3000/cart" />
                                 
                                 <input type="hidden" name="order_id" value="ItemNo12345" />
-                                <input type="hidden" name="items" value="Door bell wireless" />
+                                <input type="hidden" name="items" value="Mango plant" />
                                 <input type="hidden" name="currency" value="LKR" />
-                                <input type="hidden" name="amount" value={totalPrice.toFixed(2)} /> 
+                                <input type="hidden" name="amount" value="700" /> 
 
                                 {/* <label className="text-sm font-medium" for="fname"><FontAwesomeIcon icon={faUser} /> Full Name</label>
                                 <input className="w-full p-2 border border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen" type="text" id="fname" name="fullname" placeholder="Hashan Kumarasinghe" required/> */}
