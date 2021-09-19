@@ -135,6 +135,9 @@ class CustomerService {
     sendInvoice(file){
         return axios.post(`${API}invoice/send`, file)
     }
+    getGraphOrderData(){
+        return axios.get(`${API}order/getCount`)
+    }
 
 
 

@@ -1,11 +1,28 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import BarChart from './components/BarChart';
 import PieChart from './components/PieChart';
 import {FaClipboardList, FaClipboardCheck} from 'react-icons/fa';
 import AccountantSidebar from './components/accountantSidebar';
+import CustomerService from '../../../services/CustomerService';
 
-class AccDashboard extends Component {
-    render() {
+function AccDashboard() {
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        getOrders();
+    }, [])
+
+    const getOrders = async() => {
+        const x = await CustomerService.getGraphOrderData().then((res) => {
+            if(res.data.data != null){
+                setData(res.data.data);
+            }
+            console.log(res.data.data);
+            
+        }).catch((err) => {
+            console.log(err.response);
+        })
+    }
+
         return (
             <>
             <AccountantSidebar/>
@@ -31,7 +48,7 @@ class AccDashboard extends Component {
                             </div>
                        </div>
                        <div class="grid h-5/6 w-full grid-cols-2 mt-8 lg:gap-16 md:gap-10 gap-5">
-                            <div class="w-full h-full p-1 rounded-md shadow-lg border-solid border-2"><BarChart/></div>
+                            <div class="w-full h-full p-1 rounded-md shadow-lg border-solid border-2" ><BarChart/></div>
                             <div class="w-full h-full p-7 rounded-md shadow-lg border-solid border-2 justify-center items-center flex" ><PieChart/></div>
                        </div>
                     </div>
@@ -41,6 +58,5 @@ class AccDashboard extends Component {
             </>
         );
     }
-}
 
 export default AccDashboard;

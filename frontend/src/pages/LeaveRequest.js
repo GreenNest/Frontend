@@ -60,7 +60,7 @@ function LeaveRequest(){
         if(!x){
             <Redirect to='/login' />
         }else{
-            if(x.roles[0] != "accountant"){
+            if(x.roles[0] != "accountant" || x.roles[0] != "moderator"){
                 console.log(x.roles);
                 history.push("/error");
             }
