@@ -15,7 +15,7 @@ function EditSupplier () {
     const [lastName, setlastName] = useState("");
     const [address, setaddress] = useState("");
     const [email, setemail] = useState("");
-    const [mobile, setmobile] = useState();
+    const [mobile, setmobile] = useState("");
     const [email_error, setemail_error] = useState("");
     const [mobile_error, setmobile_error] = useState("");
     const [errorProfile, seterrorProfile] = useState("");
@@ -58,7 +58,7 @@ function EditSupplier () {
         setlastName("");
         setaddress("");
         setemail("");
-        setmobile( );
+        setmobile("");
         setusedCategory([]);
         seterrorProfile("");
     }
@@ -81,45 +81,39 @@ function EditSupplier () {
         return true;
     }
 
-    const supplierEdit = async () => {
-        const res = await api.put(`/editSupplier/${id}`, {
-            first_name: firstName,
-            last_name: lastName,
-            address: address,
-            email: email,
-            mobile: mobile,
-            account_status: 0,
-            categories: usedCategory,
-        });
-        return res.data;
-    }
-
     const editSupplier = (event) => {
         event.preventDefault();
         const isValid = validate();
-        console.log(isValid)
         if (isValid) {
-            const result = supplierEdit();
-            console.log(result)
-            if (result === 1) {
-                closeForm();
-                toast('Successfully Edit Supplier', {
-                    autoClose: false,
-                    closeOnClick: true,
-                    progress: false,
-                    position: toast.POSITION.TOP_CENTER
-                });
-            }else {
-                seterrorProfile("Already created supplier using this email.");
-            }
+            setemail_error("");
+            setmobile_error("");
+            api.put(`/editSupplier/${id}`, {
+                first_name: firstName,
+                last_name: lastName,
+                address: address,
+                email: email,
+                mobile: mobile,
+                account_status: 0,
+                categories: usedCategory,
+            }).then((result) => {
+                console.log(result.data);
+                if (result.data === 1) {
+                    closeForm();
+                    toast('Successfully Edit Supplier', {
+                        autoClose: false,
+                        closeOnClick: true,
+                        progress: false,
+                        position: toast.POSITION.TOP_CENTER
+                    });
+                }else {
+                    seterrorProfile("Already created supplier using this email.");
+                }
+            })
         }
     }
 
     return (
         <>
-        {
-            console.log(errorProfile)
-        }
             <AdminSidebar/>
             <div className="flex flex-col w-full ml-28">
                 <div className="flex justify-center mx-16">
