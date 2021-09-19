@@ -10,12 +10,22 @@ import Header from '../../../components/Header';
 import SignedHeader from '../../../components/SignedHeader';
 import Footer from '../../../components/Footer';
 import CustomerService from '../../../services/CustomerService';
+import api from '../../../axiosContact';
 
 
-function Checkout(){
+function Checkout(props){
+    const totalPrice = props.sum + 200;
     var history = useHistory();
     const [header, setHeader] = useState(0);
     const x = JSON.parse(localStorage.getItem('authorization'));
+    const [data, setData] = useState([]);
+    const [cartList, setCartList] = useState([]);
+    const [subtotal, setSubtotal] = useState(0);
+
+    useEffect(() => {
+        getCartItems();   
+        getHeader();         
+    }, [])
 
     useEffect(async () => {
         if(!x){
@@ -27,27 +37,99 @@ function Checkout(){
        
     }, [])
 
+    const getHeader = async() => {
+        const x = JSON.parse(localStorage.getItem('authorization'));
+        if(!x){
+            setHeader(<Header/>)
+        }else{
+            setHeader(<SignedHeader/>)
+        }
+    };
+
+    const getCartItems = async() => {
+        const y = JSON.parse(localStorage.getItem('authorization'));
+        const id =  parseInt(y.id);
+        const result = await api.get(`/cart/get/${id}`);
+        if(result){
+            setData(result.data.data);
+            console.log(result.data.data);
+            
+        }
+    } 
+
+    const calculation = (res) => {
+        let total = 0;
+        res.map((x) => {
+                total= total+ x.price;
+            })
+        return total;
+    }
+
+    // handleButtonClicked() {
+    //     var searchQuery = this.state.searchQuery;
+    
+    //     window.location.href = "https://www.payhere.lk/pay/checkout";
+    //   }
+
     return(
         <>
         {header}
 { /* <div className="w-11/12 mt-8 mb-8 m */}
-        <div className="w-11/12 mt-12 mb-8 ml-12">
-            <div className=""><CheckoutAmount className=""/></div>
+        <div className="w-8/12 mt-12 mb-8 ml-96">
+            <p className="mb-0 ml-64 text-red-700 font-medium">We don't save any of your payment information in our databases.</p>
+            <p className="mb-2 ml-36 text-red-700 font-medium">You may proceed with <span className="text-blue-700">PayHere</span> by clicking below link. Thank your for purchasing with GreenNest!</p>
+            <div className=""><CheckoutAmount sum={calculation(data)}/></div>
             <div className="row">
             <div className="col-75">
                 <div className="container bg-gray-500 bg-opacity-25 rounded-md">
-                    <form id="validate" action="/action_page.php">
+                    <form id="validate" action="https://sandbox.payhere.lk/pay/checkout" method="post">
                         <div className="row">
                             <div className="col-50">
-                                <div className="m-4 ml-0 text-lg font-bold text-maingreen">Billing Address</div>
-                                <label className="text-sm font-medium" for="fname"><FontAwesomeIcon icon={faUser} /> Full Name</label>
-                                <input className="w-full p-2 border border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen" type="text" id="fname" name="fullname" placeholder="Hashan Kumarasinghe" required/>
-                                <label className="text-sm font-medium" for="email"><FontAwesomeIcon icon={faEnvelope} /> Email</label>
-                                <input className="w-full p-2 border border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen" type="text" id="email" name="email" placeholder="example@gmail.com" required/>
-                                <label className="text-sm font-medium" for="adr"><FontAwesomeIcon icon={faAddressCard} /> Address</label>
+                                <div className="m-4 ml-0 text-lg font-bold text-maingreen">Payment Details</div>
+                                
+                                <input type="hidden" name="merchant_id" value="1218584" hidden />
+                                <input type="hidden" name="return_url" value="http://localhost:3000/cart" />
+                                <input type="hidden" name="cancel_url" value="http://localhost:3000/cart" />
+                                <input type="hidden" name="notify_url" value="http://localhost:3000/cart" />
+                                
+                                <input type="hidden" name="order_id" value="ItemNo12345" />
+                                <input type="hidden" name="items" value="Mango plant" />
+                                <input type="hidden" name="currency" value="LKR" />
+                                <input type="hidden" name="amount" value="700" /> 
+
+                                {/* <label className="text-sm font-medium" for="fname"><FontAwesomeIcon icon={faUser} /> Full Name</label>
+                                <input className="w-full p-2 border border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen" type="text" id="fname" name="fullname" placeholder="Hashan Kumarasinghe" required/> */}
+                                <div class="row">
+                                    <div class="col-50">
+                                        <label className="text-sm font-medium" for="fname">First Name</label>
+                                        <input className="w-full p-2 border border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen" type="text" id="fname" name="first_name" placeholder="Hashan" required/>
+                                    </div>
+                                    <div class="col-50">
+                                        <label className="text-sm font-medium" for="lname">Last Name</label>
+                                        <input className="w-full p-2 border border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen" type="text" id="lname" name="last_name" placeholder="Kumarasinghe" required/>
+                                    </div>
+                                </div>
+                                <label className="text-sm font-medium" for="email">
+                                    {/* <FontAwesomeIcon icon={faEnvelope} />  */}
+                                    Email
+                                </label>
+                                <input className="w-full p-2 border border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen" type="text" id="email" name="email" placeholder="hashankumarasinghe@gmail.com" required/>
+                                <label className="text-sm font-medium" for="phone">
+                                    {/* <FontAwesomeIcon icon={faCity} />  */}
+                                    Contact Number
+                                </label>
+                                <input className="w-full p-2 border border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen" type="text" id="phone" name="phone" placeholder="0769719060" required/>
+                                <label className="text-sm font-medium" for="adr">
+                                    {/* <FontAwesomeIcon icon={faAddressCard} />  */}
+                                    Address
+                                </label>
                                 <input className="w-full p-2 border border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen" type="text" id="adr" name="address" placeholder="448/1, Mathawa Kohilegedara" required/>
-                                <label className="text-sm font-medium" for="city"><FontAwesomeIcon icon={faCity} /> City</label>
+                                <label className="text-sm font-medium" for="city">
+                                    {/* <FontAwesomeIcon icon={faCity} />  */}
+                                    City
+                                </label>
                                 <input className="w-full p-2 border border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen" type="text" id="city" name="city" placeholder="Kurunegala" required/>
+                                <input type="hidden" name="country" value="Sri Lanka" />
 
                                 <div class="row">
                                     <div class="col-50">
@@ -55,23 +137,21 @@ function Checkout(){
                                         <input className="w-full p-2 border border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen" type="text" id="state" name="state" placeholder="North Western"required/>
                                     </div>
                                     <div class="col-50">
-                                        <label className="text-sm font-medium" for="zip">Zip</label>
-                                        <input className="w-full p-2 border border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen" type="text" id="zip" name="zip" placeholder="60028"required/>
+                                        <label className="text-sm font-medium" for="pcode">Postal Code</label>
+                                        <input className="w-full p-2 border border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen" type="text" id="pcode" name="postal_code" placeholder="60028"required/>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-50">
+                            {/* <div class="col-50">
                             <div className="justify-center mt-4 mb-6 ml-0 text-lg font-bold text-maingreen">Payment</div>
                                 <label className="text-sm font-medium ml-36" for="fname">Accepted Cards</label>
                                 <div class="icon-container flex justify-center space-x-4">
-                                    {/* <i class="fa fa-cc-visa" style="color:navy;"></i> */}
+                                   
                                     <FaIcons.FaCcVisa className=""/>
                                     <FaIcons.FaCcAmex />
                                     <FaIcons.FaCcMastercard />
                                     <FaIcons.FaCcDiscover />
-                                    {/* <i class="fa fa-cc-amex" style="color:blue;"></i>
-                                    <i class="fa fa-cc-mastercard" style="color:red;"></i>
-                                    <i class="fa fa-cc-discover" style="color:orange;"></i> */}
+                                    
                                 </div>
 
                                 <label className="text-sm font-medium" for="cname">Name on Card</label>
@@ -91,12 +171,31 @@ function Checkout(){
                                         <input className="w-full p-2 border border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen" type="text" id="cvv" name="cvv" placeholder="352"required/>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
+                         {/* <div className=""><CheckoutAmount sum={calculation(data)}/></div>    */}
                         </div>
+    {/* <input type="hidden" name="merchant_id" value="1218584" />    
+    <input type="hidden" name="return_url" value="http://localhost:3000/cart" />
+    <input type="hidden" name="cancel_url" value="http://localhost:3000/cart" />
+    <input type="hidden" name="notify_url" value="http://localhost:3000/cart" />  
+    <br /><br />Item Details<br />
+    <input type="text" name="order_id" value="ItemNo12345" />
+    <input type="text" name="items" value="Door bell wireless" /><br />
+    <input type="text" name="currency" value="LKR" />
+    <input type="text" name="amount" value="1000" />  
+    <br /><br />Customer Details<br />
+    <input type="text" name="first_name" value="Saman" />
+    <input type="text" name="last_name" value="Perera" /><br />
+    <input type="text" name="email" value="samanp@gmail.com" />
+    <input type="text" name="phone" value="0771234567" /><br />
+    <input type="text" name="address" value="No.1, Galle Road" />
+    <input type="text" name="city" value="Colombo" />
+    <input type="hidden" name="country" value="Sri Lanka" /> <br /><br /> 
+    <input type="submit" value="Buy Now" />   */}
                         <label>
                         <input type="checkbox" checked="checked" name="sameadr"/> Shipping address same as billing
                         </label>
-                        <button className="justify-center p-4 px-4 py-3 mt-3 mb-2 ml-56 text-lg font-bold text-white rounded bg-maingreen hover:bg-hovergreen w-96">Continue to Checkout</button>
+                        <button className="justify-center p-4 px-4 py-3 mt-3 mb-2 ml-56 text-lg font-bold text-white rounded bg-maingreen hover:bg-hovergreen w-96" type="submit">Continue to Checkout</button>
                     </form>
                 </div>
             </div>
