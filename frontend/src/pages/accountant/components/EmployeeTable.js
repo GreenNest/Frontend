@@ -44,13 +44,8 @@ function EmployeeTable(props) {
             <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">{props.nic}</td>
             <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">{props.address}</td>
             <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">0{props.mobile}</td>
-            <td>
-                <Link to={`/admin/editEmployee/${props.nic}`}>
-                    <FaIcons.FaEdit className="w-5 h-5 mt-2 hover:text-hovergreen"/>
-                </Link>
-            </td>
-            <td>
-                <MdDeleteSweep className="w-6 h-6 hover:text-red-700 mt-1.5" onClick={() => employeeDelete(props.nic)}/>
+            <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">
+                {props.salary}
             </td>
         </tr>                    
     );

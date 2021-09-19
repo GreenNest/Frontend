@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import CustomerService from '../../services/CustomerService';
-import { useHistory, useLocation } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '../../components/Header';
@@ -48,12 +46,14 @@ class Login extends Component {
             if(response.data.token){
                 localStorage.setItem("authorization", JSON.stringify(response.data))
                 const x = JSON.parse(localStorage.getItem('authorization'));
-                if(x.roles[0] == 'customer'){
+                if(x.roles[0] === 'customer'){
                     console.log("you are customer");
                     this.props.history.push("/");
                 }else if(x.roles.includes("admin")){
                     console.log("admin log wela");
                     this.props.history.push("/admin/dashboard");
+                }else if(x.roles.includes("accountant")){
+                    this.props.history.push("/accountant/dashboard");
                 }
             }
         }).catch((err) => {
@@ -73,10 +73,12 @@ class Login extends Component {
             <>
             <Header isLog={this.state.loginState}/>
             <div class="flex justify-center items-center w-full ">
+
+//             <div class=" flex justify-center w-1/4 mt-20 mb-16 shadow-xl">
+
             
             <div class=" flex justify-center items-center w-1/4 mt-20 mb-16 shadow-xl">
-                
-                
+
             <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8  w-full' 
             onSubmit={this.handleSubmit}>
                 <p class="text-3xl mb-5 text-center font-bold"> Login </p>

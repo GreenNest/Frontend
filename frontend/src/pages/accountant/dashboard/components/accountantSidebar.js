@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
 // import { IconContext } from 'react-icons';
 import { SidebarData } from './accountantSidebarData';
 import logo from '../../../../assets/GreenNest.png';
@@ -9,6 +10,12 @@ function AccountantSidebar() {
     const [sidebar, setAccountantSidebar] = useState(true);
 
     const showAccountantSidebar = () => setAccountantSidebar(!sidebar);
+    const history = useHistory()
+
+    const logout = () => {
+        localStorage.removeItem("authorization");
+        history.push('/login');
+    }
 
     return (
         <>
@@ -42,6 +49,10 @@ function AccountantSidebar() {
                             </li>
                         )
                     })}
+                    <Link className="flex-col p-2 ml-1 -mt-3 flex">
+                        <button className="hover:bg-maingreen focus:bg-maingreen hover:text-white focus:text-white outline-none flex font-bold p-3 rounded w-48" onClick={logout}>
+                            <AiIcons.AiOutlineLogout className="w-5 h-5 mr-3 mt-0.5"/>Logout</button>
+                    </Link>
                 </ul>
             </nav>
         {/* </IconContext.Provider> */}

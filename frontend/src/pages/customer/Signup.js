@@ -49,7 +49,7 @@ class Signup extends Component {
         if(this.state.password.length < 8 ){
             password_err = "Password must be more than 8 characters";
         }
-        else if(this.state.password != this.state.confirmpassword){
+        else if(this.state.password !== this.state.confirmpassword){
             password_err = "Password does not match"
         }else{
             
@@ -98,7 +98,7 @@ class Signup extends Component {
         CustomerService.createCustomer(customer).then((result) => {
             // this.props.history.push('/login');
             console.log(result.data);
-            if(result.data == true){
+            if(result.data === true){
                 toast('Successfully create an account', {
                    autoClose: false,
                    closeOnClick: true,
@@ -107,7 +107,7 @@ class Signup extends Component {
                 });
             }
             else{
-                toast('Already have an account please signup', {
+                toast('Already have an account with this email', {
                     autoClose: false,
                     closeOnClick: true,
                     progress: false,
@@ -131,6 +131,130 @@ class Signup extends Component {
 
     render() {
         return (
+
+//             <div className='flex justify-center w-full mb-20'>
+//                 <div class="w-2/4 shadow-2xl mt-12 items-center flex justify-center"> 
+//                     <form class="w-full max-w-lg justify-center mb-20" onSubmit={this.handleSubmit}>
+
+//                         <h3 class="font-sans text-2xl font-bold text-center mt-4 mb-5">Create your account</h3>
+//                             <div class="flex flex-wrap -mx-3 mb-6  ">
+//                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+//                                     <label class="block uppercase tracking-wide text-black font-bold mb-4 mt-4">
+//                                         First Name
+//                                     </label>
+//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3 " 
+//                                     type="text" 
+//                                     value={this.state.firstname}
+//                                     onChange={this.handlefirstnameChange}
+//                                     placeholder="eg: Nimal"/>
+//                                 </div>
+
+//                                 <div class="w-full md:w-1/2 px-3  ">
+//                                     <label class="block uppercase tracking-wide text-black font-bold mb-4 mt-4">
+//                                         Last Name
+//                                     </label>
+//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
+//                                     type="text" 
+//                                     value={this.state.lastname}
+//                                     onChange={this.handlelastnameChange}
+//                                     placeholder="eg: Perera"/>
+//                                 </div>
+
+//                                 <div class="w-full md:w-1/2 px-3">
+//                                      <label class="block uppercase tracking-wide text-black font-bold mb-4 mt-4">
+//                                         Address Line 1
+//                                     </label>
+//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
+//                                     type="text" 
+//                                     value={this.state.address1}
+//                                     onChange={this.handleaddress1Change}
+//                                     placeholder="eg: No.08"/>
+//                                 </div>
+
+//                                 <div class="w-full md:w-1/2 px-3">
+//                                     <label class="block uppercase tracking-wide text-black font-bold mb-4 mt-4">
+//                                         Address Line 2
+//                                     </label>
+//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
+//                                     type="text" 
+//                                     value={this.state.address2}
+//                                     onChange={this.handleaddress2Change}
+//                                     placeholder="eg: Muththettuwa Waththa"/>
+//                                 </div>
+
+//                                 <div class="w-full md:w-1/2 px-3">
+//                                     <lable class="block uppercase tracking-wide text-black font-bold mb-4 mt-4">
+//                                         District
+//                                     </lable>
+//                                         <select class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3"
+//                                         value={this.state.district}
+//                                         onChange={this.handledistrictChange}>
+//                                             <option>Kurunegala</option>
+//                                             <option>Puttalam</option>
+//                                         </select>
+//                                 </div>
+
+//                                 <div class="w-full md:w-1/2 px-3">
+//                                     <label class="block uppercase tracking-wide text-black font-bold mb-4 mt-4">
+//                                         City
+//                                     </label>
+//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
+//                                     type="text" 
+//                                     value={this.state.city}
+//                                     onChange={this.handlecityChange}
+//                                     placeholder="eg: Kuliyapitiya"/>
+//                                 </div>
+
+//                                 <div class="w-full md:w-1/2 px-3">
+//                                     <label class="block uppercase tracking-wide text-black font-bold mb-4 mt-4">
+//                                         Email
+//                                     </label>
+//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
+//                                     type="text" 
+//                                     value={this.state.email}
+//                                     onChange={this.handleemailChange}
+//                                     placeholder="eg: hiruni123@gmail.com"/>
+//                                 </div>
+
+//                                 <div class="w-full md:w-1/2 px-3">
+//                                     <label class="block uppercase tracking-wide text-black font-bold mb-4 mt-4">
+//                                         Mobile Number
+//                                     </label>
+//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
+//                                     type="number" 
+//                                     value={this.state.mobilenumber}
+//                                     onChange={this.handlemobilenumberChange}
+//                                     placeholder="eg: Kuliyapitiya"/>
+//                                 </div>
+
+//                                 <div class="w-full md:w-1/2 px-3">
+//                                     <label class="block uppercase tracking-wide text-black font-bold mb-4 mt-4">
+//                                         Password
+//                                     </label>
+//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
+//                                     type="password" 
+//                                     value={this.state.password}
+//                                     onChange={this.handlepasswordChange}/>
+//                                 </div>
+
+//                                 <div class="w-full md:w-1/2 px-3">
+//                                     <label class="block uppercase tracking-wide text-black font-bold mb-4 mt-4">
+//                                         Confirm Password
+//                                     </label>
+//                                     <input class="appearance-none block w-full bg-gray-200 border rounded shadow focus:outline-none focus:shadow-outline focus:shadow-outline  focus:bg-white focus:border-black py-3 px-4 mb-3" 
+//                                     type="password" 
+//                                     value={this.state.confirmpassword}
+//                                     onChange={this.handleconfirmpasswordChange}/>
+//                                 </div>
+
+
+//                                 <div class="md:justify-center mb-6 w-1/2">
+//                                     <div class="md:w-1/3"></div>
+//                                     <label class="md:w-full block text-black font-bold">
+//                                         <input class="ml-4 leading-tight" type="checkbox" />
+//                                             <span class="text-sm ml-2">
+//                                                 I agree the to terms and conditions
+
 <>
             <Header/>
             <div className="flex justify-center w-full mb-16">
@@ -216,6 +340,7 @@ class Signup extends Component {
                                         <label class="md:w-full block text-black font-medium">
                                             <input class="ml-4 form-checkbox h-3 w-3 leading-tight" type="checkbox" />
                                                <span> I agree the to terms and conditions
+
                                             </span>
                                         </label>
                                 </div>

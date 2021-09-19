@@ -84,7 +84,7 @@ class CustomerService {
     }
 
     addReview(rate){
-        return axios.post(`${API}reviews/add`, rate)
+        return axios.post(`${API}reviews/add`, rate, data())
     }
 
     addcomplain(complain){
@@ -105,6 +105,32 @@ class CustomerService {
     updatePassword(data){
         return axios.put(`${API}userPassword/get`, data)
     }
+    getAllCoOrders(){
+        return axios.get(`${API}orders/cashOnDelivery`)
+    }
+    updateCoDeliveryStatus(id, status){
+        return axios.put(`${API}orderStatus/update/${id}/${status}`)
+    }
+    sendLeaveRequest(request){
+        return axios.post(`${API}leave/add`, request, data())
+    }
+    getProductRivews(id){
+        return axios.get(`${API}reviews/get/${id}`, data())
+    }
+    updateStockAmount(amount, id){
+        return axios.put(`${API}product/update/${id}/${amount}`, data())
+    }
+    getCartItems(id){
+        return axios.get(`${API}cart/get/${id}`, data())
+    }
+    deleteCartItems(id){
+        return axios.delete(`${API}cart/delete/${id}`, data());
+    }
+    getOrders(id){
+        return axios.get(`${API}orderItems/get/${id}`, data())
+    }
+    
+
 
 
 

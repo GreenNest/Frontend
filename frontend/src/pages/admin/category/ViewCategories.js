@@ -45,7 +45,6 @@ function ViewCategories() {
                                         <FaClipboardList className="w-12 h-8 -mt-2 text-maingreen"/>  
                                         <div className="w-full h-20 font-semibold">
                                             <div className="mt-8 text-xl font-bold text-maingreen">{category}</div>
-                                            <h3 className="font-bold text-green-700">Items :10</h3>
                                         </div>
                                     </div>
                                 </Link>
@@ -55,7 +54,7 @@ function ViewCategories() {
                 </div>
             </div>
             { addCategoryPopup ? (
-                <AddCategory canclePopup={() => setaddCategoryPopup(false)}/>
+                <AddCategory canclePopup={() => setaddCategoryPopup(false)} categoriesGet={getCategories} />
             ): null }
         </>
     )

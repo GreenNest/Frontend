@@ -2,15 +2,11 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import Complaintmodel from './Complaintmodel';
 import Ratemodel from './Ratemodel';
-import b_avacado from "../../../assets/b_avacado.jpg"
-import lemmon from "../../../assets/lemmon.jpg"
-import plastic_pot from "../../../assets/plastic_pot.jpg"
-import sensavaria from "../../../assets/sensavaria.jpg"
-import Header from '../../../components/Header';
 import SignedHeader from '../../../components/SignedHeader';
 import Footer from '../../../components/Footer';
 import api from '../../../axiosContact';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
+import CustomerService from '../../../services/CustomerService';
 function Order(){
       const [model1,setModel1] =useState(false);
       const [model2,setModel2] =useState(false);
@@ -19,6 +15,8 @@ function Order(){
       const [product, setProduct] = useState(0);
       const [order, setOrder] = useState(0);
       const { oId } = useParams();
+      const [message, setMessage] = useState('Loading');
+      const history = useHistory();
       
       const x = JSON.parse(localStorage.getItem('authorization'));
 
@@ -34,24 +32,34 @@ function Order(){
       
       useEffect(async () => {
         getHeader();
-        getOrderItems();
+        getOrderItems(oId);
       
     }, [])
 
     const getHeader = async() => {
         const x = JSON.parse(localStorage.getItem('authorization'));
         if(!x){
-            setHeader(<Header/>)
+            history.push("/login");
         }else{
+          if(!x.roles.includes("customer")){
+                history.push("/error");
+            }
             setHeader(<SignedHeader/>)
         }
     }
 
-    const getOrderItems = async(id) => {
-      const res = await api.get(`/orderItems/get/1`);
-      if(res.data.data != null){
+    const getOrderItems = async(oId) => {
+      CustomerService.getOrders(oId).then((res) => {
+        if(res.data.data != null){
         setData(res.data.data);
       }
+      }).catch((err) => {
+        if(err.response.status == 401){
+            history.push("/login");
+        }else{
+          setMessage(err.response.message);
+        }
+      })
     }
 
 
@@ -88,7 +96,7 @@ function Order(){
                   <div className="my-4 -ml-4">{item.price.toFixed(2)} LKR</div>
                   <div className="my-4 "><button className="h-12 text-base font-medium text-black bg-yellow-200 rounded w-36 hover:bg-yellow-300 focus:outline-none" onClick={() => toggleModel(item.productId)}>Review & Rate </button></div>                          
                 </div>                        
-              ) )) : <div className="font-bold text-20 p-2 flex justify-center items-center">Loading...</div>}                     
+              ) )) : <div className="font-bold text-20 p-2 flex justify-center items-center">{message}</div>}                     
             </div>
 
             <div className="flex justify-end pb-10 mr-14">
