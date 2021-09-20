@@ -129,8 +129,24 @@ class CustomerService {
     getOrders(id){
         return axios.get(`${API}orderItems/get/${id}`, data())
     }
-    
-
+    getInvoiceDetails(id){
+        return axios.get(`${API}get/invoiceDetails/${id}`)
+    }
+    sendInvoice(file){
+        return axios.post(`${API}invoice/send`, file)
+    }
+    getGraphOrderData(){
+        return axios.get(`${API}order/getCount`)
+    }
+    getGraphLeaveCount(id){
+        return axios.get(`${API}leave/count/${id}`)
+    }
+    getEmployeeSalary(type){
+        return axios.get(`${API}employee/salary/${type}`)
+    }
+    getOrderHistory(id){
+        return axios.get(`${API}order/get/${id}`)
+    }
 
 
 

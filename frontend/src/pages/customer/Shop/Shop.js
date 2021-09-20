@@ -21,7 +21,6 @@ function Shop() {
     useEffect(() => {
         getHeader();
         getCategory();
-        console.log(categories[0]);
         getProductList(categories[0]);
 
     }, [])
