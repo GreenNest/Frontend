@@ -1,13 +1,13 @@
 import React from 'react';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useHistory, Redirect} from 'react';
 import { Link } from "react-router-dom";
 import Header from '../../components/Header';
 import SignedHeader from '../../components/SignedHeader';
 import Footer from '../../components/Footer';
-import api from '../../axiosContact';
+import CustomerService from '../../services/CustomerService';
 
 function Orderhistory() {
-
+  
   // var history = useHistory();
   const [header, setHeader] = useState(0);
   const [data, setData] = useState([]);

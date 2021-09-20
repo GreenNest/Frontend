@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from "react";
-import SupplierTable from "./components/SupplierTable";
+import SupplierTable from "./SupplierTable";
 import ModeratorSidebar from '../components/moderatorSidebar';
 import api from "../../../axiosContact";
 

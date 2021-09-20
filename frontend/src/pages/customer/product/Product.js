@@ -63,7 +63,7 @@ function Product() {
                setCategory(response.data.data.categories);
             }
         }).catch((err) => {
-            console.log(err.response.status);
+            //console.log(err.response.status);
             if(err.response.status == 401){
                 history.push("/login");
             }
@@ -77,6 +77,10 @@ function Product() {
             if(res.data.data != null){
                 setReviewsData(res.data.data);
             }
+        }).catch((err) => {
+            if(err.response.status == 401){
+                history.push("/login");
+            }
         })
     }
 
@@ -85,7 +89,13 @@ function Product() {
     }
 
     const updateStock = async(newStock) => {
-        CustomerService.updateStockAmount(newStock, id);
+        CustomerService.updateStockAmount(newStock, id).then((res) => {
+
+        }).catch((err) => {
+            if(err.response.status == 401){
+                history.push("/login");
+            }
+        })
         // const res = await api.put(`/product/update/${id}/${newStock}`);
     }
 
@@ -110,6 +120,10 @@ function Product() {
                 console.log(cart);
                 CustomerService.addToCart(cart).then((response) => {
                     setMessage(response.data.message);
+                }).catch((err) => {
+                    if(err.response.status == 401){
+                         history.push("/login");
+                    }
                 })
                 updateStock(data.amount - parseInt(stock));
             }

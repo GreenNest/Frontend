@@ -6,9 +6,10 @@ import Search from './components/Search';
 import AccountantSidebar from './dashboard/components/accountantSidebar';
 import CustomerService from '../../services/CustomerService';
 import api from '../../axiosContact';
+import { useParams, Redirect, useHistory } from 'react-router-dom';
 
 function EmployeeSalary() {
-    
+    const history = useHistory();
     const [contacts, setContacts] = useState([]);
     const [active, setactive] = useState({
         active: "Moderators"
@@ -16,6 +17,7 @@ function EmployeeSalary() {
 
     useEffect(() => {
         getEmployees(1);
+        checkValidate();
     }, [])
 
     const retrieveContacts = async (userType) => {
@@ -25,11 +27,30 @@ function EmployeeSalary() {
     };
 
     const getEmployees = async (userType) => {
-        const allContacts = await retrieveContacts(userType);
-        if (allContacts) {
+        const allContacts = await retrieveContacts(userType).then((res) => {
+            if (allContacts) {
             setContacts(allContacts);
-        };
+            };
+        }).catch((err) => {
+            if(err.response.status == 401){
+                history.push("/login");
+            }
+        })
+        
+    };
+
+    const checkValidate = async() => {
+        const y = JSON.parse(localStorage.getItem('authorization')); 
+        if(!y){
+            <Redirect to='/login' />
+        }else{
+            if(y.roles[0] == "admin" || y.roles[0] == "customer"){
+                history.push("/error");
+            }
+            
+        }
     }
+
 
     
     
