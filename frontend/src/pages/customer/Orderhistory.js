@@ -7,12 +7,12 @@ import Footer from '../../components/Footer';
 import CustomerService from '../../services/CustomerService';
 
 function Orderhistory() {
-  var history = useHistory();
+  
+  // var history = useHistory();
   const [header, setHeader] = useState(0);
   const [data, setData] = useState([]);
   const [message, setMessage] = useState('');
   const x = JSON.parse(localStorage.getItem('authorization'));
-
 
   useEffect(() => {
     getHeader();
@@ -22,28 +22,19 @@ function Orderhistory() {
     const getHeader = async() => {
         const x = JSON.parse(localStorage.getItem('authorization'));
         if(!x){
-          <Redirect to='/login' />
-          setHeader(<Header/>)
+            setHeader(<Header/>)
         }else{
-          if(!x.roles.includes("customer")){
-              history.push("/error");
-          }
             setHeader(<SignedHeader/>)
         }
     }
 
     const getTotalOrders = async(id) => {
-      const res = await CustomerService.getOrderHistory(id).then((res) => {
-        if(res.data.data != null){
-          setData(res.data.data);
-        }
-      }).catch((err) => {
-        if(err.response.status == 401){
-          history.push("/login");
-        }else{
-          setMessage(res.data.message);
-        }
-      })
+      const res = await api.get(`/order/get/${id}`);
+      if(res.data.data != null){
+        setData(res.data.data);
+      }else{
+        setMessage(res.data.message);
+      }
 
     }
 
@@ -72,7 +63,6 @@ function Orderhistory() {
               <div>Total Cost</div>
               <div className="">Order Status</div>
             </div> 
-
 
             {data.length !== 0  ? (data.map((order)=>(
               <div class="grid grid-cols-5 p-6 mt-8 text-lg bg-white"  key={order.order_id}>
