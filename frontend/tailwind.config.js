@@ -46,7 +46,8 @@ module.exports = {
          'sidebar-colums': '0.8fr 3fr',
          'sidebar-rows': 'auto',
          'dashboard': '40% 40%',
-         'cart':'25% 15% 7% 15% 8% 15% 15% '
+         'cart':'25% 15% 7% 15% 8% 15% 15% ',
+         'invoice': '75% 25%'
     },
     screens: {
       xxxsm: "280px",

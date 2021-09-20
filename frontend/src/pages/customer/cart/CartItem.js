@@ -1,15 +1,22 @@
 import React from 'react';
 import { MdDeleteSweep } from 'react-icons/md';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import item from '../../../assets/product_img/mango-tree.jpg';
 import api from '../../../axiosContact';
 import CustomerService from '../../../services/CustomerService';
 
 function CartItem(props){
+    var history = useHistory();
 
     const deleteData = async(id) =>{
         // const result = await api.delete(`/cart/delete/${id}`);
-        CustomerService.deleteCartItems(parseInt(id));
+       const x = await CustomerService.deleteCartItems(parseInt(id)).then((res) => {
+
+        }).catch((err) => {
+            if(err.response.status == 401){
+                history.push("/login");
+            }
+        })
 
     }
 

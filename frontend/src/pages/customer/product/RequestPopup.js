@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CustomerService from '../../../services/CustomerService';
+import { useHistory } from 'react-router-dom';
 
 function RequestPopup(props){
   const[descriptions, setDescriptions] = useState('');
@@ -7,6 +8,7 @@ function RequestPopup(props){
   const id =props.productId;
   const x = JSON.parse(localStorage.getItem('authorization'));
   const [ message, setMessage] = useState('');
+  var history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,8 +22,10 @@ function RequestPopup(props){
     }
     CustomerService.addResponse(response).then((result) => {
       setMessage(result.data.message);
-    }).catch((error) => {
-      console.log(error.response);
+    }).catch((err) => {
+      if(err.response.status == 401){
+        history.push("/login");
+      }
     })
 
   }

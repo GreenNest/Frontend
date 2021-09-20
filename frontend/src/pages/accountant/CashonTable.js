@@ -22,8 +22,16 @@ function CashonTable(props){
                 <td className="py-4 text-base text-center text-gray-900">{props.product_quantity}</td>
                 <td className="py-4 text-base text-center text-gray-900">{props.total_cost}</td>
                 <td className="py-4 text-base text-center text-gray-900">{props.date.substring(0,10)}</td>
+                <td className="py-4 text-base text-center text-gray-900">{props.status}</td>
                 <td className="text-center">
-                    <FaIcons.FaEdit className="w-full h-6 hover:text-green-700 mt-1.5 justify-center items-center cursor-pointer" onClick={() => toggleModel(props.order_id)}/> 
+                {
+                    props.status != "Delivered" ? (
+                    <FaIcons.FaEdit className="w-full h-6 hover:text-green-700 mt-1.5 justify-center items-center cursor-pointer" onClick={() => toggleModel(props.order_id)}/>) :
+                    "Update"
+                       
+                    
+                }
+                    
                 </td>
         </tr>   
             

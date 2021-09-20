@@ -53,6 +53,7 @@ import InvoiceHistory from './pages/accountant/InvoiceHistory';
 import EmployeeSalary from './pages/accountant/EmployeeSalary';
 import AccLeaveRequests from './pages/LeaveRequest';
 import AccLeaveStats from './pages/LeaveStat';
+import Invoice from './pages/accountant/Invoice';
 
 import Error from './pages/Error';
 
@@ -112,6 +113,7 @@ function App() {
     <Route exact path="/accountant/leaveRequests" component={AccLeaveRequests} />
     <Route exact path="/accountant/leaveStats" component={AccLeaveStats} />
     <Route exact path="/accountant/salary" component={EmployeeSalary} />
+    <Route exact path="/accountant/invoice/:id" component={Invoice}/>
     <Route exact path="/error" component={Error}/>
     </Switch>
     </>
