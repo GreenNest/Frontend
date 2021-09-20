@@ -22,6 +22,7 @@ function RequestStockUpdate (props) {
                             position:toast.POSITION.TOP_CENTER
                         });
                         props.canclePopup();
+                        props.getOrderRequests();
                     } else {
                         seterror("Something went wrong.");
                     }
