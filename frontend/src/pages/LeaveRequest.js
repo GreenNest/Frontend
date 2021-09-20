@@ -11,7 +11,6 @@ function LeaveRequest(){
     const [ message, setMessage] = useState('');
     const history = useHistory();
     const [today, setToday ] = useState(new Date().toLocaleDateString('en-CA'));
-    console.log(today);
 
     const { id } = useParams();
     console.log(x.eid);
@@ -40,7 +39,7 @@ function LeaveRequest(){
                 nic : x.eid
             }
         }
-        console.log(request);
+        // console.log(request);
         CustomerService.sendLeaveRequest(request).then((result) => {
             setMessage(result.data.message);
             setReason("");
@@ -61,11 +60,10 @@ function LeaveRequest(){
             <Redirect to='/login' />
         }else{
             if(x.roles[0] != "accountant" || x.roles[0] != "moderator"){
-                console.log(x.roles);
+                // console.log(x.roles);
                 history.push("/error");
             }
         }
-
     }
 
         return (

@@ -2,15 +2,16 @@ import React,{useState, useEffect} from 'react';
 import CashonTable from './CashonTable';
 import AccountantSidebar from './dashboard/components/accountantSidebar';
 import CustomerService from '../../services/CustomerService';
-
-
+import { useParams, Redirect, useHistory } from 'react-router-dom';
 
 function CashonDelivery() {
     const [data, setData] = useState([]);
+    const history = useHistory();
     // const [message, setMessage] = useState([]);
 
     useEffect(() => {
         getOrders();
+        checkValidate();
     }, [])
 
     const getOrders = async()=> {
@@ -22,8 +23,23 @@ function CashonDelivery() {
             }
         }).catch((err) => {
             console.log(err.response);
+            if(err.response.status == 401){
+                history.push("/login");
+            }
             // setMessage(err.response.data.message);
         })
+    }
+
+    const checkValidate = async() => {
+        const y = JSON.parse(localStorage.getItem('authorization')); 
+        if(!y){
+            <Redirect to='/login' />
+        }else{
+            if(y.roles[0] == "admin" || y.roles[0] == "customer"){
+                history.push("/error");
+            }
+            
+        }
     }
 
     return (

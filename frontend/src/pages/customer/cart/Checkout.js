@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory,Redirect } from "react-router-dom";
 import CheckoutAmount from "./component/CheckoutAmount";
 import './style/checkout.css';
 import * as FaIcons from "react-icons/fa";
@@ -19,9 +19,12 @@ function Checkout(){
 
     useEffect(async () => {
         if(!x){
-            //history.push("/login");
+            <Redirect to='/login' />
             setHeader(<Header/>)
         }else{
+            if(!x.roles.includes("customer")){
+                history.push("/error");
+            }
             setHeader(<SignedHeader/>)
         }
        

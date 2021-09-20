@@ -12,10 +12,15 @@ function StatusPopup(props){
     CustomerService.updateCoDeliveryStatus(props.id, status).then((result) => {
       setMessage(result.data.message);
       setTimeout(() => {
-           history.push("/accountant/invoice/" +props.id);
+          history.push("/accountant/invoice/" +props.id);
          }, 3000);
     }).catch((err)=>{
-      setMessage(err.response.message);
+      if(err.response.status == 401){
+        history.push("/login");
+      }else{
+        setMessage(err.response.message);
+      }
+      
     })
   }
 

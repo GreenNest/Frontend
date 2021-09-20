@@ -138,7 +138,15 @@ class CustomerService {
     getGraphOrderData(){
         return axios.get(`${API}order/getCount`)
     }
-
+    getGraphLeaveCount(id){
+        return axios.get(`${API}leave/count/${id}`)
+    }
+    getEmployeeSalary(type){
+        return axios.get(`${API}employee/salary/${type}`)
+    }
+    getOrderHistory(id){
+        return axios.get(`${API}order/get/${id}`)
+    }
 
 
 

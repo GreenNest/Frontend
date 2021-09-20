@@ -1,10 +1,12 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 import {useState} from 'react';
 import '../../../styles/style.css';
 import CustomerService from '../../../services/CustomerService';
 
 function Ratemodel(props) {
+    var history = useHistory();
     const [rating, setRating] = useState(0);
     const [descriptions, setDescriptions] = useState('');
     const [ message, setMessage] = useState('');
@@ -24,6 +26,10 @@ function Ratemodel(props) {
         }
         CustomerService.addReview(rate).then((result) => {
             setMessage(result.data.message);
+        }).catch((err) => {
+            if(err.response.status == 401){
+                history.push("/login");
+            }
         })
     }
     

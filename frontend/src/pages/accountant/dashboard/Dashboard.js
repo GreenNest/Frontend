@@ -1,27 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import BarChart from './components/BarChart';
-import PieChart from './components/PieChart';
 import {FaClipboardList, FaClipboardCheck} from 'react-icons/fa';
 import AccountantSidebar from './components/accountantSidebar';
 import CustomerService from '../../../services/CustomerService';
+import { useParams, Redirect, useHistory } from 'react-router-dom';
 
 function AccDashboard() {
     const [data, setData] = useState([]);
+    const history = useHistory();
     useEffect(() => {
-        getOrders();
+        checkValidate();
     }, [])
-
-    const getOrders = async() => {
-        const x = await CustomerService.getGraphOrderData().then((res) => {
-            if(res.data.data != null){
-                setData(res.data.data);
+    const checkValidate = async() => {
+        const y = JSON.parse(localStorage.getItem('authorization')); 
+        if(!y){
+            <Redirect to='/login' />
+        }else{
+            if(y.roles[0] == "admin" || y.roles[0] == "customer"){
+                history.push("/error");
             }
-            console.log(res.data.data);
             
-        }).catch((err) => {
-            console.log(err.response);
-        })
+        }
     }
+
+    
 
         return (
             <>
@@ -47,9 +49,9 @@ function AccDashboard() {
                                 <span class="text-30 text-redcolor ml-3 lg:ml-8 md:ml-3">4</span>
                             </div>
                        </div>
-                       <div class="grid h-5/6 w-full grid-cols-2 mt-8 lg:gap-16 md:gap-10 gap-5">
+                       <div class="grid h-5/6 w-full grid-cols mt-8 lg:gap-16 md:gap-10 gap-5">
                             <div class="w-full h-full p-1 rounded-md shadow-lg border-solid border-2" ><BarChart/></div>
-                            <div class="w-full h-full p-7 rounded-md shadow-lg border-solid border-2 justify-center items-center flex" ><PieChart/></div>
+                            {/* <div class="w-full h-full p-7 rounded-md shadow-lg border-solid border-2 justify-center items-center flex" ><PieChart/></div> */}
                        </div>
                     </div>
                     

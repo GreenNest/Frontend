@@ -1,14 +1,13 @@
 import React from 'react';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useHistory, Redirect} from 'react';
 import { Link } from "react-router-dom";
 import Header from '../../components/Header';
 import SignedHeader from '../../components/SignedHeader';
 import Footer from '../../components/Footer';
-import api from '../../axiosContact';
+import CustomerService from '../../services/CustomerService';
 
 function Orderhistory() {
-
-  // var history = useHistory();
+  var history = useHistory();
   const [header, setHeader] = useState(0);
   const [data, setData] = useState([]);
   const [message, setMessage] = useState('');
@@ -22,19 +21,28 @@ function Orderhistory() {
     const getHeader = async() => {
         const x = JSON.parse(localStorage.getItem('authorization'));
         if(!x){
-            setHeader(<Header/>)
+          <Redirect to='/login' />
+          setHeader(<Header/>)
         }else{
+          if(!x.roles.includes("customer")){
+              history.push("/error");
+          }
             setHeader(<SignedHeader/>)
         }
     }
 
     const getTotalOrders = async(id) => {
-      const res = await api.get(`/order/get/${id}`);
-      if(res.data.data != null){
-        setData(res.data.data);
-      }else{
-        setMessage(res.data.message);
-      }
+      const res = await CustomerService.getOrderHistory(id).then((res) => {
+        if(res.data.data != null){
+          setData(res.data.data);
+        }
+      }).catch((err) => {
+        if(err.response.status == 401){
+          history.push("/login");
+        }else{
+          setMessage(res.data.message);
+        }
+      })
 
     }
 

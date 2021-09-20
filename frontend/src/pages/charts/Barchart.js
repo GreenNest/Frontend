@@ -1,39 +1,63 @@
-import React, { Component } from 'react';
-//import CanvasJSReact from '../../../../lib/canvasjs.react';
-//var CanvasJSReact = require('./canvasjs.react');
-// var CanvasJS = CanvasJSReact.CanvasJS;
-// var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+import React, { useState, useEffect } from 'react';
 import Chart from "react-google-charts";
+import CustomerService from '../../services/CustomerService';
+import { useHistory } from 'react-router-dom';
 
-const data = [
-  ["Element", "Density", { role: "style" }],
-  ["January", 1, "#A7C957"], // RGB value
-  ["February", 5, "#A7C957"], // English color name
-  ["March", 3, "#A7C957"],
-  ["April", 2, "#A7C957"],
-  ["May", 0, "#A7C957"],
-  ["June", 5, "#A7C957"],
-   // CSS-style declaration
-];
 const options = {
     title: "Leave Statistics",
 }
 
-class Barchart extends Component {
-    render() {
-        return (
-            <Chart
-                chartType="ColumnChart"
-                options = {options}
-                width="100%"
-                height="400px"
-                data={data}
+function Barchart(){
+    const [data, setData] = useState([]);
+    const history = useHistory();
+    const x = JSON.parse(localStorage.getItem('authorization')); 
+    useEffect(() => {
+        leaveCount(x.eid);
+    }, [])
+
+    const leaveCount = async(id) => {
+        const x = await CustomerService.getGraphLeaveCount(id).then((res) => {
+            if(res.data.data != null){
+                setData(res.data.data);
+            }
+        }).catch((err) => {
+            if(err.response.status == 401){
+                history.push("/login");
+            }
+        })
+    }
+
+    const createData = (x) => {
+        const data3 = [
+                ["Element", "Orders", { role: "style" }],
+                ["January", parseInt(x[0]), "#b87333"], 
+                ["February", parseInt(x[1]), "silver"], 
+                ["March", parseInt(x[2]), "gold"],
+                ["April", parseInt(x[3]), "color: #e5e4e2"],
+                ["May", parseInt(x[4]), "#b87333"], 
+                ["June", parseInt(x[5]), "silver"], 
+                ["July", parseInt(x[6]), "gold"],
+                ["August", parseInt(x[7]), "color: #e5e4e2"] ,
+                ["September", parseInt(x[8]), "#b87333"], 
+                ["Octomber", parseInt(x[9]), "silver"], 
+                ["November", parseInt(x[10]), "gold"],
+                ["December", parseInt(x[11]), "color: #e5e4e2"]  
+            ];
+            //setData2(data3);
+            return data3;
+    }
+    return (
+        <Chart
+            chartType="ColumnChart"
+            options = {options}
+            width="100%"
+            height="400px"
+            data={createData(data)}
         />
     );
         
-    }
-
 }
+
 
 export default Barchart;
 
