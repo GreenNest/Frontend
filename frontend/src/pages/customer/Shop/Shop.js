@@ -42,7 +42,6 @@ function Shop() {
                setActive({active: categories[0]})
                console.log(active);
             }
-            
         })
     };
 

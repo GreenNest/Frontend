@@ -44,8 +44,6 @@ function AddEmployee () {
         setemail("");
         setmobile("");
         seterrorProfile("");
-        setemail_error("");
-        setmobile_error("");
     }
 
     const validate = () => {
@@ -66,35 +64,32 @@ function AddEmployee () {
         return true;
     }
 
-    const employeeEdit = async () => {
-        const res = await api.put(`/editEmployee/${nic}`, {
-            first_name: firstName,
-            last_name: lastName,
-            address: address,
-            email: email,
-            mobile: mobile,
-        });
-        return res.data;
-    }
-
     const editEmployee = (event)=>{
         event.preventDefault();
         const isValid = validate();
-        // console.log(isValid)
         if (isValid) {
-            const result = employeeEdit();
-            console.log(result)
-            if (result === 1) {
-                closeForm();
-                toast('Successfully Edit Employee', {
-                    autoClose: false,
-                    closeOnClick: true,
-                    progress: false,
-                    position: toast.POSITION.TOP_CENTER
-                });
-            }else {
-                seterrorProfile("Already created employee using this email.");
-            }
+            setemail_error("");
+            setmobile_error("");
+            api.put(`/editEmployee/${nic}`, {
+                first_name: firstName,
+                last_name: lastName,
+                address: address,
+                email: email,
+                mobile: mobile,
+            }).then((result) => {
+                console.log(result.data);
+                if (result.data === 1) {
+                    closeForm();
+                    toast('Successfully Edit Employee', {
+                        autoClose: false,
+                        closeOnClick: true,
+                        progress: false,
+                        position: toast.POSITION.TOP_CENTER
+                    });
+                }else {
+                    seterrorProfile("Already created employee using this email.");
+                }
+            })
         }
     }
 

@@ -13,6 +13,7 @@ function Orderhistory() {
   const [message, setMessage] = useState('');
   const x = JSON.parse(localStorage.getItem('authorization'));
 
+
   useEffect(() => {
     getHeader();
     getTotalOrders(parseInt(x.id));
@@ -71,6 +72,7 @@ function Orderhistory() {
               <div>Total Cost</div>
               <div className="">Order Status</div>
             </div> 
+
 
             {data.length !== 0  ? (data.map((order)=>(
               <div class="grid grid-cols-5 p-6 mt-8 text-lg bg-white"  key={order.order_id}>

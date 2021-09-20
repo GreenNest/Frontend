@@ -3,7 +3,7 @@ import './styles/index.css';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 // customer
-import Index from './pages/customer/index'; //
+import Index from './pages/customer/Index'; //
 import Signup from './pages/customer/Signup'; //
 import ForgetPassword from './pages/customer/ForgetPassword';
 import ResetPassword from './pages/customer/ResetPassword';
@@ -32,17 +32,19 @@ import AddSupplier from './pages/admin/supplier/AddSupplier';
 import ViewEmployee from './pages/admin/employee/ViewEmployee';
 import AddEmployee from './pages/admin/employee/AddEmployee';
 import EditEmployee from './pages/admin/employee/EditEmployee';
+import Notification from './pages/admin/notification/Notification';
 
 // moderator
 import ModDashboard from './pages/moderator/dashboard/Dashboard';
 import Upcomingorders from './pages/moderator/orders/Upcomingorders';
 import OngoingOrders from './pages/moderator/orders/Ongoingorders';
 import SystemOrders from './pages/moderator/orders/Systemorders';
-import SupplierList from './pages/moderator/orderRequest/SupplierList';
+import SupplierList from './pages/moderator/suppliers/SupplierList';
 import OrderRequest from './pages/moderator/orderRequest/OrderRequest';
 import DeliveryPerson from './pages/moderator/deliveryPerson/DeliveryPerson';
 import ModLeaveRequests from './pages/LeaveRequest';
 import ModLeaveStats from './pages/LeaveStat';
+import RequestItemSuppliers from './pages/moderator/orderRequest/RequestItemSuppliers';
 
 // accountant
 import AccDashboard from './pages/accountant/dashboard/Dashboard';
@@ -90,6 +92,7 @@ function App() {
     <Route exact path="/admin/viewEmployee" component={ViewEmployee} />
     <Route exact path="/admin/addEmployee" component={AddEmployee} />
     <Route exact path="/admin/editEmployee/:nic" component={EditEmployee} />
+    <Route exact path="/admin/notifications" component={Notification} />
 
     {/* moderator routes */}
     <Route exact path="/moderator/dashboard" component={ModDashboard} />
@@ -101,6 +104,7 @@ function App() {
     <Route exact path="/moderator/deliveryPersons" component={DeliveryPerson} />
     <Route exact path="/moderator/leaveRequests" component={ModLeaveRequests} />
     <Route exact path="/moderator/leaveStats" component={ModLeaveStats} />
+    <Route exact path="/moderator/requestItemSuppliers/:productName" component={RequestItemSuppliers} />
 
     {/* accountant routes */}
     <Route exact path="/accountant/dashboard" component={AccDashboard} />

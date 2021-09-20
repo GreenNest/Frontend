@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-const CheckoutAmount = () => {
+function CheckoutAmount(props) {
+    const totalPrice = props.sum + 200;
+
     return (
         <div>
         {/* Total amount */}
-        <div className="w-4/12 m:w-2/12 sm:w-3/12 flex flex-col float-right justify-center items-center bg-gray-200 p-2 rounded-lg  mb-2">
+        <div className="w-4/12 m:w-2/12 sm:w-3/12 flex flex-col float-right justify-center items-center bg-gray-200 p-3 rounded-lg  mb-2 mt-64">
         <div className="flex-auto">
             <p className="font-bold">Total Amount</p>
         </div>
@@ -15,13 +17,13 @@ const CheckoutAmount = () => {
             <div className="font-bold text-sm mt-1">Total :</div>
 
 
-            <div className="text-sm">1200 LKR</div>
-            <div className="text-sm"> 200 LKR</div>
-            <div className="font-bold text-sm">1400 LKR</div>
+            <div className="text-sm">{props.sum.toFixed(2)} LKR</div>
+            <div className="text-sm"> 200.00 LKR</div>
+            <div className="font-bold text-sm">{totalPrice.toFixed(2)} LKR</div>
         </div>
         <div className="flex-auto mt-4">
             <Link to="#">
-                <button className="bg-maingreen hover:bg-hovergreen text-white flex font-bold py-2 px-4 rounded">Checkout</button>
+                <button className="bg-maingreen hover:bg-hovergreen text-white flex font-bold py-2 px-4 rounded" type="submit">Checkout</button>
             </Link>
         </div>
         
