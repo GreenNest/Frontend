@@ -3,7 +3,7 @@ import './styles/index.css';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 // customer
-import Index from './pages/customer/Index'; //
+import Index from './pages/customer/index'; //
 import Signup from './pages/customer/Signup'; //
 import ForgetPassword from './pages/customer/ForgetPassword';
 import ResetPassword from './pages/customer/ResetPassword';
@@ -14,8 +14,10 @@ import FruitsList from './pages/customer/Shop/FruitsList';
 import Product from './pages/customer/product/Product'; //
 import Order from './pages/customer/customerorder/Order'; //
 import Cart from './pages/customer/cart/Cart';//
-import Checkout from './pages/customer/cart/Checkout';//
+import Checkout from './pages/customer/cart/Checkout';
+import CashOnCheckOut from './pages/customer/cart/CashOnCheckOut';
 import Orderhistory from './pages/customer/Orderhistory';//
+import COrderRequest from './pages/customer/customerorder/OrderRequest';//
 
 
 // admin
@@ -77,6 +79,8 @@ function App() {
     <Route exact path="/forgetpassword" component={ForgetPassword}/>
     <Route exact path="/user/changePassword/:email" component={ResetPassword}/>
     <Route exact path="/verify/code/:email" component={OTPcheck}/>
+    <Route exact path="/order/orderRequest" component={COrderRequest}/>
+    <Route exact path="/cash/checkout" component={CashOnCheckOut} />
 
     {/* admin routes */}
     <Route exact path="/admin/dashboard" component={AdminDashboard} />

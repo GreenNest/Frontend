@@ -89,6 +89,7 @@ function Product() {
     }
 
     const updateStock = async(newStock) => {
+        console.log(CustomerService.updateStockAmount(newStock, id));
         CustomerService.updateStockAmount(newStock, id).then((res) => {
 
         }).catch((err) => {

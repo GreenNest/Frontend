@@ -73,9 +73,6 @@ class Login extends Component {
             <>
             <Header isLog={this.state.loginState}/>
             <div class="flex justify-center items-center w-full ">
-
-//             <div class=" flex justify-center w-1/4 mt-20 mb-16 shadow-xl">
-
             
             <div class=" flex justify-center items-center w-1/4 mt-20 mb-16 shadow-xl">
 

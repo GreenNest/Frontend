@@ -40,7 +40,6 @@ function Shop() {
             if(response.data.data != null){
                setCategories(response.data.data);
                setActive({active: categories[0]})
-               console.log(active);
             }
         })
     };

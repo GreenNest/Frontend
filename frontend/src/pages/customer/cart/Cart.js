@@ -26,8 +26,8 @@ function Cart() {
     const getHeader = async() => {
         const x = JSON.parse(localStorage.getItem('authorization'));
         if(!x){
-            history.push("/error");
             setHeader(<Header/>)
+            history.push("/login");
         }else{
             if(!x.roles.includes("customer")){
                 history.push("/error");
@@ -46,9 +46,9 @@ function Cart() {
             console.log(result.data.data); 
             }
         }).catch((err) => {
-            if(err.response.status == 401){
-                history.push("/login");
-            }
+            // if(err.response.status == 401){
+            //     history.push("/login");
+            // }
         })
     } 
 

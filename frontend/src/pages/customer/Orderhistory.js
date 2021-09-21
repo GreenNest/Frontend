@@ -1,18 +1,18 @@
 import React from 'react';
-import {useState, useEffect, useHistory, Redirect} from 'react';
-import { Link } from "react-router-dom";
+import {useState, useEffect} from 'react';
+import { Link, useHistory, Redirect } from "react-router-dom";
 import Header from '../../components/Header';
 import SignedHeader from '../../components/SignedHeader';
 import Footer from '../../components/Footer';
 import CustomerService from '../../services/CustomerService';
 
 function Orderhistory() {
-  var history = useHistory();
+  const history = useHistory();
   const [header, setHeader] = useState(0);
   const [data, setData] = useState([]);
   const [message, setMessage] = useState('');
   const x = JSON.parse(localStorage.getItem('authorization'));
-
+  console.log(x);
 
   useEffect(() => {
     getHeader();
@@ -38,10 +38,12 @@ function Orderhistory() {
           setData(res.data.data);
         }
       }).catch((err) => {
+        console.log(err.response);
         if(err.response.status == 401){
-          history.push("/login");
+          //history.push("/login");
+          <Redirect to='/login' />
         }else{
-          setMessage(res.data.message);
+          setMessage(err.response.data.message);
         }
       })
 
@@ -52,6 +54,8 @@ function Orderhistory() {
       return <div className="ml-4 font-medium text-red-600">{name}</div>
     }else if(name === "Processing"){
       return <div className="ml-4 font-medium text-yellow-500">{name}</div>
+    }else if(name === "Handover"){
+      return <div className="ml-4 font-medium text-blue-600">{name}</div>
     }else{
       return <div className="ml-4 font-medium text-maingreen">{name}</div>
     }
