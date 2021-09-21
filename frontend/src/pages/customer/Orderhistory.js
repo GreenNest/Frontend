@@ -4,6 +4,7 @@ import { Link, useHistory, Redirect } from "react-router-dom";
 import Header from '../../components/Header';
 import SignedHeader from '../../components/SignedHeader';
 import Footer from '../../components/Footer';
+import api from '../../axiosContact';
 import CustomerService from '../../services/CustomerService';
 
 function Orderhistory() {
@@ -22,12 +23,8 @@ function Orderhistory() {
     const getHeader = async() => {
         const x = JSON.parse(localStorage.getItem('authorization'));
         if(!x){
-          <Redirect to='/login' />
-          setHeader(<Header/>)
+            setHeader(<Header/>)
         }else{
-          if(!x.roles.includes("customer")){
-              history.push("/error");
-          }
             setHeader(<SignedHeader/>)
         }
     }
@@ -47,7 +44,7 @@ function Orderhistory() {
         }
       })
 
-    }
+}
 
   const checkStatus = (name) => {
     if(name === "Pending"){
@@ -76,7 +73,6 @@ function Orderhistory() {
               <div>Total Cost</div>
               <div className="">Order Status</div>
             </div> 
-
 
             {data.length !== 0  ? (data.map((order)=>(
               <div class="grid grid-cols-5 p-6 mt-8 text-lg bg-white"  key={order.order_id}>

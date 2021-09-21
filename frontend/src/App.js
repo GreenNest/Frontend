@@ -40,7 +40,7 @@ import Notification from './pages/admin/notification/Notification';
 import ModDashboard from './pages/moderator/dashboard/Dashboard';
 import Upcomingorders from './pages/moderator/orders/Upcomingorders';
 import OngoingOrders from './pages/moderator/orders/Ongoingorders';
-import SystemOrders from './pages/moderator/orders/Systemorders';
+import OrderHistory from './pages/moderator/orders/OrderHistory';
 import SupplierList from './pages/moderator/suppliers/SupplierList';
 import OrderRequest from './pages/moderator/orderRequest/OrderRequest';
 import DeliveryPerson from './pages/moderator/deliveryPerson/DeliveryPerson';
@@ -102,7 +102,7 @@ function App() {
     <Route exact path="/moderator/dashboard" component={ModDashboard} />
     <Route exact path="/moderator/upcomingOrders" component={Upcomingorders}/>
     <Route exact path="/moderator/ongoingOrders" component={OngoingOrders}/>
-    <Route exact path="/moderator/systemOrders" component={SystemOrders}/>
+    <Route exact path="/moderator/orderHistory" component={OrderHistory}/>
     <Route exact path="/moderator/supplierList" component={SupplierList} />
     <Route exact path="/moderator/orderRequests" component={OrderRequest} />
     <Route exact path="/moderator/deliveryPersons" component={DeliveryPerson} />
