@@ -57,7 +57,7 @@ class Signup extends Component {
         }
 
         if(!this.state.email.includes("@")){
-           email_err = "Invalida email";
+           email_err = "Invalid email";
         }
 
         if(this.state.mobilenumber.length < 10){
