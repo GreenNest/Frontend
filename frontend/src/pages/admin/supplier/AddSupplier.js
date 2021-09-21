@@ -80,7 +80,7 @@ function AddSupplier(props) {
                 console.log(result.data);
                 if (result.data === 1) {
                     closeForm();
-                    toast('Successfully add the supplier', {
+                    toast('Successfully added the supplier', {
                         autoClose: false,
                         closeOnClick: true,
                         progress: false,
