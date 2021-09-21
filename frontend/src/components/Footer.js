@@ -10,11 +10,11 @@ function Footer() {
                 <div class="flex flex-col sm:ml-0 ml-8 gap-2">
                     <div class="text-xl font-bold ">Green Nest</div>
                     <div className="flex flex-col text-sm">
-                        <div class="">Sewwandi Plant Nursery,</div>
-                        <div>Kongahagedara,</div>
-                        <div> Kuliyapitiya.</div>
+                        <div class="">Sewwandi Plant Nursery</div>
+                        <div>Kongahagedara</div>
+                        <div> Kuliyapitiya</div>
                         <div>+94 776544342</div>
-                        <div>greennest@gmailcom</div>
+                        <div>greennest06@gmailcom</div>
                     </div>
                 </div>
                 <div class="flex flex-col sm:ml-0 ml-8 gap-2">

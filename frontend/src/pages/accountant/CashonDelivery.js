@@ -55,7 +55,7 @@ function CashonDelivery() {
                         <table className="min-w-full divide-y divide-gray-300">
                             <thead className="bg-gray-500 bg-opacity-25">
                                 <tr>
-                                    <th className="w-1/6 py-3 text-lg font-semibold tracking-wider text-gray-700">ORDoice ID</th>
+                                    <th className="w-1/6 py-3 text-lg font-semibold tracking-wider text-gray-700">Order ID</th>
                                     <th className="w-1/6 py-3 text-lg font-semibold tracking-wider text-gray-700">Item Quantity</th>
                                     <th className="w-1/6 py-3 text-lg font-semibold tracking-wider text-gray-700">Total Cost (RS)</th>
                                     <th className="w-1/6 py-3 text-lg font-semibold tracking-wider text-gray-700">Date</th>
