@@ -26,7 +26,7 @@ function OTPcheck() {
      const handleSubmit = (e) => {
        e.preventDefault();
        if(requestCode !== otp){
-         setMessage("Invalida code");
+         setMessage("Invalid code");
        }else{
          setMessage("Verifying...");
          setTimeout(() => {

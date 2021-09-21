@@ -38,7 +38,7 @@ class AddEmployee extends Component{
         if(!this.state.email.includes("@") || this.state.mobile.length < 10) {
 
             if(!this.state.email.includes("@")){
-                email_err = "Invalida email";
+                email_err = "Invalid email";
             }
             
             if(this.state.mobile.length < 10){
