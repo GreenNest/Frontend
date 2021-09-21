@@ -42,6 +42,7 @@ import reportWebVitals from './reportWebVitals';
 // import AddStock from './pages/admin/add-stock/AddStock';
 // import Updatestock from './pages/admin/Stock/Updatestock';
 import Invoice from './pages/accountant/Invoice';
+import Reportpdf from './pages/admin/reports/Reportpdf';
 
 
 ReactDOM.render(
@@ -52,7 +53,8 @@ ReactDOM.render(
         {/* <AdminSidebar />   */}
         {/* <ModeratorSidebar />   */}
         {/* <AccountantSidebar />   */}
-         <App/>   
+         {<App/>    }
+         {/* <Reportpdf/> */}
       {/* <Footer/>   */}
     </Router>
   </React.StrictMode>,

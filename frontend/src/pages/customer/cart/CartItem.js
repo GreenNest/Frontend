@@ -26,36 +26,36 @@ function CartItem(props){
 
     }
     return(
-        <div className="grid grid-cols-cart w-fill justify-start items-center bg-gray-200 p-5 rounded-lg mt-2 mb-2 ">
+        <div className="grid items-center justify-start p-5 mt-2 mb-2 bg-gray-200 rounded-lg grid-cols-cart w-fill ">
             {/* Item Name*/}
-            <div className="flex justify-center items-center">
+            <div className="flex items-center justify-center">
                 <Link to={"shop/product/" +props.productId}>
-                    <button className="flex font-bold py-2 px-4 rounded border bg-white hover:text-gray-500 border-black md:border-black">{props.name}</button>
+                    <button className="flex px-4 py-2 font-bold bg-white border border-black rounded hover:text-gray-500 md:border-black">{props.name}</button>
                 </Link>
             </div>
             {/* Price */}
-            <div className="flex justify-center items-center">
-                <button className="flex font-bold py-2 px-4 rounded border bg-white border-black md:border-black">{props.singlePrice.toFixed(2)} LKR</button>
+            <div className="flex items-center justify-center">
+                <button className="flex px-4 py-2 font-bold bg-white border border-black rounded md:border-black">{props.singlePrice.toFixed(2)} LKR</button>
             </div>
             {/* * */}
-            <div className="flex justify-center items-center">
-                <button className="flex font-bold py-2 px-0 rounded ">*</button>
+            <div className="flex items-center justify-center">
+                <button className="flex px-0 py-2 font-bold rounded ">*</button>
             </div>
             {/* Quantity */}
-            <div className="flex justify-center items-center">
-                <button className="flex font-bold py-2 px-4 rounded border bg-white border-black md:border-black">{props.totalAmount}</button>
+            <div className="flex items-center justify-center">
+                <button className="flex px-4 py-2 font-bold bg-white border border-black rounded md:border-black">{props.totalAmount}</button>
             </div>
             {/* = */}
-            <div className="flex justify-center items-center">
-                <button className="flex font-bold py-2 px-0 rounded">=</button>
+            <div className="flex items-center justify-center">
+                <button className="flex px-0 py-2 font-bold rounded">=</button>
             </div>
             {/* Subtotal */}
-            <div className="flex justify-center items-center">
-                <button className="flex font-bold py-2 px-4 rounded border bg-white border-black md:border-black">{props.price.toFixed(2)} LKR</button>
+            <div className="flex items-center justify-center">
+                <button className="flex px-4 py-2 font-bold bg-white border border-black rounded md:border-black">{props.price.toFixed(2)} LKR</button>
             </div>
             {/* Remove item  */}
-            <div className="flex-1 flex justify-center items-center">
-                <MdDeleteSweep className="w-7 h-7 hover:text-red-700 cursor-pointer" onClick={() => deleteCartItem(props.cartId)}/>
+            <div className="flex items-center justify-center flex-1">
+                <MdDeleteSweep className="cursor-pointer w-7 h-7 hover:text-red-700" onClick={() => deleteCartItem(props.cartId)}/>
             </div>
         </div>
     );

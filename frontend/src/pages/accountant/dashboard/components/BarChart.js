@@ -31,9 +31,9 @@ function BarChart(){
             console.log(res.data.data);
             
         }).catch((err) => {
-            if(err.response.status == 401){
-                history.push("/login");
-            }
+            // if(err.response.status == 401){
+            //     history.push("/login");
+            // }
         })
     };
 

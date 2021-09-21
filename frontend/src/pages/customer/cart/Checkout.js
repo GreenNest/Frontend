@@ -79,8 +79,8 @@ function Checkout(props){
         {header}
 { /* <div className="w-11/12 mt-8 mb-8 m */}
         <div className="w-8/12 mt-12 mb-8 ml-96">
-            <p className="mb-0 ml-64 text-red-700 font-medium">We don't save any of your payment information in our databases.</p>
-            <p className="mb-2 ml-36 text-red-700 font-medium">You may proceed with <span className="text-blue-700">PayHere</span> by clicking below link. Thank your for purchasing with GreenNest!</p>
+            <p className="mb-0 ml-64 font-medium text-red-700">We don't save any of your payment information in our databases.</p>
+            <p className="mb-2 font-medium text-red-700 ml-36">You may proceed with <span className="text-blue-700">PayHere</span> by clicking below link. Thank your for purchasing with GreenNest!</p>
             <div className=""><CheckoutAmount sum={calculation(data)}/></div>
             <div className="row">
             <div className="col-75">
