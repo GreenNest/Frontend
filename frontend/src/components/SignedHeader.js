@@ -57,7 +57,7 @@ class SignedHeader extends Component {
                    <li className="block p-2 font-bold text-center list-none text-maingreen hover:text-hovergreen text-20 lg:mr-14">My Orders</li>
                    {/* My Orders */}
                 </NavLink>
-                <Link to="/login" class="block text-center w-36 px-4 ml-4 py-2 text-20 leading-none border rounded text-maingreen border-maingreen hover:border-transparent hover:text-mainyellow hover:bg-maingreen lg:mr-5">
+                <Link to="/order/orderRequest" class="block text-center w-36 px-4 ml-4 py-2 text-20 leading-none border rounded text-maingreen border-maingreen hover:border-transparent hover:text-mainyellow hover:bg-maingreen lg:mr-5">
                     <FontAwesomeIcon icon={faUser} /> {this.state.x.name}
                 </Link>
                 <button onClick={this.logout} class="block p-2 text-maingreen hover:text-hovergreen font-bold text-20 text-center lg:mr-20 outline-none">

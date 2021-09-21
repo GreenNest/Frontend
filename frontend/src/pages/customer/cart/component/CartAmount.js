@@ -22,10 +22,10 @@ function CartAmount(props) {
             <div className="font-bold text-sm">{totalPrice.toFixed(2)} LKR</div>
         </div>
         <div className="mt-4 inline-flex">
-            <Link to="checkout">
+            <Link to="/cash/checkout">
                 <button className="bg-maingreen hover:bg-hovergreen text-white flex font-bold py-2 px-4 rounded mr-4">Cash on Delivery</button>
             </Link>
-            <Link to="checkout">
+            <Link to="/checkout">
                 <button className="bg-maingreen hover:bg-hovergreen text-white flex font-bold py-2 px-4 rounded">Online</button>
             </Link>
             

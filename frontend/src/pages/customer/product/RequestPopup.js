@@ -22,10 +22,14 @@ function RequestPopup(props){
     }
     CustomerService.addResponse(response).then((result) => {
       setMessage(result.data.message);
+      setDescriptions('');
+      setAmount('');
     }).catch((err) => {
       if(err.response.status == 401){
         history.push("/login");
       }
+      setDescriptions('');
+      setAmount('');
     })
 
   }
