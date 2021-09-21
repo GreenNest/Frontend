@@ -31,9 +31,9 @@ class AccDashboard extends Component {
                                 <span class="text-30 text-redcolor ml-3 lg:ml-8 md:ml-3">4</span>
                             </div>
                        </div>
-                       <div class="grid h-5/6 w-full grid-cols-2 mt-8 lg:gap-16 md:gap-10 gap-5">
-                            <div class="w-full h-full p-1 rounded-md shadow-lg border-solid border-2"><BarChart/></div>
-                            <div class="w-full h-full p-7 rounded-md shadow-lg border-solid border-2 justify-center items-center flex" ><PieChart/></div>
+                       <div class="grid h-5/6 w-full grid-cols-graph mt-8 lg:gap-10 md:gap-10 gap-5">
+                            <div class="h-full w-full p-1 rounded-md shadow-lg border-solid border-2"><BarChart/></div>
+                            <div class="w-full h-full p-2 rounded-md shadow-lg border-solid border-2 justify-center items-center flex" ><PieChart/></div>
                        </div>
                     </div>
                     

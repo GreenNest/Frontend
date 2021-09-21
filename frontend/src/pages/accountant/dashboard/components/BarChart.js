@@ -20,17 +20,10 @@ function BarChart(){
             if(res.data.data != null){
                 setData(res.data.data);
             }
-            // const data3 = [
-            //     ["Element", "No. of Items", { role: "style" }],
-            //     ["January", parseInt(data[0]), "#b87333"], // RGB value
-            //     ["February", parseInt(data[1]), "silver"], // English color name
-            //     ["March", parseInt(data[2]), "gold"],
-            //     ["April", parseInt(data[3]), "color: #e5e4e2"] // CSS-style declaration
-            // ];
-            // setData2(data3);
-            console.log(res.data.data);
+            //console.log(res.data.data);
             
         }).catch((err) => {
+            //console.log(err.response);
             if(err.response.status == 401){
                 history.push("/login");
             }
