@@ -4,13 +4,13 @@ import ModeratorSidebar from '../components/moderatorSidebar';
 import api from "../../../axiosContact";
 import OrderItemsPopup from "./OrderItemsPopup";
 
-function Upcomingorders () {
+function OrderHistory () {
 
-    const [setPopup, setsetPopup] = useState(false);
     const [data, setdata] = useState([]);
     const [active,setActive] =useState("OnlinePayment");
     const [dp, setdp] = useState();
     const [orderId, setorderId] = useState();
+    const [setPopup, setsetPopup] = useState(false);
     const [totalPrice, settotalPrice] = useState();
 
     const viewOrderItems = async (order_id,total_price) => {
@@ -51,7 +51,7 @@ function Upcomingorders () {
             <ModeratorSidebar/>
             <div className="flex justify-end pb-4 mt-8 mr-10">
                 <div className="w-9/12 p-4 py-8 mx-4 bg-gray-500 bg-opacity-25 rounded">
-                    <h4 className="text-3xl font-bold text-center text-maingreen">Ongoing Orders</h4> 
+                    <h4 className="text-3xl font-bold text-center text-maingreen">Order History</h4> 
                     <div className="flex justify-end w-full mt-6 mb-6 mr-8">
                         <Search className="w-3/4"/>
                     </div>
@@ -110,4 +110,4 @@ function Upcomingorders () {
      );
 }
  
-export default Upcomingorders;
+export default OrderHistory;
