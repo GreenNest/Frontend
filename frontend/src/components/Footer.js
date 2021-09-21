@@ -11,6 +11,7 @@ function Footer() {
                     <div class="text-xl font-bold ">Green Nest</div>
                     <div className="flex flex-col text-sm">
                         <div class="">Sewwandi Plant Nursery</div>
+                        
                         <div>Kongahagedara</div>
                         <div> Kuliyapitiya</div>
                         <div>+94 776544342</div>
