@@ -59,7 +59,7 @@ function LeaveRequest(){
         if(!x){
             <Redirect to='/login' />
         }else{
-            if(x.roles[0] != "accountant" || x.roles[0] != "moderator"){
+            if(x.roles[0] != "customer" || x.roles[0] != "admin"){
                 // console.log(x.roles);
                 history.push("/error");
             }
@@ -75,7 +75,7 @@ function LeaveRequest(){
 
                     {/* <h3 class="font-sans text-2xl font-bold text-center mt-4 mb-8">Request a Leave</h3> */}
                     <div class=" text-maingreen font-bold text-2xl text-center p-2 mb-2">Request a Leave</div>
-                    <p className="flex justify-center items-center text-lg text-redcolor font-semibold">{message}</p>
+                    <p className="flex items-center justify-center text-lg font-semibold text-redcolor">{message}</p>
                             <div className="flex flex-wrap mb-2 -mx-3">
                                 <div class="w-full px-3 ">
                                     <label class="block  tracking-wide text-black text-lg font-semibold mb-4 mt-4">
@@ -121,7 +121,7 @@ function LeaveRequest(){
                             
                             <div class="flex  md:flex justify-center md:justify-center  mt-6 ">
                             
-                                <button className="bg-maingreen hover:bg-hovergreen p-4 justify-center text-white font-bold  rounded py-2 px-4 w-40 outline-none" type="submit">Submit</button>
+                                <button className="justify-center w-40 p-4 px-4 py-2 font-bold text-white rounded outline-none bg-maingreen hover:bg-hovergreen" type="submit">Submit</button>
                     
                             </div>
                             

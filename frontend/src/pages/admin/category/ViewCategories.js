@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react'
-import AddCategory from './AddCategory'
+import React, {useState, useEffect} from 'react';
+import { Redirect, useHistory } from 'react-router-dom';
+import AddCategory from './AddCategory';
 import {FaClipboardList} from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Search from '../components/Search';
@@ -10,10 +11,23 @@ function ViewCategories() {
 
     const [allCategories, setallCategories] = useState([]);
     const [addCategoryPopup, setaddCategoryPopup] = useState(false);
+    var history = useHistory();
 
     useEffect(() => {
+        checkValidate();
         getCategories();
     }, [])
+
+    const checkValidate = async() => {
+        const y = JSON.parse(localStorage.getItem('authorization')); 
+        if(!y){
+            <Redirect to='/login' />
+        }else{
+            if(y.roles[0] == "moderator" || y.roles[0] == "customer" || y.roles[0] == "accountant"){
+                history.push("/error");
+            }  
+        }
+    }
 
     const retrieveCategories = async () => {
         const res = await api.get("/get/categories");

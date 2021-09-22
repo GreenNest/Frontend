@@ -33,7 +33,7 @@ function AdminSidebar() {
                                 <NavLink to={item.path} exact activeClassName="activebtn">
                                     <button className="flex w-48 p-3 font-bold rounded outline-none hover:bg-maingreen hover:text-white">
                                         {item.icon}{item.title}
-                                        <div className="ml-3 font-extrabold text-red-500">{item.count}</div>
+                                        {/* <div className="ml-3 font-extrabold text-red-500">{item.count}</div> */}
                                     </button>
                                     {/* <div className="flex border">{item.count}</div> */}
                                 </NavLink>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect, useHistory } from 'react-router-dom';
 import Search from './components/Search';
 import ModeratorSidebar from '../components/moderatorSidebar';
 import api from "../../../axiosContact";
@@ -12,6 +13,24 @@ function OrderHistory () {
     const [orderId, setorderId] = useState();
     const [setPopup, setsetPopup] = useState(false);
     const [totalPrice, settotalPrice] = useState();
+    var history = useHistory();
+    const y = JSON.parse(localStorage.getItem('authorization'));
+
+    useEffect(() => {
+        checkValidate();
+        getOnlinePayment();
+    }, [])
+
+    const checkValidate = async() => {
+        const y = JSON.parse(localStorage.getItem('authorization')); 
+        if(!y){
+            <Redirect to='/login' />
+        }else{
+            if(y.roles[0] == "admin" || y.roles[0] == "customer" || y.roles[0] == "accountant"){
+                history.push("/error");
+            }  
+        }
+    }
 
     const viewOrderItems = async (order_id,total_price) => {
         setsetPopup(true);
@@ -29,7 +48,7 @@ function OrderHistory () {
 
     const getCashonDelivery = async () => {
         setActive("CashonDelivery");
-        api.get("/getCashonDelivery")
+        api.get("/getCashOnDelivery")
         .then((result) => {
             setdata(result.data);
         })
@@ -41,10 +60,6 @@ function OrderHistory () {
             setdp(result.data);
         })
     }
-    
-    useEffect(() => {
-        getOnlinePayment();
-    }, [])
     
     return ( 
         <div>
@@ -74,25 +89,26 @@ function OrderHistory () {
                             }
                             onClick={()=> getCashonDelivery()}
                             >
-                                Cashon Delivery
+                                Cash On Delivery
                         </button>
                     </div>
                     <div className="grid items-center w-full px-3 py-2 pl-5 text-lg font-semibold text-left text-gray-800 bg-gray-500 bg-opacity-25 border-b border-gray-400 rounded-md shadow gap-x-5 md:grid-cols-5">
                         <div>Customer</div>
                         <div>Delivery Address</div>
                         <div>Mobile</div>
-                        <div className="-ml-6">Delivery Persons</div>
+                        <div className="-ml-6">Delivery Person</div>
                         <div></div>
                     </div>
                     {
                         data.length !== 0 ? (
                             data.map((order, index) => (
-                                order.delivery_id !== "0" ? (
+                                order.order_status === "Delivered" && order.employee_id === y.eid ? (
+                                findDPerson(order.delivery_id),
                                 <div key={index} className="grid items-center w-full px-3 py-2 pl-5 mt-3 text-lg text-left border-b border-gray-200 rounded-md shadow gap-x-5 bg-gray-50 md:grid-cols-5">
                                     <div>{order.customer.first_name} {order.customer.last_name}</div>
                                     <div>{order.address}, {order.city}</div>
                                     <div>0{order.mobile}</div>
-                                    <div></div>
+                                    <div className="-ml-6">{dp}</div>
                                     <div>
                                         <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-700" onClick={() => viewOrderItems(order.order_id, order.total_price)}>Order Items</a>
                                     </div>

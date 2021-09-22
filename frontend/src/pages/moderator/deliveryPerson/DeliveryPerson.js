@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react';
+import { Redirect, useHistory } from 'react-router-dom';
 import ModeratorSidebar from '../components/moderatorSidebar';
 import DeliveryPersonTable from './DeliveryPersonTable';
 import api from "../../../axiosContact";
@@ -6,6 +7,23 @@ import api from "../../../axiosContact";
 function DeliveryPerson() {
 
     const [deliveryPersons, setdeliveryPersons] = useState([]);
+    var history = useHistory();
+
+    useEffect(() => {
+        checkValidate();
+        getDeliveryPersons();
+    }, [])
+
+    const checkValidate = async() => {
+        const y = JSON.parse(localStorage.getItem('authorization')); 
+        if(!y){
+            <Redirect to='/login' />
+        }else{
+            if(y.roles[0] == "admin" || y.roles[0] == "customer" || y.roles[0] == "accountant"){
+                history.push("/error");
+            }  
+        }
+    }
 
     const retrieveDeliveryPersons = async () => {
         const res = await api.get("/getDeliveryPersons");
@@ -18,10 +36,6 @@ function DeliveryPerson() {
             setdeliveryPersons(allDeliveryPersons);
         };
     }
-
-    useEffect(() => {
-        getDeliveryPersons();
-    }, [])
     
     return (
         <>

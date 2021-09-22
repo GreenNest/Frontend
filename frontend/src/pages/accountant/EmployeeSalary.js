@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
 import JobTypeBtn from './components/JobTypeBtn';
 import EmployeeTable from './components/EmployeeTable';
 import Search from './components/Search';
 import AccountantSidebar from './dashboard/components/accountantSidebar';
-import CustomerService from '../../services/CustomerService';
 import api from '../../axiosContact';
 import { useParams, Redirect, useHistory } from 'react-router-dom';
 
@@ -44,7 +42,7 @@ function EmployeeSalary() {
         if(!y){
             <Redirect to='/login' />
         }else{
-            if(y.roles[0] == "admin" || y.roles[0] == "customer"){
+            if(y.roles[0] == "admin" || y.roles[0] == "customer" || y.roles[0] == "moderator"){
                 history.push("/error");
             }
             
