@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import { Redirect, useHistory, Link, useParams } from 'react-router-dom';
 import * as FaIcons from "react-icons/fa";
 import { MdDeleteSweep } from 'react-icons/md';
-import { Link, useParams } from "react-router-dom";
 import Search from '../components/Search';
 import AdminSidebar from '../components/adminSidebar';
 import api from '../../../axiosContact';
@@ -12,6 +12,23 @@ function ProductByCategory() {
 
     const { name } = useParams();
     const [products, setProducts] = useState([]);
+    var history = useHistory();
+
+    useEffect(() => {
+        checkValidate();
+        getProducts(name);
+    }, [])
+
+    const checkValidate = async() => {
+        const y = JSON.parse(localStorage.getItem('authorization')); 
+        if(!y){
+            <Redirect to='/login' />
+        }else{
+            if(y.roles[0] == "moderator" || y.roles[0] == "customer" || y.roles[0] == "accountant"){
+                history.push("/error");
+            }
+        }
+    }
 
     const deleteProduct = async (id) => {
         const res = await api.put(`/deleteProduct/${id}`);
@@ -44,10 +61,6 @@ function ProductByCategory() {
             setProducts(allProducts);
         };
     }
-
-    useEffect(() => {
-        getProducts(name);
-    }, [])
 
     return ( 
         <>

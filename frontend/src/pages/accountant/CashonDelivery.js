@@ -37,14 +37,13 @@ function CashonDelivery() {
         }else{
             if(y.roles[0] == "admin" || y.roles[0] == "customer" || y.roles[0] == "moderator"){
                 history.push("/error");
-            }
-            
+            } 
         }
     }
 
     return (
         <div>
-        <AccountantSidebar/>
+            <AccountantSidebar/>
             <div className="flex justify-end pb-4 mt-8 mr-10">
                 <div className="w-9/12 p-4 pb-12 mx-4 bg-gray-500 bg-opacity-25 rounded">
                 <h1 className="flex justify-center w-full pt-4 text-2xl font-bold text-maingreen">Cash On Delivery Details</h1>
@@ -80,21 +79,8 @@ function CashonDelivery() {
                     </div>
                 </div>
             </div>
-        </div>
-
-
-                </div>
-
-            </div>
-
-        </div>
-
-            
-        
+        </div>   
     );
-
-
-
 }
 
 

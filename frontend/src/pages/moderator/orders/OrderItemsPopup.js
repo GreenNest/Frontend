@@ -27,6 +27,7 @@ function RequestStockUpdate (props) {
                                 <tr className="divide-x divide-gray-400">
                                     <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Product Name</th>
                                     <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Quantity</th>
+                                    <th className="w-40 px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Items Cost (LKR)</th>
                                 </tr>
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-200">
@@ -35,14 +36,15 @@ function RequestStockUpdate (props) {
                                         <tr key={index} className="divide-x divide-gray-400">
                                             <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">{item.product_name}</td>
                                             <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">{item.quantity}</td>
+                                            <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">{item.item_price}</td>
                                         </tr>
                                     ))
                                 }
                             </tbody>
                         </table>
                     </div>
-                    <div className="grid w-3/4 grid-cols-2 mt-5">
-                        <h3 className="text-lg font-semibold text-green-800">Total Price : </h3>
+                    <div className="grid w-7/12 grid-cols-2 mt-5">
+                        <h3 className="text-lg font-semibold text-green-800">Total Amount : </h3>
                         <h4 className="text-lg font-medium">{props.total_price} LKR</h4>
                     </div>
                     <div className="flex justify-end mt-5">

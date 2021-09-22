@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Redirect, useHistory } from 'react-router-dom';
 import AdminSidebar from '../components/adminSidebar';
 import api from '../../../axiosContact';
 import StockUpdatePopup from "./StockUpdatePopup";
@@ -9,6 +9,23 @@ function Notification () {
     const [setPopup, setsetPopup] = useState(false);
     const [productName, setproductName] = useState("");
     const [reorderLevel, setreorderLevel] = useState([]);
+    var history = useHistory();
+
+    useEffect(() => {
+        checkValidate();
+        getReorderLevel();
+    }, [])
+
+    const checkValidate = async() => {
+        const y = JSON.parse(localStorage.getItem('authorization')); 
+        if(!y){
+            <Redirect to='/login' />
+        }else{
+            if(y.roles[0] == "moderator" || y.roles[0] == "customer" || y.roles[0] == "accountant"){
+                history.push("/error");
+            }
+        }
+    }
 
     const update = async (name) => {
         setsetPopup(true);
@@ -26,10 +43,6 @@ function Notification () {
             setreorderLevel(allDetails);
         };
     }
-
-    useEffect(() => {
-        getReorderLevel();
-    }, [])
 
     return (
         <>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect, useHistory } from 'react-router-dom';
 import AdminSidebar from '../components/adminSidebar';
 import CustomerService from "../../../services/CustomerService";
 import axios from 'axios';
@@ -24,8 +25,23 @@ class AddStock extends Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);  
     }
+    
+    // var history = useHistory();
+
+    // checkValidate = async() => {
+    //     const y = JSON.parse(localStorage.getItem('authorization')); 
+    //     if(!y){
+    //         <Redirect to='/login' />
+    //     }else{
+    //         if(y.roles[0] == "moderator" || y.roles[0] == "customer" || y.roles[0] == "accountant"){
+    //             history.push("/error");
+    //         }
+            
+    //     }
+    // }
 
     componentDidMount(){
+        // checkValidate();
         axios.get("http://localhost:8080/api/v1/get/categories").then((response) => {
             this.setState({data: response.data.data});
         })

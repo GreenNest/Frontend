@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect, useHistory } from 'react-router-dom';
 import Search from './components/Search';
 import ModeratorSidebar from '../components/moderatorSidebar';
 import api from "../../../axiosContact";
@@ -16,6 +17,25 @@ function Upcomingorders () {
     const [orderId, setorderId] = useState();
     const [setPopup, setsetPopup] = useState(false);
     const [totalPrice, settotalPrice] = useState();
+    const y = JSON.parse(localStorage.getItem('authorization'));
+    var history = useHistory();
+
+    useEffect(() => {
+        checkValidate();
+        getOnlinePayment();
+        getDeliveryPersons();
+    }, [])
+
+    const checkValidate = async() => {
+        const y = JSON.parse(localStorage.getItem('authorization'));
+        if(!y){
+            <Redirect to='/login' />
+        }else{
+            if(y.roles[0] == "admin" || y.roles[0] == "customer" || y.roles[0] == "accountant"){
+                history.push("/error");
+            }  
+        }
+    }
 
     const viewOrderItems = async (order_id,total_price) => {
         setsetPopup(true);
@@ -33,7 +53,7 @@ function Upcomingorders () {
 
     const getCashonDelivery = async () => {
         setActive("CashonDelivery");
-        api.get("/getCashonDelivery")
+        api.get("/getCashOnDelivery")
         .then((result) => {
             setdata(result.data);
         })
@@ -47,7 +67,7 @@ function Upcomingorders () {
     }
 
     const assignDPerson = async (order_id, nic) => {
-        api.get(`/assignDPerson/${order_id}/${nic}`)
+        api.get(`/assignDPerson/${order_id}/${nic}/${y.eid}`)
         .then((result) => {
             if(result.data === 1){
                 toast('Successfully Assign Delivery Person to Order', {
@@ -64,11 +84,6 @@ function Upcomingorders () {
             }
         })
     }
-
-    useEffect(() => {
-        getOnlinePayment();
-        getDeliveryPersons();
-    }, [])
     
     return ( 
         <div>
@@ -98,7 +113,7 @@ function Upcomingorders () {
                             }
                             onClick={()=> getCashonDelivery()}
                             >
-                                Cashon Delivery
+                                Cash On Delivery
                         </button>
                     </div>
                     <div className="grid items-center w-full px-3 py-2 pl-5 text-lg font-semibold text-left bg-gray-500 bg-opacity-25 border-b border-gray-400 rounded-md shadow text-gray-00 gap-x-5 md:grid-cols-5">
@@ -111,7 +126,7 @@ function Upcomingorders () {
                     {
                         data.length !== 0 ? (
                             data.map((order, index) => (
-                                order.delivery_id === "0" ? (
+                                order.order_status === "Pending" ? (
                                 <div key={index} className="grid items-center w-full px-3 py-2 pl-5 mt-3 text-lg text-left border-b border-gray-200 rounded-md shadow gap-x-5 bg-gray-50 md:grid-cols-5">
                                     <div>{order.customer.first_name} {order.customer.last_name}</div>
                                     <div>{order.address}, {order.city}</div>
@@ -127,7 +142,7 @@ function Upcomingorders () {
                                                 {
                                                     deliveryPersons.map((dperson, index) => (
                                                         dperson.available === 0 ? (
-                                                            <option value={dperson.nic}>{dperson.first_name} {dperson.last_name}</option>
+                                                            <option className="py-10 text-lg" value={dperson.nic}>{dperson.first_name} {dperson.last_name}</option>
                                                         ) : null
                                                     ))
                                                 }

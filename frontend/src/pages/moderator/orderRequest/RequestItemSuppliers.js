@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from "react";
+import { Redirect, useHistory } from 'react-router-dom';
 import ModeratorSidebar from '../components/moderatorSidebar';
 import api from '../../../axiosContact';
 import { useParams } from "react-router-dom";
@@ -7,6 +8,23 @@ function RequestItemSuppliers () {
 
     const { productName } = useParams();
     const [suppliers, setsuppliers] = useState([]);
+    var history = useHistory();
+
+    useEffect(() => {
+        checkValidate();
+        getReauestSuppliers();
+    }, [])
+
+    const checkValidate = async() => {
+        const y = JSON.parse(localStorage.getItem('authorization')); 
+        if(!y){
+            <Redirect to='/login' />
+        }else{
+            if(y.roles[0] == "admin" || y.roles[0] == "customer" || y.roles[0] == "accountant"){
+                history.push("/error");
+            }  
+        }
+    }
 
     const retrieveRequestSuppliers = async () => {
         const res = await api.get(`/suppliersByRequest/${productName}`);
@@ -19,10 +37,6 @@ function RequestItemSuppliers () {
             setsuppliers(allSuppliers);
         };
     }
-
-    useEffect(() => {
-        getReauestSuppliers();
-    }, [])
 
     return (
         <>

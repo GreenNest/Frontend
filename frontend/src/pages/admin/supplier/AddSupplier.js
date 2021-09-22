@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect, useHistory } from 'react-router-dom';
 import CheckBox from "../components/CheckBox";
 import AdminSidebar from '../components/adminSidebar';
 import { toast } from 'react-toastify';
@@ -17,10 +18,23 @@ function AddSupplier(props) {
     const [email_error, setemail_error] = useState("");
     const [mobile_error, setmobile_error] = useState("");
     const [errorProfile, seterrorProfile] = useState("");
+    var history = useHistory();
 
     useEffect(() => {
+        checkValidate();
         getCategories();
     }, [])
+
+    const checkValidate = async() => {
+        const y = JSON.parse(localStorage.getItem('authorization')); 
+        if(!y){
+            <Redirect to='/login' />
+        }else{
+            if(y.roles[0] == "moderator" || y.roles[0] == "customer" || y.roles[0] == "accountant"){
+                history.push("/error");
+            }
+        }
+    }
 
     const retrieveCategories = async () => {
         const res = await api.get("/get/categories");
@@ -80,7 +94,7 @@ function AddSupplier(props) {
                 console.log(result.data);
                 if (result.data === 1) {
                     closeForm();
-                    toast('Successfully add the supplier', {
+                    toast('Successfully added the supplier', {
                         autoClose: false,
                         closeOnClick: true,
                         progress: false,
