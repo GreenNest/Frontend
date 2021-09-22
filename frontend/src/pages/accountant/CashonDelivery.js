@@ -22,11 +22,7 @@ function CashonDelivery() {
                 console.log(data);
             }
         }).catch((err) => {
-            console.log(err.response);
-            // if(err.response.status == 401){
-            //     history.push("/login");
-            // }
-            // setMessage(err.response.data.message);
+            console.log(err.response);;
         })
     }
 

@@ -63,10 +63,7 @@ function Product() {
                setCategory(response.data.data.categories);
             }
         }).catch((err) => {
-            //console.log(err.response.status);
-            // if(err.response.status == 401){
-            //     history.push("/login");
-            // }
+            
         })
         
     }
