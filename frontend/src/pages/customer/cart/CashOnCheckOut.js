@@ -39,9 +39,22 @@ function CashOnCheckOut(props){
         //addOrderItems(data);         
     }, [])
 
-    useEffect(async () => {
+    // useEffect(async () => {
+    //     if(!x){
+    //         <Redirect to='/login' />
+    //         setHeader(<Header/>)
+    //     }else{
+    //         if(!x.roles.includes("customer")){
+    //             history.push("/error");
+    //         }
+    //         setHeader(<SignedHeader/>)
+    //     }
+       
+    // }, [])
+
+    const getHeader = async() => {
+        const x = JSON.parse(localStorage.getItem('authorization'));
         if(!x){
-            <Redirect to='/login' />
             setHeader(<Header/>)
         }else{
             if(!x.roles.includes("customer")){
@@ -49,17 +62,7 @@ function CashOnCheckOut(props){
             }
             setHeader(<SignedHeader/>)
         }
-       
-    }, [])
-
-    // const getHeader = async() => {
-    //     const x = JSON.parse(localStorage.getItem('authorization'));
-    //     if(!x){
-    //         setHeader(<Header/>)
-    //     }else{
-    //         setHeader(<SignedHeader/>)
-    //     }
-    // };
+    };
 
     const getCartItems = async() => {
         const y = JSON.parse(localStorage.getItem('authorization'));
@@ -96,7 +99,6 @@ function CashOnCheckOut(props){
             //setMessage(res.data.message);
             setOrderId(res.data.data);
             addOrderItems(data, res.data.data);
-            setMessage(res.data.message);
         }).catch((err)=>{
             
         })
@@ -118,7 +120,7 @@ function CashOnCheckOut(props){
 
         console.log(id);
         CustomerService.addOrderItems(id, oid).then((res) => {
-            console.log(res.data.message);
+            setMessage(res.data.message);
         })
 
     }

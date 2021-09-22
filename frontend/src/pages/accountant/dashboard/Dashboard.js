@@ -16,7 +16,7 @@ function AccDashboard() {
         if(!y){
             <Redirect to='/login' />
         }else{
-            if(y.roles[0] == "admin" || y.roles[0] == "customer" y.roles[0] == "moderator" ){
+            if(y.roles[0] == "admin" || y.roles[0] == "customer" || y.roles[0] == "moderator" ){
                 history.push("/error");
             }
             

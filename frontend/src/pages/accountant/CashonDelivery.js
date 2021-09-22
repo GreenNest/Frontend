@@ -70,7 +70,7 @@ function CashonDelivery() {
                             {data.length !== 0 ? data.map((item, id) => 
                                 <CashonTable order_id={item.id} product_quantity={item.items} total_cost={item.cost} date={item.date} key={id} status={item.status} />
                             ) : <tr className="flex items-center justify-center overflow-hidden text-lg">
-                                 <td>Empty</td>
+                                 <td></td>
                             </tr>}
 
                                 
