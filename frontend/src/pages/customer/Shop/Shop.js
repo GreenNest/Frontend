@@ -21,7 +21,6 @@ function Shop() {
     useEffect(() => {
         getHeader();
         getCategory();
-        console.log(categories[0]);
         getProductList(categories[0]);
 
     }, [])
@@ -41,7 +40,6 @@ function Shop() {
             if(response.data.data != null){
                setCategories(response.data.data);
                setActive({active: categories[0]})
-               console.log(active);
             }
         })
     };

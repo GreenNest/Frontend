@@ -7,33 +7,33 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function EmployeeTable(props) {
 
-    const deleteEmployee = async (id) => {
-        const res = await api.put(`/deleteEmployee/${id}`);
-        return res.data;
-    };
+    // const deleteEmployee = async (id) => {
+    //     const res = await api.put(`/deleteEmployee/${id}`);
+    //     return res.data;
+    // };
 
-    const employeeDelete = async (id) => {
-        if (window.confirm("Are you sure to remove this employee?")) {
-            const result = await deleteEmployee(id);
-            if(result === 1){
-                if(props.userState[0].active === "Moderators"){
-                    props.getEmp(1)
-                } else if(props.userState[0].active === "Accountants"){
-                    props.getEmp(2)
-                } else if(props.userState[0].active === "Delivery Persons"){  
-                    props.getEmp(3)
-                } else if(props.userState[0].active === "Workers"){  
-                    props.getEmp(4)
-                }
-                toast('Successfully Delete an Account', {
-                    autoClose: false,
-                    closeOnClick: true,
-                    progress: false,
-                    position:toast.POSITION.TOP_CENTER
-                });
-            }
-        }
-    }
+    // const employeeDelete = async (id) => {
+    //     if (window.confirm("Are you sure to remove this employee?")) {
+    //         const result = await deleteEmployee(id);
+    //         if(result === 1){
+    //             if(props.userState[0].active === "Moderators"){
+    //                 props.getEmp(1)
+    //             } else if(props.userState[0].active === "Accountants"){
+    //                 props.getEmp(2)
+    //             } else if(props.userState[0].active === "Delivery Persons"){  
+    //                 props.getEmp(3)
+    //             } else if(props.userState[0].active === "Workers"){  
+    //                 props.getEmp(4)
+    //             }
+    //             toast('Successfully Delete an Account', {
+    //                 autoClose: false,
+    //                 closeOnClick: true,
+    //                 progress: false,
+    //                 position:toast.POSITION.TOP_CENTER
+    //             });
+    //         }
+    //     }
+    // }
 
     return (
         <tr>

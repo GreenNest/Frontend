@@ -1,27 +1,42 @@
 import React, { useState, useEffect} from "react";
-import SupplierTable from "./components/SupplierTable";
+import { Redirect, useHistory } from 'react-router-dom';
 import ModeratorSidebar from '../components/moderatorSidebar';
-import api from "../../../axiosContact";
+import api from '../../../axiosContact';
+import { useParams } from "react-router-dom";
 
-function SupplierList () {
+function RequestItemSuppliers () {
 
+    const { productName } = useParams();
     const [suppliers, setsuppliers] = useState([]);
+    var history = useHistory();
 
-    const retrieveSuppliers = async () => {
-        const res = await api.get("/suppliersByCategory");
+    useEffect(() => {
+        checkValidate();
+        getReauestSuppliers();
+    }, [])
+
+    const checkValidate = async() => {
+        const y = JSON.parse(localStorage.getItem('authorization')); 
+        if(!y){
+            <Redirect to='/login' />
+        }else{
+            if(y.roles[0] == "admin" || y.roles[0] == "customer" || y.roles[0] == "accountant"){
+                history.push("/error");
+            }  
+        }
+    }
+
+    const retrieveRequestSuppliers = async () => {
+        const res = await api.get(`/suppliersByRequest/${productName}`);
         return res.data.data;
     };
 
-    const getSuppliers = async () => {
-        const allSuppliers = await retrieveSuppliers();
+    const getReauestSuppliers = async () => {
+        const allSuppliers = await retrieveRequestSuppliers();
         if (allSuppliers) {
             setsuppliers(allSuppliers);
         };
     }
-
-    useEffect(() => {
-        getSuppliers();
-    }, [])
 
     return (
         <>
@@ -41,16 +56,28 @@ function SupplierList () {
                                                         <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left">Name</th>
                                                         <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left">Address</th>
                                                         <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left">Mobile</th>
-                                                        <th className="relative px-6 py-3">
-                                                            <span className="sr-only">Edit</span>
-                                                        </th>
+                                                        <th className="relative px-6 py-3"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody className="bg-white divide-y divide-gray-200">
                                                     {
                                                         contact.suppliers.map((supplier, index) => (
                                                             supplier.account_status == 0 ? (
-                                                                <SupplierTable key={index} first_name={supplier.first_name} last_name={supplier.last_name} address={supplier.address} email={supplier.email} mobile={supplier.mobile} />
+                                                                <tr>
+                                                                    <td className="px-6 py-4 whitespace-nowrap">
+                                                                        <div className="text-base font-medium text-gray-900">{supplier.first_name} {supplier.last_name}</div>
+                                                                        <div className="text-base font-medium text-gray-500">{supplier.email}</div>
+                                                                    </td>
+                                                                    <td className="px-6 py-4 whitespace-nowrap">
+                                                                        <div className="text-base font-medium text-gray-900">{supplier.address}</div>
+                                                                    </td>
+                                                                    <td className="px-6 py-4 text-base font-medium text-gray-900 whitespace-nowrap">0{supplier.mobile}</td>
+                                                                    <td className="px-6 py-4 text-base font-medium text-left whitespace-nowrap">
+                                                                        <a href="#" className="text-indigo-600 hover:text-indigo-900">
+                                                                            Contact
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
                                                             ): null
                                                         ))
                                                     }
@@ -70,4 +97,4 @@ function SupplierList () {
     );
 }
 
-export default SupplierList;
+export default RequestItemSuppliers;

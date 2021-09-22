@@ -1,3 +1,8 @@
 .active li {
   border-bottom: 2px solid black;
 }
+
+.activebtn button {
+  background-color: rgba(56, 102, 65, var(--tw-bg-opacity));
+  color: white;
+}

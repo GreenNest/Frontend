@@ -21,7 +21,7 @@ export const SidebarData = [
         title: 'Notifications',
         path: '/moderator/notifications',
         icon: <BiIcons.BiNotification className="w-5 h-5 mr-3 mt-0.5"/>,
-        // count: <div className="text-red-500 font-extrabold ml-3"></div>,
+        // count: <div className="ml-3 font-extrabold text-red-500"></div>,
         // style: "hover:bg-blue-400 bg-blue-200 hover:text-white flex font-bold p-3 rounded w-48",
     }, 
     {
@@ -45,7 +45,7 @@ export const SidebarData = [
     },
     {
         title: 'Order History',
-        path: '/moderator/systemOrders',
+        path: '/moderator/orderHistory',
         icon: <FaIcons.FaHistory className="w-5 h-5 mr-3 mt-0.5"/>,
         // style: "hover:bg-blue-400 bg-blue-200 hover:text-white flex font-bold p-3 rounded w-48",
     },

@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
 import CustomerService from '../../../services/CustomerService';
+import {useHistory } from 'react-router-dom';
 
 
 function Complaintmodel(props) {
     const [description, setDescription] = useState('');
     const [ message, setMessage] = useState('');
+    var history = useHistory();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,9 +22,12 @@ function Complaintmodel(props) {
         CustomerService.addcomplain(complain).then((result) => {
             setMessage(result.data.message);
         }).catch((err) => {
+            if(err.response.status == 401){
+                history.push("/login");
+            }
             setMessage(err.message);
         })
-        console.log(complain);
+        // console.log(complain);
     }
     return (
         <div className="absolute bg-white z-50 mt-36 ml-96 p-6 shadow-xl rounded-sm">

@@ -54,11 +54,12 @@ function Order(){
         setData(res.data.data);
       }
       }).catch((err) => {
-        if(err.response.status == 401){
-            history.push("/login");
-        }else{
-          setMessage(err.response.message);
-        }
+        setMessage(err.response.message);
+        // if(err.response.status == 401){
+        //     history.push("/login");
+        // }else{
+        //   setMessage(err.response.message);
+        // }
       })
     }
 
@@ -91,9 +92,9 @@ function Order(){
                 <div class=" grid grid-cols-6 " key={id} >
                   <div className="my-4 "><img className="w-12 h-12 " src={"data:image/jpeg;base64," +item.image} alt="not found" /></div>
                   <div className="my-4 -ml-5">{item.name}</div>
-                  <div className="my-4 ">{item.price/item.quantity} LKR</div>
+                  <div className="my-4 ">{item.price} LKR</div>
                   <div className="my-4 ">{item.quantity}</div>
-                  <div className="my-4 -ml-4">{item.price.toFixed(2)} LKR</div>
+                  <div className="my-4 -ml-4">{item.price * item.quantity} LKR</div>
                   <div className="my-4 "><button className="h-12 text-base font-medium text-black bg-yellow-200 rounded w-36 hover:bg-yellow-300 focus:outline-none" onClick={() => toggleModel(item.productId)}>Review & Rate </button></div>                          
                 </div>                        
               ) )) : <div className="font-bold text-20 p-2 flex justify-center items-center">{message}</div>}                     

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link, useHistory } from 'react-router-dom';
 import * as FaIcons from "react-icons/fa";
-// import { IconContext } from 'react-icons';
+import * as AiIcons from "react-icons/ai";
 import { AdminSidebarData } from './adminSidebarData';
 import logo from '../../../assets/GreenNest.png';
 
@@ -9,38 +9,48 @@ function AdminSidebar() {
     const [adminsidebar, setAdminSidebar] = useState(true);
 
     const showAdminSidebar = () => setAdminSidebar(!adminsidebar);
+    const history = useHistory()
+
+    const logout = () => {
+        localStorage.removeItem("authorization");
+        history.push('/login');
+    }
 
     return (
         <>
         {/* <IconContext.Provider value={'maingreen'}> */}
-            <div className="bg-mainyellow flex justify-start items-center h-12">
+            <div className="flex items-center justify-start h-12 bg-mainyellow">
                 <Link to="#" className="ml-2 ">
                     <FaIcons.FaBars className="w-7 h-7 hover:text-maingreen" onClick={ showAdminSidebar } />
                 </Link>
                 <div className="ml-4 text-lg font-extrabold text-maingreen">Admin Overview</div>
             </div>
-            <nav className={adminsidebar ? 'bg-mainyellow w-64 flex-col h-screen justify-center items-center p-5 absolute transition-duration: 850ms;' 
+            <nav className={adminsidebar ? 'bg-mainyellow w-64 flex-col justify-center items-center h-auto p-5 absolute transition-duration: 850ms;' 
                                     : 'hidden bg-mainyellow w-36 flex-col h-screen justify-center items-center fixed p-5 transition-duration: 850ms;'}>
-                <ul className="flex-col -ml-2 -mt-6">
-                    {/* <li className="navbar-toggle flex-col">
-                        <Link to='#' className="menu-bars flex-col ml-0 mt-1 mb-2 justify-end">
-                            <AiIcons.AiFillCloseCircle className="w-6 h-6 float-right"/>
+                <ul className="flex-col -mt-6 -ml-2">
+                    {/* <li className="flex-col navbar-toggle">
+                        <Link to='#' className="flex-col justify-end mt-1 mb-2 ml-0 menu-bars">
+                            <AiIcons.AiFillCloseCircle className="float-right w-6 h-6"/>
                         </Link>
                     </li> */}
                     <img class="h-30 w-30 mr-80 ml-9" width="150" height="150"   src={logo} alt=""/>
                     {AdminSidebarData.map((item, index) => {
                         return (
-                            <li key={index} className="flex-col p-3 ml-1 -mt-7 flex" >
-                                <Link to={item.path}>
-                                    <button className="hover:bg-maingreen focus:bg-maingreen hover:text-white focus:text-white outline-none flex font-bold p-3 rounded w-48">
+                            <li key={index} className="flex flex-col p-3 ml-1 -mt-3" >
+                                <NavLink to={item.path} exact activeClassName="activebtn">
+                                    <button className="flex w-48 p-3 font-bold rounded outline-none hover:bg-maingreen hover:text-white">
                                         {item.icon}{item.title}
-                                        <div className="text-red-500  font-extrabold ml-3">{item.count}</div>
+                                        {/* <div className="ml-3 font-extrabold text-red-500">{item.count}</div> */}
                                     </button>
                                     {/* <div className="flex border">{item.count}</div> */}
-                                </Link>
+                                </NavLink>
                             </li>
                         )
                     })}
+                    <Link className="flex flex-col p-2 ml-1 -mt-3">
+                        <button className="flex w-48 p-3 font-bold rounded outline-none hover:bg-maingreen focus:bg-maingreen hover:text-white focus:text-white" onClick={logout}>
+                            <AiIcons.AiOutlineLogout className="w-5 h-5 mr-3 mt-0.5"/>Logout</button>
+                    </Link>
                 </ul>
             </nav>
         {/* </IconContext.Provider> */}

@@ -1,18 +1,23 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
-import { Link } from "react-router-dom";
+import { Link, useHistory, Redirect } from "react-router-dom";
 import Header from '../../components/Header';
 import SignedHeader from '../../components/SignedHeader';
 import Footer from '../../components/Footer';
 import api from '../../axiosContact';
+import CustomerService from '../../services/CustomerService';
 
 function Orderhistory() {
 
-  // var history = useHistory();
+  const history = useHistory();
+
   const [header, setHeader] = useState(0);
   const [data, setData] = useState([]);
   const [message, setMessage] = useState('');
   const x = JSON.parse(localStorage.getItem('authorization'));
+
+  console.log(x);
+
 
   useEffect(() => {
     getHeader();
@@ -24,25 +29,37 @@ function Orderhistory() {
         if(!x){
             setHeader(<Header/>)
         }else{
+          if(x.roles[0] == "admin" ||  x.roles[0] == "moderator" || x.roles[0] == "accountant"){
+            history.push("/error");
+          }
             setHeader(<SignedHeader/>)
         }
     }
 
     const getTotalOrders = async(id) => {
-      const res = await api.get(`/order/get/${id}`);
-      if(res.data.data != null){
-        setData(res.data.data);
-      }else{
-        setMessage(res.data.message);
-      }
+      const res = await CustomerService.getOrderHistory(id).then((res) => {
+        if(res.data.data != null){
+          setData(res.data.data);
+        }
+      }).catch((err) => {
+        console.log(err.response);
+        if(err.response.status == 401){
+          //history.push("/login");
+          <Redirect to='/login' />
+        }else{
+          setMessage(err.response.data.message);
+        }
+      })
 
-    }
+}
 
   const checkStatus = (name) => {
     if(name === "Pending"){
       return <div className="ml-4 font-medium text-red-600">{name}</div>
     }else if(name === "Processing"){
       return <div className="ml-4 font-medium text-yellow-500">{name}</div>
+    }else if(name === "Handover"){
+      return <div className="ml-4 font-medium text-blue-600">{name}</div>
     }else{
       return <div className="ml-4 font-medium text-maingreen">{name}</div>
     }

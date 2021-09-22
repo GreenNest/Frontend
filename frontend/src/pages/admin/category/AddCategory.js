@@ -17,7 +17,7 @@ function AddCategory(props) {
         if(result === 1){
             setcategory("");
             seterror("");
-            toast('Successfully Add Category', {
+            toast('Successfully Added New Category', {
                 autoClose: false,
                 closeOnClick: true,
                 progress: false,
@@ -25,7 +25,7 @@ function AddCategory(props) {
             });
             props.categoriesGet();
         } else {
-            seterror("Already added this category");
+            seterror("Already added this Category");
         }
     }
 

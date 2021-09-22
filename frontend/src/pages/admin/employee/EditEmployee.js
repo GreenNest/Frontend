@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect, useHistory, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AdminSidebar from '../components/adminSidebar';
 import api from '../../../axiosContact';
-import { useParams } from "react-router-dom";
 
 function AddEmployee () {
 
@@ -16,6 +16,23 @@ function AddEmployee () {
     const [email_error, setemail_error] = useState("");
     const [mobile_error, setmobile_error] = useState("");
     const [errorProfile, seterrorProfile] = useState("");
+    var history = useHistory();
+
+    useEffect(() => {
+        checkValidate();
+        getEmployee();
+    }, [])
+
+    const checkValidate = async() => {
+        const y = JSON.parse(localStorage.getItem('authorization')); 
+        if(!y){
+            <Redirect to='/login' />
+        }else{
+            if(y.roles[0] == "moderator" || y.roles[0] == "customer" || y.roles[0] == "accountant"){
+                history.push("/error");
+            }
+        }
+    }
 
     const retrieveContact = async () => {
         const res = await api.get(`/getEmployee/${nic}`);
@@ -32,10 +49,6 @@ function AddEmployee () {
             setmobile(contac.mobile);
         };
     }
-
-    useEffect(() => {
-        getEmployee();
-    }, [])
     
     const closeForm = async () => {
         setfirstName("");
@@ -44,8 +57,6 @@ function AddEmployee () {
         setemail("");
         setmobile("");
         seterrorProfile("");
-        setemail_error("");
-        setmobile_error("");
     }
 
     const validate = () => {
@@ -66,35 +77,32 @@ function AddEmployee () {
         return true;
     }
 
-    const employeeEdit = async () => {
-        const res = await api.put(`/editEmployee/${nic}`, {
-            first_name: firstName,
-            last_name: lastName,
-            address: address,
-            email: email,
-            mobile: mobile,
-        });
-        return res.data;
-    }
-
     const editEmployee = (event)=>{
         event.preventDefault();
         const isValid = validate();
-        // console.log(isValid)
         if (isValid) {
-            const result = employeeEdit();
-            console.log(result)
-            if (result === 1) {
-                closeForm();
-                toast('Successfully Edit Employee', {
-                    autoClose: false,
-                    closeOnClick: true,
-                    progress: false,
-                    position: toast.POSITION.TOP_CENTER
-                });
-            }else {
-                seterrorProfile("Already created employee using this email.");
-            }
+            setemail_error("");
+            setmobile_error("");
+            api.put(`/editEmployee/${nic}`, {
+                first_name: firstName,
+                last_name: lastName,
+                address: address,
+                email: email,
+                mobile: mobile,
+            }).then((result) => {
+                console.log(result.data);
+                if (result.data === 1) {
+                    closeForm();
+                    toast('Successfully Edit Employee', {
+                        autoClose: false,
+                        closeOnClick: true,
+                        progress: false,
+                        position: toast.POSITION.TOP_CENTER
+                    });
+                }else {
+                    seterrorProfile("Already have an account for this email");
+                }
+            })
         }
     }
 

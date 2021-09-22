@@ -1,10 +1,12 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 import {useState} from 'react';
 import '../../../styles/style.css';
 import CustomerService from '../../../services/CustomerService';
 
 function Ratemodel(props) {
+    var history = useHistory();
     const [rating, setRating] = useState(0);
     const [descriptions, setDescriptions] = useState('');
     const [ message, setMessage] = useState('');
@@ -24,14 +26,18 @@ function Ratemodel(props) {
         }
         CustomerService.addReview(rate).then((result) => {
             setMessage(result.data.message);
+        }).catch((err) => {
+            // if(err.response.status == 401){
+            //     history.push("/login");
+            // }
         })
     }
     
     return (
-        <div className="absolute bg-white z-50 mt-36 ml-96 p-6 shadow-xl rounded-sm">
+        <div className="absolute z-50 p-6 bg-white rounded-sm shadow-xl mt-36 ml-96">
            <div>
            <form className="w-96" onSubmit={e => {handleSubmit(e)}}>
-                <h2 className=" my-6 text-lg font-bold flex justify-center">Reviews & Rate</h2>
+                <h2 className="flex justify-center my-6 text-lg font-bold ">Reviews & Rate</h2>
                 <div className="flex justify-center my-6 space-x-4">
                 {
                     [...Array(5)].map((star, index) => {
@@ -48,15 +54,15 @@ function Ratemodel(props) {
                 }
                 
                 </div>
-                <div className="font-bold text-sm pb-1 flex justify-center items-center text-maingreen">{message}</div>
-                <textarea className="w-5/6 h-32 ml-8 p-3 border-black border-2"
+                <div className="flex items-center justify-center pb-1 text-sm font-bold text-maingreen">{message}</div>
+                <textarea className="w-5/6 h-32 p-3 ml-8 border-2 border-black"
                     name="descriptions"
                     value={descriptions}
                     onChange = {e => setDescriptions(e.target.value)}
                     required />
-                <div className="flex m-8 justify-center items-center"> 
-                <button className="w-24 bg-secondarygreen hover:bg-lightgreen p-2 text-white text-center mr-7 rounded-sm focus:outline-none" type="submit">Send</button>
-                <button className="w-24 bg-redcolor p-2 text-white text-center rounded-sm focus:outline-none" type="button" onClick={props.canclePopup1}>Close</button>
+                <div className="flex items-center justify-center m-8"> 
+                <button className="w-24 p-2 text-center text-white rounded-sm bg-secondarygreen hover:bg-lightgreen mr-7 focus:outline-none" type="submit">Send</button>
+                <button className="w-24 p-2 text-center text-white rounded-sm bg-redcolor focus:outline-none" type="button" onClick={props.canclePopup1}>Close</button>
                 </div>
             </form>
            </div>

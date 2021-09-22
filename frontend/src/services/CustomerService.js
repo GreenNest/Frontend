@@ -129,8 +129,48 @@ class CustomerService {
     getOrders(id){
         return axios.get(`${API}orderItems/get/${id}`, data())
     }
-    
-
+    getInvoiceDetails(id){
+        return axios.get(`${API}get/invoiceDetails/${id}`)
+    }
+    sendInvoice(file){
+        return axios.post(`${API}invoice/send`, file)
+    }
+    getGraphOrderData(){
+        return axios.get(`${API}order/getCount`)
+    }
+    getGraphLeaveCount(id){
+        return axios.get(`${API}leave/count/${id}`)
+    }
+    getEmployeeSalary(type){
+        return axios.get(`${API}employee/salary/${type}`)
+    }
+    getOrderHistory(id){
+        return axios.get(`${API}order/get/${id}`)
+    }
+    getCustomerOrderRequest(id){
+        return axios.get(`${API}customer/orderRequest/${id}`, data())
+    }
+    updateOrderRequest(id){
+        return axios.put(`${API}customer/orderRequest/delete/${id}`, data())
+    }
+    acceptOrderReqest(oid){
+        return axios.post(`${API}customer/acceptRequest/${oid}`)
+    }
+    getCategoryCount(){
+        return axios.get(`${API}category/count`)
+    }
+    getOrderCount(){
+        return axios.get(`${API}orderType/count`)
+    }
+    getTheCartAmount(id){
+        return axios.get(`${API}cart/get/${id}`)
+    }
+    addtheOrder(order){
+        return axios.post(`${API}order/add`, order)
+    }
+    addOrderItems(items, oid){
+        return axios.post(`${API}orderItems/add/${oid}`, items)
+    }
 
 
 

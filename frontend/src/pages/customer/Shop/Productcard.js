@@ -13,7 +13,7 @@ function Productcard(props){
                     <h2 className="text-xl font-bold">{props.product_name}</h2>
                     <p className="items-center text-base font-bold text-red-600">{props.price}<span>LKR</span></p>
                     <p className="items-center text-base text-seconderygreen">{props.description}</p>
-                    <div className="relative flex items-center justify-center w-24 p-1 mt-4 text-sm text-center transition-colors duration-75 ease-out cursor-pointer bg-mainyellow rounded-2xl hover:bg-yellow-500 hover:text-gray-50">Add to cart</div> 
+                    <div className="relative flex items-center justify-center w-24 p-1 mt-4 text-sm text-center transition-colors duration-75 ease-out cursor-pointer bg-mainyellow rounded-2xl hover:bg-yellow-500 hover:text-gray-50">Details</div> 
                 </div>
           </div>
         </Link>

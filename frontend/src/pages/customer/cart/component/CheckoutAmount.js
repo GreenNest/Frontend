@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 function CheckoutAmount(props) {
-    const totalPrice = props.sum + 200;
+    const totalPrice = props.sum;
 
     return (
         <div>
@@ -13,12 +13,10 @@ function CheckoutAmount(props) {
         </div>
         <div className=" flex-auto justify-center grid grid-cols-2 grid-rows-3 grid-flow-col gap-3 mt-3">
             <div className="text-sm float-left">Items cost :</div>
-            <div className="text-sm">Delivery cost :</div>
             <div className="font-bold text-sm mt-1">Total :</div>
 
 
             <div className="text-sm">{props.sum.toFixed(2)} LKR</div>
-            <div className="text-sm"> 200.00 LKR</div>
             <div className="font-bold text-sm">{totalPrice.toFixed(2)} LKR</div>
         </div>
         <div className="flex-auto mt-4">

@@ -5,13 +5,13 @@ import ModeratorSidebar from '../components/moderatorSidebar';
 import api from "../../../axiosContact";
 import OrderItemsPopup from "./OrderItemsPopup";
 
-function Upcomingorders () {
+function OrderHistory () {
 
-    const [setPopup, setsetPopup] = useState(false);
     const [data, setdata] = useState([]);
     const [active,setActive] =useState("OnlinePayment");
     const [dp, setdp] = useState();
     const [orderId, setorderId] = useState();
+    const [setPopup, setsetPopup] = useState(false);
     const [totalPrice, settotalPrice] = useState();
     var history = useHistory();
     const y = JSON.parse(localStorage.getItem('authorization'));
@@ -66,7 +66,7 @@ function Upcomingorders () {
             <ModeratorSidebar/>
             <div className="flex justify-end pb-4 mt-8 mr-10">
                 <div className="w-9/12 p-4 py-8 mx-4 bg-gray-500 bg-opacity-25 rounded">
-                    <h4 className="text-3xl font-bold text-center text-maingreen">Ongoing Orders</h4> 
+                    <h4 className="text-3xl font-bold text-center text-maingreen">Order History</h4> 
                     <div className="flex justify-end w-full mt-6 mb-6 mr-8">
                         <Search className="w-3/4"/>
                     </div>
@@ -102,7 +102,7 @@ function Upcomingorders () {
                     {
                         data.length !== 0 ? (
                             data.map((order, index) => (
-                                order.order_status === "Processing" && order.employee_id === y.eid ? (
+                                order.order_status === "Delivered" && order.employee_id === y.eid ? (
                                 findDPerson(order.delivery_id),
                                 <div key={index} className="grid items-center w-full px-3 py-2 pl-5 mt-3 text-lg text-left border-b border-gray-200 rounded-md shadow gap-x-5 bg-gray-50 md:grid-cols-5">
                                     <div>{order.customer.first_name} {order.customer.last_name}</div>
@@ -126,4 +126,4 @@ function Upcomingorders () {
      );
 }
  
-export default Upcomingorders;
+export default OrderHistory;
