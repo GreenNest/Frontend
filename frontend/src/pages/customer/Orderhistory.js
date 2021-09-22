@@ -25,7 +25,7 @@ function Orderhistory() {
         if(!x){
             setHeader(<Header/>)
         }else{
-          if(y.roles[0] == "admin" || y.roles[0] == "customer" || y.roles[0] == "moderator" || y.roles[0] == "accountant"){
+          if(x.roles[0] == "admin" ||  x.roles[0] == "moderator" || x.roles[0] == "accountant"){
             history.push("/error");
           }
             setHeader(<SignedHeader/>)

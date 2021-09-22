@@ -141,7 +141,7 @@ function Checkout(props){
             <div className="row">
             <div className="col-75">
                 <div className="container bg-gray-500 bg-opacity-25 rounded-md">
-                    <form id="validate" method="post" action="https://sandbox.payhere.lk/pay/checkout" onSubmit={e => {handleSubmit(e)}}>
+                    <form id="validate" method="post" action="https://sandbox.payhere.lk/pay/checkout">
                         <div className="row">
                             <div className="col-50">
                                 <div className="m-4 ml-0 text-lg font-bold text-maingreen">Payment Details</div>
