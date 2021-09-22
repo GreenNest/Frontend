@@ -64,9 +64,9 @@ function Product() {
             }
         }).catch((err) => {
             //console.log(err.response.status);
-            if(err.response.status == 401){
-                history.push("/login");
-            }
+            // if(err.response.status == 401){
+            //     history.push("/login");
+            // }
         })
         
     }
@@ -206,7 +206,7 @@ function Product() {
             </div>
 
             { model2 ? 
-                <RequestPopup canclePopup={() =>  setModel2(false)} categoryName={category} productName={data.name} productId={id}/>
+                <RequestPopup canclePopup={() =>  setModel2(false)} categoryName={category} productName={data.name} productId={id} count={data.amount}/>
             : null }
             {/* <div>
                 {model2 &&

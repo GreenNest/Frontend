@@ -35,6 +35,11 @@ function ResetPassword(){
     }
 
     const validate = () =>{
+        let pass_err = "";
+        if(newPassword.length < 8 ){
+            setError("Password must be more than 8 characters");
+            return false;
+        }
         if(newPassword !== confirmPassword){
             setError("Password did not match");
             return false;

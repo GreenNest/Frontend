@@ -13,9 +13,9 @@ function CartItem(props){
        const x = await CustomerService.deleteCartItems(parseInt(id)).then((res) => {
 
         }).catch((err) => {
-            if(err.response.status == 401){
-                history.push("/login");
-            }
+            // if(err.response.status == 401){
+            //     history.push("/login");
+            // }
         })
 
     }
