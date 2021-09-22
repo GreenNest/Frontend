@@ -52,14 +52,14 @@ function CashOnCheckOut(props){
        
     }, [])
 
-    const getHeader = async() => {
-        const x = JSON.parse(localStorage.getItem('authorization'));
-        if(!x){
-            setHeader(<Header/>)
-        }else{
-            setHeader(<SignedHeader/>)
-        }
-    };
+    // const getHeader = async() => {
+    //     const x = JSON.parse(localStorage.getItem('authorization'));
+    //     if(!x){
+    //         setHeader(<Header/>)
+    //     }else{
+    //         setHeader(<SignedHeader/>)
+    //     }
+    // };
 
     const getCartItems = async() => {
         const y = JSON.parse(localStorage.getItem('authorization'));

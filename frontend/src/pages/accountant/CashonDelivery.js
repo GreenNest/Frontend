@@ -23,9 +23,9 @@ function CashonDelivery() {
             }
         }).catch((err) => {
             console.log(err.response);
-            if(err.response.status == 401){
-                history.push("/login");
-            }
+            // if(err.response.status == 401){
+            //     history.push("/login");
+            // }
             // setMessage(err.response.data.message);
         })
     }
@@ -35,7 +35,7 @@ function CashonDelivery() {
         if(!y){
             <Redirect to='/login' />
         }else{
-            if(y.roles[0] == "admin" || y.roles[0] == "customer"){
+            if(y.roles[0] == "admin" || y.roles[0] == "customer" || y.roles[0] == "moderator"){
                 history.push("/error");
             }
             

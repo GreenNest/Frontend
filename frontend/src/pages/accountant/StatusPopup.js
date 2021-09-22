@@ -15,11 +15,12 @@ function StatusPopup(props){
           history.push("/accountant/invoice/" +props.id);
          }, 3000);
     }).catch((err)=>{
-      if(err.response.status == 401){
-        history.push("/login");
-      }else{
-        setMessage(err.response.message);
-      }
+      // if(err.response.status == 401){
+      //   history.push("/login");
+      // }else{
+      //   setMessage(err.response.message);
+      // }
+      setMessage(err.response.message);
       
     })
   }

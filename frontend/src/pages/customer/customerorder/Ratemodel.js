@@ -27,9 +27,9 @@ function Ratemodel(props) {
         CustomerService.addReview(rate).then((result) => {
             setMessage(result.data.message);
         }).catch((err) => {
-            if(err.response.status == 401){
-                history.push("/login");
-            }
+            // if(err.response.status == 401){
+            //     history.push("/login");
+            // }
         })
     }
     
