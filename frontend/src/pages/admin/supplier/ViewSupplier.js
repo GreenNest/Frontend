@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Link } from "react-router-dom";
+import { Redirect, useHistory, Link } from 'react-router-dom';
 import Search from '../components/Search';
 import DetailsCard from '../components/DetailsCard';
 import AdminSidebar from '../components/adminSidebar';
@@ -8,6 +8,23 @@ import api from '../../../axiosContact';
 function ViewSupplier () {
 
     const [contacts, setContacts] = useState([]);
+    var history = useHistory();
+
+    useEffect(() => {
+        checkValidate();
+        getSuppliers();
+    }, [])
+
+    const checkValidate = async() => {
+        const y = JSON.parse(localStorage.getItem('authorization')); 
+        if(!y){
+            <Redirect to='/login' />
+        }else{
+            if(y.roles[0] == "moderator" || y.roles[0] == "customer" || y.roles[0] == "accountant"){
+                history.push("/error");
+            }
+        }
+    }
 
     const retrieveContacts = async () => {
         const res = await api.get("/getSuppliers");
@@ -20,11 +37,7 @@ function ViewSupplier () {
             setContacts(allContacts);
         };
     }
-
-    useEffect(() => {
-        getSuppliers();
-    }, [])
-
+    
     return (
         <>
             <AdminSidebar/>

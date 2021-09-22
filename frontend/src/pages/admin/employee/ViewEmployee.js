@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Redirect, useHistory, Link } from 'react-router-dom';
 import JobTypeBtn from '../components/JobTypeBtn';
 import EmployeeTable from '../components/EmployeeTable';
 import Search from '../components/Search';
@@ -12,10 +12,23 @@ function ViewEmployee() {
     const [active, setactive] = useState({
         active: "Moderators"
     });
+    var history = useHistory();
 
     useEffect(() => {
+        checkValidate();
         getEmployees(1);
     }, [])
+
+    const checkValidate = async() => {
+        const y = JSON.parse(localStorage.getItem('authorization')); 
+        if(!y){
+            <Redirect to='/login' />
+        }else{
+            if(y.roles[0] == "moderator" || y.roles[0] == "customer" || y.roles[0] == "accountant"){
+                history.push("/error");
+            }
+        }
+    }
 
     const retrieveContacts = async (userType) => {
         const res = await api.get(`/viewEmployees/${userType}`);

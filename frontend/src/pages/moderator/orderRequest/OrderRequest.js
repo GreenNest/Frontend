@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Redirect, useHistory, Link } from 'react-router-dom';
 import ModeratorSidebar from '../components/moderatorSidebar';
 import api from '../../../axiosContact';
 import RequestStockUpdate from './RequestStockUpdate';
@@ -13,6 +13,23 @@ function OrderRequest () {
     const [requestId, setrequestId] = useState();
     const [orderRequsts, setorderRequsts] = useState([]);
     const [error, seterror] = useState("");
+    var history = useHistory();
+
+    useEffect(() => {
+        checkValidate();
+        getOrderRequests();
+    }, [])
+
+    const checkValidate = async() => {
+        const y = JSON.parse(localStorage.getItem('authorization')); 
+        if(!y){
+            <Redirect to='/login' />
+        }else{
+            if(y.roles[0] == "admin" || y.roles[0] == "customer" || y.roles[0] == "accountant"){
+                history.push("/error");
+            }  
+        }
+    }
 
     const accept = async (name,id) => {
         setsetPopup(true);
@@ -59,10 +76,6 @@ function OrderRequest () {
             setorderRequsts(allRequests);
         };
     }
-
-    useEffect(() => {
-        getOrderRequests();
-    }, [])
 
     return (
         <>
@@ -113,22 +126,22 @@ function OrderRequest () {
                                     {
                                         ((request.moderatorAccept === 1) && (request.customerAccept === 1)) 
                                         ? <div className="flex items-center justify-between md:mx-5">
-                                            <div className="mt-5 text-xl font-bold text-green-900">Accepted by customer...</div>
-                                            <button className="justify-center w-40 p-4 px-4 py-2 font-bold text-white bg-red-600 rounded hover:bg-lightred" onClick={() => gotIt(request.id)}>Ok</button>
+                                            <div className="mt-5 text-xl font-bold text-green-900">Order request has accepted by customer.</div>
+                                            <button className="justify-center w-40 p-4 px-4 py-2 font-bold text-white bg-maingreen hover:bg-hovergreen" onClick={() => gotIt(request.id)}>Ok</button>
                                           </div>
                                         : null
                                     }
                                     {
                                         ((request.moderatorAccept === 1) && (request.customerDelete === 1)) 
                                         ? <div className="flex items-center justify-between md:mx-5">
-                                            <div className="mt-5 text-xl font-bold text-red-600">Decline by customer...</div>
+                                            <div className="mt-5 text-xl font-bold text-red-600">Order request declined by customer.</div>
                                             <button className="justify-center w-40 p-4 px-4 py-2 font-bold text-white bg-red-600 rounded hover:bg-lightred" onClick={() => gotIt(request.id)}>Ok</button>
                                           </div>
                                         : null
                                     }
                                     {
                                         ((request.moderatorAccept === 1) && (request.customerDelete === 0) && (request.customerAccept === 0))
-                                        ? <div className="mt-5 ml-5 text-xl font-bold text-indigo-900">Pending Customer accept...</div>
+                                        ? <div className="mt-5 ml-5 text-xl font-bold text-indigo-900">Pending for customer reply.</div>
                                         : null
                                     }
                                     {

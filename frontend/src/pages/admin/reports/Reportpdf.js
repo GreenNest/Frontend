@@ -1,55 +1,49 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Reportpdf extends Component{
-
-    render(){
-        return (
-
-            <div className="flex items-center justify-center w-full h-auto">
-                <div className="flex items-center justify-center w-9/12 mt-20 mb-10 bg-gray-500 bg-opacity-25 rounded ">
-                    <div className="flex flex-col justify-start w-8/12 mt-20 border-black">
-                        <div className="inline-flex justify-center w-full h-auto pt-2 pb-2 font-bold border-b-2 text-maingreen text-30 item-center">
-                            Report
+function Reportpdf () {
+        
+    return (
+            <div className="flex items-center justify-center w-3/4 bg-gray-500 bg-opacity-25 rounded">
+                <div className="flex flex-col w-10/12 mt-5 mb-5">
+                    <h4 className="mb-5 text-3xl font-bold text-center text-maingreen">Report</h4>
+                    <div className="">
+                        <div className="grid grid-cols-2">
+                            <p className="text-lg font-semibold text-gray-700">Product Name : </p>
+                            <p className="font-medium text-medium"></p>
                         </div>
-
-                        <div className="mt-3 font-bold text-black ml-9">
-                            Product Name    :
+                        <div className="grid grid-cols-2">
+                            <p className="text-lg font-semibold text-gray-700">Stock Quantity : </p>
+                            <p className="font-medium text-medium"></p>
                         </div>
-
-                        <div className="mt-3 font-bold text-black ml-9">
-                            Stock Quantity  :
+                        <div className="grid grid-cols-2">
+                            <p className="text-lg font-semibold text-gray-700">Time Duration : </p>
+                            <p className="font-medium text-medium"></p>
                         </div>
+                    </div>
 
-                        <div className="mt-3 font-bold text-black ml-9">
-                            Time Duration   :
-                        </div>
-
-                        <table className="w-10/12 mt-3 border border-collapse ml-9">
-                        <tr>
-                            <th className="w-3/12 p-3 text-base bg-gray-400">Customer</th>
-                            <th className="w-3/12 p-3 text-base bg-gray-400">Address</th>
-                            <th className="w-3/12 p-3 text-base bg-gray-400">Contact Number</th>
-                            <th className="w-3/12 p-3 text-base bg-gray-400">Ordered Quantity</th>
-
-                        </tr>
-                        <tr>
-                            <td className="p-3 text-sm text-center">abcd</td>
-                            <td className="p-3 text-sm text-center">abcd</td>
-                            <td className="p-3 text-sm text-center">abcd</td>
-                            <td className="p-3 text-sm text-center">abcd</td>
-
-                        </tr>
-
+                    <div className="w-full mt-5 overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+                        <table className="min-w-full divide-y divide-gray-300">
+                            <thead className="bg-gray-500 bg-opacity-25">
+                                <tr>
+                                    <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Customer</th>
+                                    <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Address</th>
+                                    <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Mobile</th>
+                                    <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Item Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody className="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">abcd</td>
+                                    <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">abcd</td>
+                                    <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">abcd</td>
+                                    <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">abcd</td>
+                                </tr>
+                            </tbody>
                         </table>
-
                     </div>
                 </div>
             </div>
-
-        )
-    }
-
-
+    )
 }
 
 export default Reportpdf

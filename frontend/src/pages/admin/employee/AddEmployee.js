@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect, useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CustomerService from '../../../services/CustomerService';
@@ -15,13 +16,30 @@ const initialState = {
     password: '12345',
     account_status: 0,
     email_err: '',
-    mobile_err: ''
+    mobile_err: '',
 }
 toast.configure();
 
 class AddEmployee extends Component{
+    
+    // var history = useHistory();
 
     state = initialState;
+
+    // componentDidMount(){
+    //     checkValidate();
+    // }
+
+    // checkValidate = async() => {
+    //     const y = JSON.parse(localStorage.getItem('authorization')); 
+    //     if(!y){
+    //         <Redirect to='/login' />
+    //     }else{
+    //         if(y.roles[0] == "moderator" || y.roles[0] == "customer" || y.roles[0] == "accountant"){
+    //             history.push("/error");
+    //         }
+    //     }
+    // }
 
     handleChange = event => {
         const isCheckbox = event.target.type === "checkbox";
@@ -31,7 +49,8 @@ class AddEmployee extends Component{
                 : event.target.value
         });
     }; 
-    validate(){
+
+    validate() {
         let email_err= "";
         let mobile_err = "";
 
@@ -187,7 +206,7 @@ class AddEmployee extends Component{
                             <div className="flex flex-wrap mb-5">
                                 <div className="w-full px-3 space-y-2 md:w-1/2">
                                     <label className="block text-lg font-semibold tracking-wide text-black" for="role">
-                                        State
+                                        Job Role
                                     </label>
                                     <div className="relative">
                                         <select className="block w-full px-4 py-3 pr-8 leading-tight text-black border-2 rounded outline-none hover:border-hovergreen focus:border-maingreen" 
