@@ -59,7 +59,7 @@ class Login extends Component {
         }).catch((err) => {
             console.log(err.response);
             if(err && err.response){
-                this.setState({error: "Something wet wrong please try again."})
+                this.setState({error: "Something went wrong please try again."})
             }
         });
 
@@ -75,7 +75,8 @@ class Login extends Component {
             <div class="flex justify-center items-center w-full ">
             
             <div class=" flex justify-center items-center w-1/4 mt-20 mb-16 shadow-xl">
-
+                
+                
             <form class='bg-white shadow-lg rounded px-8 pt-6 pb-8  w-full' 
             onSubmit={this.handleSubmit}>
                 <p class="text-3xl mb-5 text-center font-bold"> Login </p>

@@ -8,12 +8,16 @@ import api from '../../axiosContact';
 import CustomerService from '../../services/CustomerService';
 
 function Orderhistory() {
+
   const history = useHistory();
+
   const [header, setHeader] = useState(0);
   const [data, setData] = useState([]);
   const [message, setMessage] = useState('');
   const x = JSON.parse(localStorage.getItem('authorization'));
+
   console.log(x);
+
 
   useEffect(() => {
     getHeader();
