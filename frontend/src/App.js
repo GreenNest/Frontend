@@ -15,8 +15,9 @@ import Product from './pages/customer/product/Product';
 import Order from './pages/customer/customerorder/Order';
 import Cart from './pages/customer/cart/Cart';
 import Checkout from './pages/customer/cart/Checkout';
+import CashOnCheckOut from './pages/customer/cart/CashOnCheckOut';
 import Orderhistory from './pages/customer/Orderhistory';
-
+import COrderRequest from './pages/customer/customerorder/OrderRequest';
 
 // admin
 import AdminDashboard from './pages/admin/dashboard/Dashboard';
@@ -62,22 +63,25 @@ function App() {
     <>
       <Switch>
 
-        {/* customer routes */}
-        <Route exact path="/" component={Index}/>
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/login" component={Login}/>
-        <Route exact path="/shop" component={Shop}/>
-        {/* <Route exact path="/shop/:category" component={Shop}/> */}
-        <Route exact path="/fruits" component={FruitsList}/>
-        <Route exact path="/shop/product/:id" component={Product}/>
-        <Route exact path="/cart" component={Cart}/>
-        <Route exact path="/checkout" component={Checkout}/>
-        <Route exact path="/profile/orders" component={Orderhistory}/>
-        <Route exact path="/profile/order/review/:oId" component={Order}/>
-        <Route exact path="/forgetpassword" component={ForgetPassword}/>
-        <Route exact path="/user/changePassword/:email" component={ResetPassword}/>
-        <Route exact path="/verify/code/:email" component={OTPcheck}/>
 
+    {/* customer routes */}
+    <Route exact path="/" component={Index}/>
+    <Route exact path="/signup" component={Signup} />
+    <Route exact path="/login" component={Login}/>
+    <Route exact path="/shop" component={Shop}/>
+    {/* <Route exact path="/shop/:category" component={Shop}/> */}
+    <Route exact path="/fruits" component={FruitsList}/>
+    <Route exact path="/shop/product/:id" component={Product}/>
+    <Route exact path="/cart" component={Cart}/>
+    <Route exact path="/checkout" component={Checkout}/>
+    <Route exact path="/profile/orders" component={Orderhistory}/>
+    <Route exact path="/profile/order/review/:oId" component={Order}/>
+    <Route exact path="/forgetpassword" component={ForgetPassword}/>
+    <Route exact path="/user/changePassword/:email" component={ResetPassword}/>
+    <Route exact path="/verify/code/:email" component={OTPcheck}/>
+    <Route exact path="/order/orderRequest" component={COrderRequest}/>
+    <Route exact path="/cash/checkout" component={CashOnCheckOut} />
+      
         {/* admin routes */}
         <Route exact path="/admin/dashboard" component={AdminDashboard} />
         <Route exact path="/admin/reports" component={Reports} />

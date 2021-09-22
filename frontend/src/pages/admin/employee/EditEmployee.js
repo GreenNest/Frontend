@@ -100,7 +100,7 @@ function AddEmployee () {
                         position: toast.POSITION.TOP_CENTER
                     });
                 }else {
-                    seterrorProfile("Already created employee using this email.");
+                    seterrorProfile("Already have an account for this email");
                 }
             })
         }

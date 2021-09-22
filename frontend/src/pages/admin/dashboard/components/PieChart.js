@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import Chart from "react-google-charts";
+import CustomerService from '../../../../services/CustomerService';
+import { useParams, Redirect, useHistory } from 'react-router-dom';
 
 const pieOptions = {
   title: "Weekly Order Statistics",
@@ -38,20 +40,36 @@ const pieOptions = {
   fontName: "Roboto"
 };
 
-class PieChart extends Component {
-    render() {
-        return (
-                <Chart
-                    chartType="PieChart"
-                    data={[["Age", "Weight"], ["Upcoming Orders", 12], ["Ongoing Orders", 5.5]]}
-                    options={pieOptions}
-                    graph_id="PieChart"
-                    width={"100%"}
-                    height={"90%"}
-                    legend_toggle
-                />
-        );
-    }
+function PieChart() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    getData()
+    
+  }, [])
+
+  const getData = async() => {
+    const x = await CustomerService.getOrderCount().then((res) => {
+      if(res.data.data != null){
+        setData(res.data.data);
+      }
+      // console.log(res.data.data);
+    }).catch((err) => {
+
+    })
+  }
+
+  return (
+    <Chart
+      chartType="PieChart"
+      data={[["Orders", "Count"], ["Cash On Delivery Orders", data[0]], ["Online Orders", data[1]]]}
+      options={pieOptions}
+      graph_id="PieChart"
+      width={"100%"}
+      height={"90%"}
+      legend_toggle
+    />
+  );
+    
 }
 
 export default PieChart;

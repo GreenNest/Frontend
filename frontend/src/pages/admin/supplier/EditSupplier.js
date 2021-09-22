@@ -112,14 +112,14 @@ function EditSupplier () {
                 console.log(result.data);
                 if (result.data === 1) {
                     closeForm();
-                    toast('Successfully Edit Supplier', {
+                    toast('Successfully Edit the Supplier', {
                         autoClose: false,
                         closeOnClick: true,
                         progress: false,
                         position: toast.POSITION.TOP_CENTER
                     });
                 }else {
-                    seterrorProfile("Already created supplier using this email.");
+                    seterrorProfile("Already added this supplier.");
                 }
             })
         }

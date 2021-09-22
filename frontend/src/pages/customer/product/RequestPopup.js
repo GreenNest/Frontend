@@ -10,8 +10,19 @@ function RequestPopup(props){
   const [ message, setMessage] = useState('');
   var history = useHistory();
 
+
+  const validate = () => {
+    if(amount < props.count){
+      setMessage("Request amount available in stock");
+      return false;
+    }
+    return true;
+  }
+
   const handleSubmit = (e) => {
-    e.preventDefault();
+    const isValid = validate();
+    if(isValid){
+      e.preventDefault();
     let response = {
       description: descriptions,
       quantity: parseInt(amount),
@@ -22,13 +33,22 @@ function RequestPopup(props){
     }
     CustomerService.addResponse(response).then((result) => {
       setMessage(result.data.message);
+      setDescriptions('');
+      setAmount('');
     }).catch((err) => {
-      if(err.response.status == 401){
-        history.push("/login");
-      }
+      // if(err.response.status == 401){
+      //   history.push("/login");
+      // }
+      setDescriptions('');
+      setAmount('');
     })
+    }
+    setDescriptions("");
+    setAmount("");
 
   }
+
+  
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">

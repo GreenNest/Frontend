@@ -64,9 +64,9 @@ function Product() {
             }
         }).catch((err) => {
             //console.log(err.response.status);
-            if(err.response.status == 401){
-                history.push("/login");
-            }
+            // if(err.response.status == 401){
+            //     history.push("/login");
+            // }
         })
         
     }
@@ -89,6 +89,7 @@ function Product() {
     }
 
     const updateStock = async(newStock) => {
+        console.log(CustomerService.updateStockAmount(newStock, id));
         CustomerService.updateStockAmount(newStock, id).then((res) => {
 
         }).catch((err) => {
@@ -205,7 +206,7 @@ function Product() {
             </div>
 
             { model2 ? 
-                <RequestPopup canclePopup={() =>  setModel2(false)} categoryName={category} productName={data.name} productId={id}/>
+                <RequestPopup canclePopup={() =>  setModel2(false)} categoryName={category} productName={data.name} productId={id} count={data.amount}/>
             : null }
             {/* <div>
                 {model2 &&

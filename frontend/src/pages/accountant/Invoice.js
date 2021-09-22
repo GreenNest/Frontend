@@ -127,8 +127,9 @@ export class Invoice extends Component {
                     </div>
 
                     <div className="mt-3 ml-9 text-secondarygreen">Address</div>
-                    <div className="mt-1 text-sm ml-9">{this.state.data.address1}, {this.state.data.address2}.</div>
-                    <div className="mt-1 text-sm ml-9 mb-9">{this.state.data.town}.</div>
+
+                    <div className="mt-1 ml-9 text-sm">{this.state.data.address1}</div>
+                    <div className="mt-1 ml-9 text-sm mb-9">{this.state.data.town}.</div>
 
                 </div> 
             </div>
