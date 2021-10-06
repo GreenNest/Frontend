@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import AccountantSidebar from './accountant/dashboard/components/accountantSidebar';
 import { useParams, Redirect, useHistory } from 'react-router-dom';
 import CustomerService from "../services/CustomerService";
+import ModeratorSidebar from './moderator/components/moderatorSidebar';
 
 function LeaveRequest(){
     const [reason, setReason] = useState('');
@@ -46,11 +47,7 @@ function LeaveRequest(){
             setFDate("");
             setTDate("");
         }).catch((err) => {
-            if(err.response.status == 401){
-                history.push("/login");
-            }else{
-                setMessage(err.response.message);
-            }
+            setMessage(err.response.message); 
             
         })
     }
@@ -59,7 +56,7 @@ function LeaveRequest(){
         if(!x){
             <Redirect to='/login' />
         }else{
-            if(x.roles[0] != "customer" || x.roles[0] != "admin"){
+            if(x.roles[0] == "customer" || x.roles[0] == "admin"){
                 // console.log(x.roles);
                 history.push("/error");
             }
@@ -68,7 +65,7 @@ function LeaveRequest(){
 
         return (
             <>
-            <AccountantSidebar/>
+            <ModeratorSidebar/>
           <div className='flex justify-center w-full'>
             <div class="w-2/4 shadow-xl mt-8 ml-64 bg-gray-500 bg-opacity-25 rounded items-center flex justify-center"> 
                 <form class="w-full max-w-lg justify-center mb-12" onSubmit={e => {handleSubmit(e)}}>

@@ -134,8 +134,8 @@ function Checkout(props){
         <>
         {header}
 { /* <div className="w-11/12 mt-8 mb-8 m */}
-        <div className="w-8/12 mt-12 mb-8 ml-96">
-            <p className="mb-0 ml-64 font-medium text-red-700">We don't save any of your payment information in our databases.</p>
+        <div className="w-8/12 mt-12 mb-8 ml-72">
+            <p className="mb-0 ml-64 font-medium text-red-700">We don't save any of your payment information in our database.</p>
             <p className="mb-2 font-medium text-red-700 ml-36">You may proceed with <span className="text-blue-700">PayHere</span> by clicking below link. Thank your for purchasing with GreenNest!</p>
             <div className=""><CheckoutAmount sum={calculation(data)}/></div>
             <div className="row">
@@ -147,14 +147,14 @@ function Checkout(props){
                                 <div className="m-4 ml-0 text-lg font-bold text-maingreen">Payment Details</div>
                                 
                                 <input type="hidden" name="merchant_id" value="1218584" hidden />
-                                <input type="hidden" name="return_url" value="http://localhost:3000/cart" />
+                                <input type="hidden" name="return_url" value="http://localhost:3000/profile/orders" />
                                 <input type="hidden" name="cancel_url" value="http://localhost:3000/cart" />
                                 <input type="hidden" name="notify_url" value="http://localhost:3000/cart" />
                                 
-                                <input type="hidden" name="order_id" value="ItemNo12345" />
-                                <input type="hidden" name="items" value="Mango plant" />
+                                <input type="hidden" name="order_id" value="ItemNo123111" />
+                                <input type="hidden" name="items" value="Esperod Roses Plant" />
                                 <input type="hidden" name="currency" value="LKR" />
-                                <input type="hidden" name="amount" value="700" /> 
+                                <input type="hidden" name="amount" value="440" /> 
 
                                 {/* <label className="text-sm font-medium" for="fname"><FontAwesomeIcon icon={faUser} /> Full Name</label>
                                 <input className="w-full p-2 border border-solid rounded outline-none hover:border-hovergreen focus:border-maingreen" type="text" id="fname" name="fullname" placeholder="Hashan Kumarasinghe" required/> */}

@@ -1,13 +1,20 @@
 import React, {useState} from 'react';
-import { NavLink,  Link } from 'react-router-dom';
+import { NavLink,  Link, useHistory } from 'react-router-dom';
 import * as FaIcons from "react-icons/fa";
 import { SidebarData } from './moderatorSidebarData';
+import * as AiIcons from "react-icons/ai";
 import logo from '../../../assets/GreenNest.png';
 
 function ModeratorSidebar() {
     const [sidebar, setModeratorSidebar] = useState(true);
+    const history = useHistory()
 
     const showModeratorSidebar = () => setModeratorSidebar(!sidebar);
+
+    const logout = () => {
+        localStorage.removeItem("authorization");
+        history.push('/login');
+    }
 
     return (
         <>
@@ -39,8 +46,13 @@ function ModeratorSidebar() {
                                     {/* <div className="flex border">{item.count}</div> */}
                                 </NavLink>
                             </li>
+
                         )
                     })}
+                    <Link className="flex flex-col p-2 ml-1 -mt-3">
+                        <button className="flex w-48 p-3 font-bold rounded outline-none hover:bg-maingreen focus:bg-maingreen hover:text-white focus:text-white" onClick={logout}>
+                            <AiIcons.AiOutlineLogout className="w-5 h-5 mr-3 mt-0.5"/>Logout</button>
+                    </Link>
                 </ul>
             </nav>
         {/* </IconContext.Provider> */}

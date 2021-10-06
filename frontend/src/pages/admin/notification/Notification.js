@@ -49,7 +49,7 @@ function Notification () {
             <AdminSidebar/>
             <div className="flex items-start justify-end mt-8 mb-10 ml-10">
                 <div className="w-3/4 px-16 py-10 bg-gray-500 bg-opacity-25 rounded sm:mx-10">                
-                    <h4 className="text-3xl font-bold text-center text-maingreen">Notifications</h4>
+                    <h4 className="text-3xl font-bold text-center text-maingreen">Reorder Level Notifications</h4>
                     <div className="grid grid-cols-2 gap-x-10">
                     {
                         reorderLevel.length !== 0 ? (
@@ -76,7 +76,7 @@ function Notification () {
                                 </div>
                             ))
                         ):  <h4 className="m-auto mt-10 mb-10 text-2xl font-medium text-center text-red-500">
-                                There are no Reorder Level Requests.
+                                There are No Reorder Level Requests.
                             </h4> 
                     }
                     </div>

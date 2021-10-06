@@ -43,7 +43,7 @@ function UpdateStock () {
     return (
         <>
             <AdminSidebar/>
-            <div className="w-10/12 h-full ml-56">
+            <div className="w-10/12 h-full ml-66 mt-12">
                 <div className="float-right mt-10 mb-8 mr-5 bg-gray-500 bg-opacity-25 rounded">
                     <h4 className="m-8 text-3xl font-bold text-center text-maingreen">Update Stock</h4>
                     {/* <div className="float-right mr-12">
@@ -75,8 +75,8 @@ function UpdateStock () {
                                     <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Product Name</th>
                                     <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Unit Price</th>
                                     <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Quantity</th>
-                                    <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Description</th>
-                                    <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Reorder Level</th>
+                                    {/* <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Description</th>
+                                    <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700">Reorder Level</th> */}
                                     {/* <th scope="col">Item</th>
                                     <th scope="col">Description</th> */}
                                     <th className="px-6 py-3 text-lg font-semibold tracking-wider text-left text-gray-700"></th>

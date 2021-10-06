@@ -17,7 +17,7 @@ export const AdminSidebarData = [
         // style: "hover:bg-maingreen bg-hovergreen hover:text-white flex font-bold p-3 rounded w-48",
     }, 
     {
-        title: 'Notifications',
+        title: 'Reorder Level',
         path: '/admin/notifications',
         icon: <BiIcons.BiNotification className="w-5 h-5 mr-5 mt-0.5"/>,
         count: 5,

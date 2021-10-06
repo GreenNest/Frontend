@@ -13,11 +13,13 @@ function CheckoutAmount(props) {
         </div>
         <div className=" flex-auto justify-center grid grid-cols-2 grid-rows-3 grid-flow-col gap-3 mt-3">
             <div className="text-sm float-left">Items cost :</div>
-            <div className="font-bold text-sm mt-1">Total :</div>
+            <div className="text-sm float-left">Total :</div>
+            {/* <div className="font-bold text-sm mt-1">Total :</div> */}
 
-
-            <div className="text-sm">{props.sum.toFixed(2)} LKR</div>
-            <div className="font-bold text-sm">{totalPrice.toFixed(2)} LKR</div>
+            <div className="font-bold text-sm">440 LKR</div>
+            <div className="text-sm font-bold">240 LKR</div>
+            {/* <div className="text-sm">440 LKR</div> */}
+            
         </div>
         <div className="flex-auto mt-4">
             <Link to="#">
