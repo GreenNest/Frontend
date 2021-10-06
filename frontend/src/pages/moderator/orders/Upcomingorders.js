@@ -66,8 +66,8 @@ function Upcomingorders () {
         })
     }
 
-    const assignDPerson = async (order_id, nic) => {
-        api.get(`/assignDPerson/${order_id}/${nic}/${y.eid}`)
+    const assignDPerson = async (order_id) => {
+        api.get(`/assignDPerson/${order_id}/${dp}/${y.eid}`)
         .then((result) => {
             if(result.data === 1){
                 toast('Successfully Assign Delivery Person to Order', {
@@ -152,7 +152,7 @@ function Upcomingorders () {
                                     </div>
                                     <div className="flex items-center justify-between">
                                         <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-700" onClick={() => viewOrderItems(order.order_id, order.total_price)}>Order Items</a>
-                                        <FaArrowAltCircleRight className="text-3xl text-maingreen hover:text-hovergreen" onClick={() => assignDPerson(order.order_id, dp)}/>
+                                        <FaArrowAltCircleRight className="text-3xl text-maingreen hover:text-hovergreen" onClick={() => assignDPerson(order.order_id)}/>
                                     </div>
                                 </div>
                                 ) : null

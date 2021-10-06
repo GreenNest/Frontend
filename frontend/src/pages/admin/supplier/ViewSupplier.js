@@ -45,7 +45,7 @@ function ViewSupplier () {
                 <div className="float-right w-5/6 mt-10 mb-8 mr-5 bg-gray-500 bg-opacity-25 rounded">
                     <h4 className="m-8 text-3xl font-bold text-center text-maingreen">All Suppliers</h4>
                     <div className="float-right mr-12">
-                        <Search />
+                        {/* <Search /> */}
                     </div>
                     <Link to="/admin/addSupplier">
                         <button className="justify-center p-4 px-4 py-2 mb-8 ml-12 font-bold text-white rounded bg-maingreen hover:bg-hovergreen">Add Supplier + </button>
@@ -62,7 +62,7 @@ function ViewSupplier () {
                                     }
                                 </div>
                             ):  <h4 className="m-auto mt-10 mb-10 text-2xl font-medium text-center text-red-500">
-                                    There are no Suppliers joing with the company.
+                                    There are no Suppliers joined with the company.
                                 </h4> 
                         }
                     </div>

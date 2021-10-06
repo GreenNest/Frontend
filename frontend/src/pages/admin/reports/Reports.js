@@ -40,7 +40,7 @@ function Reports () {
     }
 
     const getReport = async () => {
-        api.get(`/getReport/${productName}/${from}/${to}`)
+        api.get(`/getReport/${productName}`)
         .then((result) => {
             setreport(result.data);
         })
@@ -72,7 +72,7 @@ function Reports () {
                         </select>
                     </div>
 
-                    <div class="w-full px-3">
+                    {/* <div class="w-full px-3">
                         <label class="block tracking-wide text-gray-700 text-lg font-bold mb-2">
                             Time Period (From)
                         </label>
@@ -83,9 +83,9 @@ function Reports () {
                                 setfrom(e.target.value);
                             }}
                         />
-                    </div>
+                    </div> */}
 
-                    <div class="w-full px-3">
+                    {/* <div class="w-full px-3">
                         <label class="blocktracking-wide text-gray-700 text-lg font-bold mb-2">
                             Time Period (Up To)
                         </label>
@@ -96,7 +96,7 @@ function Reports () {
                                 setto(e.target.value);
                             }}
                         />
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* <div class="w-full h-full p-7 rounded-md shadow-lg border-solid border-2">
@@ -140,6 +140,11 @@ function Reports () {
                                                 <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">{rep.address}, {rep.city}</td>
                                                 <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">{rep.mobile}</td>
                                                 <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">{rep.quantity}</td>
+
+                                                {/* <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">Hiruni Amarakoon</td>
+                                                <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">Koongahagedara, Kuliyapitiya, Kurunegala</td>
+                                                <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">0711195124</td>
+                                                <td className="px-6 py-4 text-base text-gray-900 whitespace-nowrap">25</td> */}
                                             </tr>
                                         ))
                                     ): null

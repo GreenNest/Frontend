@@ -21,6 +21,7 @@ function EmployeeSalary() {
     const retrieveContacts = async (userType) => {
         const res = await api.get(`/employee/salary/${userType}`);
         console.log(res.data.data);
+        setContacts(res.data.data);
         return res.data.data;
     };
 

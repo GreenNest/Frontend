@@ -4,11 +4,12 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './styles/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Reportpdf from './pages/admin/reports/Reportpdf';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App/>
+      <Reportpdf/>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

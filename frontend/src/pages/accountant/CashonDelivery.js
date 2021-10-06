@@ -80,6 +80,9 @@ function CashonDelivery() {
                 </div>
             </div>
         </div>   
+        </div> 
+        </div> 
+        </div> 
     );
 }
 

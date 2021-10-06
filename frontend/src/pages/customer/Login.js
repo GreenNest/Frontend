@@ -55,6 +55,10 @@ class Login extends Component {
                 }else if(x.roles.includes("accountant")){
                     this.props.history.push("/accountant/dashboard");
                 }
+                else if(x.roles.includes("moderator")){
+                    this.props.history.push("/moderator/dashboard");
+                }
+                
             }
         }).catch((err) => {
             console.log(err.response);
